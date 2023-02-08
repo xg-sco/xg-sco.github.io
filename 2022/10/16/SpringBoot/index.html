@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World-Quiet</title>
+<title>SpringBoot-Quiet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -284,7 +284,7 @@
             
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>SpringBoot</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -299,7 +299,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2023-02-07 17:00:33</p>
+                <p>2022-10-16 17:18:10</p>
             </div>
         </div>
     </div>
@@ -309,20 +309,26 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <h2 id="创建-SpringBoot-项目"><a href="#创建-SpringBoot-项目" class="headerlink" title="创建 SpringBoot 项目"></a>创建 SpringBoot 项目</h2><p>在某些时候<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>这个网站访问不了, 同样 idea 也因为开 VPN 会莫名抽风, 而导致创建不了 SpringBoot 项目, 这就会显得非常蛋疼<br>以下是针对于开了 VPN 抽风的情况, 当然也可以通过更换仓库地址, 把 start.spring.io 换成 start.aliyun.io<br>ping 也 ping 不通<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlkQ5E4rmobsjKslVmSgNPURG6sF.png"><br>先查看代理的地址和端口<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkPsElf0PV4vbZydr7ac1Zr7cBIB.png"><br>然后打开 idea 的 setting-Appearance&amp;Behavior - System Settings - HTTP Proxy - Manual proxy configuration, 配置好当前代理的地址和端口号, 然后点击 Check connection 测试<a target="_blank" rel="noopener" href="https://start.spring.io/">https://start.spring.io</a>是否能连通, 多按测试两次按理应该会成功的<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlgTpMcUb119veIuB8Q3Bnw_-4cS.png"></p>
+<p>创建 SpringBoot, 选择 Spring Initializr, 填好对应的 Group 和 Artifact, 注意 Java 和电脑中安装的 JDK 的版本保持一致<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA3DlavnwgX6JOU473NF7zHJiaY.png"><br>然后这里可以选择一些常见的依赖例如 thymeleaf, devtools, lombok, configuration processor,<br>spring web, mysql 等等, 然后点击 Finish<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fmw4CFmRHkcKwnleYF17yHKajTaI.png"><br>这样就完整的创建好的 SpringBoot 项目<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fg1B4gtRgeUzBYNBJMMuehPreWgc.png"></p>
+<h2 id="Thymeleaf"><a href="#Thymeleaf" class="headerlink" title="Thymeleaf"></a>Thymeleaf</h2><pre><code class="xml">加上在maven的配置文件pom.xml中加入一下依赖引入Thymeleaf
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+&lt;!--   &lt;version&gt;2.7.4&lt;/version&gt; --&gt;
+&lt;!--   version并不一定是这一个版本, springboot中内置了thymeleaf的版本号 --&gt;
+&lt;/dependency&gt;
 
+需要在html的文件中引入xmlns:th=&quot;http://www.thymeleaf.org&quot;
+&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+</code></pre>
+<p>&#96;&#96;&#96;html</p>
+<h1 th:text="${msg}">哈哈</h1>
+获取请求域中共享数据使用$符号
+<a th:href="${link}" href="www.haha.com">去百度</a> <br />
+<a th:href="@{/link}" href="www.haha.com">去百度</a>
+请求域中的连接地址, 也是使用$符号, @符号时给用来拼接地址用的 th:each="num :
+$
   </div>
   <div id="gitalk-container"></div>
 </div>
@@ -382,19 +388,19 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2023/02/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <a href="/2022/10/18/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86%E4%B8%8A%E8%AF%BE%E7%AC%94%E8%AE%B0/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>我的第一篇博客</p>
+            <p>编译原理上课笔记</p>
         </div>
     </a>
     
 
     
-    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+    <a href="/2022/10/16/%F0%9F%92%A1%201%20%E5%88%86%E9%92%9F%E7%8E%A9%E8%BD%AC%E8%AF%AD%E9%9B%80%E6%96%87%E6%A1%A3/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>Hexo本地使用</p>
+            <p>💡 1 分钟玩转语雀文档</p>
         </div>
     </a>
     

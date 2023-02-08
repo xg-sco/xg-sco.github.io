@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World-Quiet</title>
+<title>实验项目九：成绩查询-Quiet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -284,7 +284,7 @@
             
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>实验项目九：成绩查询</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -299,7 +299,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2023-02-07 17:00:33</p>
+                <p>2022-11-22 17:49:49</p>
             </div>
         </div>
     </div>
@@ -309,19 +309,234 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+    <p><strong>实验项目九：成绩查询</strong></p>
+<p>通过 eclispe；idea；使用前端页面提交查询数据，然后通过 servlet 接受数据。然后对数据进行进行查询； 有查询全部和查询单个操作(实验每个步骤写在报告中包括题目编写好一起提交)<br>（1）实验目与原理<br>理解 JavaWeb 数据传输和数据前端展示；使用 el 表单时和 jstl 的方式进行数据页面展示；<br>（2）实验内容与步骤 1.创建项目。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjO5i3wbAPtRkTi7j8jr3o2P5HEe.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq-D0J7dzYCQTiV7gyV7r2Wzi49T.png"><br>在 pom.xml 导入 jar 包</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;org.example&lt;/groupId&gt;
+    &lt;artifactId&gt;work06&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;war&lt;/packaging&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;3.1.0&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;8.0.30&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
+            &lt;artifactId&gt;thymeleaf&lt;/artifactId&gt;
+            &lt;version&gt;3.0.11.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+&lt;/project&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>2.对数据库表进行设计。</p>
+<pre><code class="sql">/*
+SQLyog Ultimate v11.25 (64 bit)
+MySQL - 8.0.28
+*********************************************************************
+*/
+/*!40101 SET NAMES utf8 */;
+
+create table `score` (
+    `id` int (11),
+    `name` varchar (60),
+    `score` int (11)
+);
+insert into `score` (`id`, `name`, `score`) values(&#39;1&#39;,&#39;黄磊&#39;,&#39;120&#39;);
+insert into `score` (`id`, `name`, `score`) values(&#39;2&#39;,&#39;小花&#39;,&#39;109&#39;);
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtrEZn8pvplQQ24hFl9yWkEAePYx.png"> 3.通过前端传递数据到后端，根据不通的操作进行数据库的操作返回数据。<br>前端 scoreInfo 代码</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;成绩管理系统&lt;/title&gt;
+    &lt;style&gt;
+        table,
+        th,
+        td &#123;
+            border: 1px solid black;
+        &#125;
+
+        th,
+        td &#123;
+            width: 50px;
+            height: 30px;
+        &#125;
+
+        table &#123;
+            line-height: 25px;
+            text-align: center;
+            border-collapse: collapse;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;root&quot;&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;#&lt;/th&gt;
+            &lt;th&gt;id&lt;/th&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;成绩&lt;/th&gt;
+        &lt;/tr&gt;
+
+        &lt;tr th:each=&quot;s,stuStat : $&#123;session.scores&#125;&quot;&gt;
+            &lt;form action=&quot;/update&quot; method=&quot;post&quot;&gt;
+                &lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;1&quot; th:value=&quot;$&#123;s.id&#125;&quot; hidden&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;index&quot; value=&quot;0&quot; th:value=&quot;$&#123;stuStat.index&#125;&quot; disabled&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;1&quot; th:value=&quot;$&#123;s.id&#125;&quot; disabled&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;黄磊&quot; th:value=&quot;$&#123;s.name&#125;&quot; disabled&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;password&quot; value=&quot;123456&quot; th:value=&quot;$&#123;s.score&#125;&quot; disabled&gt;&lt;/td&gt;
+            &lt;/form&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<p>引入 ThymeleafViewServlet 模板</p>
+<pre><code>package servlet;
+
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.WebContext;
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Thymeleaf 视图处理
+ * @author TonySong
+ */
+public class ThymeleafViewServlet extends HttpServlet &#123;
+
+    private TemplateEngine templateEngine;
+
+    @Override
+    public void init() throws ServletException &#123;
+        //获取ServletContext对象
+        ServletContext servletContext = this.getServletContext();
+        //创建Thymeleaf解析对象
+        ServletContextTemplateResolver templateResolver =
+                new ServletContextTemplateResolver(servletContext);
+        //设置模板模式为HTML
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        //从web.xml文件获取视图的前缀
+        String prefix = servletContext.getInitParameter(&quot;prefix&quot;);
+        System.out.println(&quot;prefix&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;+prefix);
+        templateResolver.setPrefix(&quot;/WEB-INF/view/&quot;);
+        //获取后缀
+        String suffix = servletContext.getInitParameter(&quot;suffix&quot;);
+        System.out.println(&quot;suffix....&gt;&quot;+suffix);
+        templateResolver.setSuffix(&quot;.html&quot;);
+        //关闭缓存
+        templateResolver.setCacheable(false);
+        //设置编码方式
+        templateResolver.setCharacterEncoding(&quot;utf-8&quot;);
+        //实例化视图引擎
+        this.templateEngine = new TemplateEngine();
+        //设置视图引擎为templateResolver
+        this.templateEngine.setTemplateResolver(templateResolver);
+    &#125;
+
+    protected void processTemplate(String templateName, HttpServletRequest req, HttpServletResponse resp) throws IOException,ServletException&#123;
+        resp.setContentType(&quot;text/html;charset=utf-8&quot;);
+        req.setCharacterEncoding(&quot;utf-8&quot;);
+        //根据请求对象和响应对象和全局对象创建web上下文全局对象
+        WebContext context = new WebContext(req, resp, getServletContext());
+        //根据模板名称和全局对象并依据响应输出流来渲染页面： 前缀+名称+后缀 /WEB-INF/view/list.html
+        this.templateEngine.process(templateName,context,resp.getWriter());
+    &#125;
+&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>编写 SelectScoreServlet 类</p>
+<pre><code>package servlet;
+
+import bean.Score;
+import utils.JDBCUtils;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+@WebServlet(&quot;/select/score&quot;)
+public class SelectScoreServlet extends ThymeleafViewServlet &#123;
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        doPost(request, response);
+    &#125;
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        request.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+        List&lt;Score&gt; list = new ArrayList&lt;&gt;();
+
+        Connection connertion = JDBCUtils.getConnertion();
+        String sql = &quot;select * from score&quot;;
+        try &#123;
+            PreparedStatement preparedStatement = connertion.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) &#123;
+                int id = resultSet.getInt(&quot;id&quot;);
+                String name = resultSet.getString(&quot;name&quot;);
+                int scoreNum = resultSet.getInt(&quot;score&quot;);
+                Score score = new Score(id, name, scoreNum);
+                list.add(score);
+            &#125;
+        &#125; catch (SQLException e) &#123;
+            e.printStackTrace();
+        &#125;
+
+        list.forEach(System.out::println);
+
+        HttpSession session = request.getSession();
+        session.setAttribute(&quot;scores&quot;, list);
+
+        processTemplate(&quot;scoreInfo&quot;, request, response);
+    &#125;
+&#125;
+</code></pre>
+<p>4.前端显示数据，使用 el 表单时和 jstl 的方式进行数据页面展示。<br>代码部署到 tomcat, 然后运行<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fst1ZhgGEvmCqGtQX-BJkTXgtl1p.png"><br>页面成功显示 mysql 中的数据库中的成绩<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fp8C1KD3eJ7hVfBs9q7Z-2WwEboP.png"><br>（3）主要仪器及耗材<br>笔记本电脑<br>（4）教学方式<br>案例教学法+现场操作<br>试验要求：认真编写，认真截图，认真截图工作态度第一</p>
+<ol>
+<li>通过安装软件截图到文档中；</li>
+<li>在文档中使用软件进行详细的说明；<br>在每个步骤上都有自己的认识和自己的见</li>
+</ol>
 
   </div>
   <div id="gitalk-container"></div>
@@ -382,19 +597,19 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2023/02/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <a href="/2022/11/24/Vue-CLI/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>我的第一篇博客</p>
+            <p>Vue-CLI</p>
         </div>
     </a>
     
 
     
-    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+    <a href="/2022/11/22/%E5%AE%9E%E9%AA%8C%E9%A1%B9%E7%9B%AE%E5%85%AB%EF%BC%9A%E6%95%99%E5%B8%88%E6%9F%A5%E8%AF%A2/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>Hexo本地使用</p>
+            <p>实验项目八：教师查询</p>
         </div>
     </a>
     

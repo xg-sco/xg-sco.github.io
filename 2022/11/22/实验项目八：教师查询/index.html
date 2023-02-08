@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>实验项目八：教师查询-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>实验项目八：教师查询</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-11-22 17:00:13</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <p><strong>实验项目八：教师查询</strong></p>
+<p>通过 eclispe；idea；使用前端页面提交查询数据，然后通过 servlet 接受数据。然后对数据进行进行查询； 有查询全部和查询单个操作(实验每个步骤写在报告中包括题目编写好一起提交)<br>（1）实验目与原理<br>理解 JavaWeb 数据传输和数据前端展示；使用响应打印到页面的方式 response 打印到页面；<br>（2）实验内容与步骤 1.创建项目。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjO5i3wbAPtRkTi7j8jr3o2P5HEe.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq-D0J7dzYCQTiV7gyV7r2Wzi49T.png"><br>在 pom.xml 导入 jar 包</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+
+    &lt;groupId&gt;org.example&lt;/groupId&gt;
+    &lt;artifactId&gt;work06&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;war&lt;/packaging&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;3.1.0&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;8.0.30&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
+            &lt;artifactId&gt;thymeleaf&lt;/artifactId&gt;
+            &lt;version&gt;3.0.11.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+&lt;/project&gt;
+</code></pre>
+<p>2.对数据库表进行设计。<br>数据库表结构</p>
+<pre><code class="sql">/*
+SQLyog Ultimate v11.25 (64 bit)
+MySQL - 8.0.28
+*********************************************************************
+*/
+/*!40101 SET NAMES utf8 */;
+
+create table `teacher` (
+    `id` int (11),
+    `name` varchar (60),
+    `password` varchar (60),
+    `age` int (11),
+    `sex` varchar (30),
+    `email` varchar (90),
+    `subject` varchar (60)
+);
+insert into `teacher` (`id`, `name`, `password`, `age`, `sex`, `email`, `subject`) values(&#39;1&#39;,&#39;苍老师&#39;,&#39;123456&#39;,&#39;18&#39;,&#39;女&#39;,&#39;123456@qq.com&#39;,&#39;人体生理美学&#39;);
+insert into `teacher` (`id`, `name`, `password`, `age`, `sex`, `email`, `subject`) values(&#39;2&#39;,&#39;明日花绮罗&#39;,NULL,&#39;18&#39;,&#39;女&#39;,&#39;123456@qq.com&#39;,&#39;人类传承学&#39;);
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FieXzsTIjcrsdIUFVqcO-eqEzm0u.png"> 3.通过前端传递数据到后端，根据不通的操作进行数据库的操作返回数据。<br>编写前端 teacherInfo 页面</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot; xmlns:th=&quot;http://www.thymeleaf.org&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;title&gt;教师管理系统&lt;/title&gt;
+    &lt;style&gt;
+        table,
+        th,
+        td &#123;
+            border: 1px solid black;
+        &#125;
+
+        th,
+        td &#123;
+            width: 50px;
+            height: 30px;
+        &#125;
+
+        table &#123;
+            line-height: 25px;
+            text-align: center;
+            border-collapse: collapse;
+        &#125;
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div id=&quot;root&quot;&gt;
+    &lt;table&gt;
+        &lt;tr&gt;
+            &lt;th&gt;#&lt;/th&gt;
+            &lt;th&gt;id&lt;/th&gt;
+            &lt;th&gt;姓名&lt;/th&gt;
+            &lt;th&gt;密码&lt;/th&gt;
+            &lt;th&gt;性别&lt;/th&gt;
+            &lt;th&gt;年龄&lt;/th&gt;
+            &lt;th&gt;邮箱&lt;/th&gt;
+            &lt;th&gt;科目&lt;/th&gt;
+        &lt;/tr&gt;
+
+        &lt;tr th:each=&quot;teacher,teaStat : $&#123;session.teachers&#125;&quot;&gt;
+            &lt;form action=&quot;/update&quot; method=&quot;post&quot;&gt;
+                &lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;1&quot; th:value=&quot;$&#123;teacher.id&#125;&quot; hidden&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;index&quot; value=&quot;0&quot; th:value=&quot;$&#123;teaStat.index&#125;&quot; disabled&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;1&quot; th:value=&quot;$&#123;teacher.id&#125;&quot; disabled&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;黄磊&quot; th:value=&quot;$&#123;teacher.name&#125;&quot;&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;password&quot; value=&quot;123456&quot; th:value=&quot;$&#123;teacher.password&#125;&quot;&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;sex&quot; value=&quot;1000&quot; th:value=&quot;$&#123;teacher.sex&#125;&quot;&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;age&quot; value=&quot;神龙&quot; th:value=&quot;$&#123;teacher.age&#125;&quot;&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;email&quot; value=&quot;123456@qq.com&quot; th:value=&quot;$&#123;teacher.email&#125;&quot;&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input type=&quot;text&quot; name=&quot;subject&quot; value=&quot;JAVA&quot; th:value=&quot;$&#123;teacher.subject&#125;&quot;&gt;&lt;/td&gt;
+                &lt;td&gt;
+                    &lt;button type=&quot;submit&quot; disabled&gt;修改&lt;/button&gt;
+                &lt;/td&gt;
+            &lt;/form&gt;
+        &lt;/tr&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>引入 ThymeleafViewServlet 模板</p>
+<pre><code>package servlet;
+
+import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.WebContext;
+import org.thymeleaf.templatemode.TemplateMode;
+import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
+
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * Thymeleaf 视图处理
+ * @author TonySong
+ */
+public class ThymeleafViewServlet extends HttpServlet &#123;
+
+    private TemplateEngine templateEngine;
+
+    @Override
+    public void init() throws ServletException &#123;
+        //获取ServletContext对象
+        ServletContext servletContext = this.getServletContext();
+        //创建Thymeleaf解析对象
+        ServletContextTemplateResolver templateResolver =
+                new ServletContextTemplateResolver(servletContext);
+        //设置模板模式为HTML
+        templateResolver.setTemplateMode(TemplateMode.HTML);
+        //从web.xml文件获取视图的前缀
+        String prefix = servletContext.getInitParameter(&quot;prefix&quot;);
+        System.out.println(&quot;prefix&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;+prefix);
+        templateResolver.setPrefix(&quot;/WEB-INF/view/&quot;);
+        //获取后缀
+        String suffix = servletContext.getInitParameter(&quot;suffix&quot;);
+        System.out.println(&quot;suffix....&gt;&quot;+suffix);
+        templateResolver.setSuffix(&quot;.html&quot;);
+        //关闭缓存
+        templateResolver.setCacheable(false);
+        //设置编码方式
+        templateResolver.setCharacterEncoding(&quot;utf-8&quot;);
+        //实例化视图引擎
+        this.templateEngine = new TemplateEngine();
+        //设置视图引擎为templateResolver
+        this.templateEngine.setTemplateResolver(templateResolver);
+    &#125;
+
+    protected void processTemplate(String templateName, HttpServletRequest req, HttpServletResponse resp) throws IOException,ServletException&#123;
+        resp.setContentType(&quot;text/html;charset=utf-8&quot;);
+        req.setCharacterEncoding(&quot;utf-8&quot;);
+        //根据请求对象和响应对象和全局对象创建web上下文全局对象
+        WebContext context = new WebContext(req, resp, getServletContext());
+        //根据模板名称和全局对象并依据响应输出流来渲染页面： 前缀+名称+后缀 /WEB-INF/view/list.html
+        this.templateEngine.process(templateName,context,resp.getWriter());
+    &#125;
+&#125;
+</code></pre>
+<p>编写 SelectTeacherServlet 类</p>
+<pre><code>package servlet;
+
+import bean.Teacher;
+import utils.JDBCUtils;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+@WebServlet(&quot;/select/teacher&quot;)
+public class SelectTeacherServlet extends ThymeleafViewServlet &#123;
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        request.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+
+        List&lt;Teacher&gt; list = new ArrayList&lt;&gt;();
+
+        Connection connertion = JDBCUtils.getConnertion();
+        String sql = &quot;select * from teacher&quot;;
+        try &#123;
+            PreparedStatement preparedStatement = connertion.prepareStatement(sql);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) &#123;
+                int id = resultSet.getInt(&quot;id&quot;);
+                String name = resultSet.getString(&quot;name&quot;);
+                String password = resultSet.getString(&quot;password&quot;);
+                int age = resultSet.getInt(&quot;age&quot;);
+                String sex = resultSet.getString(&quot;sex&quot;);
+                String email = resultSet.getString(&quot;email&quot;);
+                String subject = resultSet.getString(&quot;subject&quot;);
+                Teacher teacher = new Teacher(id, name, password, age, sex, email, subject);
+                list.add(teacher);
+            &#125;
+        &#125; catch (SQLException e) &#123;
+            e.printStackTrace();
+        &#125;
+
+        list.forEach(System.out::println);
+
+        HttpSession session = request.getSession();
+        session.setAttribute(&quot;teachers&quot;, list);
+        processTemplate(&quot;teacherInfo&quot;, request, response);
+    &#125;
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException &#123;
+        doPost(req, resp);
+    &#125;
+&#125;
+</code></pre>
+<p>4.前端显示数据，可以使用后端响应的方式进行数据展示。<br>部署在 tomcat<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkX91ElX69OHQFBhu8Cowy8eT1nj.png"><br>运行结果如下:<br>页面成功显示 mysql 中的数据库中的老师的信息<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fm40EEBOvIfspT-3Bec8-G9M62Pg.png"><br>（3）主要仪器及耗材<br>笔记本电脑<br>（4）教学方式<br>案例教学法+现场操作<br>试验要求：认真编写，认真截图，认真截图工作态度第一</p>
+<ol>
+<li>通过安装软件截图到文档中；</li>
+<li>在文档中使用软件进行详细的说明；<br>在每个步骤上都有自己的认识和自己的见</li>
+</ol>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2022/11/22/%E5%AE%9E%E9%AA%8C%E9%A1%B9%E7%9B%AE%E4%B9%9D%EF%BC%9A%E6%88%90%E7%BB%A9%E6%9F%A5%E8%AF%A2/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>实验项目九：成绩查询</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/11/18/%E5%AE%9E%E9%AA%8C%E9%A1%B9%E7%9B%AE%E5%9B%9B%EF%BC%9A%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%E4%BF%AE%E6%94%B9/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>实验项目四：学生信息查询修改</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

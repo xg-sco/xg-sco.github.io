@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>实验十三 Redhat9.0下LAMP的安装与配置-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>实验十三 Redhat9.0下LAMP的安装与配置</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-12-08 16:25:40</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <p>实验十三  Redhat9.0 下 LAMP 的安装与配置</p>
+<h2 id="1-LAMP-的安装"><a href="#1-LAMP-的安装" class="headerlink" title="1. LAMP 的安装"></a>1. LAMP 的安装</h2><p>系统环境是 REDHAT LINUX 9.0</p>
+<blockquote>
+<p>LAMP 即 LINUX、APACHE、MYSQL、PHP 的整合，简称 LAMP。在安装 APACHE 服务器时，必须要把相关的服务器组件选择上。如图：然后将 PHP、MYSQL 服务器安装上，LAMP 的安装就基本完成了。</p>
+</blockquote>
+<h2 id="2-Apache-服务器的测试"><a href="#2-Apache-服务器的测试" class="headerlink" title="2. Apache 服务器的测试"></a>2. Apache 服务器的测试</h2><pre><code class="bash"># 安装apache
+[root@xiamu ~]# yum install httpd
+
+# apache服务启动/状态/关闭
+[root@xiamu ~]# systemctl start httpd
+[root@xiamu ~]# systemctl status httpd
+[root@xiamu ~]# systemctl stop httpd
+</code></pre>
+<p>** **启动 apache<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsgvIIn4aoLJOENhgOmoSeeFojXt.png"></p>
+<p>关闭虚拟机防火墙</p>
+<pre><code class="bash">[root@xiamu ~]# systemctl stop firewalld
+</code></pre>
+<p>访问虚拟机 ip , 页面显示出现 Testing 123…, 显示了如下内容, 说明 apache 安装成功<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlcvPPk2Zoi7CI2yeBzj06msfDV5.png"><br>** **<br>** **</p>
+<h2 id="3-MYSQL-的安装"><a href="#3-MYSQL-的安装" class="headerlink" title="3. MYSQL 的安装"></a>3. MYSQL 的安装</h2><p>卸载 mysql</p>
+<pre><code class="bash"># 查看当前是否安装了mysql, 如果安装了, 先卸载
+[root@xiamu ~]# rpm -qa | grep mysql
+[root@xiamu ~]#
+
+rpm -e mysql　　// 普通删除模式
+rpm -e --nodeps mysql　　// 强力删除模式，如果使用上面命令删除时，提示有依赖的其它文件，则用该命令可以对其进行强力删除
+</code></pre>
+<p>安装 mysql<br>在 mysql 官网挑自己需要的版本<a target="_blank" rel="noopener" href="https://downloads.mysql.com/archives/community/">https://downloads.mysql.com/archives/community/</a><br>这里使用的是 mysql8.30 版本</p>
+<pre><code class="bash"># 将近800多M, 喝杯茶抽根烟耐心等等
+[root@xiamu opt]# wget https://downloads.mysql.com/archives/get/p/23/file/mysql-8.0.30-1.el7.x86_64.rpm-bundle.tar
+
+# 解压
+[root@xiamu opt]# tar -xvf mysql-8.0.30-1.el7.x86_64.rpm-bundle.tar
+mysql-community-client-8.0.30-1.el7.x86_64.rpm
+mysql-community-client-plugins-8.0.30-1.el7.x86_64.rpm
+mysql-community-common-8.0.30-1.el7.x86_64.rpm
+mysql-community-debuginfo-8.0.30-1.el7.x86_64.rpm
+mysql-community-devel-8.0.30-1.el7.x86_64.rpm
+mysql-community-embedded-compat-8.0.30-1.el7.x86_64.rpm
+mysql-community-icu-data-files-8.0.30-1.el7.x86_64.rpm
+mysql-community-libs-8.0.30-1.el7.x86_64.rpm
+mysql-community-libs-compat-8.0.30-1.el7.x86_64.rpm
+mysql-community-server-8.0.30-1.el7.x86_64.rpm
+mysql-community-server-debug-8.0.30-1.el7.x86_64.rpm
+mysql-community-test-8.0.30-1.el7.x86_64.rpm
+
+# 实际上我们只需要使用到以下六个包
+mysql-community-client-8.0.30-1.el7.x86_64.rpm
+mysql-community-client-plugins-8.0.30-1.el7.x86_64.rpm
+mysql-community-common-8.0.30-1.el7.x86_64.rpm
+mysql-community-libs-8.0.30-1.el7.x86_64.rpm
+mysql-community-server-8.0.30-1.el7.x86_64.rpm
+mysql-community-icu-data-files-8.0.30-1.el7.x86_64.rpm
+
+# 注意安装顺序, 不能打乱, 打乱就会出问题
+# 顺序: common =&gt; client-plugins =&gt; libs =&gt; client =&gt; icu-data-files =&gt; server
+[root@xiamu opt]# rpm -ivh mysql-community-common-8.0.30-1.el7.x86_64.rpm
+[root@xiamu opt]# rpm -ivh mysql-community-client-plugins-8.0.30-1.el7.x86_64.rpm
+[root@xiamu opt]# rpm -ivh mysql-community-libs-8.0.30-1.el7.x86_64.rpm
+
+# 如果报错了, 请先移除mysql-libs, 然后再安装libs, 没有报错可以忽略这一步
+[root@xiamu opt]# yum remove mysql-libs
+[root@xiamu opt]# rpm -ivh mysql-community-libs-8.0.30-1.el7.x86_64.rpm
+
+[root@xiamu opt]# rpm -ivh mysql-community-client-8.0.30-1.el7.x86_64.rpm
+[root@xiamu opt]# rpm -ivh mysql-community-icu-data-files-8.0.30-1.el7.x86_64.rpm
+[root@xiamu opt]# rpm -ivh mysql-community-server-8.0.30-1.el7.x86_64.rpm
+
+# 安装完之后查看版本, 出现有内容, 说明安装成功
+[root@xiamu opt]# mysql --version
+mysql  Ver 8.0.30 for Linux on x86_64 (MySQL Community Server - GPL)
+
+#mysql初始化
+[root@xiamu opt]# mysqld --initialize --user=mysql
+
+# 查看mysql密码, 细心找找[Note] [MY-010454] [Server] , 会有mysql默认的密码, 先记下来
+[root@xiamu opt]# cat /var/log/mysqld.log
+2022-12-24T11:10:00.649105Z 6 [Note] [MY-010454] [Server]
+A temporary password is generated for root@localhost: 0sgZr(pv&amp;d)q
+
+#开启mysql服务
+[root@xiamu opt]# systemctl status mysqld.service
+[root@xiamu opt]# systemctl start mysqld.service
+[root@xiamu opt]# systemctl status mysqld.service
+
+# 设置mysql开机自启动
+[root@xiamu opt]# systemctl list-unit-files | grep mysqld.service
+mysqld.service                                enabled
+# enabled表示开了自启动, disable表示关闭了自启动
+# 如果显示的是disable, 可以使用下面的命令设置为enable
+[root@xiamu opt]# systemctl disable mysqld.service
+[root@xiamu opt]# systemctl enable mysqld.service
+
+
+# 登录mysql
+[root@xiamu opt]# mysql -uroot -p
+Enter password:
+
+#登录完之后需要修改密码
+mysql&gt; alter user &#39;root&#39;@&#39;localhost&#39; identified by &#39;123456&#39;;
+Query OK, 0 rows affected (0.01 sec)
+
+# 查看数据库
+mysql&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+4 rows in set (0.00 sec)
+
+mysql&gt; use mysql;
+
+# mysql默认是不允许root用户远程登录的
+# 开启mysql远程登录
+mysql&gt; update user set host = &#39;%&#39; where user = &#39;root&#39;;
+# %是通配符, 设置可以远程连接的ip, 单独设置一个%表示可以任意的ip远程连接root账户
+# 更新完表之后需要刷新权限
+mysql&gt; flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+# 再次修改密码, 这次修改之后, 可以使用在本地的电脑远程登录mysql
+mysql&gt; ALTER USER &#39;root&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password by &#39;123456&#39;;
+Query OK, 0 rows affected (0.01 sec)
+
+# 退出mysql
+mysql&gt; exit
+
+# 设置字符集是utf8
+[root@xiamu ~]# vi /etc/my.cnf
+# 在文件最后添加这三行
+character_set_server=utf8
+[mysqld]
+default_authentication_plugin=mysql_native_password
+[root@xiamu ~]# systemctl restart mysqld.service
+
+# 关闭Windows和linux两边的防火墙
+[root@xiamu ~]# systemctl status firewalld.service
+[root@xiamu ~]# systemctl stop firewalld.service
+[root@xiamu ~]# systemctl status firewalld.service
+# 设置开机自启动防火墙关闭
+[root@xiamu ~]# systemctl enable firewalld
+[root@xiamu ~]# systemctl disable firewalld
+</code></pre>
+<p>至此 mysql 的安装就完成了<br>同样可以在自己的电脑上连接 mysql, 有两种连接方式, 一种是使用 SSH 连接, 另一种是 mysql 连接<br>填写 linux 账户密码, 点击测试连接, 显示连接成功<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnqS6VdXPVS4y67El9XTtLqivmdJ.png"><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlsDIiuR9NydAgkfYReJp899tDRy.png"><br>填写 mysql 账户密码, 点击测试连接, 显示连接成功<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fu2GJEkbtFukGxLWc6pzN1abAKuv.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FioAFkpS93vZda5b3tcB7aL5JLGa.png"></p>
+<p>在 Mysql 中添加用户和设置用户权限</p>
+<pre><code class="bash">
+# 给root赋予授予用户权限的权限
+mysql&gt; GRANT system_user ON *.* TO &#39;root&#39;;
+
+# &#39;root&#39;@&#39;host&#39;, @前面的是账户, @后面的是主机
+# %是通配符, 设置可以远程连接的ip, 单独设置一个%表示可以任意的ip远程连接root账户
+mysql&gt; create user &#39;zhang3&#39;@&#39;%&#39; identified by &#39;123456&#39;;
+Query OK, 0 rows affected (0.01 sec)
+mysql&gt; grant all privileges on *.* to &#39;zhang3&#39;@&#39;%&#39;;
+Query OK, 0 rows affected (0.00 sec)
+
+# 只让li4访问test数据库
+mysql&gt; create user &#39;li4&#39;@&#39;localhost&#39; identified by &#39;123456&#39;;
+Query OK, 0 rows affected (0.00 sec)
+mysql&gt; grant all privileges on test.* to &#39;li4&#39;@&#39;localhost&#39;;
+
+mysql&gt; ALTER USER &#39;li4&#39;@&#39;localhost&#39; IDENTIFIED WITH mysql_native_password by &#39;123456&#39;;
+mysql&gt; ALTER USER &#39;zhang3&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password by &#39;123456&#39;;
+
+# 刷新权限
+mysql&gt; flush privileges;
+Query OK, 0 rows affected (0.00 sec)
+
+# 创建test数据库
+mysql&gt; create database test;
+Query OK, 1 row affected (0.00 sec)
+
+# 使用test数据库
+mysql&gt; use test;
+
+# 复制以下代码创建数据库
+create table `employees` (
+    `id` int (11),
+    `first` varchar (60),
+    `last` varchar (60),
+    `address` varchar (60),
+    `position` varchar (60)
+);
+insert into `employees` (`id`, `first`, `last`, `address`, `position`) values(&#39;1&#39;,&#39;黄&#39;,&#39;磊&#39;,&#39;张家界&#39;,&#39;益阳&#39;);
+insert into `employees` (`id`, `first`, `last`, `address`, `position`) values(&#39;2&#39;,&#39;肉&#39;,&#39;豆蔻&#39;,&#39;中国&#39;,&#39;湖南&#39;);
+insert into `employees` (`id`, `first`, `last`, `address`, `position`) values(&#39;3&#39;,&#39;吴&#39;,&#39;俊杰&#39;,&#39;湖南&#39;,&#39;北京&#39;);
+insert into `employees` (`id`, `first`, `last`, `address`, `position`) values(&#39;4&#39;,&#39;黄&#39;,&#39;志鹏&#39;,&#39;上海&#39;,&#39;广州&#39;);
+</code></pre>
+<h2 id="4-安装-PHP"><a href="#4-安装-PHP" class="headerlink" title="4. 安装 PHP"></a>4. 安装 PHP</h2><pre><code class="bash">[root@xiamu ~]# yum -y install php
+
+</code></pre>
+<h2 id="5-LAMP-服务的整合"><a href="#5-LAMP-服务的整合" class="headerlink" title="5. LAMP 服务的整合"></a>5. LAMP 服务的整合</h2><h3 id="PHP-整合-Apache"><a href="#PHP-整合-Apache" class="headerlink" title="PHP 整合 Apache"></a>PHP 整合 Apache</h3><pre><code class="bash">[root@xiamu ~]# cd /var/www/html
+[root@xiamu html]# touch v.php
+[root@xiamu html]# vim v.php
+
+# 编写如下代码
+&lt;?php
+    echo &#39;&lt;title&gt;hello world&lt;/title&gt;&#39;;
+    phpinfo();
+?&gt;
+
+# Apache的状态/开启/关闭/重启
+[root@xiamu html]# systemctl status httpd
+[root@xiamu html]# systemctl start httpd
+[root@xiamu html]# systemctl stop httpd
+[root@xiamu html]# systemctl restart httpd
+
+# 防火墙firewalld的状态/开启/关闭/重启
+[root@xiamu html]# systemctl status firewalld
+[root@xiamu html]# systemctl start firewalld
+[root@xiamu html]# systemctl stop firewalld
+[root@xiamu html]# systemctl restart firewalld
+</code></pre>
+<p>记得要重启 Apache 的, 关闭防火墙 firewalld<br>浏览器输入<a target="_blank" rel="noopener" href="http://192.168.1.100/v.php">http://192.168.1.100/v.php</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkDIbRAGsEgDdtvz8E_mHNvwKFJy.png"></p>
+<h3 id="PHP-整合-MySql-和-Apache"><a href="#PHP-整合-MySql-和-Apache" class="headerlink" title="PHP 整合 MySql 和 Apache"></a>PHP 整合 MySql 和 Apache</h3><pre><code class="bash">
+# 安装php连接mysql的拓展包
+[root@xiamu html]# yum install php-mysqli
+
+[root@xiamu html]# cd /var/www/html/
+[root@xiamu html]# vim show.php
+
+# 复制如下php代码
+&lt;?php
+$servername = &quot;localhost&quot;;
+$username = &quot;li4&quot;;
+$password = &quot;123456&quot;;
+$dbname = &quot;test&quot;;
+
+// 创建连接
+$conn = new mysqli($servername, $username, $password, $dbname);
+// Check connection
+if ($conn-&gt;connect_error) &#123;
+    die(&quot;连接失败: &quot; . $conn-&gt;connect_error);
+&#125;
+
+$sql = &quot;SELECT id, first, last, address, position FROM employees&quot;;
+$result = $conn-&gt;query($sql);
+
+if ($result-&gt;num_rows &gt; 0) &#123;
+    // 输出数据
+    while($row = $result-&gt;fetch_assoc()) &#123;
+        echo $row[&quot;id&quot;].$row[&quot;first&quot;] . &quot; &quot; . $row[&quot;last&quot;] . $row[&quot;address&quot;] . $row[&quot;position&quot;]. &quot;&lt;br&gt;&quot;;
+    &#125;
+&#125; else &#123;
+    echo &quot;0 结果&quot;;
+&#125;
+$conn-&gt;close();
+?&gt;
+
+
+# 重启Apache
+[root@xiamu html]# systemctl restart httpd
+</code></pre>
+<p>至此，LAMP 服务的安装与简单配置基本完成了。<br> <img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FoqiT1o9GjXeLIhM02d6y0GEVdSe.png"></p>
+<p>尝试将一个基于 PHP 网站+mysql 数据库+后台管理的网站搭建起来：<br>把写好的代码上传到虚拟机中, 展示效果如下:<br> <img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FslLJqAnPAHx3ZF6PTXB9Bj4vA1x.png"></p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2022/12/11/VueElementUI/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>VueElementUI</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/12/03/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>计算机组成原理</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>Nginx-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>Nginx</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-10-25 10:59:53</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <blockquote>
+<p>唯有你也想见我, 我们俩的见面才有意义</p>
+</blockquote>
+<h2 id="Nginx-的安装"><a href="#Nginx-的安装" class="headerlink" title="Nginx 的安装"></a>Nginx 的安装</h2><p>先下载 <a target="_blank" rel="noopener" href="http://nginx.org/en/download.html">http://nginx.org/en/download.html</a> , 推荐下载稳定版<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fjo_kxf-_ougtxymUOJQpQ-Zidpa.png"><br>可以先下载到 windows 系统里, 然后再通过 xftp 传输到虚拟机<br>或者通过 wget 的方式安装(虚拟机需要有网络)</p>
+<pre><code class="bash"># 软件包放在/opt目录下
+[root@xiamu ~]# cd /opt/
+[root@xiamu opt]# wget http://nginx.org/download/nginx-1.22.1.tar.gz
+</code></pre>
+<pre><code class="bash"># 安装完之后查看
+[root@xiamu opt]# ls
+nginx-1.22.1.tar.gz
+
+# 解压nginx
+[root@xiamu opt]# tar zxvf nginx-1.22.1.tar.gz
+
+[root@xiamu opt]# ls
+nginx-1.22.1 nginx-1.22.1.tar.gz
+
+[root@xiamu opt]# cd nginx-1.22.1/
+[root@xiamu nginx-1.22.1]# ls
+auto     CHANGES.ru  configure  html     man     src
+CHANGES  conf        contrib    LICENSE  README
+
+# 编译安装
+[root@xiamu nginx-1.22.1]# ./configure --prefix=/usr/local/nginx
+[root@xiamu nginx-1.22.1]# make
+[root@xiamu nginx-1.22.1]# make install
+</code></pre>
+<p>常见报错</p>
+<pre><code class="bash">checking for OS
++ Linux 3.10.0-693.el7.x86_64 x86_64
+checking for C compiler ... not found
+./configure: error: C compiler cc is not found
+# 安装gcc
+[root@xiamu nginx-1.22.1]# yum install -y gcc
+
+./configure: error: the HTTP rewrite module requires the PCRE library.
+You can either disable the module by using --without-http_rewrite_module
+option, or install the PCRE library into the system, or build the PCRE library
+statically from the source with nginx by using --with-pcre=&lt;path&gt; option.
+# 安装perl库
+[root@xiamu nginx-1.22.1]# yum install -y pcre pcre-devel
+
+
+./configure: error: the HTTP gzip module requires the zlib library.
+You can either disable the module by using --without-http_gzip_module
+option, or install the zlib library into the system, or build the zlib library
+statically from the source with nginx by using --with-zlib=&lt;path&gt; option.
+# 安装zlib库
+[root@xiamu nginx-1.22.1]# yum install -y zlib zlib-devel
+</code></pre>
+<h2 id="开启网络服务报错"><a href="#开启网络服务报错" class="headerlink" title="开启网络服务报错"></a>开启网络服务报错</h2><pre><code class="bash">参考网站: https://www.cyberithub.com/failed-to-start-lsb-bring-up-down-networking/
+
+报错信息
+Solved: network.service Failed to start LSB: Bring up/down networking in RHEL/Centos 7/8
+
+尝试禁用NetworkManager, 或者BOOTPROTO设置成none
+[root@localhost ~]# systemctl stop NetworkManager
+[root@localhost ~]# systemctl disable NetworkManager
+[root@localhost ~]# systemctl status NetworkManager -l
+</code></pre>
+<h2 id="查看-nginx-的目录"><a href="#查看-nginx-的目录" class="headerlink" title="查看 nginx 的目录"></a>查看 nginx 的目录</h2><pre><code class="bash">[root@xiamu nginx-1.22.1]# cd /usr/local/
+[root@xiamu local]# ls
+bin  games    lib    libexec  sbin   src
+etc  include  lib64  nginx    share
+[root@xiamu local]# cd nginx/
+[root@xiamu nginx]# ls
+conf  html  logs  sbin
+</code></pre>
+<h2 id="开启-nginx-服务"><a href="#开启-nginx-服务" class="headerlink" title="开启 nginx 服务"></a>开启 nginx 服务</h2><pre><code class="bash">[root@xiamu nginx]# cd sbin/
+[root@xiamu sbin]# ls
+nginx
+[root@xiamu sbin]# ./nginx
+[root@xiamu sbin]# ./nginx -s stop
+# 先开启nginx, 然后关闭, 配置脚本, 以后可以通过脚本的方式来启动nginx, 非常的方便
+
+# nginx的开启和关闭
+./nginx 启动
+./nginx -s stop 快速停止
+./nginx -s quit 优雅关闭，在退出前完成已经接受的连接请求
+./nginx -s reload 重新加载配置
+</code></pre>
+<p>在 windows 浏览器输入虚拟机的 ip, welcome to nginx, 如果访问不到, 请关闭防火墙<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fm-6rwtvCjcf0ckjo1JEeN6pNdjU.png"></p>
+<pre><code class="bash"># 关闭防火墙
+[root@xiamu sbin]# systemctl status firewalld.service
+[root@xiamu sbin]# systemctl stop firewalld.service
+[root@xiamu sbin]# systemctl status firewalld.service
+</code></pre>
+<h2 id="安装成系统服务-配置脚本启动-nginx"><a href="#安装成系统服务-配置脚本启动-nginx" class="headerlink" title="安装成系统服务(配置脚本启动 nginx)"></a>安装成系统服务(配置脚本启动 nginx)</h2><pre><code class="bash"># 注意在配置脚本的时候, nginx服务需要先关闭
+[root@xiamu sbin]# ps -ef | grep nginx
+[root@xiamu sbin]# ./nginx -s stop
+[root@xiamu sbin]# ps -ef | grep nginx
+
+#  创建服务脚本
+[root@xiamu sbin]# vi /usr/lib/systemd/system/nginx.service
+
+[Unit]
+Description=nginx - web server
+After=network.target remote-fs.target nss-lookup.target
+[Service]
+Type=forking
+PIDFile=/usr/local/nginx/logs/nginx.pid
+ExecStartPre=/usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
+ExecStart=/usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+ExecReload=/usr/local/nginx/sbin/nginx -s reload
+ExecStop=/usr/local/nginx/sbin/nginx -s stop
+ExecQuit=/usr/local/nginx/sbin/nginx -s quit
+PrivateTmp=true
+[Install]
+WantedBy=multi-user.target
+
+
+# 重启系统服务
+[root@xiamu sbin]# systemctl daemon-reload
+
+# 注意要重启一遍
+[root@xiamu sbin]# reboot
+
+# 启动nginx
+[root@xiamu sbin]# systemctl start nginx
+[root@xiamu sbin]# systemctl status nginx
+
+# 设置开机启动nginx
+[root@xiamu sbin]# systemctl enable nginx
+</code></pre>
+<h2 id="了解-ngix-的目录"><a href="#了解-ngix-的目录" class="headerlink" title="了解 ngix 的目录"></a>了解 ngix 的目录</h2><pre><code class="bash">[root@xiamu nginx]# ls
+client_body_temp  conf  fastcgi_temp  html  logs  proxy_temp  sbin  scgi_temp  uwsgi_temp
+# html放页面
+# logs放日志文件, 如果以后的磁盘被日志文件堆满了, nginx可能会出现问题
+# conf放配置文件
+# html用来存放静态文件的默认目录 html、css等
+# sbin nginx的主程序
+
+
+# logs文件下的pid文件是用来记录当前进程的pid值, 这个值可以自定义
+[root@xiamu nginx]# cat logs/nginx.pid
+11928
+[root@xiamu nginx]# ps -ef | grep nginx
+root      11928      1  0 13:20 ?        00:00:00 nginx: master process /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
+nobody    11929  11928  0 13:20 ?        00:00:00 nginx: worker process
+root      12992   7479  0 13:36 pts/2    00:00:00 grep --color=auto nginx
+
+</code></pre>
+<h2 id="基本运行原理"><a href="#基本运行原理" class="headerlink" title="基本运行原理"></a>基本运行原理</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtArDEPOttEewsHf7WPQFNkkKMm3.png"></p>
+<h2 id="Nginx-配置与应用场景"><a href="#Nginx-配置与应用场景" class="headerlink" title="Nginx 配置与应用场景"></a>Nginx 配置与应用场景</h2><p>nginx 目录下 conf&#x2F;nginx.conf</p>
+<pre><code class="bash">worker_processes
+worker_processes 1; 默认为1，表示开启一个业务进程
+worker_connections
+worker_connections 1024; 单个业务进程可接受连接数
+include mime.types;
+include mime.types; 引入http mime类型
+default_type application/octet-stream;
+default_type application/octet-stream; 如果mime类型没匹配上，默认使用二进制流的方式传输。
+sendfile on;
+sendfile on; 使用linux的 sendfile(socket, file, len) 高效网络传输，也就是数据0拷贝。
+
+keepalive_timeout 65;
+keepalive_timeout 65;
+
+虚拟主机配置
+server &#123;
+listen 80; 监听端口号
+server_name localhost; 主机名
+location / &#123; 匹配路径
+root html; 文件根目录
+index index.html index.htm; 默认页名称
+&#125;
+error_page 500 502 503 504 /50x.html; 报错编码对应页面
+location = /50x.html &#123;
+root html;
+&#125;
+&#125;
+</code></pre>
+<p>未开启 sendfile<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnuJ7BHsUuFBKoqqitDlDs4yIhEp.png"><br>开启后<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjoO6HJkcWe8I4P50029_85uOP5r.png"><br>server<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkmIlS7ZaAPTkKP8IDrQ1V5LINmm.png"></p>
+<h2 id="配置自定义的域名"><a href="#配置自定义的域名" class="headerlink" title="配置自定义的域名"></a>配置自定义的域名</h2><p>C:\Windows\System32\drivers\etc 下修改 host 文件, 如果不能保存, 请先保存到桌面然后再拖拽进来替换该文件<br>(注意配置完之后要保存, 并且要关掉电脑上的 VPN)<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fufktq6iDR1Bgtnvcn8gHeKDpSmT.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhN_VSNr6oMWbDSaV2jqO1AExj2N.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq9SoKdNOhfpmnMWnmIIrYtpNg3z.png"></p>
+<h2 id="在阿里云的域名控制台配置内网-ip"><a href="#在阿里云的域名控制台配置内网-ip" class="headerlink" title="在阿里云的域名控制台配置内网 ip"></a>在阿里云的域名控制台配置内网 ip</h2><p><a target="_blank" rel="noopener" href="https://dns.console.aliyun.com/#/dns/setting/xiamu.icu">https://dns.console.aliyun.com/#/dns/setting/xiamu.icu</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fuetga5BcLwbuuf88GeLsmLV9sVz.png"><br>主机记录填写 www<br>记录值填写虚拟机的 ip 地址</p>
+<p>然后打开 cmd 去 ping <a target="_blank" rel="noopener" href="http://www.xiamu.icu/">www.xiamu.icu</a>, ping 通了, 说明配置成功了, 注意 ping 的是<a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com</a> 而不是 xxx.com<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuY6dfbMnpxGSVB4jwdxnPTqoRkj.png"><br>ping 通之后可以打开浏览器访问<a target="_blank" rel="noopener" href="http://www.xiamu.icu/">www.xiamu.icu</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fv4kLtXrq3-o1M1Nq1pJB8bpSfZC.png"></p>
+<p>批量添加很多域名, 在主机记录填写一个 * , 浏览器中 <a target="_blank" rel="noopener" href="http://wwww.xiamu.icu/">http://wwww.xiamu.icu/</a>, 四个 w 也是可以访问的<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fp-oselyYdTlBH0IFbfcr3lc7izw.png"></p>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpwSr6wue4bb0dimUVqdNrQjItga.png"></p>
+<p>在根(&#x2F;)路径下创建两个文件 www&#x2F;www&#x2F;index.html 和 www&#x2F;vod&#x2F;index.html, 并且往里面写入内容</p>
+<pre><code class="bash">[root@xiamu www]# ls
+index.html
+[root@xiamu www]# cat index.html
+this is www web site!
+[root@xiamu www]# pwd
+/www/www
+
+[root@xiamu vod]# ls
+index.html
+[root@xiamu vod]# cat index.html
+this is void site.
+[root@xiamu vod]# pwd
+/www/vod
+
+</code></pre>
+<p>修改配置文件</p>
+<pre><code class="bash">[root@xiamu nginx]# vim /usr/local/nginx/conf/nginx.conf
+# 只需要修改 server_name , location/root 就行了
+# 注意修改的server_name可以同名, 但是端口不能重复
+# 或者修改的server_name不同名, 但是端口可以重复
+
+http &#123;
+    include       mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout  65;
+
+    server &#123;
+        listen       80;
+        server_name  www.xiamu.icu;
+        location / &#123;
+            root   /www/www;
+            index  index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+        server &#123;
+        listen       80;
+        server_name  vod.xiamu.icu;
+        location / &#123;
+            root   /www/vod;
+            index  index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+&#125;
+
+
+# 修改完配置文件之后需要重新加载配置文件
+[root@xiamu nginx]# systemctl reload nginx
+[root@xiamu nginx]# systemctl status nginx
+
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FrFCu0JMQwYfrc801fDt8meAe2t8.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FulvcAJfMtpQjBe5DTFyJbafrqO2.png"></p>
+<h2 id="配置多个域名对应同一个资源文件"><a href="#配置多个域名对应同一个资源文件" class="headerlink" title="配置多个域名对应同一个资源文件"></a>配置多个域名对应同一个资源文件</h2><pre><code class="bash">    server &#123;
+        listen       80;
+        server_name  www.xiamu.icu; # 第一个域名, 这开始找, 如果下面所有的域名都没有匹配上, 就使用这个域名的资源
+        location / &#123;
+            root   /www/www;
+            index  index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+
+    server &#123;
+        listen       80;
+        server_name  vod.xiamu.icu vod1.xiamu.icu; # 多个域名, 中间使用空格分隔开
+        location / &#123;
+            root   /www/vod;
+            index  index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+</code></pre>
+<p>可以发现 vod.xiamu.icu 和 vod1.xiamu.icu 这两个域名都可以访问到 void 的资源,<br>但是 void2.xiamu.icu, 访问的是 www 资源, 没有配置的域名会从第一个开始往下找, 如果没有找到, 就使用第一个域名对应的资源<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpQWnDNXWq4KxMH4teOj9V5oGH7B.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqrMwLoK2D5V9Ej9L57pDi5XtkaR.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FvhxtwfMVojKz2mOP353K_vjSrwV.png"></p>
+<pre><code class="bash">server_name  *.xiamu.icu;
+# *表示通配符, 除了www的开头的, 都会被匹配到vod文件下的资源
+
+server_name  www.xiamu.*;
+# 通配符的后匹配, 除了.icu结尾的, 都会被匹配到vod文件下的资源
+
+hosts文件修改成(注意有www)
+192.168.1.100 www.xiamu.com
+192.168.1.100 www.xiamu.net
+192.168.1.100 www.xiamu.org
+
+</code></pre>
+<p>后缀匹配:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fs-WLgB9VcZszZmv-MNdKyudtStE.png"></p>
+<pre><code class="bash">server_name  ~^[0-9]+\.xiamu\.icu$;
+# 这个域名的后缀必须是购买的域名才行, 要经过阿里云服务器云解析之后的后缀
+</code></pre>
+<p>正则表达式匹配:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjHFObRU495CKCyf3SzHfoe2mGC4.png"></p>
+<h2 id="反向代理到外网与内网主机的配置"><a href="#反向代理到外网与内网主机的配置" class="headerlink" title="反向代理到外网与内网主机的配置"></a>反向代理到外网与内网主机的配置</h2><pre><code class="bash"># 反向代理到外网
+    server &#123;
+        listen       80;
+        server_name  localhost;
+        location / &#123;
+             proxy_pass http://www.atguigu.com;
+    # proxy_pass 注意这里配置的是proxy_pass, 就不需要再配置root, 和index了
+    #        root   /www/www;
+    #        index  index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+
+# 这样访问192.168.1.101, 就会跳转到http://www.atguigu.com的页面
+# 访问www.xiamu.icu, 也会跳转到http://www.atguigu.com的页面
+
+
+# 反向代理到内网
+nginx1的配置
+location / &#123;
+    proxy_pass http://192.168.1.102;
+&#125;
+
+nginx2的配置
+location / &#123;
+    root   html;
+    index  index.html index.htm;
+&#125;
+会被192.168.1.102代理
+</code></pre>
+<h2 id="负载均衡"><a href="#负载均衡" class="headerlink" title="负载均衡"></a>负载均衡</h2><pre><code class="bash"># nginx1配置
+upstream httpds &#123;
+    server 192.168.1.102:80;
+    server 192.168.1.103:80;
+&#125;
+
+server &#123;
+    listen       80;
+    server_name  localhost;
+    location / &#123;
+         proxy_pass http://httpds;
+#        root   /www/www;
+#        index  index.html index.htm;
+    &#125;
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html &#123;
+        root   html;
+    &#125;
+&#125;
+
+# nginx2配置
+server &#123;
+    listen       80;
+    server_name  localhost;
+    location / &#123;
+        root   html;
+        index  index.html index.htm;
+    &#125;
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html &#123;
+        root   html;
+    &#125;
+&#125;
+
+
+# nginx3配置
+server &#123;
+    listen       80;
+    server_name  localhost;
+    location / &#123;
+        root   html;
+        index  index.html index.htm;
+    &#125;
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html &#123;
+        root   html;
+    &#125;
+&#125;
+
+
+# 负载均衡就如同男人脚踏两只船, 需要对每一边都雨露均沾
+192.168.1.101 =&gt; 192.168.1.102
+                =&gt; 192.168.1.103
+</code></pre>
+<h2 id="基于反向代理的负载均衡"><a href="#基于反向代理的负载均衡" class="headerlink" title="基于反向代理的负载均衡"></a>基于反向代理的负载均衡</h2><h3 id="负载均衡之权重-down-backup"><a href="#负载均衡之权重-down-backup" class="headerlink" title="负载均衡之权重, down, backup"></a>负载均衡之权重, down, backup</h3><pre><code class="bash">
+# down：表示当前的server暂时不参与负载
+# weight：默认为1.weight越大，负载的权重就越大。
+# backup： 其它所有的非backup机器down或者忙的时候，请求backup机器。
+
+# nginx1
+upstream httpds &#123;
+    server 192.168.1.102 weight=8 down;
+    server 192.168.1.103 weight=2;
+    server 192.168.1.104 weight=1 backup;
+&#125;
+server &#123;
+    listen       80;
+    server_name  localhost;
+    location / &#123;
+         proxy_pass http://httpds;
+#        root   /www/www;
+#        index  index.html index.htm;
+    &#125;
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html &#123;
+        root   html;
+    &#125;
+&#125;
+
+# nginx2, nginx3, nginx4这三个配置一样
+server &#123;
+    listen       80;
+    server_name  localhost;
+    location / &#123;
+        root   html;
+        index  index.html index.htm;
+    &#125;
+    error_page   500 502 503 504  /50x.html;
+    location = /50x.html &#123;
+        root   html;
+    &#125;
+&#125;
+</code></pre>
+<p>轮询<br>默认情况下使用轮询方式，逐一转发，这种方式适用于无状态请求。<br>weight(权重)<br> 指定轮询几率，weight 和访问比率成正比，用于后端服务器性能不均的情况。<br> ip_hash<br>根据客户端的 ip 地址转发同一台服务器，可以保持回话。<br>least_conn<br>最少连接访问<br>url_hash<br>根据用户访问的 url 定向转发请求<br>fair<br>根据后端服务器响应时间转发请求</p>
+<h2 id="动静分离"><a href="#动静分离" class="headerlink" title="动静分离"></a>动静分离</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjvSpaPZkYNrxOBLKinFkz3TwElM.png"></p>
+<p>下载 tomcat<br><a target="_blank" rel="noopener" href="https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-centos-7-via-yum">https://www.digitalocean.com/community/tutorials/how-to-install-apache-tomcat-7-on-centos-7-via-yum</a></p>
+<p>然后在 192.168.1.104 中部署一个项目</p>
+<pre><code class="bash"># nginx1
+    server &#123;
+        listen       80;
+        server_name  localhost;
+        location / &#123;
+             proxy_pass http://192.168.1.104:8080/admin/; # 注意格式, 最后面需要一个/
+    #        root   /www/www;
+    #        index  index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+
+
+这样可以通过http://192.168.1.101/访问到http://192.168.1.104:8080/admin/
+接着删除192.168.1.104下的静态资源js, css, images, fonts
+再次访问的页面就不会有css等静态资源
+我们需要把这些静态资源上传到192.168.1.101的/usr/local/nginx/html目录下
+[root@xiamu01 html]# ls
+50x.html  css  fonts  images  index1.html  index.html  js
+
+
+# 修改nginx1的配置, 再次访问192.168.1.101, 就有静态资源了
+    server &#123;
+        listen       80;
+        server_name  localhost;
+        location / &#123;
+             proxy_pass http://192.168.1.104:8080/admin/;
+    #        root   /www/www;
+    #        index  index.html index.htm;
+        &#125;
+        location /css &#123;
+             root html;
+             index index.html index.htm;
+        &#125;
+        location /js &#123;
+             root html;
+             index index.html index.htm;
+        &#125;
+        location /fonts &#123;
+             root html;
+             index index.html index.htm;
+        &#125;
+        location /images &#123;
+             root html;
+             index index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+</code></pre>
+<p>使用正则表达式配置静态资源</p>
+<pre><code class="bash">    server &#123;
+        listen       80;
+        server_name  localhost;
+        location / &#123;
+             proxy_pass http://192.168.1.104:8080/admin/;
+    #        root   /www/www;
+    #        index  index.html index.htm;
+        &#125;
+        location ~*/(css|js|fonts|images) &#123;
+             root html;
+             index index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+    &#125;
+</code></pre>
+<p>伪静态配置</p>
+<pre><code class="bash">location / &#123;
+     rewrite ^/2.html$  /hello?pageNum=2 break;
+     proxy_pass http://192.168.1.104:8888;
+&#125;
+
+http://192.168.1.101/hello?pageNum=2 =&gt; http://192.168.1.101/2.html
+
+
+location / &#123;
+     rewrite ^/([0-9]+).html$  /hello?pageNum=$1 break; # $1是第一个参数, $2是第二个参数...
+     proxy_pass http://192.168.1.104:8888;
+&#125;
+使用正则表达式匹配任意数字
+...
+http://192.168.1.101/hello?pageNum=3 =&gt; http://192.168.1.101/3.html
+...
+http://192.168.1.101/hello?pageNum=10 =&gt; http://192.168.1.101/10.html
+...
+
+
+location / &#123;
+     rewrite ^/([0-9]+).html$  /hello?pageNum=$1 redirect;
+     proxy_pass http://192.168.1.104:8888;
+&#125;
+
+http://192.168.1.101/7.html =&gt; http://192.168.1.101/hello?pageNum=7
+</code></pre>
+<p>UrlRewrite<br> rewrite 语法格式及参数语法:<br> rewrite 是实现 URL 重写的关键指令，根据 regex (正则表达式)部分内容，<br>重定向到 replacement，结尾是 flag 标记。<br>rewrite <regex> <replacement> [flag];<br>关键字 正则 替代内容 flag 标记<br>关键字：其中关键字 error_log 不能改变<br>正则：perl 兼容正则表达式语句进行规则匹配<br>替代内容：将正则匹配的内容替换成 replacement<br>flag 标记：rewrite 支持的 flag 标记<br>rewrite 参数的标签段位置：<br>server,location,if<br>flag 标记说明：<br>last #本条规则匹配完成后，继续向下匹配新的 location URI 规则<br>break #本条规则匹配完成即终止，不再匹配后面的任何规则<br>redirect #返回 302 临时重定向，浏览器地址会显示跳转后的 URL 地址<br>permanent #返回 301 永久重定向，浏览器地址栏会显示跳转后的 URL 地址</p>
+<h2 id="网关服务器"><a href="#网关服务器" class="headerlink" title="网关服务器"></a>网关服务器</h2><p>应用服务器防火墙配置</p>
+<pre><code class="bash">开启防火墙
+systemctl start firewalld
+重启防火墙
+systemctl restart firewalld
+重载规则
+firewall-cmd --reload
+查看已配置规则
+firewall-cmd --list-all
+指定端口和ip访问
+firewall-cmd --permanent --add-rich-rule=&quot;rule family=&quot;ipv4&quot; source address=&quot;192.168.1.101&quot;
+port protocol=&quot;tcp&quot; port=&quot;8080&quot; accept&quot;
+移除规则
+firewall-cmd --permanent --remove-rich-rule=&quot;rule family=&quot;ipv4&quot; source
+address=&quot;192.168.1.101&quot; port port=&quot;8080&quot; protocol=&quot;tcp&quot; accept&quot;
+
+网关配置
+upstream httpds &#123;
+    server 192.168.1.102 weight=8 down;
+    #server 192.168.1.103 weight=2;
+    server 192.168.1.104:8888 weight=1 backup;
+&#125;
+
+server &#123;
+    listen       80;
+    server_name  localhost;
+    location / &#123;
+         rewrite ^/([0-9]+).html$  /hello?pageNum=$1 break;
+         proxy_pass http://httpds;
+#        proxy_pass http://192.168.1.104:8888;
+#        proxy_pass http://192.168.1.104:8080/admin/;
+#        root   /www/www;
+#        index  index.html index.htm;
+    &#125;
+</code></pre>
+<h2 id="防盗链"><a href="#防盗链" class="headerlink" title="防盗链"></a>防盗链</h2><pre><code class="bash">#valid_referers none | blocked | server_names | strings ....;
+# none， 检测 Referer 头域不存在的情况。
+# blocked，检测 Referer 头域的值被防火墙或者代理服务器删除或伪装的情况。这种情况该头域的值不以
+# “http://” 或 “https://” 开头。
+# server_names ，设置一个或多个 URL ，检测 Referer 头域的值是否是这些 URL 中的某一个。
+# 在需要防盗链的location中配置
+
+valid_referers 192.168.44.101;
+if ($invalid_referer) &#123;
+return 403;
+&#125;
+
+
+
+
+            location ~*/(css|js|fonts|images) &#123;
+             valid_referers 192.168.1.101;
+             if ($invalid_referer) &#123;
+             return 403;
+             &#125;
+             root html;
+             index index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+
+
+
+            location ~*/(css|js|fonts|images) &#123;
+             valid_referers none 192.168.1.101;
+             if ($invalid_referer) &#123;
+             return 403;
+             &#125;
+             root html;
+             index index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+
+
+# valid_referers none 192.168.1.101;
+# 两种访问的方式
+# 没有referer的时候可以访问资源
+# 有referer并且域名是等于配置(这里演示只是配置了ip192.168.1.101)的相同可以访问资源
+</code></pre>
+<h2 id="curl"><a href="#curl" class="headerlink" title="curl"></a>curl</h2><pre><code class="bash"># 安装curl
+[root@xiamu04 admin]# yum install curl
+
+# 当前设置的, 只有referer = none 或者 referer = 192.168.1.101的能够访问
+valid_referers none 192.168.1.101;
+
+# 使用curl测试
+[root@xiamu04 admin]# curl http://192.168.1.101
+&lt;img src=&quot;images/photos/user-avatar.png&quot;&gt;
+[root@xiamu04 admin]# curl -I http://192.168.1.101
+HTTP/1.1 200 OK
+Server: nginx/1.22.1
+Date: Fri, 28 Oct 2022 11:47:22 GMT
+Content-Type: text/html
+Content-Length: 42
+Connection: keep-alive
+Accept-Ranges: bytes
+ETag: W/&quot;42-1666955317000&quot;
+Last-Modified: Fri, 28 Oct 2022 11:08:37 GMT
+
+# 带引用
+[root@xiamu04 admin]# curl -I http://192.168.1.101/images/photos/user-avatar.png
+HTTP/1.1 200 OK
+Server: nginx/1.22.1
+Date: Fri, 28 Oct 2022 11:49:32 GMT
+Content-Type: image/png
+Content-Length: 15649
+Last-Modified: Thu, 27 Oct 2022 08:55:50 GMT
+Connection: keep-alive
+ETag: &quot;635a4796-3d21&quot;
+Accept-Ranges: bytes
+
+[root@xiamu04 admin]# curl -e &quot;http://atguigu.com&quot; -I http://192.168.1.101/images/photos/user-avatar.png
+HTTP/1.1 403 Forbidden
+Server: nginx/1.22.1
+Date: Fri, 28 Oct 2022 11:49:43 GMT
+Content-Type: text/html
+Content-Length: 153
+Connection: keep-alive
+
+</code></pre>
+<h2 id="盗链资源返回页面或者提示图片"><a href="#盗链资源返回页面或者提示图片" class="headerlink" title="盗链资源返回页面或者提示图片"></a>盗链资源返回页面或者提示图片</h2><pre><code class="bash"># 盗链之后返回html
+                location ~*/(css|js|fonts|images) &#123;
+             #valid_referers 192.168.1.101;
+             valid_referers none 192.168.1.101;
+             if ($invalid_referer) &#123;
+             return 401;
+             &#125;
+             root html;
+             index index.html index.htm;
+        &#125;
+        error_page   500 502 503 504  /50x.html;
+        location = /50x.html &#123;
+            root   html;
+        &#125;
+        error_page   401  /401.html;
+        location = /401.html &#123;
+            root   html;
+        &#125;
+
+# 盗链之后返回png图片
+        location ~*/(css|js|fonts|images) &#123;
+             #valid_referers 192.168.1.101;
+             valid_referers none 192.168.1.101;
+             if ($invalid_referer) &#123;
+             rewrite ^/   /images/x.png break;
+             #return 401;
+             &#125;
+             root html;
+             index index.html index.htm;
+        &#125;
+
+</code></pre>
+<h2 id="安装-Keepalived"><a href="#安装-Keepalived" class="headerlink" title="安装 Keepalived"></a>安装 Keepalived</h2><p>常见报错</p>
+<pre><code class="bash">configure: error:
+  !!! OpenSSL is not properly installed on your system. !!!
+  !!! Can not include OpenSSL headers files.            !!!
+[root@xiamu01 keepalived-2.2.7]# yum install openssl-devel
+
+
+--&gt; 正在检查事务
+---&gt; 软件包 mariadb-libs.x86_64.1.5.5.68-1.el7 将被 安装
+--&gt; 正在处理依赖关系 libmysqlclient.so.18(libmysqlclient_18)(64bit)，它被软件包 1:net-snmp-agent-libs-5.7.2-49.el7_9.2.x86_64 需要
+--&gt; 正在处理依赖关系 libmysqlclient.so.18()(64bit)，它被软件包 1:net-snmp-agent-libs-5.7.2-49.el7_9.2.x86_64 需要
+--&gt; 解决依赖关系完成
+错误：软件包：1:net-snmp-agent-libs-5.7.2-49.el7_9.2.x86_64 (updates)
+          需要：libmysqlclient.so.18()(64bit)
+错误：软件包：1:net-snmp-agent-libs-5.7.2-49.el7_9.2.x86_64 (updates)
+          需要：libmysqlclient.so.18(libmysqlclient_18)(64bit)
+ 您可以尝试添加 --skip-broken 选项来解决该问题
+ 您可以尝试执行：rpm -Va --nofiles --nodigest
+[root@xiamu01 opt]# wget https://dev.mysql.com/get/Downloads/MySQL-5.7/mysql-community-libs-compat-5.7.25-1.el7.x86_64.rpm
+[root@xiamu01 opt]# rpm -ivh mysql-community-libs-compat-5.7.25-1.el7.x86_64.rpm
+</code></pre>
+<p>yum 安装 Keepalived</p>
+<pre><code class="bash"># nginx1
+[root@xiamu01 ~]# yum install keepalived
+
+配置
+使用yum安装后配置文件在
+/etc/keepalived/keepalived.conf
+
+! Configuration File for keepalived
+
+global_defs &#123;
+   router_id lb111
+&#125;
+
+vrrp_instance atguigu &#123;
+    state MASTER
+    interface ens33
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication &#123;
+        auth_type PASS
+        auth_pass 1111
+    &#125;
+    virtual_ipaddress &#123;
+        192.168.1.200
+    &#125;
+&#125;
+
+
+
+# nginx1_backup
+[root@xiamu01 ~]# yum install keepalived
+
+! Configuration File for keepalived
+
+global_defs &#123;
+   router_id lb110
+&#125;
+
+vrrp_instance VI_1 &#123;
+    state BACKUP
+    interface ens33
+    virtual_router_id 51
+    priority 50
+    advert_int 1
+    authentication &#123;
+        auth_type PASS
+        auth_pass 1111
+    &#125;
+    virtual_ipaddress &#123;
+        192.168.1.200
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhAq9aBoIeDahKZEYWzCzabUx2GK.png"></p>
+<p>查看 ip</p>
+<pre><code class="bash">
+[root@xiamu01 ~]# ip addr
+2: ens33: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 00:50:56:3e:9d:2e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.101/24 brd 192.168.1.255 scope global ens33
+       valid_lft forever preferred_lft forever
+    inet 192.168.1.200/32 scope global ens33
+       valid_lft forever preferred_lft forever
+    inet6 fe80::250:56ff:fe3e:9d2e/64 scope link
+       valid_lft forever preferred_lft forever
+</code></pre>
+<p>启动服务</p>
+<pre><code class="bash"># nginx1 和 nginx1_backup
+[root@xiamu01 ~]# systemctl start keepalived
+[root@xiamu01 ~]# systemctl stop firewalld
+[root@xiamu01 ~]# systemctl start nginx
+</code></pre>
+<p>使用 192.168.1.200 也能够访问到页面了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgFqVpxV6aXIeIirz1f_LTjZ-ysA.png"></p>
+<h2 id="Https-证书配置"><a href="#Https-证书配置" class="headerlink" title="Https 证书配置"></a>Https 证书配置</h2><p>不安全的 http 协议<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnRCNeqNJnO6JQOLscUph1SYppuN.png"></p>
+<p>非对称加密算法<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fp5LR9tNfjq2aL8SrWSWkg9NKtgn.png"><br>另一种同样不安全的非对称加密算法<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FutXjBdwlND37pUre1fazSoUQpfJ.png"></p>
+<p>CA 机构参与保证互联网安全<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlWOtTsvPX0Ye8LdRRZwP97Mwz_a.png"><br>查看操作系统的证书<br>cmd &#x3D;&gt; certmgr.msc</p>
+<h2 id="openssl"><a href="#openssl" class="headerlink" title="openssl"></a>openssl</h2><p>openssl 包含：SSL 协议库、应用程序以及密码算法库</p>
+<h2 id="自签名"><a href="#自签名" class="headerlink" title="自签名"></a>自签名</h2><p>openssl</p>
+<h2 id="图形化工具-XCA"><a href="#图形化工具-XCA" class="headerlink" title="图形化工具 XCA"></a>图形化工具 XCA</h2><p>下载地址 <a target="_blank" rel="noopener" href="https://www.hohnstaedt.de/xca/index.php/download">https://www.hohnstaedt.de/xca/index.php/download</a></p>
+<h2 id="CA-签名"><a href="#CA-签名" class="headerlink" title="CA 签名"></a>CA 签名</h2><h2 id="域名的申请"><a href="#域名的申请" class="headerlink" title="域名的申请"></a>域名的申请</h2><p>安装 lnmp<br><a target="_blank" rel="noopener" href="https://oneinstack.com/">https://oneinstack.com/</a></p>
+<p>bbs 论坛<br><a target="_blank" rel="noopener" href="https://discuz.com/">https://discuz.com/</a></p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2022/11/05/SSM/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>SSM</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/10/22/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>操作系统</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

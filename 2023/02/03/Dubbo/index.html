@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>Dubbo-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>Dubbo</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2023-02-03 11:21:08</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="安装-zookeeper"><a href="#安装-zookeeper" class="headerlink" title="安装 zookeeper"></a>安装 zookeeper</h2><p>在 windows 环境安装 zookeeper, 为了省事(其实我就是偷懒, 视频中安装的地方就是 windows)<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FicRGS_5xp-JnHlMro0hjy_8z0IJ.png"><br>在根目录下创建 data 目录,<br>打开 conf 拷贝<code>zoo_sample.cfg</code>一份, 修改名称为<code>zoo.cfg</code><br>打开 cmd, 进入 bin 目录, <code>zkServer.cmd</code>启动服务<br>打开 cmd, 进入 bin 目录, <code>zkCli.cmd</code>启动客户端</p>
+<h2 id="安装-dubbo-admin"><a href="#安装-dubbo-admin" class="headerlink" title="安装 dubbo-admin"></a>安装 dubbo-admin</h2><p>dubbo 本身并不是一个服务软件。它其实就是一个 jar 包能够帮你的 java 程序连接到 zookeeper，并利用 zookeeper 消费、提供服务。所以你不用在 Linux 上启动什么 dubbo 服务。<br>但是为了让用户更好的管理监控众多的 dubbo 服务，官方提供了一个可视化的监控程序，不过这个监控即使不装也不影响使用。<br>github 地址:<br><a target="_blank" rel="noopener" href="https://github.com/apache/dubbo-admin">https://github.com/apache/dubbo-admin</a></p>
+<h3 id="通过源码打包运行"><a href="#通过源码打包运行" class="headerlink" title="通过源码打包运行"></a>通过源码打包运行</h3><ol>
+<li>下载代码: git clone <a target="_blank" rel="noopener" href="https://github.com/apache/dubbo-admin.git">https://github.com/apache/dubbo-admin.git</a></li>
+<li>在 dubbo-admin-server&#x2F;src&#x2F;main&#x2F;resources&#x2F;application.properties 中指定注册中心地址</li>
+<li>构建<ul>
+<li>mvn clean package -Dmaven.test.skip&#x3D;true</li>
+</ul>
+</li>
+<li>启动<ul>
+<li>mvn –projects dubbo-admin-server spring-boot:run 或者</li>
+<li>cd dubbo-admin-distribution&#x2F;target; java -jar dubbo-admin-${project.version}.jar</li>
+</ul>
+</li>
+<li>访问 <a target="_blank" rel="noopener" href="http://localhost:38080/">http://localhost:38080</a></li>
+</ol>
+<p>检查 zookeeper 的主机地址是否正确<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhSrof70m_-KUUGvhXLXRoNDK9CA.png"><br>使用 maven 进行打包<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FrlJKPBb9cq0JxynSOxUGJFDdewM.png"><br>运行打包好的 jar 项目<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjxbwnUUeh39vshBLZPSqtZJ_Wdx.png"><br>可见端口是 7001,<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuW2NgR42hnerMfvuXmrxOA-7B_Z.png"><br>访问<a target="_blank" rel="noopener" href="http://localhost:7001/">http://localhost:7001/</a><br>账号 root, 密码 root<img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FrTWv3zBCd6npkCyxy85vEtP9qyJ.png"></p>
+<h2 id="服务消费者配置-amp-测试"><a href="#服务消费者配置-amp-测试" class="headerlink" title="服务消费者配置&amp;测试"></a>服务消费者配置&amp;测试</h2><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>订单服务 web 模块</td>
+<td>创建订单等</td>
+</tr>
+<tr>
+<td>用户服务 service 模块</td>
+<td>查询用户地址等</td>
+</tr>
+</tbody></table>
+<p>测试预期结果：<br>订单服务 web 模块在 A 服务器，用户服务模块在 B 服务器，A 可以远程调用 B 的功能。</p>
+<h2 id="监控中心-Simple-Monitor-安装配置"><a href="#监控中心-Simple-Monitor-安装配置" class="headerlink" title="监控中心-Simple Monitor 安装配置"></a>监控中心-Simple Monitor 安装配置</h2><p>对 dubbo-monitor-simple 使用 maven 进行打包<code>mvn package</code><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpENFOe1aTMuc4jInTiElFUjygSL.png"><br>检查配置文件端口是否正确<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnQCXGDh3ZZDCyXtRO-6sElCXUF_.png"><br>E:\Code\Dubbo\课件\software\dubbo-monitor-simple-2.0.0\assembly.bin<br>在 bin 目录下双击 start.bat 启动 dubbo<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fp6bTu3GgacsF3aTJAZPi_xfAjF4.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiwVJVdhG4uvWQQo2jY_GWYFuLqq.png"><br>启动好了之后访问<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhkXLPsfNxxUfOT8crH6KpBmn1CK.png"><br><strong>配置监控中心</strong><br><a target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh/docsv2.7/user/references/xml/dubbo-monitor/">https://cn.dubbo.apache.org/zh/docsv2.7/user/references/xml/dubbo-monitor/</a><br>consumer.xml 中配置</p>
+<pre><code>&lt;!-- 配置监控中心 --&gt;
+&lt;dubbo:monitor protocol=&quot;registry&quot;&gt;&lt;/dubbo:monitor&gt;
+&lt;!--&lt;dubbo:monitor address=&quot;127.0.0.1:7070&quot;&gt;&lt;/dubbo:monitor&gt;--&gt;
+</code></pre>
+<p>provider.xml 中配置</p>
+<h2 id="Dubbo-与-SpringBoot-整合"><a href="#Dubbo-与-SpringBoot-整合" class="headerlink" title="Dubbo 与 SpringBoot 整合"></a>Dubbo 与 SpringBoot 整合</h2><h2 id="配置-Dubbo-properties-amp-属性加载顺序"><a href="#配置-Dubbo-properties-amp-属性加载顺序" class="headerlink" title="配置-Dubbo.properties&amp;属性加载顺序"></a>配置-Dubbo.properties&amp;属性加载顺序</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FrsSSA79uNBtD1yNJVcPE3QIiDUl.png"><br>BootUserServiceProviderApplicaion<br>VM options 运行参数 <code>-Ddubbo.protocol.port=20880</code><br>applicaion.yaml 配置 (相当于 XML)</p>
+<pre><code>dubbo:
+  application:
+    name: user-service-provider
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  protocol:
+    name: dubbo
+    port: 20881
+  monitor:
+    protocol: registry
+</code></pre>
+<p>dubbo.properties 配置</p>
+<pre><code>dubbo.protocol.port=20882
+</code></pre>
+<h2 id="配置-启动检查"><a href="#配置-启动检查" class="headerlink" title="配置-启动检查"></a>配置-启动检查</h2><p><a target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh/docs/advanced/preflight-check/">https://cn.dubbo.apache.org/zh/docs/advanced/preflight-check/</a><br>关闭某个服务的启动时检查(没有提供者时报错)</p>
+<pre><code>&lt;dubbo:reference id=&quot;UserService&quot; interface=&quot;com.atguigu.gmall.service.UserService&quot; /&gt;
+</code></pre>
+<p>关闭所有服务的启动时检查(没有提供者时报错)</p>
+<pre><code>&lt;dubbo:consumer check=&quot;false&quot;&gt;&lt;/dubbo:consumer&gt;
+</code></pre>
+<h2 id="配置-超时-amp-配置覆盖关系"><a href="#配置-超时-amp-配置覆盖关系" class="headerlink" title="配置-超时&amp;配置覆盖关系"></a>配置-超时&amp;配置覆盖关系</h2><p><a target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh/docs/references/configuration/xml/">https://cn.dubbo.apache.org/zh/docs/references/configuration/xml/</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsJH2h6IOBRPRQMe4-i6x91QNOZO.png"><br>优先级:</p>
+<ul>
+<li>方法级优先，接口级次之，全局配置再次之。</li>
+<li>如果级别一样，则消费方优先，提供方次之。</li>
+</ul>
+<p>provider.xml</p>
+<pre><code>&lt;!-- 声明需要暴露的服务接口 --&gt;
+&lt;dubbo:service interface=&quot;com.atguigu.gmall.service.UserService&quot; ref=&quot;UserServiceImpl&quot;
+               timeout=&quot;4000&quot;&gt;
+    &lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;2000&quot;&gt;&lt;/dubbo:method&gt;
+&lt;/dubbo:service&gt;
+
+&lt;dubbo:provider timeout=&quot;6000&quot;&gt;&lt;/dubbo:provider&gt;
+</code></pre>
+<p>consumer.xml</p>
+<pre><code>&lt;dubbo:reference
+        id=&quot;UserService&quot;
+        interface=&quot;com.atguigu.gmall.service.UserService&quot;
+        timeout=&quot;3000&quot;&gt;
+    &lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;
+&lt;/dubbo:reference&gt;
+
+&lt;dubbo:consumer check=&quot;false&quot; timeout=&quot;5000&quot;&gt;&lt;/dubbo:consumer&gt;
+</code></pre>
+<h2 id="配置-重试次数"><a href="#配置-重试次数" class="headerlink" title="配置-重试次数"></a>配置-重试次数</h2><p>retries-“”: 重试次数, 不包含第一次调用, 0 代表不重试<br>幂等(设置重试次数)[查询, 删除, 修改] 非幂等(不能设置重试次数)[新增]</p>
+<pre><code>&lt;!-- retries-&quot;&quot;: 重试次数, 不包含第一次调用, 0代表不重试 --&gt;
+&lt;!-- 幂等(设置重试次数)[查询, 删除, 修改] 非幂等(不能设置重试次数)[新增] --&gt;
+&lt;dubbo:reference
+        id=&quot;UserService&quot;
+        interface=&quot;com.atguigu.gmall.service.UserService&quot;
+        timeout=&quot;5000&quot;
+        retries=&quot;3&quot;&gt;
+    &lt;!--&lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;--&gt;
+&lt;/dubbo:reference&gt;
+</code></pre>
+<p>重试三次, 如果有三个提供者, 将会每个都重试一遍<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Flvfok_AEYHshAkYio0k7b5veHHu.png"></p>
+<h2 id="配置-多版本"><a href="#配置-多版本" class="headerlink" title="配置-多版本"></a>配置-多版本</h2><p>provider.xml</p>
+<pre><code>&lt;dubbo:service interface=&quot;com.atguigu.gmall.service.UserService&quot; ref=&quot;UserServiceImpl01&quot;
+               timeout=&quot;1000&quot; version=&quot;1.0.0&quot;&gt;
+    &lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;
+&lt;/dubbo:service&gt;
+
+&lt;dubbo:service interface=&quot;com.atguigu.gmall.service.UserService&quot; ref=&quot;UserServiceImpl02&quot;
+               timeout=&quot;1000&quot; version=&quot;2.0.0&quot;&gt;
+    &lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;
+&lt;/dubbo:service&gt;
+
+&lt;!-- 和本地bean一样实现服务 --&gt;
+&lt;bean id=&quot;UserServiceImpl01&quot; class=&quot;com.atguigu.gmall.service.impl.UserServiceImpl&quot;/&gt;
+&lt;bean id=&quot;UserServiceImpl02&quot; class=&quot;com.atguigu.gmall.service.impl.UserServiceImpl2&quot;/&gt;
+</code></pre>
+<p>consumer.xml</p>
+<pre><code>&lt;dubbo:reference
+        id=&quot;UserService&quot;
+        interface=&quot;com.atguigu.gmall.service.UserService&quot;
+        timeout=&quot;5000&quot;
+        retries=&quot;3&quot; version=&quot;*&quot;&gt;
+    &lt;!--&lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;--&gt;
+&lt;/dubbo:reference&gt;
+</code></pre>
+<p>消费者指定需要使用的 version<br>version 可以填 1.0.0&#x2F;2.0.0&#x2F;* *表示随机的新老版本<br>不同运行结果如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuwcXwwihNRc2MfQjgBtjX6-lIHW.png"></p>
+<h2 id="配置-本地存根"><a href="#配置-本地存根" class="headerlink" title="配置-本地存根"></a>配置-本地存根</h2><p>UserServiceStub.java</p>
+<pre><code>public class UserServiceStub implements UserService &#123;
+
+    private final UserService userService;
+
+    /**
+     * 传入的是userService远程的代理对象
+     * @param userService
+     */
+    public UserServiceStub(UserService userService) &#123;
+        this.userService = userService;
+    &#125;
+
+    @Override
+    public List&lt;UserAddress&gt; getUserAddressList(String userId) &#123;
+        System.out.println(&quot;UserServiceStub...&quot;);
+        if (!StringUtils.isEmpty(userId)) &#123;
+            return userService.getUserAddressList(userId);
+        &#125;
+        return null;
+    &#125;
+&#125;
+</code></pre>
+<p>consumer.xml</p>
+<pre><code>&lt;dubbo:reference
+        id=&quot;UserService&quot;
+        interface=&quot;com.atguigu.gmall.service.UserService&quot;
+        timeout=&quot;5000&quot;
+        retries=&quot;3&quot; version=&quot;*&quot;
+        stub=&quot;com.atguigu.gmall.service.UserServiceStub&quot;&gt;
+    &lt;!--&lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;--&gt;
+&lt;/dubbo:reference&gt;
+</code></pre>
+<p>给 stub 设置包名</p>
+<h2 id="配置-SpringBoot-整合的三种方式"><a href="#配置-SpringBoot-整合的三种方式" class="headerlink" title="配置-SpringBoot 整合的三种方式"></a>配置-SpringBoot 整合的三种方式</h2><ol>
+<li>导入 dubbo-starter, 在 application.properties 配置属性, 使用@Service[暴露服务], 使用@Reference[引用服务]</li>
+<li>保留 dubbo.xml 配置文件</li>
+</ol>
+<p>导入 dubbo-starter, 使用@ImportResource 导入 dubbo 的配置文件即可</p>
+<ol start="3">
+<li>使用注解 API 的方式</li>
+</ol>
+<p>将每一个组件手动创建到容器中, 让 dubbo 来扫描其他的组件</p>
+<p><strong>xml 的方式</strong><br>provider.xml</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:dubbo=&quot;http://dubbo.apache.org/schema/dubbo&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd&quot;&gt;
+
+    &lt;!-- 提供方应用信息，用于计算依赖关系 --&gt;
+    &lt;dubbo:application name=&quot;boot-user-service-provider&quot; /&gt;
+
+    &lt;!-- 使用multicast广播注册中心暴露服务地址 --&gt;
+    &lt;dubbo:registry address=&quot;zookeeper://127.0.0.1:2181&quot; /&gt;
+
+    &lt;!-- 用dubbo协议在20880端口暴露服务 --&gt;
+    &lt;dubbo:protocol name=&quot;dubbo&quot; port=&quot;20882&quot; /&gt;
+
+    &lt;!-- 和本地bean一样实现服务 --&gt;
+    &lt;bean id=&quot;UserServiceImpl&quot; class=&quot;com.atguigu.gmall.service.impl.UserServiceImpl&quot;/&gt;
+
+    &lt;!-- 声明需要暴露的服务接口 --&gt;
+    &lt;dubbo:service interface=&quot;com.atguigu.gmall.service.UserService&quot;
+                   ref=&quot;UserServiceImpl&quot;
+                   timeout=&quot;1000&quot; version=&quot;1.0.0&quot;&gt;
+        &lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;
+    &lt;/dubbo:service&gt;
+
+    &lt;dubbo:provider timeout=&quot;1000&quot; token=&quot;true&quot;&gt;&lt;/dubbo:provider&gt;
+
+    &lt;!-- 连接监控中心 --&gt;
+    &lt;dubbo:monitor protocol=&quot;registry&quot; &gt;&lt;/dubbo:monitor&gt;
+
+&lt;/beans&gt;
+</code></pre>
+<p>这个 xml 文件中注入了 bean, UserService 就不需要@Service 这个注解暴露服务<br>UserService 中<br>@Service 是 com.alibaba.dubbo.config.annotation.Service;包下的</p>
+<pre><code>import com.alibaba.dubbo.config.annotation.Service;
+
+//@Service   // 暴露服务
+@Component
+public class UserServiceImpl implements UserService &#123;
+
+    @Override
+    public List&lt;UserAddress&gt; getUserAddressList(String userId) &#123;
+        UserAddress address1 = new UserAddress(1, &quot;北京市昌平区宏福科技园综合楼3层&quot;, &quot;1&quot;, &quot;李老师&quot;, &quot;010-56253825&quot;, &quot;Y&quot;);
+        UserAddress address2 = new UserAddress(2, &quot;深圳市宝安区西部硅谷大厦B座3层（深圳分校）&quot;, &quot;1&quot;, &quot;王老师&quot;, &quot;010-56253825&quot;, &quot;N&quot;);
+
+        return Arrays.asList(address1,address2);
+    &#125;
+
+&#125;
+</code></pre>
+<p>Application</p>
+<pre><code>//@EnableDubbo // 开启基于注解的dubbo功能
+@ImportResource(locations = &quot;classpath:provider.xml&quot;)
+@SpringBootApplication
+public class BootUserServiceProviderApplication &#123;
+
+    public static void main(String[] args) &#123;
+        SpringApplication.run(BootUserServiceProviderApplication.class, args);
+    &#125;
+
+&#125;
+</code></pre>
+<p><strong>注解的方式</strong><br>MyDubboConfig</p>
+<pre><code>package com.atguigu.gmall.config;
+
+import com.alibaba.dubbo.config.*;
+import com.atguigu.gmall.service.UserService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Configuration
+public class MyDubboConfig &#123;
+
+    //    &lt;dubbo:application name=&quot;boot-user-service-provider&quot; /&gt;
+    @Bean
+    public ApplicationConfig applicationConfig() &#123;
+        ApplicationConfig applicationConfig = new ApplicationConfig();
+        applicationConfig.setName(&quot;boot-user-service-provider&quot;);
+        return applicationConfig;
+    &#125;
+
+    //    &lt;dubbo:registry address=&quot;zookeeper://127.0.0.1:2181&quot; /&gt;
+
+    @Bean
+    public RegistryConfig registryConfig() &#123;
+        RegistryConfig registryConfig = new RegistryConfig();
+        registryConfig.setAddress(&quot;zookeeper://127.0.0.1:2181&quot;);
+        return registryConfig;
+    &#125;
+
+    //    &lt;dubbo:protocol name=&quot;dubbo&quot; port=&quot;20882&quot; /&gt;
+    @Bean
+    public ProtocolConfig protocolConfig() &#123;
+        ProtocolConfig protocolConfig = new ProtocolConfig();
+        protocolConfig.setName(&quot;dubbo&quot;);
+        protocolConfig.setPort(20882);
+        return protocolConfig;
+    &#125;
+
+    //    &lt;dubbo:service interface=&quot;com.atguigu.gmall.service.UserService&quot;
+    //                   ref=&quot;UserServiceImpl&quot;
+    //                   timeout=&quot;1000&quot; version=&quot;1.0.0&quot;&gt;
+    //        &lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;
+    //    &lt;/dubbo:service&gt;
+    @Bean
+    public ServiceConfig&lt;UserService&gt; userServiceServiceConfig(UserService userService) &#123;
+        ServiceConfig&lt;UserService&gt; userServiceServiceConfig = new ServiceConfig&lt;&gt;();
+        userServiceServiceConfig.setInterface(UserService.class);
+        userServiceServiceConfig.setRef(userService);
+        userServiceServiceConfig.setVersion(&quot;1.0.0&quot;);
+
+        // 配置每一个method的信息
+        MethodConfig methodConfig = new MethodConfig();
+        methodConfig.setName(&quot;getUserAddressList&quot;);
+        methodConfig.setTimeout(1000);
+
+        // 将method的设置关联到service配置中
+        List&lt;MethodConfig&gt; methodConfigList = new ArrayList&lt;&gt;();
+        methodConfigList.add(methodConfig);
+        userServiceServiceConfig.setMethods(methodConfigList);
+        return userServiceServiceConfig;
+    &#125;
+
+    //    &lt;dubbo:provider timeout=&quot;1000&quot;&gt;&lt;/dubbo:provider&gt;
+    @Bean
+    public ProviderConfig providerConfig() &#123;
+        ProviderConfig providerConfig = new ProviderConfig();
+        providerConfig.setTimeout(1000);
+        return providerConfig;
+    &#125;
+
+    //    &lt;dubbo:monitor protocol=&quot;registry&quot; &gt;&lt;/dubbo:monitor&gt;
+    @Bean
+    public MonitorConfig monitorConfig() &#123;
+        MonitorConfig monitorConfig = new MonitorConfig();
+        monitorConfig.setProtocol(&quot;registry&quot;);
+        return monitorConfig;
+    &#125;
+&#125;
+</code></pre>
+<p>UserService 需要暴露服务</p>
+<pre><code>@Service   // 暴露服务
+@Component
+public class UserServiceImpl implements UserService &#123;
+
+    @Override
+    public List&lt;UserAddress&gt; getUserAddressList(String userId) &#123;
+        UserAddress address1 = new UserAddress(1, &quot;北京市昌平区宏福科技园综合楼3层&quot;, &quot;1&quot;, &quot;李老师&quot;, &quot;010-56253825&quot;, &quot;Y&quot;);
+        UserAddress address2 = new UserAddress(2, &quot;深圳市宝安区西部硅谷大厦B座3层（深圳分校）&quot;, &quot;1&quot;, &quot;王老师&quot;, &quot;010-56253825&quot;, &quot;N&quot;);
+
+        return Arrays.asList(address1,address2);
+    &#125;
+
+&#125;
+</code></pre>
+<p>Application</p>
+<pre><code>//@EnableDubbo // 开启基于注解的dubbo功能
+//@ImportResource(locations = &quot;classpath:provider.xml&quot;)
+@EnableDubbo(scanBasePackages = &quot;com.atguigu.gmall&quot;)
+@SpringBootApplication
+public class BootUserServiceProviderApplication &#123;
+
+    public static void main(String[] args) &#123;
+        SpringApplication.run(BootUserServiceProviderApplication.class, args);
+    &#125;
+
+&#125;
+</code></pre>
+<h2 id="高可用-ZooKeeper-宕机与-Dubbo-直连"><a href="#高可用-ZooKeeper-宕机与-Dubbo-直连" class="headerlink" title="高可用-ZooKeeper 宕机与 Dubbo 直连"></a>高可用-ZooKeeper 宕机与 Dubbo 直连</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjaEbiGhM8BJPZ69ZETZ6jFEDrKj.png"><br>注册中心挂了, 仍然能消耗暴露的服务<br>健壮性</p>
+<ul>
+<li>监控中心宕掉不影响使用，只是丢失部分采样数据</li>
+<li>数据库宕掉后，注册中心仍能通过缓存提供服务列表查询，但不能注册新服务</li>
+<li>注册中心对等集群，任意一台宕掉后，将自动切换到另一台</li>
+<li><strong>注册中心全部宕掉后，服务提供者和服务消费者仍能通过本地缓存通讯</strong></li>
+<li>服务提供者无状态，任意一台宕掉后，不影响使用</li>
+<li>服务提供者全部宕掉后，服务消费者应用将无法使用，并无限次重连等待服务提供者恢复</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FujPqz_xF60myaTq46SBsQ9inpyS.png"></p>
+<p>dubbo 直连</p>
+<pre><code>@Reference(url = &quot;127.0.0.1:20882&quot;) // dubbo直连
+</code></pre>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsQEVVw9ry0hR_YJmou6whjy6JGg.png"></p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>Hexo本地使用</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2023/02/01/ZooKeeper/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>ZooKeeper</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

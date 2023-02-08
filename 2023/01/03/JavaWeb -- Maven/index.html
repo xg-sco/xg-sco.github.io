@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World-Quiet</title>
+<title>JavaWeb -- Maven-Quiet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -284,7 +284,7 @@
             
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>JavaWeb -- Maven</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -299,7 +299,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2023-02-07 17:00:33</p>
+                <p>2023-01-03 21:33:48</p>
             </div>
         </div>
     </div>
@@ -309,19 +309,17 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+    <h2 id="Open-打开项目"><a href="#Open-打开项目" class="headerlink" title="Open(打开项目)"></a>Open(打开项目)</h2><p>点击 open 打开一个项目<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FvjZqBGcWwj6XLVTKMzXJzPAOuni.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhH4EbH4cYOoBxu84_o_Nmijzw2U.png"><br>打开的项目目录如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fku_dXi69xMU7sZB1kK8ACiPX2uP.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtbPa-7HJHFuvBuFgG6-Ijq3Fakq.png"><br>此时的 java, resource 与 webapp 是同级目录, 但是 webapp 图标并没有小蓝点, 我们需要给 webapp 目录加上小蓝点才能正常运行出项目<br>在 maven 项目中存放 web 资源的不在叫做 web, 而是叫做 webapp<br>点 File - Project Structure<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fh_Ce50pJB-aHgERz6W5PcUazf7l.png"><br>我们主要配置 Facets 和 Artifact</p>
+<h2 id="Facets"><a href="#Facets" class="headerlink" title="Facets"></a>Facets</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fgb_hHw17oCNJveW1HwOV_ulxNd5.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fngd3pLf2dbMfexYY_9m1ijDqOjC.png"><br>修改两个路径, 此时这两个路径是错的<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgqPca9B20vjm1N3v5PtyESJUJ1J.png"></p>
+<ol>
+<li>把</li>
+</ol>
+<p>E:\demo2\web\WEB-INF\web.xml<br>修改成<br>E:\demo2\src\main\webapp\WEB-INF\web.xml</p>
+<ol start="2">
+<li>把</li>
+</ol>
+<p>E:\demo2\web<br>修改成<br>E:\demo2\src\main\webapp<br>怕写错可以右键拷贝<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq1NNsSj_V3CdLcTyzRYd7LXCyb-.png"><br>最后修改的样子如下: 仔细一点, 不要修改错了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fj1rSlpgWZ6zfrd3jgPfU5GekJ1u.png"></p>
+<h2 id="Artifact"><a href="#Artifact" class="headerlink" title="Artifact"></a>Artifact</h2><h2 id="Artifacts"><a href="#Artifacts" class="headerlink" title="Artifacts"></a>Artifacts</h2><p>添加 Artifacts<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnBJ2ZYQFaPF7OSHL8V2xUmaF-Ao.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjfUqXf0fpt8eG9c-X31X5Yg2_rC.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fmo0-Y8bX2ibwKbJzfqKtZv53mt4.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhA4xc6zznT-_J6JXv1AbtHf32tL.png"><br>最后确认有成功添加这两个 war 包<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtJXJKsaF1mj0Vt2vnKOvpiO5F8b.png"></p>
 
   </div>
   <div id="gitalk-container"></div>
@@ -382,19 +380,19 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2023/02/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <a href="/2023/01/03/%E9%83%A8%E7%BD%B2%E5%88%B0tomcat/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>我的第一篇博客</p>
+            <p>部署到tomcat</p>
         </div>
     </a>
     
 
     
-    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+    <a href="/2023/01/03/JavaWeb/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>Hexo本地使用</p>
+            <p>JavaWeb</p>
         </div>
     </a>
     

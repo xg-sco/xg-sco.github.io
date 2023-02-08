@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>HDFS-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>HDFS</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2023-01-01 23:48:07</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>HDFS(Hadoop Distributed File System), 它是一个文件系统, 用于存储文件, 通过目录树来定位文件;<br>其次, 它是分布式, 由很多服务器联合起来实现其功能, 集群中的服务器有各自的角色.<br>HDFS 的使用场景, 适合一次写入, 多次读书的场景. 一个文件经过创建, 写入和关闭之后就不需要改变.<br>思考:<br>NameNode 在生产环境中一般是 128G 的内存, 能存多少文件? 一个文件块占用 150 个字节, 128G 的内存能存储 9 亿个文件块<br>计算过程:<br>128G &#x3D; 128 _ 1024M &#x3D; 128 _ 1024 _ 1024KB &#x3D; 128 _ 1024 _ 1024 _ 1024Byte &#x3D; 237 Byte&#x3D; 137438953472Byte<br>一个文件块大小是 150Byte<br>那么能够存储的文件数量是<img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlWOZrsKo2OsLAt3VWdGWtsrh8Q0.svg"> &#x3D; 916259689.813 ≈ 9 亿<br>tip: Byte 是字节, bit 是位<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnLhxL-nLpsKfnLXUnTFJZs3Bg03.png"></p>
+<h2 id="组成架构"><a href="#组成架构" class="headerlink" title="组成架构"></a>组成架构</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtLQb21-vvOhMJCiByp5KMPfEwug.png"><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkY_HVQkK3jwniJiAoHfb0Fk7wP-.png"><br>在 hdfs 创建文件夹:</p>
+<pre><code class="bash">[xiamu@hadoop202 bin]$ hadoop fs -mkdir /aaa
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fo4vA7ntCA7kvfpxshHEulcIVCSx.png"></p>
+<h2 id="文件块大小"><a href="#文件块大小" class="headerlink" title="文件块大小"></a>文件块大小</h2><p>HDFS 中的文件在物理上是分块存储(Block), 块的大小可以通过配置参数(dfs.blocksize)来规定, 默认大小在 Hadoop2.x&#x2F;3.x 版本中是 128M, 1.x 版本中是 64M</p>
+<p>总结: HDFS 块的大小设置主要取决于磁盘传输速率</p>
+<h2 id="HDFS-的-Shell-操作-开发重点"><a href="#HDFS-的-Shell-操作-开发重点" class="headerlink" title="HDFS 的 Shell 操作(开发重点)"></a>HDFS 的 Shell 操作(开发重点)</h2><p>hadoop fs 具体命令 OR hdfs dfs 具体命令<br>两个是完全相同的</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>启动 Hadoop 集群<br><code>[xiamu@hadoop202 bin]$ myhadoop.sh start</code><br>-help: 查看命令如何使用<br><code>[xiamu@hadoop202 bin]$ hadoop fs -help rm</code><br>创建文件夹<br><code>[xiamu@hadoop202 bin]$ hadoop fs -mkdir /sanguo</code></p>
+<h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><ol>
+<li>moveFromLocal 的使用:</li>
+</ol>
+<p>新建文件, 上传文件(剪切文件)<br><code>[xiamu@hadoop202 hadoop-3.1.3]$ vim shuguo.txt</code><br><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -moveFromLocal ./shuguo.txt /sanguo</code></p>
+<ol start="2">
+<li>copyFromLocal 的使用</li>
+</ol>
+<p>新建文件, 拷贝文件(本地的文件仍然存在)<br><code>[xiamu@hadoop202 hadoop-3.1.3]$ vim weiguo.txt</code><br><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -copyFromLocal weiguo.txt /sanguo</code></p>
+<ol start="3">
+<li>put 约同于 copyFromLocal, 生产环境更习惯用 put</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ vim wuguo.txt</code><br><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -put wuguo.txt /sanguo</code></p>
+<ol start="4">
+<li>appendToFile 追加一个文件到已经存在的文件末尾</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ vim liubei.txt</code><br><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -appendToFile liubei.txt /sanguo/shuguo.txt</code></p>
+<p>HDFS 的特性, 只能追加内容, 不能修改原有的内容</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><ol>
+<li>copyToLocal, 从 HDFS 拷贝到本地</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -copyToLocal /sanguo/shuguo.txt ./</code></p>
+<ol start="2">
+<li>等同于 copyToLocal，生产环境更习惯用 get</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -get /sanguo/shuguo.txt ./shuguo2.txt</code></p>
+<h3 id="HDFS-直接操作"><a href="#HDFS-直接操作" class="headerlink" title="HDFS 直接操作"></a><strong>HDFS 直接操作</strong></h3><ol>
+<li>-ls: 显示目录信息</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -ls /sanguo</code></p>
+<ol start="2">
+<li>-cat: 显示文件内容</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -cat /sanguo/shuguo.txt</code></p>
+<ol start="3">
+<li>-chgrp、-chmod、-chown：Linux 文件系统中的用法一样，修改文件所属权限</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -chown xiamu:xiamu /sanguo/shuguo.txt</code></p>
+<ol start="4">
+<li>-mkdir：创建路径</li>
+</ol>
+<p><code>[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -mkdir /jinguo</code></p>
+<ol start="5">
+<li>-cp：从 HDFS 的一个路径拷贝到 HDFS 的另一个路径</li>
+</ol>
+<p><code>[xiamu@hadoop202 ~]$ hadoop fs -cp /sanguo/shuguo.txt /jinguo</code></p>
+<ol start="6">
+<li>-mv：在 HDFS 目录中移动文件</li>
+</ol>
+<p><code>[xiamu@hadoop202 ~]$ hadoop fs -mv /sanguo/weiguo.txt /jinguo</code><br><code>[xiamu@hadoop202 ~]$ hadoop fs -mv /sanguo/wuguo.txt /jinguo</code></p>
+<ol start="7">
+<li>-tail：显示一个文件的末尾 1kb 的数据</li>
+</ol>
+<p><code>[xiamu@hadoop202 ~]$ hadoop fs -tail /jinguo/shuguo.txt</code></p>
+<ol start="8">
+<li>-rm：删除文件或文件夹</li>
+</ol>
+<p><code>[xiamu@hadoop202 ~]$ hadoop fs -rm /sanguo/shuguo.txt</code></p>
+<ol start="9">
+<li>-rm -r：递归删除目录及目录里面内容</li>
+</ol>
+<p><code>[xiamu@hadoop202 ~]$ hadoop fs -rm -r /sanguo</code></p>
+<ol start="10">
+<li>-du 统计文件夹的大小信息</li>
+</ol>
+<pre><code class="bash">[xiamu@hadoop202 ~]$ hadoop fs -du -s -h /jinguo
+27  81  /jinguo
+[xiamu@hadoop202 ~]$ hadoop fs -du -h /jinguo
+14  42  /jinguo/shuguo.txt
+7   21  /jinguo/weiguo.txt
+6   18  /jinguo/wuguo.txt
+</code></pre>
+<p>说明：27 表示文件大小；81 表示 27*3 个副本；&#x2F;jinguo 表示查看的目录</p>
+<ol start="11">
+<li>-setrep：设置 HDFS 中文件的副本数量</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgdVVj393LyomxwYyA-hVQosFQav.png"><br>这里设置的副本数只是记录在 NameNode 的元数据中，是否真的会有这么多副本，还得看 DataNode 的数量。因为目前只有 3 台设备，最多也就 3 个副本，只有节点数的增加到 10 台时，副本数才能达到 10。</p>
+<h2 id="Windows-配置环境变量"><a href="#Windows-配置环境变量" class="headerlink" title="Windows 配置环境变量"></a>Windows 配置环境变量</h2><p><img src="https://cdn.nlark.com/yuque/0/2023/png/33666212/1673320023575-183828bd-8b6c-434a-992d-6f546f65498e.png#averageHue=%23f0efef&clientId=u8e2750e1-dc43-4&from=paste&height=173&id=u1238ee4a&name=image.png&originHeight=259&originWidth=1025&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=13890&status=done&style=none&taskId=u233f9a2c-201b-4f4f-81f8-7e0ea5f6757&title=&width=683.3333333333334" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FmcdxzXcv1zf9rHHlA7orm4Gm17k.png"><br>配置完成之后双击 winutils.exe, 一闪而过说明配置环境变量成功<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlCG6IctmbpIE3rKetkJF-P4Xk4c.png"></p>
+<h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p><strong>在 IDEA 中创建一个 Maven 工程 HdfsClientDemo，并导入相应的依赖坐标+日志添加</strong></p>
+<pre><code class="bash">&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;
+        &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;
+        &lt;version&gt;3.1.3&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.12&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;
+        &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;
+        &lt;version&gt;1.7.30&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<p>在项目的 src&#x2F;main&#x2F;resources 目录下，新建一个文件，命名为“log4j.properties”，在文件中填入</p>
+<pre><code class="bash">log4j.rootLogger=INFO, stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - %m%n
+log4j.appender.logfile=org.apache.log4j.FileAppender
+log4j.appender.logfile.File=target/spring.log
+log4j.appender.logfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.logfile.layout.ConversionPattern=%d %p [%c] - %m%n
+</code></pre>
+<p><strong>创建包名：com.atguigu.hdfs</strong><br><strong>创建 HdfsClient 类</strong></p>
+<pre><code class="bash">public class HdfsClient &#123;
+
+    @Test
+    public void testMkdirs() throws IOException, URISyntaxException, InterruptedException &#123;
+
+        // 1 获取文件系统
+        Configuration configuration = new Configuration();
+
+        // FileSystem fs = FileSystem.get(new URI(&quot;hdfs://hadoop102:8020&quot;), configuration);
+        FileSystem fs = FileSystem.get(new URI(&quot;hdfs://hadoop102:8020&quot;), configuration,&quot;atguigu&quot;);
+
+        // 2 创建目录
+        fs.mkdirs(new Path(&quot;/xiyou/huaguoshan/&quot;));
+
+        // 3 关闭资源
+        fs.close();
+    &#125;
+&#125;
+</code></pre>
+<h2 id="HDFS-API-创建文件夹"><a href="#HDFS-API-创建文件夹" class="headerlink" title="HDFS_API 创建文件夹"></a>HDFS_API 创建文件夹</h2><p>为了方便, 每一个测试类中都会存在获取文件系统, 关闭资源这两个操作, 所以我们可以使用切面抽取出来</p>
+<pre><code class="bash">    private FileSystem fs;
+
+    @Before
+    public void init() throws URISyntaxException, IOException, InterruptedException &#123;
+        // 连接的集群nn地址
+        URI uri = new URI(&quot;hdfs://hadoop202:8020&quot;);
+
+        // 创建一个配置文件
+        Configuration configuration = new Configuration();
+
+        // 用户
+        String user = &quot;xiamu&quot;;
+
+        // 获取到客户端对象
+        fs = FileSystem.get(uri, configuration, user);
+    &#125;
+
+    @After
+    public void close() throws IOException &#123;
+
+        // 关闭资源
+        fs.close();
+    &#125;
+</code></pre>
+<p>创建目录代码, 相比于之前的代码, 瞬间精简了很多</p>
+<pre><code class="bash">    // 创建目录
+    @Test
+    public void testMkdirs() throws IOException, URISyntaxException, InterruptedException &#123;
+
+        // 执行相关的操作命令
+        fs.mkdirs(new Path(&quot;/xiyou/huaguoshan1&quot;));
+
+    &#125;
+</code></pre>
+<h2 id="HDFS-API-上传"><a href="#HDFS-API-上传" class="headerlink" title="HDFS_API 上传"></a>HDFS_API 上传</h2><pre><code class="bash">    // 上传操作
+    @Test
+    public void testPut() throws IOException &#123;
+        // 参数解读: 参数一delSrc: 表示删除原数据
+        // 参数二overwrite: 是否允许覆盖
+        // 参数三src: 原数据路径
+        // 参数四dst: 目标数据路径
+        fs.copyFromLocalFile(
+                true,
+                true,
+                new Path(&quot;E:\\sunwukong.txt&quot;),
+                new Path(&quot;hdfs://hadoop202/xiyou/huaguoshan&quot;)
+        );
+    &#125;
+</code></pre>
+<h2 id="HDFS-API-参数的优先级"><a href="#HDFS-API-参数的优先级" class="headerlink" title="HDFS_API 参数的优先级"></a>HDFS_API 参数的优先级</h2><pre><code class="bash">    /**
+     * 参数优先级
+     * hdfs-default.xml =&gt; hdfs-site.xml =&gt; 在项目资源目录下的配置文件 =&gt; 代码里面的配置
+     * @throws IOException
+     */
+    @Test
+    public void testPut() throws IOException &#123;
+        // 参数解读: 参数一delSrc: 表示删除原数据
+        // 参数二overwrite: 是否允许覆盖
+        // 参数三src: 原数据路径
+        // 参数四dst: 目标数据路径
+        fs.copyFromLocalFile(
+                false,
+                true,
+                new Path(&quot;E:\\sunwukong.txt&quot;),
+                new Path(&quot;hdfs://hadoop202/xiyou/huaguoshan&quot;)
+        );
+    &#125;
+</code></pre>
+<p>在 resource 中创建 hdfs-site.xml, 然后上传文件, 发现副本数量是 1</p>
+<pre><code class="bash">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+
+&lt;configuration&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>修改 init 函数, configuration 中设置 dfs.replication 的值, 然后再次运行代码, 此时的副本数量是 2, 这就说明了这次运行的 dfs.replication 的值会覆盖掉 resource 中的 hdfs-site.xml 里的 dfs.replication 中的值</p>
+<pre><code class="bash">    @Before
+    public void init() throws URISyntaxException, IOException, InterruptedException &#123;
+        // 连接的集群nn地址
+        URI uri = new URI(&quot;hdfs://hadoop202:8020&quot;);
+
+        // 创建一个配置文件
+        Configuration configuration = new Configuration();
+
+        configuration.set(&quot;dfs.replication&quot;, &quot;2&quot;);
+
+        // 用户
+        String user = &quot;xiamu&quot;;
+
+        // 获取到客户端对象
+        fs = FileSystem.get(uri, configuration, user);
+    &#125;
+</code></pre>
+<h2 id="HDFS-API-文件下载"><a href="#HDFS-API-文件下载" class="headerlink" title="HDFS_API 文件下载"></a>HDFS_API 文件下载</h2><pre><code class="bash">    // 文件下载
+    @Test
+    public void testGet() throws IOException &#123;
+        // 参数解读:
+        // 参数一delSrc: 下载完成之后, 是否删除掉hdfs中的原文件
+        // 参数二src: HDFS中原文件的路径
+        // 参数三dst: 客户端目标地址的路径
+        // 参数四useRawLocalFileSystem: 是否开启本地文件的校验
+        fs.copyToLocalFile(
+                true,
+                new Path(&quot;hdfs://hadoop202/xiyou/huaguoshan&quot;),
+                new Path(&quot;E:\\huaguosan&quot;),
+                true
+        );
+    &#125;
+</code></pre>
+<h2 id="HDFS-API-文件删除"><a href="#HDFS-API-文件删除" class="headerlink" title="HDFS_API 文件删除"></a>HDFS_API 文件删除</h2><pre><code class="bash">    // 删除
+    @Test
+    public void testRm() throws IOException &#123;
+        // 参数解读:
+        // 参数一path: 表示要删除的路径
+        // 参数二b: 表示是否递归删除
+
+        // 删除文件
+        // fs.delete(new Path(&quot;/jdk-8u212-linux-x64.tar.gz&quot;), false);
+
+        // 删除空目录
+        // fs.delete(new Path(&quot;/xiyou&quot;), false);
+
+        // 删除非空目录
+        fs.delete(new Path(&quot;/jinguo&quot;), true);
+    &#125;
+</code></pre>
+<h2 id="HDFS-API-文件更名和移动"><a href="#HDFS-API-文件更名和移动" class="headerlink" title="HDFS_API 文件更名和移动"></a>HDFS_API 文件更名和移动</h2><pre><code class="bash">    // 文件的更名和移动
+    @Test
+    public void testmv() throws IOException &#123;
+        // 参数解读:
+        // 参数一: 原文件路径
+        // 参数二: 目标文件路径
+        // 对文件名称的修改:
+        // fs.rename(new Path(&quot;/input/word.txt&quot;), new Path(&quot;/input/ss.txt&quot;));
+
+        // 文件的移动和更名
+        // fs.rename(new Path(&quot;/input/ss.txt&quot;), new Path(&quot;/cls.txt&quot;));
+
+        // 目录的更名
+        fs.rename(new Path(&quot;/input&quot;), new Path(&quot;/output&quot;));
+    &#125;
+</code></pre>
+<h2 id="HDFS-API-文件详细查看"><a href="#HDFS-API-文件详细查看" class="headerlink" title="HDFS_API 文件详细查看"></a>HDFS_API 文件详细查看</h2><pre><code class="bash">    // 获取文件详细信息
+    @Test
+    public void fileDetail() throws IOException &#123;
+        // 参数1 f: 表示哪一个路径
+        // 参数2 recursive: 表示递归
+
+        // 获取所有文件信息, 返回一个迭代器
+        RemoteIterator&lt;LocatedFileStatus&gt; listFiles = fs.listFiles(new Path(&quot;/&quot;), true);
+        // 遍历迭代器
+        while (listFiles.hasNext()) &#123;
+            LocatedFileStatus fileStatus = listFiles.next();
+            System.out.println(&quot;=======&quot; + fileStatus.getPath() + &quot;=======&quot;);
+            System.out.println(fileStatus.getPermission());
+            System.out.println(fileStatus.getOwner());
+            System.out.println(fileStatus.getGroup());
+            System.out.println(fileStatus.getLen());
+            System.out.println(fileStatus.getModificationTime());
+            System.out.println(fileStatus.getReplication());
+            System.out.println(fileStatus.getBlockSize());
+            System.out.println(fileStatus.getPath().getName());
+
+            // 获取块信息
+            BlockLocation[] blockLocations = fileStatus.getBlockLocations();
+            System.out.println(Arrays.toString(blockLocations));
+            /*for (BlockLocation blockLocation : blockLocations) &#123;
+                System.out.println(blockLocation);
+            &#125;*/
+
+        &#125;
+    &#125;
+</code></pre>
+<p>查询结果如下<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fns0ooKq6S0JhwtxSGVzo02-IOsa.png"></p>
+<pre><code class="bash">=======hdfs://hadoop202:8020/hadoop-3.1.3.tar.gz=======
+rw-r--r--
+xiamu
+supergroup
+338075860
+1673210373259
+3
+134217728
+hadoop-3.1.3.tar.gz
+[0,134217728,hadoop202,hadoop204,hadoop203, 134217728,134217728,hadoop202,hadoop204,hadoop203, 268435456,69640404,hadoop204,hadoop202,hadoop203]
+</code></pre>
+<p>0,134217728 表示从 0 字节开始存放, 存放的大小是 134217728 字节<br>134217728,134217728 表示从 134217728 字节开始存放, 存放的大小是 134217728 字节<br>268435456,69640404 表示从 268435456 字节开始存放, 存放的大小是 69640404 字节</p>
+<h2 id="HDFS-API-文件和文件夹判断"><a href="#HDFS-API-文件和文件夹判断" class="headerlink" title="HDFS_API 文件和文件夹判断"></a>HDFS_API 文件和文件夹判断</h2><pre><code class="bash">    // 判断是文件夹还是文件
+    @Test
+    public void testFile() throws IOException &#123;
+        FileStatus[] listStatus = fs.listStatus(new Path(&quot;/&quot;));
+        for (FileStatus status : listStatus) &#123;
+            if (status.isFile()) &#123;
+                System.out.println(&quot;这是一个文件: &quot; + status.getPath().getName());
+            &#125; else &#123;
+                System.out.println(&quot;这是一个目录: &quot; + status.getPath().getName());
+            &#125;
+        &#125;
+    &#125;
+
+
+这是一个文件: cls.txt
+这是一个文件: hadoop-3.1.3.tar.gz
+这是一个目录: output
+这是一个目录: tmp
+</code></pre>
+<h2 id="网络拓扑-节点距离计算"><a href="#网络拓扑-节点距离计算" class="headerlink" title="网络拓扑-节点距离计算"></a>网络拓扑-节点距离计算</h2><pre><code>在HDFS写数据的过程中，NameNode会选择距离待上传数据最近距离的DataNode接收数据。那么这个最近距离怎么计算呢？
+</code></pre>
+<p>节点距离：两个节点到达最近的共同祖先的距离总和。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FivDpKj4ztVlHs5uydiybSVIVNjI.png"><br>例如，假设有数据中心 d1 机架 r1 中的节点 n1。该节点可以表示为&#x2F;d1&#x2F;r1&#x2F;n1。利用这种标记，这里给出四种距离描述。<br>大家算一算每两个节点之间的距离。<br>⑤ 和 ⑨ 距离是 3<br>⑩ 和 ② 距离是 3<br>相差几根线, 距离就是几<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fij3vmTrShU8PPeWOSPFSpMmB9fA.png"></p>
+<h2 id="oiv-查看-Fsimage-文件"><a href="#oiv-查看-Fsimage-文件" class="headerlink" title="oiv 查看 Fsimage 文件"></a><strong>oiv 查看 Fsimage 文件</strong></h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fmug3HqvsxWuECjd4_t8GfOkDf3R.png"><br>（1）查看 oiv 和 oev 命令</p>
+<pre><code class="bash">[atguigu@hadoop102 current]$ hdfs
+oiv            apply the offline fsimage viewer to an fsimage
+oev            apply the offline edits viewer to an edits file
+</code></pre>
+<p>（2）基本语法<br><code>hdfs oiv -p 文件类型 -i镜像文件 -o 转换后文件输出路径</code><br>（3）案例实操</p>
+<pre><code class="bash">[atguigu@hadoop102 current]$ pwd
+/opt/module/hadoop-3.1.3/data/dfs/name/current
+
+[atguigu@hadoop102 current]$ hdfs oiv -p XML -i fsimage_0000000000000000025 -o /opt/module/hadoop-3.1.3/fsimage.xml
+
+[atguigu@hadoop102 current]$ cat /opt/module/hadoop-3.1.3/fsimage.xml
+
+# 上传完之后下载
+[atguigu@hadoop102 hadoop-3.1.3]$ sz fsimage.xml
+</code></pre>
+<p>将显示的 xml 文件内容拷贝到 Idea 中创建的 xml 文件中，并格式化。部分显示结果如下。</p>
+<pre><code class="bash">&lt;inode&gt;
+    &lt;id&gt;16386&lt;/id&gt;
+    &lt;type&gt;DIRECTORY&lt;/type&gt;
+    &lt;name&gt;user&lt;/name&gt;
+    &lt;mtime&gt;1512722284477&lt;/mtime&gt;
+    &lt;permission&gt;atguigu:supergroup:rwxr-xr-x&lt;/permission&gt;
+    &lt;nsquota&gt;-1&lt;/nsquota&gt;
+    &lt;dsquota&gt;-1&lt;/dsquota&gt;
+&lt;/inode&gt;
+&lt;inode&gt;
+    &lt;id&gt;16387&lt;/id&gt;
+    &lt;type&gt;DIRECTORY&lt;/type&gt;
+    &lt;name&gt;atguigu&lt;/name&gt;
+    &lt;mtime&gt;1512790549080&lt;/mtime&gt;
+    &lt;permission&gt;atguigu:supergroup:rwxr-xr-x&lt;/permission&gt;
+    &lt;nsquota&gt;-1&lt;/nsquota&gt;
+    &lt;dsquota&gt;-1&lt;/dsquota&gt;
+&lt;/inode&gt;
+&lt;inode&gt;
+    &lt;id&gt;16389&lt;/id&gt;
+    &lt;type&gt;FILE&lt;/type&gt;
+    &lt;name&gt;wc.input&lt;/name&gt;
+    &lt;replication&gt;3&lt;/replication&gt;
+    &lt;mtime&gt;1512722322219&lt;/mtime&gt;
+    &lt;atime&gt;1512722321610&lt;/atime&gt;
+    &lt;perferredBlockSize&gt;134217728&lt;/perferredBlockSize&gt;
+    &lt;permission&gt;atguigu:supergroup:rw-r--r--&lt;/permission&gt;
+    &lt;blocks&gt;
+        &lt;block&gt;
+            &lt;id&gt;1073741825&lt;/id&gt;
+            &lt;genstamp&gt;1001&lt;/genstamp&gt;
+            &lt;numBytes&gt;59&lt;/numBytes&gt;
+        &lt;/block&gt;
+    &lt;/blocks&gt;
+&lt;/inode &gt;
+</code></pre>
+<p>思考：可以看出，Fsimage 中没有记录块所对应 DataNode，为什么？<br>在集群启动后，要求 DataNode 上报数据块信息，并间隔一段时间后再次上报。</p>
+<h2 id="oev-查看-Edits-文件"><a href="#oev-查看-Edits-文件" class="headerlink" title="oev 查看 Edits 文件"></a>oev 查看 Edits 文件</h2><p>（1）基本语法<br><code>hdfs oev -p 文件类型 -i编辑日志 -o 转换后文件输出路径</code><br>（2）案例实操</p>
+<pre><code class="bash">[atguigu@hadoop102 current]$ hdfs oev -p XML -i edits_0000000000000000012-0000000000000000013 -o /opt/module/hadoop-3.1.3/edits.xml
+
+[atguigu@hadoop102 current]$ cat /opt/module/hadoop-3.1.3/edits.xml
+</code></pre>
+<p>将显示的 xml 文件内容拷贝到 Idea 中创建的 xml 文件中，并格式化。显示结果如下。</p>
+<pre><code class="bash">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;EDITS&gt;
+    &lt;EDITS_VERSION&gt;-63&lt;/EDITS_VERSION&gt;
+    &lt;RECORD&gt;
+        &lt;OPCODE&gt;OP_START_LOG_SEGMENT&lt;/OPCODE&gt;
+        &lt;DATA&gt;
+            &lt;TXID&gt;129&lt;/TXID&gt;
+        &lt;/DATA&gt;
+    &lt;/RECORD&gt;
+    &lt;RECORD&gt;
+        &lt;OPCODE&gt;OP_ADD&lt;/OPCODE&gt;
+        &lt;DATA&gt;
+            &lt;TXID&gt;130&lt;/TXID&gt;
+            &lt;LENGTH&gt;0&lt;/LENGTH&gt;
+            &lt;INODEID&gt;16407&lt;/INODEID&gt;
+            &lt;PATH&gt;/hello7.txt&lt;/PATH&gt;
+            &lt;REPLICATION&gt;2&lt;/REPLICATION&gt;
+            &lt;MTIME&gt;1512943607866&lt;/MTIME&gt;
+            &lt;ATIME&gt;1512943607866&lt;/ATIME&gt;
+            &lt;BLOCKSIZE&gt;134217728&lt;/BLOCKSIZE&gt;
+            &lt;CLIENT_NAME&gt;DFSClient_NONMAPREDUCE_-1544295051_1&lt;/CLIENT_NAME&gt;
+            &lt;CLIENT_MACHINE&gt;192.168.10.102&lt;/CLIENT_MACHINE&gt;
+            &lt;OVERWRITE&gt;true&lt;/OVERWRITE&gt;
+            &lt;PERMISSION_STATUS&gt;
+                &lt;USERNAME&gt;atguigu&lt;/USERNAME&gt;
+                &lt;GROUPNAME&gt;supergroup&lt;/GROUPNAME&gt;
+                &lt;MODE&gt;420&lt;/MODE&gt;
+            &lt;/PERMISSION_STATUS&gt;
+            &lt;RPC_CLIENTID&gt;908eafd4-9aec-4288-96f1-e8011d181561&lt;/RPC_CLIENTID&gt;
+            &lt;RPC_CALLID&gt;0&lt;/RPC_CALLID&gt;
+        &lt;/DATA&gt;
+    &lt;/RECORD&gt;
+    &lt;RECORD&gt;
+        &lt;OPCODE&gt;OP_ALLOCATE_BLOCK_ID&lt;/OPCODE&gt;
+        &lt;DATA&gt;
+            &lt;TXID&gt;131&lt;/TXID&gt;
+            &lt;BLOCK_ID&gt;1073741839&lt;/BLOCK_ID&gt;
+        &lt;/DATA&gt;
+    &lt;/RECORD&gt;
+    &lt;RECORD&gt;
+        &lt;OPCODE&gt;OP_SET_GENSTAMP_V2&lt;/OPCODE&gt;
+        &lt;DATA&gt;
+            &lt;TXID&gt;132&lt;/TXID&gt;
+            &lt;GENSTAMPV2&gt;1016&lt;/GENSTAMPV2&gt;
+        &lt;/DATA&gt;
+    &lt;/RECORD&gt;
+    &lt;RECORD&gt;
+        &lt;OPCODE&gt;OP_ADD_BLOCK&lt;/OPCODE&gt;
+        &lt;DATA&gt;
+            &lt;TXID&gt;133&lt;/TXID&gt;
+            &lt;PATH&gt;/hello7.txt&lt;/PATH&gt;
+            &lt;BLOCK&gt;
+                &lt;BLOCK_ID&gt;1073741839&lt;/BLOCK_ID&gt;
+                &lt;NUM_BYTES&gt;0&lt;/NUM_BYTES&gt;
+                &lt;GENSTAMP&gt;1016&lt;/GENSTAMP&gt;
+            &lt;/BLOCK&gt;
+            &lt;RPC_CLIENTID&gt;&lt;/RPC_CLIENTID&gt;
+            &lt;RPC_CALLID&gt;-2&lt;/RPC_CALLID&gt;
+        &lt;/DATA&gt;
+    &lt;/RECORD&gt;
+    &lt;RECORD&gt;
+        &lt;OPCODE&gt;OP_CLOSE&lt;/OPCODE&gt;
+        &lt;DATA&gt;
+            &lt;TXID&gt;134&lt;/TXID&gt;
+            &lt;LENGTH&gt;0&lt;/LENGTH&gt;
+            &lt;INODEID&gt;0&lt;/INODEID&gt;
+            &lt;PATH&gt;/hello7.txt&lt;/PATH&gt;
+            &lt;REPLICATION&gt;2&lt;/REPLICATION&gt;
+            &lt;MTIME&gt;1512943608761&lt;/MTIME&gt;
+            &lt;ATIME&gt;1512943607866&lt;/ATIME&gt;
+            &lt;BLOCKSIZE&gt;134217728&lt;/BLOCKSIZE&gt;
+            &lt;CLIENT_NAME&gt;&lt;/CLIENT_NAME&gt;
+            &lt;CLIENT_MACHINE&gt;&lt;/CLIENT_MACHINE&gt;
+            &lt;OVERWRITE&gt;false&lt;/OVERWRITE&gt;
+            &lt;BLOCK&gt;
+                &lt;BLOCK_ID&gt;1073741839&lt;/BLOCK_ID&gt;
+                &lt;NUM_BYTES&gt;25&lt;/NUM_BYTES&gt;
+                &lt;GENSTAMP&gt;1016&lt;/GENSTAMP&gt;
+            &lt;/BLOCK&gt;
+            &lt;PERMISSION_STATUS&gt;
+                &lt;USERNAME&gt;atguigu&lt;/USERNAME&gt;
+                &lt;GROUPNAME&gt;supergroup&lt;/GROUPNAME&gt;
+                &lt;MODE&gt;420&lt;/MODE&gt;
+            &lt;/PERMISSION_STATUS&gt;
+        &lt;/DATA&gt;
+    &lt;/RECORD&gt;
+&lt;/EDITS &gt;
+</code></pre>
+<p>思考：NameNode 如何确定下次开机启动的时候合并哪些 Edits？<br>NameNode 启动的时候合并的是上次停机前正在写入的 Edits，即 edits_inprogress_xxx<br>根据 seen_txid 里面记录最新的 Fsimage(镜像文件)的值去合并 Edits(编辑日志)。</p>
+<h2 id="CheckPoint-时间设置"><a href="#CheckPoint-时间设置" class="headerlink" title="CheckPoint 时间设置"></a><strong>CheckPoint 时间设置</strong></h2><p><strong>通常情况下，SecondaryNameNode 每隔一小时执行一次。</strong><br>[hdfs-default.xml]</p>
+<pre><code class="bash">&lt;property&gt;
+&lt;name&gt;dfs.namenode.checkpoint.period&lt;/name&gt;
+&lt;value&gt;3600s&lt;/value&gt;
+&lt;/property&gt;
+</code></pre>
+<p><strong>2）一分钟检查一次操作次数，当操作次数达到 1 百万时，SecondaryNameNode 执行一次。</strong></p>
+<pre><code class="bash">&lt;property&gt;
+&lt;name&gt;dfs.namenode.checkpoint.txns&lt;/name&gt;
+&lt;value&gt;1000000&lt;/value&gt;
+&lt;description&gt;操作动作次数&lt;/description&gt;
+&lt;/property&gt;
+
+&lt;property&gt;
+&lt;name&gt;dfs.namenode.checkpoint.check.period&lt;/name&gt;
+&lt;value&gt;60s&lt;/value&gt;
+&lt;description&gt; 1分钟检查一次操作次数&lt;/description&gt;
+&lt;/property&gt;
+</code></pre>
+<h2 id="DataNode"><a href="#DataNode" class="headerlink" title="DataNode"></a>DataNode</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fue-R2YVB_F87Xf3L7x52-hSxgK4.png"><br>（1）一个数据块在 DataNode 上以文件形式存储在磁盘上，包括两个文件，一个是数据本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。<br>（2）DataNode 启动后向 NameNode 注册，通过后，周期性（6 小时）的向 NameNode 上报所有的块信息。<br>DN 向 NN 汇报当前解读信息的时间间隔，默认 6 小时；</p>
+<pre><code class="bash">&lt;property&gt;
+    &lt;name&gt;dfs.blockreport.intervalMsec&lt;/name&gt;
+    &lt;value&gt;21600000&lt;/value&gt;
+    &lt;description&gt;Determines block reporting interval in milliseconds.&lt;/description&gt;
+&lt;/property&gt;
+</code></pre>
+<p>DN 扫描自己节点块信息列表的时间，默认 6 小时</p>
+<pre><code class="bash">&lt;property&gt;
+    &lt;name&gt;dfs.datanode.directoryscan.interval&lt;/name&gt;
+    &lt;value&gt;21600s&lt;/value&gt;
+    &lt;description&gt;Interval in seconds for Datanode to scan data directories and reconcile the difference between blocks in memory and on the disk.
+    Support multiple time unit suffix(case insensitive), as described
+    in dfs.heartbeat.interval.
+    &lt;/description&gt;
+&lt;/property&gt;
+</code></pre>
+<p>（3）心跳是每 3 秒一次，心跳返回结果带有 NameNode 给该 DataNode 的命令如复制块数据到另一台机器，或删除某个数据块。如果超过 10 分钟没有收到某个 DataNode 的心跳，则认为该节点不可用。<br>（4）集群运行中可以安全加入和退出一些机器。</p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2023/01/03/%E5%81%B7%E6%9D%A5%E7%9A%84Web%E9%A1%B9%E7%9B%AE%E5%A6%82%E4%BD%95%E8%BF%90%E8%A1%8C%20--%20IDEA/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>偷来的Web项目如何运行 -- IDEA</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/12/30/%E5%AE%9E%E9%AA%8C%E9%A1%B9%E7%9B%AE%E5%85%AD%EF%BC%9A%E4%B8%AA%E4%BA%BA%E8%AF%A6%E7%BB%86%E6%9F%A5%E8%AF%A2/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>实验项目六：个人详细查询</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

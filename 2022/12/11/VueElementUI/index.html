@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World-Quiet</title>
+<title>VueElementUI-Quiet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -284,7 +284,7 @@
             
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>VueElementUI</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -299,7 +299,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2023-02-07 17:00:33</p>
+                <p>2022-12-11 22:18:28</p>
             </div>
         </div>
     </div>
@@ -309,19 +309,62 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+    <h2 id="表单中存在输入框回车提交表单"><a href="#表单中存在输入框回车提交表单" class="headerlink" title="表单中存在输入框回车提交表单"></a>表单中存在输入框回车提交表单</h2><p>只需要在 el-form 中加上@keyup.enter.native&#x3D;”submit()”就行了</p>
+<pre><code class="vue">&lt;el-form ref=&quot;form&quot; label-width=&quot;80px&quot; @keyup.enter.native=&quot;submit()&quot;&gt;
+  &lt;el-form-item label=&quot;姓名&quot;&gt;&lt;/el-form-item&gt;
+  &lt;el-form-item label=&quot;学号&quot;&gt;&lt;/el-form-item&gt;
+  &lt;el-form-item label=&quot;性别&quot;&gt;&lt;/el-form-item&gt;
+&lt;/el-form&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>label-width&#x3D;”80px” 表单域标签的宽度，作为 Form 直接子元素的 form-item 会继承该值</p>
+<h2 id="表单的自动填充"><a href="#表单的自动填充" class="headerlink" title="表单的自动填充"></a>表单的自动填充</h2><pre><code class="vue">&lt;!-- autocomplete 属性规定表单是否应该启用自动填充功能 --&gt;
+&lt;el-input autocomplete=&quot;off&quot;&gt;&lt;/el-input&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<h2 id=""><a href="#" class="headerlink" title=""></a><template scope="scope"></h2><p>通过 template 标签中的 scope 获取当前行的值, 并且也可以传递给函数调用</p>
+<pre><code class="vue">&lt;el-table-column type=&quot;&quot; label=&quot;序号&quot; width=&quot;200&quot;&gt;
+  &lt;template scope=&quot;scope&quot;&gt;
+    &#123;&#123; (current - 1) * limit + scope.$index + 1 &#125;&#125;
+  &lt;/template&gt;
+&lt;/el-table-column&gt;
+&lt;el-table-column label=&quot;操作&quot; align=&quot;center&quot; prop=&quot;id&quot;&gt;
+  &lt;template scope=&quot;prop&quot;&gt;
+    &lt;el-button
+      type=&quot;primary&quot;
+      icon=&quot;el-icon-edit&quot;
+      size=&quot;mini&quot;
+      @click=&quot;edit(prop.row.id)&quot;
+    &gt;&lt;/el-button&gt;
+    &lt;el-button
+      type=&quot;danger&quot;
+      icon=&quot;el-icon-delete&quot;
+      size=&quot;mini&quot;
+      @click=&quot;deleteById(prop.row.id)&quot;
+    &gt;&lt;/el-button&gt;
+  &lt;/template&gt;
+&lt;/el-table-column&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<h2 id="icon-的使用"><a href="#icon-的使用" class="headerlink" title="icon 的使用"></a>icon 的使用</h2><p>可以在组件中使用 class 属性, 或者直接在组件使用 icon 属性</p>
+<pre><code class="vue">&lt;el-button type=&quot;primary&quot; icon=&quot;el-icon-edit&quot; size=&quot;mini&quot;&gt;&lt;/el-button&gt;
+&lt;el-button type=&quot;danger&quot; class=&quot;el-icon-delete&quot; size=&quot;mini&quot;&gt;&lt;/el-button&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>效果图:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fvi5e7swjf8hZg7ffVInyvcgSm7m.png"></p>
+<h2 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h2><p>把回调推迟到页面的 DOM 渲染完成之后再执行</p>
+<blockquote>
+<p>Vue.nextTick( [callback, context] )<br>{Function} [callback] {Object} [context]<br>Defer the callback to be executed after the next DOM update cycle. Use it immediately after you’ve changed some data to wait for the DOM update.</p>
+</blockquote>
+<p>当前页面并没有显示 dialog<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq1pMX133pfOghFPTv4xSQ35yEH6.png"><br>点击添加按钮, 显示 dialog, 但是用户名没有光标自定放在上面的效果<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqD2AchcEaMrPHhanjCdWwYQfmwW.png"></p>
+<pre><code class="vue">&lt;el-dialog title=&quot;添加/修改&quot; :visible.sync=&quot;dialogFormVisible&quot;&gt;
+  &lt;el-form label-width=&quot;80px&quot; @keyup.enter.native=&quot;saveOrUpdateUser&quot;&gt;
+    &lt;el-form-item label=&quot;用户名&quot;&gt;
+      &lt;el-input v-model=&quot;userObj.username&quot; ref=&quot;inputFirst&quot;&gt;&lt;/el-input&gt;
+  &lt;/el-form&gt;
+&lt;/el-dialog&gt;
+
+addUser() &#123; this.userObj = &#123;&#125;; this.dialogFormVisible = true; //
+当弹窗在页面渲染完成之后, 才会执行这里面的函数 this.$nextTick(() =&gt; &#123;
+this.$refs.inputFirst.focus(); &#125;); &#125;,
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Frkbiuar8pBoJTvumU4Dj7WcGB-n.png"></p>
 
   </div>
   <div id="gitalk-container"></div>
@@ -382,19 +425,19 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2023/02/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <a href="/2022/12/19/%E5%AE%9E%E9%AA%8C%E5%8D%81%E5%9B%9B%20postfix%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>我的第一篇博客</p>
+            <p>实验十四 postfix邮件服务器配置与管理</p>
         </div>
     </a>
     
 
     
-    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+    <a href="/2022/12/08/%E5%AE%9E%E9%AA%8C%E5%8D%81%E4%B8%89%20Redhat9.0%E4%B8%8BLAMP%E7%9A%84%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>Hexo本地使用</p>
+            <p>实验十三 Redhat9.0下LAMP的安装与配置</p>
         </div>
     </a>
     

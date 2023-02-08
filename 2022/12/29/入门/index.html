@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>入门-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>入门</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-12-29 23:10:42</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtfIbSnsIBeP8p-4iI5D1Ig-H_YA.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnLhxL-nLpsKfnLXUnTFJZs3Bg03.png"><br>大数据主要解决, 海量数据的采集, 存储和分析计算问题</p>
+<h2 id="linux-的配置"><a href="#linux-的配置" class="headerlink" title="linux 的配置"></a>linux 的配置</h2><p>设置终端的字体大小<br>setfont sun12x22</p>
+<p>一些基本的配置<br>最小安装需要安装一些工具包</p>
+<pre><code class="bash">yum install net-tools wget zip unzip vim-enhanced net-tools -y
+</code></pre>
+<p>安装用于上传, 下载文件的工具包<br>rz 上传, zs 下载</p>
+<pre><code class="bash">yum install lrzsz -y
+</code></pre>
+<p>配置静态 ip<br>[root@hadoop200 ~]# vim &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-ens33</p>
+<pre><code class="bash">TYPE=&quot;Ethernet&quot;
+PROXY_METHOD=&quot;none&quot;
+BROWSER_ONLY=&quot;no&quot;
+BOOTPROTO=&quot;static&quot;
+DEFROUTE=&quot;yes&quot;
+IPV4_FAILURE_FATAL=&quot;no&quot;
+IPV6INIT=&quot;yes&quot;
+IPV6_AUTOCONF=&quot;yes&quot;
+IPV6_DEFROUTE=&quot;yes&quot;
+IPV6_FAILURE_FATAL=&quot;no&quot;
+IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot;
+NAME=&quot;ens33&quot;
+UUID=&quot;a3b13aa9-1510-453c-8dc7-fab53450f73b&quot;
+DEVICE=&quot;ens33&quot;
+ONBOOT=&quot;yes&quot;
+
+IPADDR=192.168.1.200
+GATEWAY=192.168.1.2
+DNS1=192.168.1.2
+</code></pre>
+<p>[root@hadoop200 ~]# vi &#x2F;etc&#x2F;hostname</p>
+<pre><code class="bash">hadoop200
+</code></pre>
+<p>[root@hadoop200 ~]# vi &#x2F;etc&#x2F;host</p>
+<pre><code class="bash">
+192.168.1.200 hadoop200
+192.168.1.201 hadoop201
+192.168.1.202 hadoop202
+192.168.1.203 hadoop203
+192.168.1.204 hadoop204
+192.168.1.205 hadoop205
+192.168.1.206 hadoop206
+192.168.1.207 hadoop207
+192.168.1.208 hadoop208
+</code></pre>
+<p>windows 中设置 host<br>C:\Windows\System32\drivers\etc</p>
+<pre><code class="bash">192.168.1.200 hadoop200
+192.168.1.201 hadoop201
+192.168.1.202 hadoop202
+192.168.1.203 hadoop203
+192.168.1.204 hadoop204
+192.168.1.205 hadoop205
+192.168.1.206 hadoop206
+192.168.1.207 hadoop207
+192.168.1.208 hadoop208
+</code></pre>
+<p>关闭防火墙</p>
+<pre><code class="bash">[root@hadoop200 ~]# systemctl stop firewalld
+[root@hadoop200 ~]# systemctl disable firewalld.service
+</code></pre>
+<p>配置 atguigu 用户具有 root 权限，方便后期加 sudo 执行 root 权限的命令<br>[root@hadoop200 ~]# vim &#x2F;etc&#x2F;sudoers<br>修改&#x2F;etc&#x2F;sudoers 文件，在%wheel 这行下面添加一行，如下所示：</p>
+<pre><code class="bash">root    ALL=(ALL)       ALL
+## Allows members of the &#39;sys&#39; group to run networking, software,
+## Allows people in group wheel to run all commands
+%wheel  ALL=(ALL)       ALL
+xiamu   ALL=(ALL)     NOPASSWD:ALL
+</code></pre>
+<p>注意：atguigu 这一行不要直接放到 root 行下面，因为所有用户都属于 wheel 组，你先配置了 atguigu 具有免密功能，但是程序执行到%wheel 行时，该功能又被覆盖回需要密码。所以 atguigu 要放到%wheel 这行下面。</p>
+<pre><code class="bash">[xiamu@hadoop200 opt]$ mkdir module/
+[xiamu@hadoop200 opt]$ mkdir software/
+[xiamu@hadoop200 opt]$ sudo chown xiamu:xiamu module/ software/
+[xiamu@hadoop200 opt]$ ll
+总用量 0
+drwxr-xr-x. 2 xiamu xiamu 6 12月 30 17:03 module
+drwxr-xr-x. 2 xiamu xiamu 6 12月 30 17:04 software
+</code></pre>
+<p>删除 java<br>如果有 java 请先删除<br>注意：如果你的虚拟机是最小化安装不需要执行这一步。</p>
+<pre><code class="bash">[root@hadoop100 ~]# rpm -qa | grep -i java
+[root@hadoop100 ~]# rpm -qa | grep -i java | xargs -n1 rpm -e --nodeps
+</code></pre>
+<p>重启之后的检查 hostname, ip, 以及能否 ping 通外网</p>
+<h2 id="安装-jdk"><a href="#安装-jdk" class="headerlink" title="安装 jdk"></a>安装 jdk</h2><pre><code class="bash">[xiamu@hadoop202 software]$ tar -zxvf jdk-8u212-linux-x64.tar.gz -C /opt/module/
+[xiamu@hadoop202 software]$ cd /opt/module/jdk1.8.0_212/
+
+# 查看一个脚本, 这个脚本不需要改动, 这个脚本会循环遍历profile.d下的所有.sh文件
+[xiamu@hadoop202 jdk1.8.0_212]$ vim /etc/profile
+[xiamu@hadoop202 jdk1.8.0_212]$ cd /etc/profile.d/
+
+[xiamu@hadoop202 profile.d]$ sudo vim my_env.sh
+#JAVA_HOME
+export JAVA_HOME=/opt/module/jdk1.8.0_212
+export PATH=$PATH:$JAVA_HOME/bin
+
+# 重新遍历一把profile中的文件
+[xiamu@hadoop202 profile.d]$ source /etc/profile
+
+[xiamu@hadoop202 hadoop-3.1.3]$ java -version
+java version &quot;1.8.0_212&quot;
+</code></pre>
+<h2 id="安装-Hadoop"><a href="#安装-Hadoop" class="headerlink" title="安装 Hadoop"></a>安装 Hadoop</h2><pre><code class="bash">[xiamu@hadoop202 software]$ tar -zxvf hadoop-3.1.3.tar.gz -C /opt/module/
+
+[xiamu@hadoop202 hadoop-3.1.3]$ sudo vim /etc/profile.d/my_env.sh
+#HADOOP_HOME
+export HADOOP_HOME=/opt/module/hadoop-3.1.3
+export PATH=$PATH:$HADOOP_HOME/bin
+export PATH=$PATH:$HADOOP_HOME/sbin
+
+[xiamu@hadoop202 hadoop-3.1.3]$ source /etc/profile
+</code></pre>
+<p>hadoop 目录<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlGpj-FH70qApneeEZIV8VgFtjS6.png"><br>bin: 常用的命令 hdfs, yarn, mapred<br>常用的文件夹 bin, etc, sbin</p>
+<h2 id="本地运行模式"><a href="#本地运行模式" class="headerlink" title="本地运行模式"></a>本地运行模式</h2><pre><code class="bash">
+[xiamu@hadoop202 hadoop-3.1.3]$ mkdir wcinput
+[xiamu@hadoop202 hadoop-3.1.3]$ cd wcinput
+[xiamu@hadoop202 wcinput]$ vim word.txt
+ss ss
+cls cls
+banzhang
+bobo
+yangge
+
+
+# 统计单词数量
+[xiamu@hadoop202 hadoop-3.1.3]$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount wcinput/ ./wcoutput
+[xiamu@hadoop202 hadoop-3.1.3]$ cd wcoutput/
+[xiamu@hadoop202 wcoutput]$ ll
+总用量 4
+-rw-r--r--. 1 xiamu xiamu 38 12月 31 01:07 part-r-00000
+-rw-r--r--. 1 xiamu xiamu  0 12月 31 01:07 _SUCCESS
+[xiamu@hadoop202 wcoutput]$ cat part-r-00000
+banzhang	1
+bobo	1
+cls	2
+ss	2
+yangge	1
+
+# 再次运行就会报错, 原因是因为输出的目录已经存在了
+[xiamu@hadoop202 hadoop-3.1.3]$ bin/hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount wcinput/ ./wcoutput
+org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory file:/opt/module/hadoop-3.1.3/wcoutput already exists
+</code></pre>
+<h2 id="scp-拷贝命令"><a href="#scp-拷贝命令" class="headerlink" title="scp 拷贝命令"></a>scp 拷贝命令</h2><pre><code class="bash"># 把hadoop202中的jdk1.8.0_212目录下的文件拷贝到hadoop203中去了
+[xiamu@hadoop202 module]$ scp -r jdk1.8.0_212/ xiamu@hadoop203:/opt/module/
+
+# 把hadoop202中的hadoop-3.1.3目录下的文件拷贝到hadoop203中来了
+[xiamu@hadoop203 module]$ scp -r xiamu@hadoop202:/opt/module/hadoop-3.1.3 ./
+
+# 甚至可以把hadoop202中的目录拷贝到hadoop204中去
+[xiamu@hadoop203 module]$ scp -r xiamu@hadoop202:/opt/module/* xiamu@hadoop204:/opt/module/
+</code></pre>
+<h2 id="rsync-命令"><a href="#rsync-命令" class="headerlink" title="rsync 命令"></a>rsync 命令</h2><pre><code class="bash"># 同步命令, 修改某一个文件, 执行该命令就会把修改的文件该同步过去
+# 前提是服务器上需要安装rsync
+[xiamu@hadoop202 module]$ sudo yum install rsync
+[xiamu@hadoop202 module]$ rsync -av hadoop-3.1.3/ xiamu@hadoop203:/opt/module/hadoop-3.1.3/
+
+</code></pre>
+<h2 id="xsync-集群分发脚本"><a href="#xsync-集群分发脚本" class="headerlink" title="xsync 集群分发脚本"></a>xsync 集群分发脚本</h2><pre><code class="bash">[xiamu@hadoop202 ~]$ cd /home/xiamu/
+[xiamu@hadoop202 ~]$ mkdir bin
+[xiamu@hadoop202 ~]$ cd bin/
+[xiamu@hadoop202 bin]$ vim xsync
+
+
+#!/bin/bash
+
+#1. 判断参数个数
+if [ $# -lt 1 ]
+then
+    echo Not Enough Arguement!
+    exit;
+fi
+
+#2. 遍历集群所有机器
+for host in hadoop202 hadoop203 hadoop204
+do
+    echo ====================  $host  ====================
+    #3. 遍历所有目录，挨个发送
+
+    for file in $@
+    do
+        #4. 判断文件是否存在
+        if [ -e $file ]
+            then
+                #5. 获取父目录
+                pdir=$(cd -P $(dirname $file); pwd)
+
+                #6. 获取当前文件的名称
+                fname=$(basename $file)
+                ssh $host &quot;mkdir -p $pdir&quot;
+                rsync -av $pdir/$fname $host:$pdir
+            else
+                echo $file does not exists!
+        fi
+    done
+done
+
+
+
+修改脚本 xsync 具有执行权限
+[xiamu@hadoop202 bin]$ chmod 777 xsync
+[xiamu@hadoop202 bin]$ xsync /home/xiamu/bin
+[xiamu@hadoop202 bin]$ sudo cp xsync /bin/
+[xiamu@hadoop202 bin]$ sudo ./bin/xsync /etc/profile.d/my_env.sh
+注意：如果用了sudo，那么xsync一定要给它的路径补全。
+让环境变量生效
+[xiamu@hadoop203 ~]$ source /etc/profile
+[xiamu@hadoop204 ~]$ source /etc/profile
+</code></pre>
+<h2 id="设置-ssh-免密登录"><a href="#设置-ssh-免密登录" class="headerlink" title="设置 ssh 免密登录"></a>设置 ssh 免密登录</h2><pre><code class="bash">[xiamu@hadoop202 .ssh]$ pwd
+/home/xiamu/.ssh
+# 生成公钥和私钥
+# 然后敲（三个回车），就会生成两个文件id_rsa（私钥）、id_rsa.pub（公钥）
+[xiamu@hadoop202 ~]$ ssh-keygen -t rsa
+[xiamu@hadoop202 ~]$ cd .ssh/
+[xiamu@hadoop202 .ssh]$ ll
+总用量 12
+-rw-------. 1 xiamu xiamu 1675 12月 31 04:20 id_rsa
+-rw-r--r--. 1 xiamu xiamu  397 12月 31 04:20 id_rsa.pub
+-rw-r--r--. 1 xiamu xiamu  726 12月 31 02:22 known_hosts
+
+[xiamu@hadoop202 .ssh]$ cat id_rsa
+-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAs27rMM0gTqHTYpPExLsuhvzO2Z3hZPellncDj/pvqFClFCzy
+...
+-----END RSA PRIVATE KEY-----
+
+[xiamu@hadoop202 .ssh]$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCzbuswzSBOodNik8TEuy6G/M7ZneFk96WWdwOP+m+oUKUULPKxsadl++5yQLt+rlauC/jNF9S93TbJEasoBJHsxywTdwe4gmxT5Kx73kDTg41y9vn8gduZdxeOEe3bYvmsJKGpSyPw9ZIqz2mrvIjj1SHE9/CZHQzU9a4EnPePoltYHyP4wIzwauThuQcmFa2O3aZZEYxBdUZxLrFZviI02SQd4raHR7h5nMkGbsMWqjAq3Ky4p1i1Pji0P5Uj++L4A7aL2qiIKXcpW3JeUPx/xdvfPB+Q/llNUaMahIayacNVHbnBDGZdJC3e5qXplBzjcst/RB+KzF2nL8XZp0LX xiamu@hadoop202
+
+# 将公钥拷贝到要免密登录的目标机器上
+[xiamu@hadoop202 .ssh]$ ssh-copy-id hadoop202
+[xiamu@hadoop202 .ssh]$ ssh-copy-id hadoop203
+[xiamu@hadoop202 .ssh]$ ssh-copy-id hadoop204
+
+[xiamu@hadoop202 .ssh]$ ll
+总用量 16
+-rw-------. 1 xiamu xiamu  397 12月 31 04:30 authorized_keys
+-rw-------. 1 xiamu xiamu 1675 12月 31 04:20 id_rsa
+-rw-r--r--. 1 xiamu xiamu  397 12月 31 04:20 id_rsa.pub
+-rw-r--r--. 1 xiamu xiamu  726 12月 31 02:22 known_hosts
+
+known_hosts 记录ssh访问过计算机的公钥（public key）
+id_rsa 生成的私钥
+id_rsa.pub 生成的公钥
+authorized_keys 存放授权过的无密登录服务器公钥
+
+注意：
+还需要在hadoop103上采用xiamu账号配置一下无密登录到hadoop202、hadoop203、hadoop204服务器上。
+还需要在hadoop104上采用xiamu账号配置一下无密登录到hadoop202、hadoop203、hadoop204服务器上。
+还需要在hadoop102上采用root账号，配置一下无密登录到hadoop202、hadoop203、hadoop204；
+</code></pre>
+<h2 id="集群配置"><a href="#集群配置" class="headerlink" title="集群配置"></a>集群配置</h2><pre><code class="bash">[xiamu@hadoop202 hadoop]$ vim core-site.xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+
+&lt;!-- Put site-specific property overrides in this file. --&gt;
+
+&lt;configuration&gt;
+    &lt;!-- 指定NameNode的地址 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;fs.defaultFS&lt;/name&gt;
+        &lt;value&gt;hdfs://hadoop202:8020&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 指定hadoop数据的存储目录 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+        &lt;value&gt;/opt/module/hadoop-3.1.3/data&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 配置HDFS网页登录使用的静态用户为xiamu --&gt;
+    &lt;property&gt;
+        &lt;name&gt;hadoop.http.staticuser.user&lt;/name&gt;
+        &lt;value&gt;xiamu&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+
+[xiamu@hadoop202 hadoop]$ vim hdfs-site.xml
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+
+&lt;!-- Put site-specific property overrides in this file. --&gt;
+
+&lt;configuration&gt;
+    &lt;!-- nn web端访问地址--&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.http-address&lt;/name&gt;
+        &lt;value&gt;hadoop202:9870&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 2nn web端访问地址--&gt;
+    &lt;property&gt;
+        &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+        &lt;value&gt;hadoop204:9868&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+
+[xiamu@hadoop202 hadoop]$ vim yarn-site.xml
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;configuration&gt;
+
+&lt;!-- 指定MR走shuffle --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+        &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 指定ResourceManager的地址--&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.resourcemanager.hostname&lt;/name&gt;
+        &lt;value&gt;hadoop203&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 环境变量的继承 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.nodemanager.env-whitelist&lt;/name&gt;
+        &lt;value&gt;JAVA_HOME,HADOOP_COMMON_HOME,HADOOP_HDFS_HOME,HADOOP_CONF_DIR,CLASSPATH_PREPEND_DISTCACHE,HADOOP_YARN_HOME,HADOOP_MAPRED_HOME&lt;/value&gt;
+    &lt;/property&gt;
+
+&lt;/configuration&gt;
+
+[xiamu@hadoop202 hadoop]$ vim mapred-site.xml
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;?xml-stylesheet type=&quot;text/xsl&quot; href=&quot;configuration.xsl&quot;?&gt;
+
+&lt;!-- Put site-specific property overrides in this file. --&gt;
+
+&lt;configuration&gt;
+    &lt;!-- 指定MapReduce程序运行在Yarn上 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre>
+<h2 id="群起集群"><a href="#群起集群" class="headerlink" title="群起集群"></a>群起集群</h2><pre><code class="bash">[xiamu@hadoop202 hadoop]$ pwd
+/opt/module/hadoop-3.1.3/etc/hadoop
+[xiamu@hadoop202 hadoop]$ vim workers
+
+hadoop202
+hadoop203
+hadoop204
+
+# 注意, 上面配置三个主机名不要有任何多余的空格和空行
+
+# 如果集群是第一次启动，需要在hadoop202节点格式化NameNode
+# （注意：格式化NameNode，会产生新的集群id，导致NameNode和DataNode的集群id不一致，
+# 集群找不到已往数据。如果集群在运行过程中报错，需要重新格式化NameNode的话，
+# 一定要先停止namenode和datanode进程，并且要删除所有机器的data和logs目录，然后再进行格式化。）
+
+# 第一次启动需要初始化
+[xiamu@hadoop202 hadoop-3.1.3]$ hdfs namenode -format
+# 启动HDFS
+[xiamu@hadoop202 hadoop-3.1.3]$ sbin/start-dfs.sh
+
+
+# 在配置了ResourceManager的节点（hadoop103）启动YARN
+[xiamu@hadoop203 hadoop-3.1.3]$ sbin/start-yarn.sh
+
+# 查看历史服务器
+[xiamu@hadoop202 hadoop-3.1.3]$ jps
+1876 DataNode
+2199 NodeManager
+2296 Jps
+1757 NameNode
+[xiamu@hadoop203 hadoop-3.1.3]$ jps
+1714 ResourceManager
+2163 Jps
+1828 NodeManager
+1531 DataNode
+[xiamu@hadoop204 ~]$ jps
+1520 DataNode
+1605 SecondaryNameNode
+1749 NodeManager
+1850 Jps
+</code></pre>
+<p><a target="_blank" rel="noopener" href="http://hadoop202:9870/dfshealth.html#tab-overview">http://hadoop202:9870</a><br>Web 端查看 HDFS 的 NameNode<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fv5T3hG1veWZhXYxt-elY2930Vlx.png"><br>Web 端查看 YARN 的 ResourceManager<br><a target="_blank" rel="noopener" href="http://hadoop203:8088/cluster">http://hadoop203:8088/cluster</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FupHJug1Gka4Ydq_oqi4h2Dqug5k.png"></p>
+<h2 id="集群基本测试-上传文件"><a href="#集群基本测试-上传文件" class="headerlink" title="集群基本测试(上传文件)"></a><strong>集群基本测试(上传文件)</strong></h2><pre><code class="bash">[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -mkdir /wcinput
+
+# 上传小文件
+[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -put wcinput/word.txt /wcinput
+</code></pre>
+<p>执行完成之后页面多了一个目录, 目录中包含着 word.txt 文件<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpQgXd8kTDTg8ftMn_u6pqENUlBD.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiaZOsuaVRQsdHpCTkemiNYcTNSD.png"></p>
+<pre><code class="bash">
+# 上传一个大文件
+[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -put /opt/software/jdk-8u212-linux-x64.tar.gz /
+
+
+# hdfs文件存储的位置在hadoop根目录中data目录下
+[xiamu@hadoop202 subdir0]$ pwd
+/opt/module/hadoop-3.1.3/data/dfs/data/current/BP-1090801922-192.168.1.202-1672543197610/current/finalized/subdir0/subdir0
+[xiamu@hadoop202 subdir0]$ ls
+blk_1073741825            blk_1073741826_1002.meta
+blk_1073741825_1001.meta  blk_1073741827
+blk_1073741826            blk_1073741827_1003.meta
+
+[xiamu@hadoop202 subdir0]$ cat blk_1073741826 &gt;&gt; tmp.tar.gz
+[xiamu@hadoop202 subdir0]$ cat blk_1073741827 &gt;&gt; tmp.tar.gz
+[xiamu@hadoop202 subdir0]$ tar -zxvf tmp.tar.gz
+[xiamu@hadoop202 subdir0]$ ls
+blk_1073741825            blk_1073741826            blk_1073741827            jdk1.8.0_212
+blk_1073741825_1001.meta  blk_1073741826_1002.meta  blk_1073741827_1003.meta  tmp.tar.gz
+
+# 这就说明了blk_1073741826和blk_1073741827就是jdk
+
+# 执行wordcount, 统计文件的词数
+[xiamu@hadoop202 hadoop-3.1.3]$ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount /wcinput /123
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkiEqvU1SveWOTKNlpOG3pmcQiaB.png"></p>
+<h2 id="集群崩溃重启方案"><a href="#集群崩溃重启方案" class="headerlink" title="集群崩溃重启方案"></a>集群崩溃重启方案</h2><pre><code class="bash">删除所有集群hadoop根目录下的data, log目录
+停止dfs和yarn
+[xiamu@hadoop202 hadoop-3.1.3]$ stop-dfs.sh
+[xiamu@hadoop203 hadoop-3.1.3]$ stop-yarn.sh
+
+# 格式化namenode
+[xiamu@hadoop202 hadoop-3.1.3]$ hdfs namenode -format
+
+# 启动HDFS
+[xiamu@hadoop202 hadoop-3.1.3]$ start-dfs.sh
+
+# 启动YARN
+[xiamu@hadoop202 hadoop-3.1.3]$ start-yarn.sh
+</code></pre>
+<h2 id="配置历史服务器"><a href="#配置历史服务器" class="headerlink" title="配置历史服务器"></a>配置历史服务器</h2><pre><code class="bash">[xiamu@hadoop202 hadoop]$ vim mapred-site.xml
+&lt;configuration&gt;
+    &lt;!-- 指定MapReduce程序运行在Yarn上 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+        &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 历史服务器端地址 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+        &lt;value&gt;hadoop202:10020&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;!-- 历史服务器web端地址 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+        &lt;value&gt;hadoop202:19888&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+
+
+# 分发配置
+[xiamu@hadoop202 hadoop]$ xsync mapred-site.xml
+
+# 启动历史服务器
+[xiamu@hadoop202 hadoop]$ mapred --daemon start historyserver
+# 查看历史服务器是否启动
+[xiamu@hadoop202 hadoop]$ jps
+4420 NodeManager
+4117 DataNode
+4661 Jps
+4620 JobHistoryServer
+3998 NameNode
+
+# 重启YARN
+[xiamu@hadoop203 hadoop]$ stop-yarn.sh
+[xiamu@hadoop203 hadoop]$ start-yarn.sh
+
+# 上传一个文件到hdfs
+[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -mkdir /input
+[xiamu@hadoop202 hadoop-3.1.3]$ hadoop fs -put ./wcinput/word.txt /input
+[xiamu@hadoop202 hadoop-3.1.3]$ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount /input /output
+</code></pre>
+<h2 id="配置日志的聚集"><a href="#配置日志的聚集" class="headerlink" title="配置日志的聚集"></a>配置日志的聚集</h2><p>日志聚集概念：应用运行完成以后，将程序运行日志信息上传到 HDFS 系统上。<br>日志聚集功能好处：可以方便的查看到程序运行详情，方便开发调试。<br>注意：开启日志聚集功能，需要重新启动 NodeManager 、ResourceManager 和 HistoryServer。</p>
+<pre><code class="bash">[xiamu@hadoop202 hadoop]$ vim yarn-site.xml
+    &lt;!-- 开启日志聚集功能 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.log-aggregation-enable&lt;/name&gt;
+        &lt;value&gt;true&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 设置日志聚集服务器地址 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.log.server.url&lt;/name&gt;
+        &lt;value&gt;http://hadoop202:19888/jobhistory/logs&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;!-- 设置日志保留时间为7天 --&gt;
+    &lt;property&gt;
+        &lt;name&gt;yarn.log-aggregation.retain-seconds&lt;/name&gt;
+        &lt;value&gt;604800&lt;/value&gt;
+    &lt;/property&gt;
+
+# 分发配置文件
+[xiamu@hadoop202 hadoop]$ xsync yarn-site.xml
+
+# 重启yarn
+[xiamu@hadoop203 hadoop]$ stop-yarn.sh
+[xiamu@hadoop202 hadoop]$ mapred --daemon stop historyserver
+[xiamu@hadoop203 hadoop]$ start-yarn.sh
+[xiamu@hadoop202 hadoop]$ mapred --daemon start historyserver
+
+# 执行一个程序
+[xiamu@hadoop202 hadoop-3.1.3]$ hadoop jar share/hadoop/mapreduce/hadoop-mapreduce-examples-3.1.3.jar wordcount /input /output2
+</code></pre>
+<p>从<a target="_blank" rel="noopener" href="http://hadoop203:8088/cluster">http://hadoop203:8088/cluster</a>访问, 查看当前正在执行的程序, 执行完成之后就可以点进去查看日志</p>
+<h2 id="编写-Hadoop-集群常用脚本"><a href="#编写-Hadoop-集群常用脚本" class="headerlink" title="编写 Hadoop 集群常用脚本"></a>编写 Hadoop 集群常用脚本</h2><p>Hadoop 集群启停脚本（包含 HDFS，Yarn，Historyserver）：myhadoop.sh</p>
+<pre><code class="bash">[xiamu@hadoop202 ~]$ cd /home/xiamu/bin/
+[xiamu@hadoop202 bin]$ vim myhadoop.sh
+
+#!/bin/bash
+
+if [ $# -lt 1 ]
+then
+    echo &quot;No Args Input...&quot;
+    exit ;
+fi
+
+case $1 in
+&quot;start&quot;)
+        echo &quot; =================== 启动 hadoop集群 ===================&quot;
+
+        echo &quot; --------------- 启动 hdfs ---------------&quot;
+        ssh hadoop202 &quot;/opt/module/hadoop-3.1.3/sbin/start-dfs.sh&quot;
+        echo &quot; --------------- 启动 yarn ---------------&quot;
+        ssh hadoop203 &quot;/opt/module/hadoop-3.1.3/sbin/start-yarn.sh&quot;
+        echo &quot; --------------- 启动 historyserver ---------------&quot;
+        ssh hadoop202 &quot;/opt/module/hadoop-3.1.3/bin/mapred --daemon start historyserver&quot;
+;;
+&quot;stop&quot;)
+        echo &quot; =================== 关闭 hadoop集群 ===================&quot;
+
+        echo &quot; --------------- 关闭 historyserver ---------------&quot;
+        ssh hadoop202 &quot;/opt/module/hadoop-3.1.3/bin/mapred --daemon stop historyserver&quot;
+        echo &quot; --------------- 关闭 yarn ---------------&quot;
+        ssh hadoop203 &quot;/opt/module/hadoop-3.1.3/sbin/stop-yarn.sh&quot;
+        echo &quot; --------------- 关闭 hdfs ---------------&quot;
+        ssh hadoop202 &quot;/opt/module/hadoop-3.1.3/sbin/stop-dfs.sh&quot;
+;;
+*)
+    echo &quot;Input Args Error...&quot;
+;;
+esac
+
+
+[xiamu@hadoop202 bin]$ chmod 777 myhadoop.sh
+
+# 关闭HDFS，Yarn，Historyserver
+[xiamu@hadoop202 bin]$ myhadoop.sh stop
+
+# 开启HDFS，Yarn，Historyserver
+[xiamu@hadoop202 ~]$ myhadoop.sh start
+</code></pre>
+<p>查看三台服务器 Java 进程脚本：jpsall</p>
+<pre><code class="bash">[xiamu@hadoop202 ~]$ cd /home/xiamu/bin
+[xiamu@hadoop202 bin]$ vim jpsall
+
+#!/bin/bash
+
+for host in hadoop202 hadoop203 hadoop204
+do
+        echo =============== $host ===============
+        ssh $host jps
+done
+
+[xiamu@hadoop202 bin]$ chmod 777 jpsall
+# 执行方式
+[xiamu@hadoop202 bin]$ jpsall
+
+# 分发脚本
+[xiamu@hadoop202 ~]$ xsync /home/xiamu/bin/
+</code></pre>
+<h2 id="常用端口号"><a href="#常用端口号" class="headerlink" title="常用端口号"></a>常用端口号</h2><p>hadoop3.x<br>HDFS NameNode 内部通信端口: 8020&#x2F;9000&#x2F;9820<br>HDFS NameNode 对用户的查询端口: 9870<br>Yarn 查看任务运行情况的: 8088<br>历史服务器: 19888<br>hadoop2.x<br>HDFS NameNode 内部通信端口: 8020&#x2F;9000<br>HDFS NameNode 对用户的查询端口: 50070<br>Yarn 查看任务运行情况的: 8088<br>历史服务器: 19888</p>
+<h2 id="常用的配置文件"><a href="#常用的配置文件" class="headerlink" title="常用的配置文件"></a>常用的配置文件</h2><p>3.x core-site.xml hdfs-site.xml yarn-site.xml mapred-site.xml workers<br>2.x core-site.xml hdfs-site.xml yarn-site.xml mapred-site.xml slaves</p>
+<h2 id="集群的时间同步-可选"><a href="#集群的时间同步-可选" class="headerlink" title="集群的时间同步(可选)"></a>集群的时间同步(可选)</h2><p>一般来说, 集群连接了外网就可以不用配置<br>设置完成之后不知道为啥会 1 Jan 22:31:36 ntpdate[1532]: bind() fails: Permission denied</p>
+<pre><code class="bash">
+[root@hadoop202 xiamu]# yum install ntp
+[root@hadoop202 xiamu]# systemctl status ntpd
+[root@hadoop202 xiamu]# systemctl start ntpd
+[root@hadoop202 xiamu]# vim /etc/ntp.conf
+
+1. 把
+#restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap
+修改成
+restrict 192.168.1.0 mask 255.255.255.0 nomodify notrap
+
+192.168.1.0表示是192.168.1这个网段的
+
+2.把
+server 0.centos.pool.ntp.org iburst
+server 1.centos.pool.ntp.org iburst
+server 2.centos.pool.ntp.org iburst
+server 3.centos.pool.ntp.org iburst
+注释掉
+# server 0.centos.pool.ntp.org iburst
+# server 1.centos.pool.ntp.org iburst
+# server 2.centos.pool.ntp.org iburst
+# server 3.centos.pool.ntp.org iburst
+
+3.文件末尾追加两句
+erver 127.127.1.0
+fudge 127.127.1.0 stratum 10
+
+
+# 修改hadoop202中的 /etc/sysconfig/ntpd 文件
+# 追加一行
+[root@hadoop202 xiamu]# vim /etc/sysconfig/ntpd
+SYNC_HWCLOCK=yes
+# 重启ntpd服务
+[root@hadoop202 xiamu]# systemctl restart ntpd
+# 设置开机自启动
+[root@hadoop202 xiamu]# systemctl enable ntpd
+
+
+hadoop203主机
+[root@hadoop203 bin]# systemctl stop ntpd
+[root@hadoop203 bin]# systemctl disable ntpd
+[root@hadoop203 bin]# crontab -e
+*/1 * * * * /usr/sbin/ntpdate hadoop202
+
+# 随便修改一个时间
+[root@hadoop203 bin]# date -s &quot;2021-9-11 11:11:11&quot;
+2021年 09月 11日 星期六 11:11:11 CST
+# 查看时间
+[root@hadoop203 bin]# date
+2021年 09月 11日 星期六 11:11:17 CST
+</code></pre>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><pre><code class="bash">[xiamu@hadoop202 ~]$ hadoop fs -put /opt/software/jdk-8u212-linux-x64.tar.gz /
+</code></pre>
+<p>块大小是 128M, 但是 jdk 的大小超过了块大小, 所有 jdk 有两个块<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlyIbgBmkIGXcIlYCFT7rhwZtmxg.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FinOngPmGS4U9708FSpKZTlYBKMY.png"></p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2022/12/30/%E5%AE%9E%E9%AA%8C%E9%A1%B9%E7%9B%AE%E5%85%AD%EF%BC%9A%E4%B8%AA%E4%BA%BA%E8%AF%A6%E7%BB%86%E6%9F%A5%E8%AF%A2/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>实验项目六：个人详细查询</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/12/26/Maven%20ClassNotFoundException%20MySql/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>Maven ClassNotFoundException MySql</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World-Quiet</title>
+<title>理论实验教学一-Quiet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -284,7 +284,7 @@
             
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>理论实验教学一</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -299,7 +299,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2023-02-07 17:00:33</p>
+                <p>2022-11-30 19:39:20</p>
             </div>
         </div>
     </div>
@@ -309,19 +309,15 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+    <h2 id="Linux-系统下的“Hello-World”C-语言编程"><a href="#Linux-系统下的“Hello-World”C-语言编程" class="headerlink" title="Linux 系统下的“Hello World”C 语言编程"></a>Linux 系统下的“Hello World”C 语言编程</h2><p><strong>环境准备</strong>, 使用的 linux 是版本是 centos7.9, 远程连接用的 XShell 工具<br><strong>安装 gcc</strong><br>首先要确保 centos 里面安装了 gcc,<br>安装 gcc 在终端输入 yum install gcc, 然后按 y 进行下一步就行<br>安装完成之后, 在终端输入 gcc -v 可以查看 gcc 的版本号<br><strong>编写 helloworld.c 代码</strong>, 先创建一个文件夹用来保存实验内容<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiEBu3NDMu3wLrlv0j0fLCNZVOJc.png"><br>在终端输入 vim test.c 创建一个 C 语言文件, 按 i 开始编辑文件, 编写如下代码:</p>
+<pre><code class="c">#include&lt;stdio.h&gt;
+int main()
+&#123;
+        printf(&quot;Hello World!\n&quot;);
+        return 0;
+&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>编写完成之后记得按 Esc, 输入:wq 保存退出<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnXHaLqT6MAFKpnMTN-7MPFeEiNb.png"><br><strong>gcc 动态编译 test.c 源程序</strong><br>默认 gcc 直接编译使用的编译方式就是使用的动态编译的<br>使用 gcc test.c -o testShare 编译 test.c 文件, testShare 是编译之后的可执行文件, 使用.&#x2F;testShare 就可以运行可执行文件<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnjUi2iPX21pZMC5bdPwLLScZzXW.png"><br><strong>静态编译 test.c 源程序</strong><br>输入 yum install glibc-static 安装静态库, 只有安装了才能进行静态编译<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiOD3LqOiypwVYaGK_3RtNinKDcy.png"><br>输入 rpm -qa | grep glibc-static 可以查看是否安装完成成功<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlBlEHZtOAgxir4Rj48plCocVXVP.png"><br>输入 gcc test.c -o testStatic -static 进行静态编译, 编译之后的可执行文件是 testStatic, .&#x2F;testStatic 可以运行可执行文件<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fho0xCDGBpLT42DY4EGOvYz7VYtY.png"><br>输入 ll, 发现 testShare 使用空间为 8360 位, testStatic 占用空间是 861288 位,<br>很明显 testStatic 比 testShare 的文件大很多<br>这也就是说静态编译出来的可执行文件比动态编译出来的可执行文件要大<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FrDDfxcDKWGby-Nc2WwG3lIxJSfE.png"><br><strong>总结:</strong> 1.静态编译：编译器在编译可执行文件时，把需要用到的对应动态链接库(.so 或.ilb)中的部分提取出来，链接到可执行文件中去， 使可执行文件在运行时不需要依赖于动态链接库. 2.动态编译: 动态编译的可执行文件需要附带一个的动态链接库，在执行时，需要调用其对应动态链接库中的命令。所以其优点一<br>方面是缩小了执行文件本身的体积，另一方面是加快了编译速度，节省了系统资源。缺点一是哪怕是很简单的程序，只用到了链接库中的一两条命令，也需要附带一个相对庞大的链接库；二是如果其他计算机上没有安装对应的运行库，则用动态编译的可执行文件就不能运行。</p>
 
   </div>
   <div id="gitalk-container"></div>
@@ -382,19 +378,19 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2023/02/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <a href="/2022/11/30/%E7%90%86%E8%AE%BA%E5%AE%9E%E9%AA%8C%E6%95%99%E5%AD%A6%E4%BA%8C/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>我的第一篇博客</p>
+            <p>理论实验教学二</p>
         </div>
     </a>
     
 
     
-    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+    <a href="/2022/11/24/Vue-CLI/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>Hexo本地使用</p>
+            <p>Vue-CLI</p>
         </div>
     </a>
     

@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>ZooKeeper-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>ZooKeeper</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2023-02-01 16:30:00</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p><a target="_blank" rel="noopener" href="https://zookeeper.apache.org/">https://zookeeper.apache.org/</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnfDmz4hkkqKN8B9weL91s63SXeZ.png"><br><a target="_blank" rel="noopener" href="https://archive.apache.org/dist/zookeeper/">https://archive.apache.org/dist/zookeeper/</a><br>我们选择比较稳定的版本 3.5.7<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FupCiA_0rnsNAlKf1Vcfe4-JaMrx.png"></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>上传到 linux 上<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjnI6ho032YEB4qrWT1xppQQOYem.png"><br>解压缩<br><code>[xiamu@hadoop202 software]$ tar -zxvf apache-zookeeper-3.5.7-bin.tar.gz -C /opt/module/</code><br>修改名称<br><code>[xiamu@hadoop202 module]$ mv apache-zookeeper-3.5.7-bin/ zookeeper-3.5.7/</code><br>配置修改<br><code>[xiamu@hadoop202 module]$ cd zookeeper-3.5.7/</code><br><code>[xiamu@hadoop202 zookeeper-3.5.7]$ mkdir zkData</code><br><code>[xiamu@hadoop202 zookeeper-3.5.7]$ cd conf/</code><br><code>[xiamu@hadoop202 zookeeper-3.5.7]$ mv zoo_sample.cfg zoo.cfg</code><br><code>[xiamu@hadoop202 conf]$ vim zoo.cfg</code><br>修改 dataDir 的路径为刚刚创建的 zkData 的路径</p>
+<pre><code class="bash">dataDir=/opt/module/zookeeper-3.5.7/zkData
+</code></pre>
+<h2 id="本地启动和停止"><a href="#本地启动和停止" class="headerlink" title="本地启动和停止"></a>本地启动和停止</h2><p><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkServer.sh start</code>启动 zookeeper</p>
+<p><code>[xiamu@hadoop202 zookeeper-3.5.7]$ jps </code>查看进程是否启动<br>4720 Jps<br>4686 QuorumPeerMain</p>
+<p><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkServer.sh status</code>查看状态<br>ZooKeeper JMX enabled by default<br>Using config: &#x2F;opt&#x2F;module&#x2F;zookeeper-3.5.7&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg<br>Client port found: 2181. Client address: localhost.<br>Mode: standalone</p>
+<p><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkCli.sh </code>启动客户端<br><code>[zk: localhost:2181(CONNECTED) 0] quit</code>退出客户端</p>
+<p><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkServer.sh stop</code>停止 ZooKeeper<br>ZooKeeper JMX enabled by default<br>Using config: &#x2F;opt&#x2F;module&#x2F;zookeeper-3.5.7&#x2F;bin&#x2F;..&#x2F;conf&#x2F;zoo.cfg<br>Stopping zookeeper … STOPPED</p>
+<h2 id="集群安装"><a href="#集群安装" class="headerlink" title="集群安装"></a>集群安装</h2><p>在创建好的 zkData 目录下创建一个文件 myid<br><code>[xiamu@hadoop202 zkData]$ vim myid</code><br>2<br><code>[xiamu@hadoop203 zkData]$ vim myid</code><br>3<br><code>[xiamu@hadoop204 zkData]$ vim myid</code><br>4<br>在 hadoop202(102)中设置 2<br>在 hadoop203(103)中设置 3<br>在 hadoop204(104)中设置 4<br>分发脚本命令<code>[xiamu@hadoop202 module]$ xsync zookeeper-3.5.7/</code></p>
+<p>配置<code>[xiamu@hadoop202 conf]$ vim zoo.cfg </code></p>
+<pre><code class="bash">#######################cluster##########################
+server.2=hadoop202:2888:3888server.3=hadoop203:2888:3888
+server.4=hadoop204:2888:3888
+</code></pre>
+<p>配置完成之后分发<br><code>[xiamu@hadoop202 conf]$ xsync zoo.cfg</code></p>
+<h2 id="集群启动"><a href="#集群启动" class="headerlink" title="集群启动"></a>集群启动</h2><p><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkServer.sh start</code><br><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkServer.sh status</code><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhjjYf4MLhdBQPSrFx_A4E1Pc5nF.png"><br>需要对每一个集群开启 zookeeper<br><code>[xiamu@hadoop203 zookeeper-3.5.7]$ bin/zkServer.sh start</code><br><code>[xiamu@hadoop203 zookeeper-3.5.7]$ bin/zkServer.sh status</code><br>Mode: leader<br><code>[xiamu@hadoop204 zookeeper-3.5.7]$ bin/zkServer.sh start</code><br><code>[xiamu@hadoop204 zookeeper-3.5.7]$ bin/zkServer.sh status</code><br>Mode: follower</p>
+<h2 id="第一次选举机制"><a href="#第一次选举机制" class="headerlink" title="第一次选举机制"></a>第一次选举机制</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FoY5puhM54WCk6xKhY58Sex_CMnY.png"></p>
+<h2 id="非第一次选举机制"><a href="#非第一次选举机制" class="headerlink" title="非第一次选举机制"></a>非第一次选举机制</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fi92EsmwSes32LY3H4wDj6HPNfNE.png"></p>
+<h2 id="编写启动停止脚本"><a href="#编写启动停止脚本" class="headerlink" title="编写启动停止脚本"></a>编写启动停止脚本</h2><p>在&#x2F;home&#x2F;xiamu&#x2F;bin 目录下创建 zk.sh 脚本<code>[xiamu@hadoop202 bin]$ vim zk.sh</code></p>
+<pre><code class="bash">#!/bin/bash
+
+case $1 in
+&quot;start&quot;)&#123;
+        for i in hadoop202 hadoop203 hadoop204
+        do
+                echo ---------- ZooKeeper $i 启动 ----------
+                ssh $i &quot;/opt/module/zookeeper-3.5.7/bin/zkServer.sh start&quot;
+        done
+&#125;
+;;
+&quot;stop&quot;)&#123;
+        for i in hadoop202 hadoop203 hadoop204
+        do
+                echo ---------- ZooKeeper $i 停止 ----------
+                ssh $i &quot;/opt/module/zookeeper-3.5.7/bin/zkServer.sh stop&quot;
+        done
+&#125;
+;;
+&quot;status&quot;)&#123;
+        for i in hadoop202 hadoop203 hadoop204
+        do
+                echo ---------- ZooKeeper $i 状态 ----------
+                ssh $i &quot;/opt/module/zookeeper-3.5.7/bin/zkServer.sh status&quot;
+        done
+&#125;
+;;
+esac
+</code></pre>
+<p>给予可执行权限<code>[xiamu@hadoop202 bin]$ chmod 777 zk.sh</code><br>分发脚本<code>[xiamu@hadoop202 bin]$ xsync zk.sh </code><br>使用脚本启动&#x2F;查看状态&#x2F;关闭 ZooKeeper<br><code>[xiamu@hadoop202 bin]$ zk.sh start</code><br><code>[xiamu@hadoop202 bin]$ zk.sh status</code><br><code>[xiamu@hadoop202 bin]$ zk.sh stop</code></p>
+<h2 id="命令行-节点信息"><a href="#命令行-节点信息" class="headerlink" title="命令行-节点信息"></a>命令行-节点信息</h2><p>命令行语法</p>
+<table>
+<thead>
+<tr>
+<th>命令基本语法</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>help</td>
+<td>显示所有操作命令</td>
+</tr>
+<tr>
+<td>ls path</td>
+<td>使用 ls 命令来查看当前 znode 的子节点[可监听]</td>
+</tr>
+</tbody></table>
+<p>-w 监听子节点变化<br>-s 附加次级信息 |</p>
+<p>| create | 普通创建<br>-s 含有序列</p>
+<p>-e 临时（重启或者超时消失） |<br>| — | — |<br>| get path | 获得节点的值[可监听]<br>-w 监听节点内容变化<br>-s 附加次级信息 |<br>| set | 设置节点的具体值 |<br>| stat | 查看节点状态 |<br>| delete | 删除节点 |<br>| deleteall | 递归删除节点 |</p>
+<p><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkCli.sh</code>客户端直接连接<br>[zk: localhost:2181(CONNECTED) 0]<br>此时 zk 后面的主机名是 localhost, 可以使用-server 参数修改<br><code>[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkCli.sh -server hadoop202:2181</code><br><code>[zk: hadoop202:2181(CONNECTED) 0] ls /</code> 查看当前 znode 中所包含的内容<br><code>[zk: hadoop202:2181(CONNECTED) 1] help</code> 显示所有操作命令<br><code>[zk: hadoop202:2181(CONNECTED) 4] ls -s /</code> 查看当前节点详细数据</p>
+<pre><code class="bash">[zookeeper]cZxid = 0x0
+ctime = Thu Jan 01 08:00:00 CST 1970
+mZxid = 0x0
+mtime = Thu Jan 01 08:00:00 CST 1970
+pZxid = 0x0
+cversion = -1
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 0
+numChildren = 1
+</code></pre>
+<p>（1）czxid：创建节点的事务 zxid<br>每次修改 ZooKeeper 状态都会产生一个 ZooKeeper 事务 ID。事务 ID 是 ZooKeeper 中所有修改总的次序。每次修改都有唯一的 zxid，如果 zxid1 小于 zxid2，那么 zxid1 在 zxid2 之前发生。<br>（2）ctime：znode 被创建的毫秒数（从 1970 年开始）<br>（3）mzxid：znode 最后更新的事务 zxid<br>（4）mtime：znode 最后修改的毫秒数（从 1970 年开始）<br>（5）pZxid：znode 最后更新的子节点 zxid<br>（6）cversion：znode 子节点变化号，znode 子节点修改次数<br>（7）dataversion：znode 数据变化号<br>（8）aclVersion：znode 访问控制列表的变化号<br>（9）ephemeralOwner：如果是临时节点，这个是 znode 拥有者的 session id。如果不是临时节点则是 0。<br>（10）dataLength：znode 的数据长度<br>（11）numChildren：znode 子节点数量</p>
+<h2 id="命令行-节点类型-持久-x2F-短暂-x2F-有序号-x2F-无序号"><a href="#命令行-节点类型-持久-x2F-短暂-x2F-有序号-x2F-无序号" class="headerlink" title="命令行-节点类型(持久&#x2F;短暂&#x2F;有序号&#x2F;无序号)"></a>命令行-节点类型(持久&#x2F;短暂&#x2F;有序号&#x2F;无序号)</h2><h3 id="创建永久节点"><a href="#创建永久节点" class="headerlink" title="创建永久节点"></a>创建永久节点</h3><p>创建普通节点(默认创建的是不带序号的永久节点)</p>
+<pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 0] ls /
+[zookeeper]
+[zk: hadoop202:2181(CONNECTED) 1] create /sanguo &quot;diaochan&quot;
+Created /sanguo
+[zk: hadoop202:2181(CONNECTED) 2] ls /
+[sanguo, zookeeper]
+[zk: hadoop202:2181(CONNECTED) 3]
+
+[zk: hadoop202:2181(CONNECTED) 5] create /sanguo/shuguo &quot;liubei&quot;
+Created /sanguo/shuguo
+[zk: hadoop202:2181(CONNECTED) 7] ls /sanguo
+[shuguo]
+</code></pre>
+<p>获取节点中的值</p>
+<pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 8] get -s /sanguo
+diaochan
+cZxid = 0x30000000a
+ctime = Wed Feb 01 20:12:01 CST 2023
+mZxid = 0x30000000a
+mtime = Wed Feb 01 20:12:01 CST 2023
+pZxid = 0x30000000b
+cversion = 1
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 8
+numChildren = 1
+
+[zk: hadoop202:2181(CONNECTED) 9] get -s /sanguo/shuguo
+liubei
+cZxid = 0x30000000b
+ctime = Wed Feb 01 20:14:02 CST 2023
+mZxid = 0x30000000b
+mtime = Wed Feb 01 20:14:02 CST 2023
+pZxid = 0x30000000b
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 6
+numChildren = 0
+</code></pre>
+<p>创建带序号的节点</p>
+<pre><code class="bash">
+[zk: hadoop202:2181(CONNECTED) 12] create -s /sanguo/weiguo/zhangliao &quot;zhangliao&quot;
+Created /sanguo/weiguo/zhangliao0000000000
+[zk: hadoop202:2181(CONNECTED) 13] ls /
+[sanguo, zookeeper]
+[zk: hadoop202:2181(CONNECTED) 14] ls /sanguo/weiguo
+[zhangliao0000000000]
+[zk: hadoop202:2181(CONNECTED) 15]
+
+</code></pre>
+<p>带序号的永久节点第二次创建会自动加上序号, 而不带序号的永久节点再次创建会报错</p>
+<pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 15] create -s /sanguo/weiguo/zhangliao &quot;zhangliao&quot;
+Created /sanguo/weiguo/zhangliao0000000001
+
+[zk: hadoop202:2181(CONNECTED) 10] create /sanguo/weiguo &quot;caocao&quot;
+Created /sanguo/weiguo
+[zk: hadoop202:2181(CONNECTED) 16] create /sanguo/weiguo &quot;caocao&quot;
+Node already exists: /sanguo/weiguo
+</code></pre>
+<p>使用<code>quit</code>退出客户端, 再次连接, 发现之前创建的节点仍然存在</p>
+<pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 17] quit
+[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkCli.sh -server hadoop202:2181
+
+[zk: hadoop202:2181(CONNECTED) 0] ls /sanguo
+[shuguo, weiguo]
+[zk: hadoop202:2181(CONNECTED) 1] ls /sanguo/weiguo
+[zhangliao0000000000, zhangliao0000000001]
+</code></pre>
+<h3 id="创建临时节点"><a href="#创建临时节点" class="headerlink" title="创建临时节点"></a>创建临时节点</h3><p>创建临时节点只需要加上参数-e 即可</p>
+<pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 2] create -e /sanguo/wuguo &quot;zhouyu&quot;
+Created /sanguo/wuguo
+
+查看吴国, 吴国创建成功
+[zk: hadoop202:2181(CONNECTED) 3] ls /sanguo
+[shuguo, weiguo, wuguo]
+</code></pre>
+<p>创建一个带序号的临时节点<br>只需要加上参数-s 即可</p>
+<pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 4] create -e -s /sanguo/wuguo &quot;zhouyu&quot;
+Created /sanguo/wuguo0000000003
+
+查看刚刚创建的节点
+[zk: hadoop202:2181(CONNECTED) 5] ls /sanguo
+[shuguo, weiguo, wuguo, wuguo0000000003]
+</code></pre>
+<p>断开<code>quit</code>连接之后, 吴国(wuguo)就没有了, 因为吴国创建的时候有-e, -e 表示是临时节点, 临时节点断开连接之后就删除了</p>
+<pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 6] quit
+[xiamu@hadoop202 zookeeper-3.5.7]$ bin/zkCli.sh -server hadoop202:2181
+
+[zk: hadoop202:2181(CONNECTED) 0] ls /sanguo
+[shuguo, weiguo]
+</code></pre>
+<p>**总结: **<br>-s 表示带序号<br>-e 表示临时节点</p>
+<h3 id="修改节点的值"><a href="#修改节点的值" class="headerlink" title="修改节点的值"></a>修改节点的值</h3><pre><code class="bash">[zk: hadoop202:2181(CONNECTED) 2] get -s /sanguo/weiguo
+caocao
+cZxid = 0x30000000c
+ctime = Wed Feb 01 20:15:52 CST 2023
+mZxid = 0x30000000c
+mtime = Wed Feb 01 20:15:52 CST 2023
+pZxid = 0x30000000e
+cversion = 2
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 6
+numChildren = 2
+[zk: hadoop202:2181(CONNECTED) 4] set /sanguo/weiguo &quot;simayi&quot;
+[zk: hadoop202:2181(CONNECTED) 5] get -s /sanguo/weiguo
+simayi
+cZxid = 0x30000000c
+ctime = Wed Feb 01 20:15:52 CST 2023
+mZxid = 0x300000016
+mtime = Wed Feb 01 20:29:31 CST 2023
+pZxid = 0x30000000e
+cversion = 2
+dataVersion = 1
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 6
+numChildren = 2
+
+
+[zk: hadoop202:2181(CONNECTED) 8] get /sanguo/weiguo
+simayi
+</code></pre>
+<h2 id="监听器及节点删除"><a href="#监听器及节点删除" class="headerlink" title="监听器及节点删除"></a>监听器及节点删除</h2><h3 id="监听节点的值"><a href="#监听节点的值" class="headerlink" title="监听节点的值"></a>监听节点的值</h3><p>在 hadoop204 中, <code>get -s /sanguo</code>查看 sanguo 的值, 并且使用<code>get -w /sanguo</code>监控 sanguo</p>
+<pre><code class="bash">[zk: hadoop204(CONNECTED) 0] get -s /sanguo
+diaochan
+cZxid = 0x30000000a
+ctime = Wed Feb 01 20:12:01 CST 2023
+mZxid = 0x30000000a
+mtime = Wed Feb 01 20:12:01 CST 2023
+pZxid = 0x300000014
+cversion = 6
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 8
+numChildren = 2
+[zk: hadoop204(CONNECTED) 1] get -w /sanguo
+diaochan
+
+</code></pre>
+<p>在 hadoop203 中修改 sanguo 的值, 在 hadoop204 的选项卡会出现一个感叹号<br>只有 hadoop203 第一次修改的时候 hadoop204 会出现一个感叹号,<br>hadoop203 修改多次, hadoop204 只会出现一个感叹号, 因为 hadoop204 只监听一次<br>如果想再次监听, 需要再次在 hadoop204 注册</p>
+<pre><code class="bash">[zk: hadoop203(CONNECTED) 3] set /sanguo &quot;xisi&quot;
+[zk: hadoop203(CONNECTED) 4] set /sanguo &quot;yangfeiyan&quot;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fmq-1qc0phaQob9poEpyU5X5Sd2X.png"></p>
+<h3 id="监听节点的路径变化"><a href="#监听节点的路径变化" class="headerlink" title="监听节点的路径变化"></a>监听节点的路径变化</h3><p>在 hadoop204 中使用<code>ls -w /sanguo</code>监听 sanguo 的路径变化<br>在 hadoop203 中添加一个节点, hadoop204 中出现叹号, 同样也是注册一次生效一次, 创建多个节点也就只会出现一个叹号, 除非再次开启监听<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqbwPnz9Ln1HD3-Q8OjdbDZuOp2D.png"></p>
+<h3 id="删除节点"><a href="#删除节点" class="headerlink" title="删除节点"></a>删除节点</h3><p>删除节点和递归删除节点</p>
+<pre><code class="bash">[zk: hadoop204(CONNECTED) 7] ls /
+[sanguo, zookeeper]
+[zk: hadoop204(CONNECTED) 8] ls /sanguo
+[jin, jin1, shuguo, weiguo]
+[zk: hadoop204(CONNECTED) 9] delete /sanguo/jin
+[zk: hadoop204(CONNECTED) 10] ls /sanguo
+[jin1, shuguo, weiguo]
+[zk: hadoop204(CONNECTED) 12] delete /sanguo
+Node not empty: /sanguo
+[zk: hadoop204(CONNECTED) 13] deleteall /sanguo
+[zk: hadoop204(CONNECTED) 14] ls /sanguo
+Node does not exist: /sanguo
+[zk: hadoop204(CONNECTED) 15] ls /
+[zookeeper]
+</code></pre>
+<h3 id="查看节点状态"><a href="#查看节点状态" class="headerlink" title="查看节点状态"></a>查看节点状态</h3><p>查看节点状态, 但是不查看值</p>
+<pre><code class="bash">[zk: hadoop204(CONNECTED) 21] stat /sanguo
+cZxid = 0x30000002d
+ctime = Wed Feb 01 21:07:20 CST 2023
+mZxid = 0x30000002d
+mtime = Wed Feb 01 21:07:20 CST 2023
+pZxid = 0x30000002d
+cversion = 0
+dataVersion = 0
+aclVersion = 0
+ephemeralOwner = 0x0
+dataLength = 9
+numChildren = 0
+</code></pre>
+<h2 id="客户端-创建节点"><a href="#客户端-创建节点" class="headerlink" title="客户端-创建节点"></a>客户端-创建节点</h2><p>创建 maven 项目<code>zookeeper</code><br>在 pom.xml 导入依赖</p>
+<pre><code class="bash">    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+            &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+            &lt;version&gt;2.8.2&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.zookeeper&lt;/groupId&gt;
+            &lt;artifactId&gt;zookeeper&lt;/artifactId&gt;
+            &lt;version&gt;3.5.7&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+</code></pre>
+<p>在 resource 添加 log4j.properties 配置文件</p>
+<pre><code class="bash">log4j.rootLogger=INFO, stdout
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%d %p [%c] - %m%n
+log4j.appender.logfile=org.apache.log4j.FileAppender
+log4j.appender.logfile.File=target/spring.log
+log4j.appender.logfile.layout=org.apache.log4j.PatternLayout
+log4j.appender.logfile.layout.ConversionPattern=%d %p [%c] - %m%n
+</code></pre>
+<p>创建包名<code>com.atguigu.zk</code><br>创建类名称<code>zkClient</code></p>
+<pre><code class="bash">public class zkClient &#123;
+
+    // 注意, 逗号左右不能有空格
+    private String connectString = &quot;hadoop202:2181,hadoop203:2181,hadoop204:2181&quot;;
+    private int sessionTimeout = 2000;
+    private ZooKeeper zooKeeper;
+
+    // 连接zookeeper
+    @Before
+    public void init() throws IOException &#123;
+        zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() &#123;
+            @Override
+            public void process(WatchedEvent watchedEvent) &#123;
+
+            &#125;
+        &#125;);
+    &#125;
+
+    @Test
+    public void create() throws InterruptedException, KeeperException &#123;
+        // 创建一个节点
+        String nodeCreated = zooKeeper.create(&quot;/atguigu&quot;, &quot;ss.avi&quot;.getBytes(),
+                ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+    &#125;
+&#125;
+</code></pre>
+<h2 id="客户端-监听节点的变化"><a href="#客户端-监听节点的变化" class="headerlink" title="客户端-监听节点的变化"></a>客户端-监听节点的变化</h2><p>getChildren 中第二个参数为 true 会调用 init 中 new Watch(){…}</p>
+<pre><code class="bash">    @Before
+    public void init() throws IOException &#123;
+        zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() &#123;
+            @Override
+            public void process(WatchedEvent watchedEvent) &#123;
+                List&lt;String&gt; children = null;
+                try &#123;
+                    children = zooKeeper.getChildren(&quot;/&quot;, true);
+                &#125; catch (KeeperException e) &#123;
+                    e.printStackTrace();
+                &#125; catch (InterruptedException e) &#123;
+                    e.printStackTrace();
+                &#125;
+                System.out.println(&quot;------------------&quot;);
+                for (String child : children) &#123;
+                    System.out.println(child);
+                &#125;
+                System.out.println(&quot;------------------&quot;);
+            &#125;
+        &#125;);
+    &#125;
+
+
+        @Test
+    public void getChildren() throws InterruptedException, KeeperException &#123;
+        List&lt;String&gt; children = zooKeeper.getChildren(&quot;/&quot;, true);
+
+        Thread.sleep(Long.MAX_VALUE);
+    &#125;
+</code></pre>
+<p>监听的同时, 在 linux 中添加&#x2F;删除节点, idea 能监听得到<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtXhjPVhA1Tys_otpR_uijfuukAo.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsZm6TzE8INSUkqTrmtmQVIA2lY5.png"></p>
+<h2 id="客户端-判断节点是否存在"><a href="#客户端-判断节点是否存在" class="headerlink" title="客户端-判断节点是否存在"></a>客户端-判断节点是否存在</h2><pre><code class="bash">    // 判断Znode是否存在
+    @Test
+    public void exist() throws InterruptedException, KeeperException &#123;
+        Stat stat = zooKeeper.exists(&quot;/atguigu&quot;, false);
+        System.out.println(stat == null ? &quot;not exist&quot; : &quot;exist&quot;);
+    &#125;
+</code></pre>
+<h2 id="写数据原理"><a href="#写数据原理" class="headerlink" title="写数据原理"></a>写数据原理</h2><p>ack 表示应答<br>write 表示写操作<br><img src="https://cdn.nlark.com/yuque/0/2023/png/33666212/1675339374157-fca4bf8c-c299-4bc3-b8b4-58c4c5a0f564.png#averageHue=%23fdf8f6&clientId=u0aed97ec-01c1-4&from=paste&height=374&id=u4f1b3f04&name=image.png&originHeight=561&originWidth=1007&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=50371&status=done&style=none&taskId=u945d7771-6958-4766-93a3-14128da9b2d&title=&width=671.3333333333334" alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjOze3LIfkv2-WEGdNURdrdW2-0i.png"></p>
+<h2 id="服务器动态上下线"><a href="#服务器动态上下线" class="headerlink" title="服务器动态上下线"></a>服务器动态上下线</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqILmd_t_GMvf-oidgQUnL-Sj_ON.png"></p>
+<p>操作上线<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqH9kCAQfDTwVBTeIS9C-vYZM14l.png"><br>操作下线<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgsUd_bwbql-VQZMJ1J-CDfXp9Xy.png"></p>
+<p>DistributeServer 代码</p>
+<pre><code class="bash">package com.atguigu.case1;
+
+import org.apache.zookeeper.*;
+
+import java.io.IOException;
+
+public class DistributeServer &#123;
+    private String connectString = &quot;hadoop202:2181,hadoop203:2181,hadoop204:2181&quot;;
+    private int sessionTimeout = 2000;
+    private ZooKeeper zooKeeper;
+
+    public static void main(String[] args) throws IOException, InterruptedException, KeeperException &#123;
+        DistributeServer server = new DistributeServer();
+        // 获取zk连接
+        server.getConnect();
+
+        // 注册服务器到zk集群
+        server.register(args[0]);
+
+        // 启动业务逻辑(睡觉)
+        server.bussiness();
+    &#125;
+
+    private void bussiness() throws InterruptedException &#123;
+        Thread.sleep(Long.MAX_VALUE);
+    &#125;
+
+    private void register(String hostname) throws InterruptedException, KeeperException &#123;
+        String create = zooKeeper.create(&quot;/servers/&quot; + hostname, hostname.getBytes(),
+                ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+
+        System.out.println(hostname + &quot; is online&quot;);
+    &#125;
+
+    private void getConnect() throws IOException &#123;
+        zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() &#123;
+            @Override
+            public void process(WatchedEvent event) &#123;
+
+            &#125;
+        &#125;);
+    &#125;
+&#125;
+</code></pre>
+<p>DistributeClient 代码</p>
+<pre><code class="bash">package com.atguigu.case1;
+
+import org.apache.zookeeper.KeeperException;
+import org.apache.zookeeper.WatchedEvent;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.ZooKeeper;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class DistributeClient &#123;
+    private String connectString = &quot;hadoop202:2181,hadoop203:2181,hadoop204:2181&quot;;
+    private int sessionTimeout = 2000;
+    private ZooKeeper zooKeeper;
+
+
+    public static void main(String[] args) throws InterruptedException, IOException, KeeperException &#123;
+        DistributeClient client = new DistributeClient();
+
+        // 获取zk连接
+        client.getConnect();
+
+        // 监听/servers下面子节点的增加和删除
+        client.getServerList();
+
+        // 业务逻辑(睡觉)
+        client.bussiness();
+    &#125;
+
+    private void bussiness() throws InterruptedException &#123;
+        Thread.sleep(Long.MAX_VALUE);
+    &#125;
+
+    private void getServerList() throws InterruptedException, KeeperException &#123;
+        List&lt;String&gt; children = zooKeeper.getChildren(&quot;/servers&quot;, true);
+        ArrayList&lt;String&gt; servers = new ArrayList&lt;&gt;();
+        for (String child : children) &#123;
+            byte[] data = zooKeeper.getData(&quot;/servers/&quot; + child, false, null);
+            servers.add(new String(data));
+        &#125;
+
+        System.out.println(servers);
+    &#125;
+
+    private void getConnect() throws IOException &#123;
+        zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() &#123;
+            @Override
+            public void process(WatchedEvent event) &#123;
+                try &#123;
+                    getServerList();
+                &#125; catch (Exception e) &#123;
+                    e.printStackTrace();
+                &#125;
+            &#125;
+        &#125;);
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq4oqdyS3utMXF2Ad_7n4xC9T3mZ.png"><br>tips:<br>运行 main 的时候需要传入参数, 在 idea 中传入参数的方式如下<br>在 Program arguments 中填写传入的参数<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fus9z-vjmtEyREnMCAaVzRq2SHj-.png"></p>
+<h2 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h2><p>什么叫做分布式锁呢？<br>比如说”进程 1”在使用该资源的时候，会先去获得锁，”进程 1”获得锁以后会对该资源保持独占，这样其他进程就无法访问该资源，”进程 1”用完该资源以后就将锁释放掉，让其他进程来获得锁，那么通过这个锁机制，我们就能保证了分布式系统中多个进程能够有序的访问该临界资源。那么我们把这个分布式环境下的这个锁叫作分布式锁。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FmbrP7XR5ORbghM8M4vzOa_vY777.png"><br>DistributedLock 代码</p>
+<pre><code class="bash">package com.atguigu.case2;
+
+import org.apache.zookeeper.*;
+import org.apache.zookeeper.data.Stat;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.CountDownLatch;
+
+public class DistributedLock &#123;
+
+    private final String connectString = &quot;hadoop202:2181,hadoop203:2181,hadoop204:2181&quot;;
+    private final int sessionTimeout = 2000;
+    private final ZooKeeper zooKeeper;
+
+    private CountDownLatch countDownLatch = new CountDownLatch(1);
+    private CountDownLatch waitLatch = new CountDownLatch(1);
+    private String currentMode;
+    private String waitPath;
+
+    public DistributedLock() throws IOException, InterruptedException, KeeperException &#123;
+        // 获取连接
+        zooKeeper = new ZooKeeper(connectString, sessionTimeout, new Watcher() &#123;
+            @Override
+            public void process(WatchedEvent watchedEvent) &#123;
+                // connectLatch 如果连接上zk 可以释放
+                if (watchedEvent.getState() == Event.KeeperState.SyncConnected) &#123;
+                    countDownLatch.countDown();
+                &#125;
+
+                // waitLatch 需要释放
+                if (watchedEvent.getType() == Event.EventType.NodeDeleted
+                        &amp;&amp; watchedEvent.getPath().equals(waitPath)) &#123;
+                    waitLatch.countDown();
+                &#125;
+            &#125;
+        &#125;);
+
+        // 等待zk正常连接后, 往下走程序
+        countDownLatch.await();
+
+        // 判断根节点/locks是否存在
+        Stat stat = zooKeeper.exists(&quot;/locks&quot;, false);
+        if (stat == null) &#123;
+            // 创建一下根节点
+            zooKeeper.create(&quot;/locks&quot;, &quot;locks&quot;.getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+        &#125;
+    &#125;
+
+    // 对zk加锁
+    public void zkLock() &#123;
+        // 创建对应的临时带序号节点
+        try &#123;
+            currentMode = zooKeeper.create(&quot;/locks/&quot; + &quot;seq-&quot;, null, ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+
+            // 判断创建的节点是否是最小序号节点, 如果是获取到锁, 如果不是, 监听序号前一个节点
+            List&lt;String&gt; children = zooKeeper.getChildren(&quot;/locks&quot;, false);
+
+            // 如果children 只有一个值, 那就直接获取锁, 如果有多个节点, 需要判断, 谁最小
+            if (children.size() == 1) &#123;
+                return;
+            &#125; else &#123;
+                Collections.sort(children);
+
+                // 获取节点名称 seq-00000000
+                String thisNode = currentMode.substring(&quot;/locks/&quot;.length());
+                // 通过seq-00000000获取该节点在children结合的位置
+                int index = children.indexOf(thisNode);
+
+                // 判断
+                if (index == -1) &#123;
+                    System.out.println(&quot;数据异常&quot;);
+                &#125; else if (index == 0) &#123;
+                    // 就一个节点, 可以获取锁了
+                    return;
+                &#125; else &#123;
+                    // 需要监听他前一个节点变化
+                    waitPath = &quot;/locks/&quot; + children.get(index - 1);
+                    zooKeeper.getData(waitPath, true, null);
+
+                    // 等待监听
+                    waitLatch.await();
+
+                    return;
+                &#125;
+            &#125;
+
+        &#125; catch (KeeperException e) &#123;
+            e.printStackTrace();
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+
+    // 解锁
+    public void unZkLock() &#123;
+        // 删除节点
+        try &#123;
+            zooKeeper.delete(currentMode, -1);
+        &#125; catch (InterruptedException e) &#123;
+            e.printStackTrace();
+        &#125; catch (KeeperException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>DistributedLockTest 代码</p>
+<pre><code class="bash">package com.atguigu.case2;
+
+import org.apache.zookeeper.KeeperException;
+
+import java.io.IOException;
+
+public class DistributedLockTest &#123;
+    public static void main(String[] args) throws IOException, InterruptedException, KeeperException &#123;
+        final DistributedLock lock1 = new DistributedLock();
+        final DistributedLock lock2 = new DistributedLock();
+
+        new Thread(new Runnable() &#123;
+            @Override
+            public void run() &#123;
+                try &#123;
+                    lock1.zkLock();
+                    System.out.println(&quot;线程1启动 获取到锁&quot;);
+                    Thread.sleep(5 * 1000);
+
+                    lock1.unZkLock();
+                    System.out.println(&quot;线程1 释放锁&quot;);
+                &#125; catch (InterruptedException e) &#123;
+                    e.printStackTrace();
+                &#125;
+            &#125;
+        &#125;).start();
+
+        new Thread(new Runnable() &#123;
+            @Override
+            public void run() &#123;
+                try &#123;
+                    lock2.zkLock();
+                    System.out.println(&quot;线程2启动 获取到锁&quot;);
+                    Thread.sleep(5 * 1000);
+
+                    lock2.unZkLock();
+                    System.out.println(&quot;线程2 释放锁&quot;);
+                &#125; catch (InterruptedException e) &#123;
+                    e.printStackTrace();
+                &#125;
+            &#125;
+        &#125;).start();
+    &#125;
+&#125;
+</code></pre>
+<p>运行结果如下:<br>线程 2 先获取锁, 当锁释放掉之后, 才会给其他线程上锁<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgVm80ZOqotskMbUSOO63uoZCNoL.png"></p>
+<h2 id="Curator-框架实现分布式锁案例"><a href="#Curator-框架实现分布式锁案例" class="headerlink" title="Curator 框架实现分布式锁案例"></a>Curator 框架实现分布式锁案例</h2><p>pom.xml 导入依赖</p>
+<pre><code class="bash">        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.curator&lt;/groupId&gt;
+            &lt;artifactId&gt;curator-framework&lt;/artifactId&gt;
+            &lt;version&gt;4.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.curator&lt;/groupId&gt;
+            &lt;artifactId&gt;curator-recipes&lt;/artifactId&gt;
+            &lt;version&gt;4.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.curator&lt;/groupId&gt;
+            &lt;artifactId&gt;curator-client&lt;/artifactId&gt;
+            &lt;version&gt;4.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+</code></pre>
+<p>CuratorLockTest 代码</p>
+<pre><code class="bash">package com.atguigu.case3;
+
+import org.apache.curator.framework.CuratorFramework;
+import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.recipes.locks.InterProcessMutex;
+import org.apache.curator.retry.ExponentialBackoffRetry;
+
+public class CuratorLockTest &#123;
+    public static void main(String[] args) &#123;
+        // 创建分布式锁1
+        InterProcessMutex lock1 = new InterProcessMutex(getCuratorFramework(), &quot;/locks&quot;);
+
+        // 创建分布式锁2
+        InterProcessMutex lock2 = new InterProcessMutex(getCuratorFramework(), &quot;/locks&quot;);
+
+        new Thread(new Runnable() &#123;
+            @Override
+            public void run() &#123;
+                try &#123;
+                    lock1.acquire();
+                    System.out.println(&quot;线程1 获取到锁&quot;);
+
+                    lock1.acquire();
+                    System.out.println(&quot;线程1 再次获取到锁&quot;);
+
+                    Thread.sleep(5 * 1000);
+
+                    lock1.release();
+                    System.out.println(&quot;线程1 释放锁&quot;);
+
+                    lock1.release();
+                    System.out.println(&quot;线程1 再次释放锁&quot;);
+
+                &#125; catch (Exception e) &#123;
+                    e.printStackTrace();
+                &#125;
+            &#125;
+        &#125;).start();
+
+        new Thread(new Runnable() &#123;
+            @Override
+            public void run() &#123;
+                try &#123;
+                    lock2.acquire();
+                    System.out.println(&quot;线程2 获取到锁&quot;);
+
+                    lock2.acquire();
+                    System.out.println(&quot;线程2 再次获取到锁&quot;);
+
+                    Thread.sleep(5 * 1000);
+
+                    lock2.release();
+                    System.out.println(&quot;线程2 释放锁&quot;);
+
+                    lock2.release();
+                    System.out.println(&quot;线程2 再次释放锁&quot;);
+
+                &#125; catch (Exception e) &#123;
+                    e.printStackTrace();
+                &#125;
+            &#125;
+        &#125;).start();
+    &#125;
+
+    private static CuratorFramework getCuratorFramework() &#123;
+
+        ExponentialBackoffRetry policy = new ExponentialBackoffRetry(3000, 3);
+
+        CuratorFramework client = CuratorFrameworkFactory.builder()
+                .connectString(&quot;hadoop202:2181,hadoop203:2181,hadoop204:2181&quot;)
+                .connectionTimeoutMs(2000)
+                .sessionTimeoutMs(2000)
+                .retryPolicy(policy)
+                .build();
+
+        // 启动客户端
+        client.start();
+
+        System.out.println(&quot;zookeeper 启动成功&quot;);
+
+        return client;
+    &#125;
+&#125;
+</code></pre>
+<p>说明同一个线程中锁是可以多次获取的<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlypVeE8541AHqPHg1zJJQbnGTWQ.png"></p>
+<h2 id="企业面试真题（面试重点）"><a href="#企业面试真题（面试重点）" class="headerlink" title="企业面试真题（面试重点）"></a>企业面试真题（面试重点）</h2><h3 id="选举机制"><a href="#选举机制" class="headerlink" title="选举机制"></a>选举机制</h3><p>半数机制，超过半数的投票通过，即通过。<br>（1） 第一次启动选举规则：<br>投票过半数时，服务器 id 大的胜出<br>（2） 第二次启动选举规则：<br>①EPOCH 大的直接胜出<br>②EPOCH 相同，事务 id 大的胜出<br>③ 事务 id 相同，服务器 id 大的胜出</p>
+<h3 id="生产集群安装多少-zk-合适？"><a href="#生产集群安装多少-zk-合适？" class="headerlink" title="生产集群安装多少 zk 合适？"></a>生产集群安装多少 zk 合适？</h3><p>安装奇数台。生产经验：<br>l 10 台服务器：3 台 zk；<br>l 20 台服务器：5 台 zk；<br>l 100 台服务器：11 台 zk；<br>l 200 台服务器：11 台 zk<br>服务器台数多：好处，提高可靠性；坏处：提高通信延时</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><p>ls、get、create、delete</p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2023/02/03/Dubbo/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>Dubbo</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2023/02/01/Yarn/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>Yarn</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

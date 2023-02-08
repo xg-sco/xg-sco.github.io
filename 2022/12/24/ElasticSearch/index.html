@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>ElasticSearch-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>ElasticSearch</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-12-24 12:18:16</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="下载-ElasticSearch"><a href="#下载-ElasticSearch" class="headerlink" title="下载 ElasticSearch"></a>下载 ElasticSearch</h2><p><a target="_blank" rel="noopener" href="https://www.elastic.co/cn/">https://www.elastic.co/cn/</a><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjWGROR6MJCL8KVHvVaIlec8DKLf.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fjni9KKdOpq59BzrrR27wYB74nj3.png"><br><a target="_blank" rel="noopener" href="https://www.elastic.co/cn/downloads/past-releases/elasticsearch-7-8-0">https://www.elastic.co/cn/downloads/past-releases/elasticsearch-7-8-0</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FmPiBKbeQS80K7DBFZ8H2TGID0c2.png"><br>下载之后解压, 文件目录如下<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FoK8yfG5XZSwsJ0oYH23-x75Jm7G.png"><br>bin 可执行脚本目录<br> config 配置目录<br> jdk 内置 JDK 目录<br> lib 类库<br> logs 日志目录<br> modules 模块目录<br> plugins 插件目录</p>
+<h2 id="启动-ElasticSearch"><a href="#启动-ElasticSearch" class="headerlink" title="启动 ElasticSearch"></a>启动 ElasticSearch</h2><p>要确保 java -version 和 echo %JAVA_HOME% 的版本一致<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fv4woLVw_gvlfw02Mz04uv30YjmY.png"><br>打开 bin 目录, 双击 elasticsearch.bat 文件, 会弹出一个黑框, 注意, 你的笔记本电脑需要有 java 环境<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpXU6YbNXwGw7lTD6Dz9ICEc9xmf.png"><br>双击之后关注两个位置<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuVbYxfYDlAKsf7L6cStY-9Vv05T.png"><br>在浏览器中打开<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/">http://127.0.0.1:9200/</a><br>显示如下内容说明 elasticsearch 启动成功<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fs4HZ9JshhNNB_gTWEHsilQsj8Xj.png"></p>
+<h2 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h2><p>Elasticsearch 是面向文档型数据库，一条数据在这里就是一个文档。为了方便大家理解， 我们将 Elasticsearch 里存储文档数据和关系型数据库 MySQL 存储数据的概念进行一个类比<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FvKbkTApum_A_8YGyDAa-INJVeE1.png"><br>ES 里的 Index 可以看做一个库，而 Types 相当于表，Documents 则相当于表的行。 这里 Types 的概念已经被逐渐弱化，Elasticsearch 6.X 中，一个 index 下已经只能包含一个 type，Elasticsearch 7.X 中, Type 的概念已经被删除了。</p>
+<h2 id="索引操作"><a href="#索引操作" class="headerlink" title="索引操作"></a>索引操作</h2><h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><p>打开 postman, 给<a target="_blank" rel="noopener" href="http://localhost:9200/shopping">http://localhost:9200/shopping</a>发送 PUT 请求<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FrAUA9IPCf0SI4Gw9qHbzwuFuwL0.png"></p>
+<blockquote>
+<p>幂等（idempotent、idempotence）是一个数学与计算机学概念，常见于抽象代数中。 在编程中一个幂等操作的特点是其任意多次执行所产生的影响均与一次执行的影响相同。 幂等函数，或幂等方法，是指可以使用相同参数重复执行，并能获得相同结果的函数。</p>
+</blockquote>
+<p>简单来说, 就是调用一次, 和调用多次得到的结果是一样的<br>PUT 是具有幂等性的, 创建好 shopping 之后, 再次发送请求, 就会提示, 已经创建好了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqNhWL9_I6qVQb1O2qPjpayjQLBT.png"><br>不能够发送 POST 请求, 因为 POST 请求不是幂等的, 两次的操作可能不一样<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fsbb0KFOTGrVQtYt8VhMLtGNEIHO.png"><br>允许使用的只有 GET, DELETE, HEAD, PUT</p>
+<h3 id="查询索引"><a href="#查询索引" class="headerlink" title="查询索引"></a>查询索引</h3><p><strong>查询单个索引</strong>发送 get 请求<a target="_blank" rel="noopener" href="http://localhost:9200/shopping">http://localhost:9200/shopping</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FroW7u3zV69CC3TRGXZiMioXhEEW.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuXzk39NyByz_uzSm3muMr5PE6Hy.png"><br><strong>查询所有索引</strong>发送 get 请求<a target="_blank" rel="noopener" href="http://localhost:9200/_cat/indices?v">http://localhost:9200/_cat&#x2F;indices?v</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsG7rrnfhIcrtRVMArmD_Kzjh_1_.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlZpkFDdyb5D0BeGqFkqen-dLofq.png"></p>
+<h3 id="删除索引"><a href="#删除索引" class="headerlink" title="删除索引"></a>删除索引</h3><p>使用 delete 发送<a target="_blank" rel="noopener" href="http://localhost:9200/shopping">http://localhost:9200/shopping</a>请求<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fqj35LBDRZs5wciS2Xk1dNBw2YS7.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsKv3y50ZgsL6ZXSMLD6uIS1gx__.png"><br>再次查询所有索引, 发现已经没有 shopping 索引了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fm_bDkVQvXiDC7UyFTQFYRQp-io3.png"></p>
+<h2 id="添加数据"><a href="#添加数据" class="headerlink" title="添加数据"></a>添加数据</h2><p>创建文档并添加数据<br>使用 Post 发送请求<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_doc">http://127.0.0.1:9200/shopping/_doc</a><br>在 Body 中携带 JSON 数据</p>
+<pre><code class="json">&#123;
+  &quot;title&quot;: &quot;小米手机&quot;,
+  &quot;category&quot;: &quot;小米&quot;,
+  &quot;images&quot;: &quot;http://www.gulixueyuan.com/xm.jpg&quot;,
+  &quot;price&quot;: 3999.0
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fm5EDLxRxwEYrgtHZj8qyfK2SnO0.png"><br>此处发送请求的方式必须为 POST，不能是 PUT，否则会发生错误<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnLuI-sJgs19XpT45-xlGbK18n-a.png"><br>上面的数据创建后，由于没有指定数据唯一性标识（ID），默认情况下，ES 服务器会随机 生成一个。<br> 如果想要自定义唯一性标识，需要在创建时指定：<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_doc/114514">http://127.0.0.1:9200/shopping/_doc&#x2F;114514</a><br>此处需要注意：如果增加数据时明确数据主键，那么请求方式也可以为 PUT<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FmaRSTKu58ytjq8q6U_FAr3uE_p_.png"></p>
+<h2 id="查询数据"><a href="#查询数据" class="headerlink" title="查询数据"></a>查询数据</h2><p><strong>主键查询</strong><br>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_doc/114514">http://127.0.0.1:9200/shopping/_doc&#x2F;114514</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpCAZqyD26PjzXz9cKH0398HWdBy.png"><br><strong>查询所有数据</strong><br>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FmeZyzU2bX0KPQN3NRZyO5pNEYtN.png"></p>
+<h2 id="修改数据"><a href="#修改数据" class="headerlink" title="修改数据"></a>修改数据</h2><p><strong>全量修改</strong><br>使用 POST 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_doc/114514">http://127.0.0.1:9200/shopping/_doc&#x2F;114514</a><br>在 Body 携带 JSON</p>
+<pre><code class="json">&#123;
+  &quot;title&quot;: &quot;华为手机&quot;,
+  &quot;category&quot;: &quot;华为&quot;,
+  &quot;images&quot;: &quot;http://www.gulixueyuan.com/hw.jpg&quot;,
+  &quot;price&quot;: 4999.0
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fj_xUcmvfEsIE_bRG720hzJirkEE.png"><br><strong>局部修改</strong><br>只修改当中的某一个属性<br>使用 PUT 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_doc/114514">http://127.0.0.1:9200/shopping/_doc&#x2F;114514</a><br>携带 JSON 参数</p>
+<pre><code class="json">&#123;
+  &quot;_doc&quot;: &#123;
+    &quot;price&quot;: &quot;5999.00&quot;
+  &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiSPKgdGclga-gVXRrAsvtStjaSQ.png"></p>
+<h2 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h2><p>使用 DELETE 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_doc/114514">http://127.0.0.1:9200/shopping/_doc&#x2F;114514</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fv3-hPeCi5cfLYGvS1W62zLV2lCO.png"><br>再次发送 DELETE 请求, 则”result”: “not_found”,<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fox7lAkH62QwYUlpgXRNfA-OyfDw.png"></p>
+<h2 id="条件查询"><a href="#条件查询" class="headerlink" title="条件查询"></a>条件查询</h2><p>第一种直接在地址栏中带参数<br>使用 GET 发送请求 <a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search?q=category:">http://127.0.0.1:9200/shopping/_search?q&#x3D;category:</a>小米<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Ft06INnZUqDvMT1g8bHLWATdWG-9.png"><br>第二种: 在请求头中带参数, 避免的地址栏中包含中文会乱码的问题<br>使用 GET 发送请求<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>请求头携带 JSON 格式</p>
+<pre><code class="json">&#123;
+  &quot;query&quot;: &#123;
+    &quot;match&quot;: &#123;
+      &quot;category&quot;: &quot;小米&quot;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>同样能够查询出来 category 是小米的数据<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjHPYyWJZ-vEaDoXC7SlTwKBMwFg.png"></p>
+<p>全查询<br>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>请求头携带</p>
+<pre><code class="json">&#123;
+  &quot;query&quot;: &#123;
+    &quot;match_all&quot;: &#123;&#125;
+  &#125;
+&#125;
+</code></pre>
+<p>最后查询的结果是把数据全部查询出来<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fi_BBLYAYqIL3VlNm062QgPra2HA.png"></p>
+<h2 id="分页查询和条件查询"><a href="#分页查询和条件查询" class="headerlink" title="分页查询和条件查询"></a>分页查询和条件查询</h2><p>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>请求头携带 JSON:</p>
+<pre><code class="json">&#123;
+    &quot;query&quot;: &#123;
+        &quot;match_all&quot;: &#123;
+
+        &#125;
+    &#125;,
+    &quot;from&quot;: 0,
+    &quot;size&quot;: 3,
+    &quot;_source&quot;: [&quot;title&quot;],
+    &quot;sort&quot;: &#123;
+        &quot;price&quot; : &quot;desc&quot;
+    &#125;
+&#125;
+
+from是起始位置
+from = (页面 - 1) * 每页数据条数
+
+_source是指定当前只查询的字段
+sort是指定需要对某一个字段进行排序操作
+</code></pre>
+<h2 id="多条件查询"><a href="#多条件查询" class="headerlink" title="多条件查询"></a>多条件查询</h2><p>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>请求头 JSON:</p>
+<pre><code class="json">&#123;
+  &quot;query&quot;: &#123;
+    &quot;bool&quot;: &#123;
+      &quot;must&quot;: [
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;category&quot;: &quot;小米&quot;
+          &#125;
+        &#125;,
+        &#123;
+          &quot;match&quot;: &#123;
+            &quot;price&quot;: 3999.0
+          &#125;
+        &#125;
+      ]
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p>must 表示: 匹配的条件, category 是小米, 并且 price 也要是 3999<br>must 可以替换成 should, 表示</p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;bool&quot; : &#123;
+            &quot;should&quot; : [
+                &#123;
+                    &quot;match&quot; : &#123;
+                        &quot;category&quot; : &quot;小米&quot;
+                    &#125;
+                &#125;,
+                &#123;
+                    &quot;match&quot; : &#123;
+                        &quot;category&quot; : &quot;华为&quot;
+                    &#125;
+                &#125;
+            ]
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>加上范围, 查询大于 5000 价格的手机的</p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;bool&quot; : &#123;
+            &quot;should&quot; : [
+                &#123;
+                    &quot;match&quot; : &#123;
+                        &quot;category&quot; : &quot;小米&quot;
+                    &#125;
+                &#125;,
+                &#123;
+                    &quot;match&quot; : &#123;
+                        &quot;category&quot; : &quot;华为&quot;
+                    &#125;
+                &#125;
+            ],
+            &quot;filter&quot;: &#123;
+                &quot;range&quot; : &#123;
+                    &quot;price&quot; : &#123;
+                        &quot;gt&quot; : 5000
+                    &#125;
+                &#125;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="全文检索-amp-完全匹配-amp-高亮查询"><a href="#全文检索-amp-完全匹配-amp-高亮查询" class="headerlink" title="全文检索 &amp; 完全匹配 &amp; 高亮查询"></a>全文检索 &amp; 完全匹配 &amp; 高亮查询</h2><p><strong>全文检索</strong><br>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>Body 携带 JSON</p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;match&quot; : &#123;
+            &quot;category&quot; : &quot;米&quot;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>category 中带有 “米” 的关键字都会被查询出来<br>如果 category: “华米”, category 中会查询出 “华为” , “小米”等等这种字段</p>
+<p><strong>完全匹配</strong><br>如果不想使用这种全文检索, 那么可以采用完全匹配的规则进行查询<br>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>Body 携带 JSON</p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;match_phrase&quot; : &#123;
+            &quot;category&quot; : &quot;华米&quot;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>这样匹配, 就不会同时出现”小米” “华为”了, 只会精准的匹配到”华米”</p>
+<p><strong>高亮查询</strong><br>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>Body 携带 JSON</p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;match_phrase&quot; : &#123;
+            &quot;category&quot; : &quot;小米&quot;
+        &#125;
+    &#125;,
+    &quot;highlight&quot;: &#123;
+        &quot;fields&quot; : &#123;
+            &quot;category&quot; : &#123;&#125;
+        &#125;
+    &#125;
+&#125;
+
+
+返回的数据如下: 会在highlight中加上高亮的效果
+&#123;
+    &quot;_index&quot;: &quot;shopping&quot;,
+    &quot;_type&quot;: &quot;_doc&quot;,
+    &quot;_id&quot;: &quot;1009&quot;,
+    &quot;_score&quot;: 0.5156582,
+    &quot;_source&quot;: &#123;
+        &quot;title&quot;: &quot;小米手机&quot;,
+        &quot;category&quot;: &quot;小米&quot;,
+        &quot;images&quot;: &quot;http://www.gulixueyuan.com/hw.jpg&quot;,
+        &quot;price&quot;: 9999.00
+    &#125;,
+    &quot;highlight&quot;: &#123;
+        &quot;category&quot;: [
+            &quot;&lt;em&gt;小&lt;/em&gt;&lt;em&gt;米&lt;/em&gt;&quot;
+        ]
+    &#125;
+&#125;
+</code></pre>
+<h2 id="聚合查询"><a href="#聚合查询" class="headerlink" title="聚合查询"></a>聚合查询</h2><p>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>Body 携带 JSON</p>
+<pre><code>&#123;
+    &quot;aggs&quot; : &#123; // 聚合操作
+        &quot;price_group&quot; : &#123; // 名称: 随意起名
+            &quot;terms&quot; : &#123; // 分组
+                &quot;field&quot; : &quot;price&quot; // 分组字段
+            &#125;
+        &#125;
+    &#125;,
+    &quot;size&quot; : 0 // 不查询原数据
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkEGeT2C5rDG4DeyHlXJ4Fb41d1R.png"><br>使用 GET 发送<a target="_blank" rel="noopener" href="http://127.0.0.1:9200/shopping/_search">http://127.0.0.1:9200/shopping/_search</a><br>Body 携带 JSON</p>
+<pre><code>&#123;
+    &quot;aggs&quot; : &#123; // 聚合操作
+        &quot;price_avg&quot; : &#123; // 名称: 随意起名
+            &quot;avg&quot; : &#123; // 平均值
+                &quot;field&quot; : &quot;price&quot; // 分组字段
+            &#125;
+        &#125;
+    &#125;,
+    &quot;size&quot; : 0 // 不查询原数据
+&#125;
+</code></pre>
+<p>查询结果如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkrOyZkDpL_zKS85RIVjPpyoNdYd.png"></p>
+<h2 id="映射关系"><a href="#映射关系" class="headerlink" title="映射关系"></a>映射关系</h2><p>先使用 PUT 发送<a target="_blank" rel="noopener" href="http://localhost:9200/user">http://localhost:9200/user</a><br>创建 user 索引<br>Body 携带 JSON</p>
+<pre><code>&#123;
+    &quot;properties&quot; : &#123;
+        &quot;name&quot; : &#123;
+            &quot;type&quot; : &quot;text&quot;,
+            &quot;index&quot; : true
+        &#125;,
+        &quot;sex&quot; : &#123;
+            &quot;type&quot; : &quot;keyword&quot;,
+            &quot;index&quot; : true
+        &#125;,
+        &quot;tel&quot; : &#123;
+            &quot;type&quot; : &quot;keyword&quot;,
+            &quot;index&quot; : false
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p>使用 PUT 发送<a target="_blank" rel="noopener" href="http://localhost:9200/user/_create/1001">http://localhost:9200/user/_create&#x2F;1001</a><br>添加一条数据<br>Body 携带 JSON</p>
+<pre><code>&#123;
+    &quot;name&quot; : &quot;小米&quot;,
+    &quot;sex&quot; : &quot;男的&quot;,
+    &quot;tel&quot; : &quot;1111&quot;
+&#125;
+</code></pre>
+<p>type：类型，Elasticsearch 中支持的数据类型非常丰富，说几个关键的：<br> String 类型，又分两种：<br> text：可分词<br> keyword：不可分词，数据会作为完整字段进行匹配<br> Numerical：数值类型，分两类<br>基本数据类型：long、integer、short、byte、double、float、half_float<br>浮点数的高精度类型：scaled_float<br> Date：日期类型<br> Array：数组类型<br> Object：对象<br> index：是否索引，默认为 true，也就是说你不进行任何配置，所有字段都会被索引。<br> true：字段会被索引，则可以用来进行搜索<br>false：字段不会被索引，不能用来搜索<br>使用 GET 发送<a target="_blank" rel="noopener" href="http://localhost:9200/user/_search">http://localhost:9200/user/_search</a></p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;match&quot; : &#123;
+            &quot;name&quot; : &quot;小&quot;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlmbFuIDaTKA55yefS5jWOMFlCu2.png"></p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;match&quot; : &#123;
+            &quot;sex&quot; : &quot;男&quot;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpO_H265akNhemkYxFB2clR1HYje.png"></p>
+<pre><code>&#123;
+    &quot;query&quot; : &#123;
+        &quot;match&quot; : &#123;
+            &quot;tel&quot; : &quot;1111&quot;
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnpmoUBRTpRw76tnQPEp_XtdYC3o.png"></p>
+<h2 id="在-Java-项目中使用-ElasticSearch"><a href="#在-Java-项目中使用-ElasticSearch" class="headerlink" title="在 Java 项目中使用 ElasticSearch"></a>在 Java 项目中使用 ElasticSearch</h2><h3 id="ERROR-StatusLogger-No-log4j2-configuration-file-found-Using-default-configuration-logging-only-errors-to-the-console-Set-system-property-‘org-apache-logging-log4j-simplelog-StatusLogger-level’-to-TRACE-to-show-Log4j2-internal-initialization-logging"><a href="#ERROR-StatusLogger-No-log4j2-configuration-file-found-Using-default-configuration-logging-only-errors-to-the-console-Set-system-property-‘org-apache-logging-log4j-simplelog-StatusLogger-level’-to-TRACE-to-show-Log4j2-internal-initialization-logging" class="headerlink" title="ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console. Set system property ‘org.apache.logging.log4j.simplelog.StatusLogger.level’ to TRACE to show Log4j2 internal initialization logging."></a>ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console. Set system property ‘org.apache.logging.log4j.simplelog.StatusLogger.level’ to TRACE to show Log4j2 internal initialization logging.</h3><p>在 resource 目录下创建 log4j2.xml 文件<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiR42Svqj5-RCGkbrORRZBiBp5T9.png"></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;Configuration&gt;
+    &lt;Appenders&gt;
+        &lt;Console name=&quot;STDOUT&quot; target=&quot;SYSTEM_OUT&quot;&gt;
+            &lt;PatternLayout pattern=&quot;%d %-5p [%t] %C&#123;2&#125; (%F:%L) - %m%n&quot;/&gt;
+        &lt;/Console&gt;
+        &lt;RollingFile name=&quot;RollingFile&quot; fileName=&quot;logs/strutslog1.log&quot;
+                     filePattern=&quot;logs/$$&#123;date:yyyy-MM&#125;/app-%d&#123;MM-dd-yyyy&#125;-%i.log.gz&quot;&gt;
+            &lt;PatternLayout&gt;
+                &lt;Pattern&gt;%d&#123;MM-dd-yyyy&#125; %p %c&#123;1.&#125; [%t] -%M-%L- %m%n&lt;/Pattern&gt;
+            &lt;/PatternLayout&gt;
+            &lt;Policies&gt;
+                &lt;TimeBasedTriggeringPolicy /&gt;
+                &lt;SizeBasedTriggeringPolicy size=&quot;1 KB&quot;/&gt;
+            &lt;/Policies&gt;
+            &lt;DefaultRolloverStrategy fileIndex=&quot;max&quot; max=&quot;2&quot;/&gt;
+        &lt;/RollingFile&gt;
+    &lt;/Appenders&gt;
+    &lt;Loggers&gt;
+        &lt;Logger name=&quot;com.opensymphony.xwork2&quot; level=&quot;WAN&quot;/&gt;
+        &lt;Logger name=&quot;org.apache.struts2&quot; level=&quot;WAN&quot;/&gt;
+        &lt;Root level=&quot;warn&quot;&gt;
+            &lt;AppenderRef ref=&quot;STDOUT&quot;/&gt;
+        &lt;/Root&gt;
+    &lt;/Loggers&gt;
+&lt;/Configuration&gt;
+</code></pre>
+<h3 id="连接-ES"><a href="#连接-ES" class="headerlink" title="连接 ES"></a>连接 ES</h3><p>创建一个 maven 项目<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjtJntAl5gAKG9hL-g7DU0i5KSdG.png"><br>导入如下依赖</p>
+<pre><code>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.elasticsearch&lt;/groupId&gt;
+        &lt;artifactId&gt;elasticsearch&lt;/artifactId&gt;
+        &lt;version&gt;7.8.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- elasticsearch 的客户端 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.elasticsearch.client&lt;/groupId&gt;
+        &lt;artifactId&gt;elasticsearch-rest-high-level-client&lt;/artifactId&gt;
+        &lt;version&gt;7.8.0&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- elasticsearch 依赖 2.x 的 log4j --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+        &lt;artifactId&gt;log4j-api&lt;/artifactId&gt;
+        &lt;version&gt;2.8.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.logging.log4j&lt;/groupId&gt;
+        &lt;artifactId&gt;log4j-core&lt;/artifactId&gt;
+        &lt;version&gt;2.8.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.fasterxml.jackson.core&lt;/groupId&gt;
+        &lt;artifactId&gt;jackson-databind&lt;/artifactId&gt;
+        &lt;version&gt;2.9.9&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;!-- junit 单元测试 --&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;junit&lt;/groupId&gt;
+        &lt;artifactId&gt;junit&lt;/artifactId&gt;
+        &lt;version&gt;4.12&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+</code></pre>
+<p>测试类运行如下代码, 并没有报错, 说明代码没有错误</p>
+<pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+
+import java.io.IOException;
+
+public class ESTest_Client &#123;
+    public static void main(String[] args) throws IOException &#123;
+        // 创建ES客户端
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+        // 关闭ES客户端
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="创建索引-1"><a href="#创建索引-1" class="headerlink" title="创建索引"></a>创建索引</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.indices.CreateIndexRequest;
+import org.elasticsearch.client.indices.CreateIndexResponse;
+
+import java.io.IOException;
+
+public class ESTest_Index_Create &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 创建索引
+        CreateIndexRequest request = new CreateIndexRequest(&quot;user&quot;);
+        CreateIndexResponse createIndexResponse = esClient.indices().create(request, RequestOptions.DEFAULT);
+
+        // 响应状态
+        boolean acknowledged = createIndexResponse.isAcknowledged();
+        System.out.println(&quot;索引操作: &quot; + acknowledged);
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Flh1Efs2Vjq4M6J8HsqY9K7f_zI4.png"></p>
+<h3 id="查询索引-1"><a href="#查询索引-1" class="headerlink" title="查询索引"></a>查询索引</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.indices.CreateIndexRequest;
+import org.elasticsearch.client.indices.CreateIndexResponse;
+import org.elasticsearch.client.indices.GetIndexRequest;
+import org.elasticsearch.client.indices.GetIndexResponse;
+
+import java.io.IOException;
+
+public class ESTest_Index_Search &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 查询索引
+        GetIndexRequest request = new GetIndexRequest(&quot;user&quot;);
+        GetIndexResponse getIndexResponse = esClient.indices().get(request, RequestOptions.DEFAULT);
+
+        // 响应状态
+        System.out.println(getIndexResponse.getAliases());
+        System.out.println(getIndexResponse.getMappings());
+        System.out.println(getIndexResponse.getSettings());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<p>查询结果如下:</p>
+<pre><code>
+&#123;user=[]&#125;
+&#123;user=org.elasticsearch.cluster.metadata.MappingMetadata@87817eaa&#125;
+&#123;user=&#123;&quot;index.creation_date&quot;:&quot;1672228548499&quot;,&quot;index.number_of_replicas&quot;:&quot;1&quot;,&quot;index.number_of_shards&quot;:&quot;1&quot;,&quot;index.provided_name&quot;:&quot;user&quot;,&quot;index.uuid&quot;:&quot;JtqLrkGnT2ONWQ0JqfWY2A&quot;,&quot;index.version.created&quot;:&quot;7080099&quot;&#125;&#125;
+
+</code></pre>
+<h3 id="删除索引-1"><a href="#删除索引-1" class="headerlink" title="删除索引"></a>删除索引</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.support.master.AcknowledgedResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.client.indices.GetIndexRequest;
+import org.elasticsearch.client.indices.GetIndexResponse;
+
+import java.io.IOException;
+
+public class ESTest_Index_Delete &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 删除索引
+        DeleteIndexRequest request = new DeleteIndexRequest(&quot;user&quot;);
+        AcknowledgedResponse response = esClient.indices().delete(request, RequestOptions.DEFAULT);
+
+        // 响应状态
+        System.out.println(response.isAcknowledged());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="插入数据"><a href="#插入数据" class="headerlink" title="插入数据"></a>插入数据</h3><pre><code>import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpHost;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.support.master.AcknowledgedResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+
+import java.io.IOException;
+
+public class ESTest_Index_Insert &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 添加数据
+        IndexRequest request = new IndexRequest();
+        request.index(&quot;user&quot;).id(&quot;1001&quot;);
+
+        User user = new User();
+        user.setName(&quot;张三&quot;);
+        user.setAge(20);
+        user.setSex(&quot;男&quot;);
+
+        ObjectMapper mapper = new ObjectMapper();
+        String userJson = mapper.writeValueAsString(user);
+        request.source(userJson, XContentType.JSON);
+
+        IndexResponse response = esClient.index(request, RequestOptions.DEFAULT);
+
+        System.out.println(response.getResult());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="修改数据-1"><a href="#修改数据-1" class="headerlink" title="修改数据"></a>修改数据</h3><pre><code>import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpHost;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.action.update.UpdateRequest;
+import org.elasticsearch.action.update.UpdateResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+
+import java.io.IOException;
+
+public class ESTest_Index_Update &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 修改数据
+        UpdateRequest request = new UpdateRequest();
+        request.index(&quot;user&quot;).id(&quot;1001&quot;);
+
+        request.doc(XContentType.JSON, &quot;sex&quot;, &quot;女&quot;);
+
+        UpdateResponse update = esClient.update(request, RequestOptions.DEFAULT);
+
+        System.out.println(update.getResult());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="查询数据-1"><a href="#查询数据-1" class="headerlink" title="查询数据"></a>查询数据</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+import org.elasticsearch.action.update.UpdateRequest;
+import org.elasticsearch.action.update.UpdateResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+
+import java.io.IOException;
+
+public class ESTest_Doc_Get &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 查询数据
+        GetRequest request = new GetRequest();
+        request.index(&quot;user&quot;).id(&quot;1001&quot;);
+        GetResponse response = esClient.get(request, RequestOptions.DEFAULT);
+
+        System.out.println(response.getSourceAsString());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="删除数据-1"><a href="#删除数据-1" class="headerlink" title="删除数据"></a>删除数据</h3><pre><code>import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpHost;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.delete.DeleteResponse;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+
+import java.io.IOException;
+
+public class ESTest_Doc_Delete &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 删除数据
+        DeleteRequest request = new DeleteRequest();
+        request.index(&quot;user&quot;).id(&quot;1001&quot;);
+
+        DeleteResponse response = esClient.delete(request, RequestOptions.DEFAULT);
+        System.out.println(response.toString());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="批量添加"><a href="#批量添加" class="headerlink" title="批量添加"></a>批量添加</h3><pre><code>import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.http.HttpHost;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.action.index.IndexResponse;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+
+import java.io.IOException;
+
+public class ESTest_Doc_Insert_Batch &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 批量添加数据
+        BulkRequest request = new BulkRequest();
+
+        request.add(new IndexRequest().index(&quot;user&quot;).id(&quot;1001&quot;).source(XContentType.JSON, &quot;name&quot;, &quot;zhangsan&quot;));
+        request.add(new IndexRequest().index(&quot;user&quot;).id(&quot;1002&quot;).source(XContentType.JSON, &quot;name&quot;, &quot;lisi&quot;));
+        request.add(new IndexRequest().index(&quot;user&quot;).id(&quot;1003&quot;).source(XContentType.JSON, &quot;name&quot;, &quot;wangwu&quot;));
+
+        BulkResponse response = esClient.bulk(request, RequestOptions.DEFAULT);
+
+        System.out.println(response.getTook());
+        System.out.println(response.getItems());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="批量删除"><a href="#批量删除" class="headerlink" title="批量删除"></a>批量删除</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.bulk.BulkRequest;
+import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteRequest;
+import org.elasticsearch.action.index.IndexRequest;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.xcontent.XContentType;
+
+import java.io.IOException;
+
+public class ESTest_Doc_Delete_Batch &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 批量添加数据
+        BulkRequest request = new BulkRequest();
+
+        request.add(new DeleteRequest().index(&quot;user&quot;).id(&quot;1001&quot;));
+        request.add(new DeleteRequest().index(&quot;user&quot;).id(&quot;1002&quot;));
+        request.add(new DeleteRequest().index(&quot;user&quot;).id(&quot;1003&quot;));
+
+        BulkResponse response = esClient.bulk(request, RequestOptions.DEFAULT);
+
+        System.out.println(response.getTook());
+        System.out.println(response.getItems());
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="查询所有数据"><a href="#查询所有数据" class="headerlink" title="查询所有数据"></a>查询所有数据</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 1.查询索引中全部的数据
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        request.source(new SearchSourceBuilder().query(QueryBuilders.matchAllQuery()));
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="条件查询-1"><a href="#条件查询-1" class="headerlink" title="条件查询"></a>条件查询</h3><pre><code> import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 2.条件查询
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        request.source(new SearchSourceBuilder().query(QueryBuilders.termQuery(&quot;age&quot;, &quot;30&quot;)));
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 3.分页查询
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder().query(QueryBuilders.matchAllQuery());
+        builder.from(0);
+        builder.size(2);
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="查询排序"><a href="#查询排序" class="headerlink" title="查询排序"></a>查询排序</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+ import org.elasticsearch.search.sort.SortOrder;
+
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+
+        // 4.查询排序
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder().query(QueryBuilders.matchAllQuery());
+        builder.sort(&quot;age&quot;, SortOrder.DESC);
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="过滤字段"><a href="#过滤字段" class="headerlink" title="过滤字段"></a>过滤字段</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+ import org.elasticsearch.search.sort.SortOrder;
+
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 5.过滤字段
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder().query(QueryBuilders.matchAllQuery());
+        String[] includes = &#123;&#125;;
+        String[] excludes = &#123;&quot;sex&quot;&#125;;
+        /*String[] includes = &#123;&quot;name&quot;&#125;;
+        String[] excludes = &#123;&#125;;*/
+        builder.fetchSource(includes, excludes);
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="组合查询"><a href="#组合查询" class="headerlink" title="组合查询"></a>组合查询</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.index.query.BoolQueryBuilder;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+ import org.elasticsearch.search.sort.SortOrder;
+
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 6.组合查询
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder().query(QueryBuilders.matchAllQuery());
+        BoolQueryBuilder boolQueryBuilder = QueryBuilders.boolQuery();
+//        boolQueryBuilder.must(QueryBuilders.matchQuery(&quot;age&quot;, 23));
+//        boolQueryBuilder.must(QueryBuilders.matchQuery(&quot;sex&quot;, &quot;男&quot;));
+//        boolQueryBuilder.mustNot(QueryBuilders.matchQuery(&quot;sex&quot;, &quot;男&quot;));
+        boolQueryBuilder.should(QueryBuilders.matchQuery(&quot;age&quot;, 20));
+        boolQueryBuilder.should(QueryBuilders.matchQuery(&quot;age&quot;, 23));
+
+        builder.query(boolQueryBuilder);
+
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="范围查询"><a href="#范围查询" class="headerlink" title="范围查询"></a>范围查询</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.index.query.BoolQueryBuilder;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.index.query.RangeQueryBuilder;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+ import org.elasticsearch.search.sort.SortOrder;
+
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 7.范围查询
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder();
+        RangeQueryBuilder rangeQuery = QueryBuilders.rangeQuery(&quot;age&quot;);
+
+        rangeQuery.gte(20);
+        rangeQuery.lt(24);
+
+        builder.query(rangeQuery);
+
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="高亮查询"><a href="#高亮查询" class="headerlink" title="高亮查询"></a>高亮查询</h3><pre><code> import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.common.unit.Fuzziness;
+ import org.elasticsearch.index.query.BoolQueryBuilder;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.index.query.RangeQueryBuilder;
+ import org.elasticsearch.index.query.TermQueryBuilder;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+ import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+ import org.elasticsearch.search.sort.SortOrder;
+
+ import javax.swing.text.Highlighter;
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 9.高亮查询
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder();
+        TermQueryBuilder termQueryBuilder =
+                QueryBuilders.termQuery(&quot;name&quot;, &quot;zhangsan&quot;);
+
+        HighlightBuilder highlightBuilder = new HighlightBuilder();
+        highlightBuilder.preTags(&quot;&lt;font color=&#39;red&#39;&gt;&quot;);
+        highlightBuilder.postTags(&quot;&lt;font&gt;&quot;);
+        highlightBuilder.field(&quot;name&quot;);
+
+        builder.highlighter(highlightBuilder);
+        builder.query(termQueryBuilder);
+
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="聚合查询-1"><a href="#聚合查询-1" class="headerlink" title="聚合查询"></a>聚合查询</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.common.unit.Fuzziness;
+ import org.elasticsearch.index.query.BoolQueryBuilder;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.index.query.RangeQueryBuilder;
+ import org.elasticsearch.index.query.TermQueryBuilder;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.aggregations.AggregationBuilder;
+ import org.elasticsearch.search.aggregations.AggregationBuilders;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+ import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+ import org.elasticsearch.search.sort.SortOrder;
+
+ import javax.swing.text.Highlighter;
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 10.聚合查询
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder();
+        AggregationBuilder aggregationBuilder = AggregationBuilders.max(&quot;maxAge&quot;).field(&quot;age&quot;);
+        builder.aggregation(aggregationBuilder);
+
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h3 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h3><pre><code>import org.apache.http.HttpHost;
+import org.elasticsearch.action.get.GetRequest;
+import org.elasticsearch.action.get.GetResponse;
+ import org.elasticsearch.action.search.SearchRequest;
+ import org.elasticsearch.action.search.SearchResponse;
+ import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestHighLevelClient;
+ import org.elasticsearch.common.unit.Fuzziness;
+ import org.elasticsearch.index.query.BoolQueryBuilder;
+ import org.elasticsearch.index.query.QueryBuilders;
+ import org.elasticsearch.index.query.RangeQueryBuilder;
+ import org.elasticsearch.index.query.TermQueryBuilder;
+ import org.elasticsearch.search.SearchHit;
+ import org.elasticsearch.search.SearchHits;
+ import org.elasticsearch.search.aggregations.AggregationBuilder;
+ import org.elasticsearch.search.aggregations.AggregationBuilders;
+ import org.elasticsearch.search.builder.SearchSourceBuilder;
+ import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
+ import org.elasticsearch.search.sort.SortOrder;
+
+ import javax.swing.text.Highlighter;
+ import java.io.IOException;
+
+public class ESTest_Doc_Query &#123;
+    public static void main(String[] args) throws IOException &#123;
+        RestHighLevelClient esClient = new RestHighLevelClient(
+                RestClient.builder(new HttpHost(&quot;localhost&quot;, 9200, &quot;http&quot;))
+        );
+
+        // 11.分组查询
+        SearchRequest request = new SearchRequest();
+        request.indices(&quot;user&quot;);
+
+        SearchSourceBuilder builder = new SearchSourceBuilder();
+        AggregationBuilder aggregationBuilder = AggregationBuilders.terms(&quot;ageGroup&quot;).field(&quot;age&quot;);
+        builder.aggregation(aggregationBuilder);
+
+        request.source(builder);
+
+        SearchResponse response = esClient.search(request, RequestOptions.DEFAULT);
+
+        SearchHits hits = response.getHits();
+        System.out.println(hits.getHits());
+        System.out.println(response.getTook());
+        for (SearchHit hit : hits) &#123;
+            System.out.println(hit.getSourceAsString());
+        &#125;
+
+        esClient.close();
+    &#125;
+&#125;
+</code></pre>
+<h2 id="windows-搭建集群"><a href="#windows-搭建集群" class="headerlink" title="windows 搭建集群"></a>windows 搭建集群</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnKvpH7o-mqQ45uYOBJydPx5xkC0.png"><br>node-1001&#x2F;config&#x2F;elasticsearch.yml</p>
+<pre><code># ======================== Elasticsearch Configuration =========================
+#
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+#
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#
+cluster.name: my-application
+#
+# ------------------------------------ Node ------------------------------------
+#
+# Use a descriptive name for the node:
+#
+node.name: node-1001
+node.master: true
+node.data: true
+#
+# Add custom attributes to the node:
+#
+#node.attr.rack: r1
+#
+# ----------------------------------- Paths ------------------------------------
+#
+# Path to directory where to store the data (separate multiple locations by comma):
+#
+#path.data: /path/to/data
+#
+# Path to log files:
+#
+#path.logs: /path/to/logs
+#
+# ----------------------------------- Memory -----------------------------------
+#
+# Lock the memory on startup:
+#
+#bootstrap.memory_lock: true
+#
+# Make sure that the heap size is set to about half the memory available
+# on the system and that the owner of the process is allowed to use this
+# limit.
+#
+# Elasticsearch performs poorly when the system is swapping the memory.
+#
+# ---------------------------------- Network -----------------------------------
+#
+# Set the bind address to a specific IP (IPv4 or IPv6):
+#
+network.host: localhost
+#
+# Set a custom port for HTTP:
+#
+http.port: 1001
+transport.tcp.port: 9301
+
+#
+# For more information, consult the network module documentation.
+#
+# --------------------------------- Discovery ----------------------------------
+#
+# Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]
+#
+#discovery.seed_hosts: [&quot;host1&quot;, &quot;host2&quot;]
+#
+# Bootstrap the cluster using an initial set of master-eligible nodes:
+#
+#cluster.initial_master_nodes: [&quot;node-1&quot;, &quot;node-2&quot;]
+#
+# For more information, consult the discovery and cluster formation module documentation.
+#
+# ---------------------------------- Gateway -----------------------------------
+#
+# Block initial recovery after a full cluster restart until N nodes are started:
+#
+#gateway.recover_after_nodes: 3
+#
+# For more information, consult the gateway module documentation.
+#
+# ---------------------------------- Various -----------------------------------
+#
+# Require explicit names when deleting indices:
+#
+#action.destructive_requires_name: true
+http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;
+
+</code></pre>
+<p>node-1002&#x2F;config&#x2F;elasticsearch.yml</p>
+<pre><code># ======================== Elasticsearch Configuration =========================
+#
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+#
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#
+cluster.name: my-application
+#
+# ------------------------------------ Node ------------------------------------
+#
+# Use a descriptive name for the node:
+#
+node.name: node-1002
+node.master: true
+node.data: true
+#
+# Add custom attributes to the node:
+#
+#node.attr.rack: r1
+#
+# ----------------------------------- Paths ------------------------------------
+#
+# Path to directory where to store the data (separate multiple locations by comma):
+#
+#path.data: /path/to/data
+#
+# Path to log files:
+#
+#path.logs: /path/to/logs
+#
+# ----------------------------------- Memory -----------------------------------
+#
+# Lock the memory on startup:
+#
+#bootstrap.memory_lock: true
+#
+# Make sure that the heap size is set to about half the memory available
+# on the system and that the owner of the process is allowed to use this
+# limit.
+#
+# Elasticsearch performs poorly when the system is swapping the memory.
+#
+# ---------------------------------- Network -----------------------------------
+#
+# Set the bind address to a specific IP (IPv4 or IPv6):
+#
+network.host: localhost
+#
+# Set a custom port for HTTP:
+#
+http.port: 1002
+transport.tcp.port: 9302
+
+discovery.seed_hosts: [&quot;localhost:9301&quot;]
+discovery.zen.fd.ping_timeout: 1m
+discovery.zen.fd.ping_retries: 5
+
+
+#
+# For more information, consult the network module documentation.
+#
+# --------------------------------- Discovery ----------------------------------
+#
+# Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]
+#
+#discovery.seed_hosts: [&quot;host1&quot;, &quot;host2&quot;]
+#
+# Bootstrap the cluster using an initial set of master-eligible nodes:
+#
+#cluster.initial_master_nodes: [&quot;node-1&quot;, &quot;node-2&quot;]
+#
+# For more information, consult the discovery and cluster formation module documentation.
+#
+# ---------------------------------- Gateway -----------------------------------
+#
+# Block initial recovery after a full cluster restart until N nodes are started:
+#
+#gateway.recover_after_nodes: 3
+#
+# For more information, consult the gateway module documentation.
+#
+# ---------------------------------- Various -----------------------------------
+#
+# Require explicit names when deleting indices:
+#
+#action.destructive_requires_name: true
+http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;
+
+</code></pre>
+<p>node-1003&#x2F;config&#x2F;elasticsearch.yml</p>
+<pre><code># ======================== Elasticsearch Configuration =========================
+#
+# NOTE: Elasticsearch comes with reasonable defaults for most settings.
+#       Before you set out to tweak and tune the configuration, make sure you
+#       understand what are you trying to accomplish and the consequences.
+#
+# The primary way of configuring a node is via this file. This template lists
+# the most important settings you may want to configure for a production cluster.
+#
+# Please consult the documentation for further information on configuration options:
+# https://www.elastic.co/guide/en/elasticsearch/reference/index.html
+#
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+#
+cluster.name: my-application
+#
+# ------------------------------------ Node ------------------------------------
+#
+# Use a descriptive name for the node:
+#
+node.name: node-1003
+node.master: true
+node.data: true
+#
+# Add custom attributes to the node:
+#
+#node.attr.rack: r1
+#
+# ----------------------------------- Paths ------------------------------------
+#
+# Path to directory where to store the data (separate multiple locations by comma):
+#
+#path.data: /path/to/data
+#
+# Path to log files:
+#
+#path.logs: /path/to/logs
+#
+# ----------------------------------- Memory -----------------------------------
+#
+# Lock the memory on startup:
+#
+#bootstrap.memory_lock: true
+#
+# Make sure that the heap size is set to about half the memory available
+# on the system and that the owner of the process is allowed to use this
+# limit.
+#
+# Elasticsearch performs poorly when the system is swapping the memory.
+#
+# ---------------------------------- Network -----------------------------------
+#
+# Set the bind address to a specific IP (IPv4 or IPv6):
+#
+network.host: localhost
+#
+# Set a custom port for HTTP:
+#
+http.port: 1003
+transport.tcp.port: 9303
+
+discovery.seed_hosts: [&quot;localhost:9301&quot;, &quot;localhost:9302&quot;]
+discovery.zen.fd.ping_timeout: 1m
+discovery.zen.fd.ping_retries: 5
+
+
+#
+# For more information, consult the network module documentation.
+#
+# --------------------------------- Discovery ----------------------------------
+#
+# Pass an initial list of hosts to perform discovery when this node is started:
+# The default list of hosts is [&quot;127.0.0.1&quot;, &quot;[::1]&quot;]
+#
+#discovery.seed_hosts: [&quot;host1&quot;, &quot;host2&quot;]
+#
+# Bootstrap the cluster using an initial set of master-eligible nodes:
+#
+#cluster.initial_master_nodes: [&quot;node-1&quot;, &quot;node-2&quot;]
+#
+# For more information, consult the discovery and cluster formation module documentation.
+#
+# ---------------------------------- Gateway -----------------------------------
+#
+# Block initial recovery after a full cluster restart until N nodes are started:
+#
+#gateway.recover_after_nodes: 3
+#
+# For more information, consult the gateway module documentation.
+#
+# ---------------------------------- Various -----------------------------------
+#
+# Require explicit names when deleting indices:
+#
+#action.destructive_requires_name: true
+http.cors.enabled: true
+http.cors.allow-origin: &quot;*&quot;
+
+</code></pre>
+<h2 id="linux-单点部署"><a href="#linux-单点部署" class="headerlink" title="linux 单点部署"></a>linux 单点部署</h2><pre><code class="bash">[root@xiamu ~]# cd /opt/es/
+[root@xiamu es]# ls
+elasticsearch-7.8.0-linux-x86_64.tar.gz
+# 上传es压缩包
+
+# 解压es
+[root@xiamu es]# tar -zxvf elasticsearch-7.8.0-linux-x86_64.tar.gz
+
+# 因为安全问题，Elasticsearch 不允许 root 用户直接运行，所以要创建新用户，在 root 用
+户中创建新用户
+# 新增 es 用户
+[root@xiamu es]# useradd es
+# 为 es 用户设置密码
+[root@xiamu es]# passwd es
+# 设置文件所有者
+[root@xiamu es]# chown -R es:es /opt/es/
+
+userdel -r es #如果错了，可以删除再加
+
+修改/opt/module/es/config/elasticsearch.yml 文件
+# 加入如下配置
+cluster.name: elasticsearch
+node.name: node-1
+network.host: 0.0.0.0
+http.port: 9200
+cluster.initial_master_nodes: [&quot;node-1&quot;]
+
+[root@xiamu es]# cd ./elasticsearch-7.8.0/
+[root@xiamu elasticsearch-7.8.0]# vim ./config/elasticsearch.yml
+# 文件末尾加入如下配置
+cluster.name: elasticsearch
+node.name: node-1
+network.host: 0.0.0.0
+http.port: 9200
+cluster.initial_master_nodes: [&quot;node-1&quot;]
+
+[root@xiamu elasticsearch-7.8.0]# vim /etc/security/limits.conf
+# 在文件末尾中增加下面内容
+# 每个进程可以打开的文件数的限制
+es soft nofile 65536
+es hard nofile 65536
+
+[root@xiamu elasticsearch-7.8.0]# vim /etc/security/limits.d/20-nproc.conf
+# 在文件末尾中增加下面内容
+# 每个进程可以打开的文件数的限制
+es soft nofile 65536
+es hard nofile 65536
+
+# 操作系统级别对每个用户创建的进程数的限制
+* hard nproc 4096
+# 注：* 带表 Linux 所有用户名称
+
+[root@xiamu elasticsearch-7.8.0]# vim /etc/sysctl.conf
+# 在文件中增加下面内容
+# 一个进程可以拥有的 VMA(虚拟内存区域)的数量,默认值为 65536
+vm.max_map_count=655360
+
+# 重新加载
+[root@xiamu elasticsearch-7.8.0]# sysctl -p
+
+# 切换用户
+[root@xiamu ~]# su es
+[es@xiamu root]$ cd /opt/es/
+[es@xiamu es]$ cd elasticsearch-7.8.0/
+</code></pre>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2022/12/26/javaweb-%E9%BB%84%E5%AF%8C%E6%98%A5/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>javaweb-黄富春</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/12/19/%E5%AE%9E%E9%AA%8C%E5%8D%81%E5%9B%9B%20postfix%E9%82%AE%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%AE%A1%E7%90%86/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>实验十四 postfix邮件服务器配置与管理</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

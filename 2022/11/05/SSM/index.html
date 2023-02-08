@@ -1,0 +1,1902 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+<title>SSM-Quiet</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+<link rel="stylesheet" href="/css/index.css">
+
+
+<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
+<meta name="description" content="描述">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/index.js"></script>
+
+
+<script src="/js/fancybox.umd.js"></script>
+
+
+<script src="/js/fancybox-images.js"></script>
+
+
+<script src="/js/gitalk.min.js"></script>
+
+
+<script src="/js/hljs.min.js"></script>
+ 
+<script>hljs.highlightAll();</script>
+
+	<meta name="generator" content="Hexo 6.3.0"></head>
+
+	<body>
+		
+	<div class="header">
+		<div class="header-top" id="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										HOME
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										ARCHIVE
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										CATEGORIES
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										TAGS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										LINKS
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										ABOUT
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>Joey</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">HOME</a>
+        </li>
+        
+        <li>
+            <a href="/archives">ARCHIVE</a>
+        </li>
+        
+        <li>
+            <a href="/categories">CATEGORIES</a>
+        </li>
+        
+        <li>
+            <a href="/tags">TAGS</a>
+        </li>
+        
+        <li>
+            <a href="/links">LINKS</a>
+        </li>
+        
+        <li>
+            <a href="/about">ABOUT</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'>
+</div>
+<style>
+    .shelter{
+        background-color: #333;
+        opacity:0.5;
+        cursor: pointer;
+        display: none; 
+        position: fixed;
+        left: 0;
+        top: 0; 
+        right: 0;
+        bottom: 0;
+        z-index: 1998;
+    }
+    .sidebar {
+        width: 66%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        bottom: 0;
+        background: #fff;
+        z-index: 1999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $( function () {
+	$( '.h-right-close>svg' )
+		.click( function () {
+			$( '.sidebar' )
+				.animate( {
+					right: "0"
+				}, 500 );
+			$( '.shelter' )
+				.fadeIn( "slow" )
+		} );
+	$( '.shelter' )
+		.click( function ( e ) {
+			$( '.sidebar' )
+				.animate( {
+					right: "-100%"
+				}, 500 );
+			$( '.shelter' )
+				.fadeOut( "slow" )
+		} )
+} )
+
+</script>
+
+<div class="post">
+    <div class="post-header-background post-header-img"
+    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
+>
+    <div class="post-header-background-content">
+        <ul class="post-header-tag">
+            
+        </ul>
+        
+        <h1>SSM</h1>
+        <div class="post-header-info">
+            <div class="post-header-info-author">
+                
+                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
+                        <path
+                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
+                            p-id="2902" fill="#ffffff"></path>
+                    </svg>
+                    
+                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
+                <div class="post-header-info-author-categories">
+                    
+                </div>
+                <p>2022-11-05 19:32:43</p>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="post-content" id="content">
+  
+  <div id="article" class="post-content-info">
+    
+
+    <h2 id="整合-Swagger2"><a href="#整合-Swagger2" class="headerlink" title="整合 Swagger2"></a>整合 Swagger2</h2><p>集成 knife4j</p>
+<pre><code class="xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.xiaoymin&lt;/groupId&gt;
+    &lt;artifactId&gt;knife4j-spring-boot-starter&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>添加 knife4j 配置类</p>
+<pre><code class="java">package com.atguigu.system.config;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import springfox.documentation.builders.ApiInfoBuilder;
+import springfox.documentation.builders.ParameterBuilder;
+import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
+import springfox.documentation.schema.ModelRef;
+import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
+import springfox.documentation.service.Parameter;
+import springfox.documentation.spi.DocumentationType;
+import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * knife4j配置信息
+ */
+@Configuration
+@EnableSwagger2WebMvc
+public class Knife4jConfig &#123;
+
+    @Bean
+    public Docket adminApiConfig()&#123;
+        List&lt;Parameter&gt; pars = new ArrayList&lt;&gt;();
+        ParameterBuilder tokenPar = new ParameterBuilder();
+        tokenPar.name(&quot;token&quot;)
+                .description(&quot;用户token&quot;)
+                .defaultValue(&quot;&quot;)
+                .modelRef(new ModelRef(&quot;string&quot;))
+                .parameterType(&quot;header&quot;)
+                .required(false)
+                .build();
+        pars.add(tokenPar.build());
+        //添加head参数end
+
+        Docket adminApi = new Docket(DocumentationType.SWAGGER_2)
+                .groupName(&quot;adminApi&quot;)
+                .apiInfo(adminApiInfo())
+                .select()
+                //只显示admin路径下的页面
+                .apis(RequestHandlerSelectors.basePackage(&quot;com.atguigu&quot;))
+                .paths(PathSelectors.regex(&quot;/admin/.*&quot;)) // 显示以admin开头的接口
+                .build()
+                .globalOperationParameters(pars);
+        return adminApi;
+    &#125;
+
+    private ApiInfo adminApiInfo()&#123;
+
+        return new ApiInfoBuilder()
+                .title(&quot;后台管理系统-API文档&quot;)
+                .description(&quot;本文档描述了后台管理系统微服务接口定义&quot;)
+                .version(&quot;1.0&quot;)
+                .contact(new Contact(&quot;atguigu&quot;, &quot;http://atguigu.com&quot;, &quot;atguigu@qq.com&quot;))
+                .build();
+    &#125;
+
+
+&#125;
+</code></pre>
+<p>Controller 层添加注解</p>
+<pre><code class="java">package com.atguigu.system.controller;
+
+import com.atguigu.system.service.SysRoleService;
+import com.atguigu.common.result.Result;
+import com.atguigu.model.system.SysRole;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+@Api(tags = &quot;角色管理&quot;)
+@RestController
+@RequestMapping(&quot;/admin/system/sysRole&quot;)
+public class SysRoleController &#123;
+
+    @Autowired
+    private SysRoleService sysRoleService;
+
+    @ApiOperation(value = &quot;获取全部角色列表&quot;)
+    @GetMapping(&quot;findAll&quot;)
+    public Result&lt;List&lt;SysRole&gt;&gt; findAll() &#123;
+        List&lt;SysRole&gt; roleList = sysRoleService.list();
+        return Result.ok(roleList);
+    &#125;
+&#125;
+</code></pre>
+<p>测试<br><a target="_blank" rel="noopener" href="http://localhost:8800/doc.html">http://localhost:8800/doc.html</a></p>
+<h2 id="定义统一返回结果对象"><a href="#定义统一返回结果对象" class="headerlink" title="定义统一返回结果对象"></a>定义统一返回结果对象</h2><p>定义接口, 通过封装 Result, 统一将接口的返回值都转换为 json 格式</p>
+<p>Result 类:</p>
+<pre><code class="java">package com.atguigu.common.result;
+
+
+import lombok.Data;
+
+/**
+ * 全局统一返回结果类
+ *
+ */
+@Data
+public class Result&lt;T&gt; &#123;
+
+    //返回码
+    private Integer code;
+
+    //返回消息
+    private String message;
+
+    //返回数据
+    private T data;
+
+    public Result()&#123;&#125;
+
+    // 返回数据
+    protected static &lt;T&gt; Result&lt;T&gt; build(T data) &#123;
+        Result&lt;T&gt; result = new Result&lt;T&gt;();
+        if (data != null)
+            result.setData(data);
+        return result;
+    &#125;
+
+    public static &lt;T&gt; Result&lt;T&gt; build(T body, Integer code, String message) &#123;
+        Result&lt;T&gt; result = build(body);
+        result.setCode(code);
+        result.setMessage(message);
+        return result;
+    &#125;
+
+    public static &lt;T&gt; Result&lt;T&gt; build(T body, ResultCodeEnum resultCodeEnum) &#123;
+        Result&lt;T&gt; result = build(body);
+        result.setCode(resultCodeEnum.getCode());
+        result.setMessage(resultCodeEnum.getMessage());
+        return result;
+    &#125;
+
+    public static&lt;T&gt; Result&lt;T&gt; ok()&#123;
+        return Result.ok(null);
+    &#125;
+
+    /**
+     * 操作成功
+     * @param data  baseCategory1List
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static&lt;T&gt; Result&lt;T&gt; ok(T data)&#123;
+        Result&lt;T&gt; result = build(data);
+        return build(data, ResultCodeEnum.SUCCESS);
+    &#125;
+
+    public static&lt;T&gt; Result&lt;T&gt; fail()&#123;
+        return Result.fail(null);
+    &#125;
+
+    /**
+     * 操作失败
+     * @param data
+     * @param &lt;T&gt;
+     * @return
+     */
+    public static&lt;T&gt; Result&lt;T&gt; fail(T data)&#123;
+        Result&lt;T&gt; result = build(data);
+        return build(data, ResultCodeEnum.FAIL);
+    &#125;
+
+    public Result&lt;T&gt; message(String msg)&#123;
+        this.setMessage(msg);
+        return this;
+    &#125;
+
+    public Result&lt;T&gt; code(Integer code)&#123;
+        this.setCode(code);
+        return this;
+    &#125;
+&#125;
+</code></pre>
+<p>ResultCodeEnum 状态码枚举类</p>
+<pre><code class="java">/**
+ * 统一返回结果状态信息类
+ *
+ */
+@Getter
+public enum ResultCodeEnum &#123;
+
+    SUCCESS(200,&quot;成功&quot;),
+    FAIL(201, &quot;失败&quot;),
+    SERVICE_ERROR(2012, &quot;服务异常&quot;),
+    DATA_ERROR(204, &quot;数据异常&quot;),
+    ILLEGAL_REQUEST(205, &quot;非法请求&quot;),
+    REPEAT_SUBMIT(206, &quot;重复提交&quot;),
+    ARGUMENT_VALID_ERROR(210, &quot;参数校验异常&quot;),
+
+    LOGIN_AUTH(208, &quot;未登陆&quot;),
+    PERMISSION(209, &quot;没有权限&quot;),
+    ACCOUNT_ERROR(214, &quot;账号不正确&quot;),
+    PASSWORD_ERROR(215, &quot;密码不正确&quot;),
+    LOGIN_MOBLE_ERROR( 216, &quot;账号不正确&quot;),
+    ACCOUNT_STOP( 217, &quot;账号已停用&quot;),
+    NODE_ERROR( 218, &quot;该节点下有子节点，不可以删除&quot;)
+    ;
+
+    private Integer code;
+
+    private String message;
+
+    private ResultCodeEnum(Integer code, String message) &#123;
+        this.code = code;
+        this.message = message;
+    &#125;
+&#125;
+</code></pre>
+<p>修改 Controller, 让所有的接口返回的类型都是 json 格式</p>
+<pre><code class="java">@Slf4j
+@Api(&quot;角色管理&quot;)
+@RestController
+@RequestMapping(&quot;/admin/system/sysRole&quot;)
+public class SysRoleController &#123;
+
+    @Autowired
+    private SysRoleService sysRoleService;
+
+    @ApiOperation(&quot;查询所有角色列表&quot;)
+    @GetMapping(&quot;/findAll&quot;)
+    public Result&lt;List&lt;SysRole&gt;&gt; findAll() &#123;
+        List&lt;SysRole&gt; list = sysRoleService.list(null);
+        return Result.ok(list);
+    &#125;
+/*    public List&lt;SysRole&gt; findAll() &#123;
+        List&lt;SysRole&gt; list = sysRoleService.list(null);
+        log.info(&quot;list = &#123;&#125;&quot;, list);
+        return list;
+    &#125;*/
+
+    @ApiOperation(&quot;通过id删除角色&quot;)
+    @DeleteMapping(&quot;/remove/&#123;id&#125;&quot;)
+    public Result deleteById(@PathVariable(&quot;id&quot;) String id) &#123;
+        boolean result = sysRoleService.removeById(id);
+        /*log.info(&quot;result = &#123;&#125;&quot;, result);*/
+        return Result.ok(result);
+    &#125;
+&#125;
+</code></pre>
+<p>测试地址:<br><a target="_blank" rel="noopener" href="http://localhost:8800/doc.html">http://localhost:8800/doc.html</a></p>
+<pre><code class="json">&#123;
+  &quot;code&quot;: 200,
+  &quot;message&quot;: &quot;成功&quot;,
+  &quot;data&quot;: false
+&#125;
+
+&#123;
+  &quot;code&quot;: 200,
+  &quot;message&quot;: &quot;成功&quot;,
+  &quot;data&quot;: true
+&#125;
+
+&#123;
+  &quot;code&quot;: 200,
+  &quot;message&quot;: &quot;成功&quot;,
+  &quot;data&quot;: [
+    &#123;
+      &quot;id&quot;: &quot;1586337616301735937&quot;,
+      &quot;createTime&quot;: &quot;2022-10-29T12:42:15.000+00:00&quot;,
+      &quot;updateTime&quot;: &quot;2022-10-30T03:13:38.000+00:00&quot;,
+      &quot;isDeleted&quot;: 0,
+      &quot;param&quot;: &#123;&#125;,
+      &quot;roleName&quot;: &quot;角色管理员&quot;,
+      &quot;roleCode&quot;: &quot;role&quot;,
+      &quot;description&quot;: &quot;角色管理员&quot;
+    &#125;,
+    &#123;
+      &quot;id&quot;: &quot;1586341642619711490&quot;,
+      &quot;createTime&quot;: &quot;2022-10-29T12:58:15.000+00:00&quot;,
+      &quot;updateTime&quot;: &quot;2022-10-30T03:13:38.000+00:00&quot;,
+      &quot;isDeleted&quot;: 0,
+      &quot;param&quot;: &#123;&#125;,
+      &quot;roleName&quot;: &quot;角色管理员&quot;,
+      &quot;roleCode&quot;: &quot;role&quot;,
+      &quot;description&quot;: &quot;角色管理员&quot;
+    &#125;,
+    &#123;
+      &quot;id&quot;: &quot;1586341642619711491&quot;,
+      &quot;createTime&quot;: &quot;2022-10-29T13:08:04.000+00:00&quot;,
+      &quot;updateTime&quot;: &quot;2022-10-30T03:13:42.000+00:00&quot;,
+      &quot;isDeleted&quot;: 0,
+      &quot;param&quot;: &#123;&#125;,
+      &quot;roleName&quot;: &quot;角色管理员&quot;,
+      &quot;roleCode&quot;: &quot;role&quot;,
+      &quot;description&quot;: &quot;角色管理员&quot;
+    &#125;,
+    &#123;
+      &quot;id&quot;: &quot;1586341642619711492&quot;,
+      &quot;createTime&quot;: &quot;2022-10-30T02:56:41.000+00:00&quot;,
+      &quot;updateTime&quot;: &quot;2022-10-30T02:56:41.000+00:00&quot;,
+      &quot;isDeleted&quot;: 0,
+      &quot;param&quot;: &#123;&#125;,
+      &quot;roleName&quot;: &quot;角色测试员&quot;,
+      &quot;roleCode&quot;: &quot;test&quot;,
+      &quot;description&quot;: &quot;闲着吃干饭的&quot;
+    &#125;
+  ]
+&#125;
+</code></pre>
+<p>编写 CRUD</p>
+<pre><code class="java">package com.atguigu.system.controller;
+
+import com.atguigu.common.result.Result;
+import com.atguigu.model.system.SysRole;
+import com.atguigu.model.vo.SysRoleQueryVo;
+import com.atguigu.system.service.SysRoleService;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+/**
+ * 测试路径
+ * http://localhost:8800/admin/system/sysRole/findAll
+ */
+
+@Slf4j
+@Api(&quot;角色管理&quot;)
+@RestController
+@RequestMapping(&quot;/admin/system/sysRole&quot;)
+public class SysRoleController &#123;
+
+    @Autowired
+    private SysRoleService sysRoleService;
+
+    @ApiOperation(&quot;查询所有角色列表&quot;)
+    @GetMapping(&quot;/findAll&quot;)
+    public Result&lt;List&lt;SysRole&gt;&gt; findAll() &#123;
+        List&lt;SysRole&gt; list = sysRoleService.list(null);
+        return Result.ok(list);
+    &#125;
+/*    public List&lt;SysRole&gt; findAll() &#123;
+        List&lt;SysRole&gt; list = sysRoleService.list(null);
+        log.info(&quot;list = &#123;&#125;&quot;, list);
+        return list;
+    &#125;*/
+
+    @ApiOperation(&quot;通过id删除角色&quot;)
+    @DeleteMapping(&quot;/remove/&#123;id&#125;&quot;)
+    public Result deleteById(@PathVariable(&quot;id&quot;) String id) &#123;
+        boolean result = sysRoleService.removeById(id);
+        /*log.info(&quot;result = &#123;&#125;&quot;, result);*/
+        return Result.ok(result);
+    &#125;
+
+    @ApiOperation(&quot;条件分页查询&quot;)
+    @GetMapping(&quot;/&#123;page&#125;/&#123;limit&#125;&quot;)
+    public Result findPageQueryRole(@PathVariable Integer page,
+                                    @PathVariable Integer limit,
+                                    SysRoleQueryVo sysRoleQueryVo) &#123;
+        Page&lt;SysRole&gt; pageParam = new Page&lt;&gt;(page, limit);
+        IPage&lt;SysRole&gt; pageModel =  sysRoleService.selectPage(pageParam, sysRoleQueryVo);
+        return Result.ok(pageModel);
+    &#125;
+
+    @ApiOperation(&quot;获取角色&quot;)
+    @GetMapping(&quot;/get/&#123;id&#125;&quot;)
+    public Result get(@PathVariable Integer id) &#123;
+        SysRole byId = sysRoleService.getById(id);
+        return Result.ok(byId);
+    &#125;
+
+    /**
+     * @RequestBody 不能使用get提交方式
+     * 传递json格式数据, 把json格式数据封装到对象里面&#123;...&#125;
+     * @param sysRole
+     * @return
+     */
+    @ApiOperation(&quot;新增角色&quot;)
+    @PostMapping(&quot;/save&quot;)
+    public Result save(@RequestBody SysRole sysRole) &#123;
+        boolean save = sysRoleService.save(sysRole);
+        if (save) &#123;
+            return Result.ok();
+        &#125; else &#123;
+            return Result.fail();
+        &#125;
+    &#125;
+
+    @ApiOperation(&quot;根据id查询&quot;)
+    @PostMapping(&quot;/findRoleById/&#123;id&#125;&quot;)
+    public Result findRoleById(@PathVariable Long id) &#123;
+        SysRole sysRole = sysRoleService.getById(id);
+        return Result.ok(sysRole);
+    &#125;
+
+    @ApiOperation(&quot;修改角色&quot;)
+    @PostMapping(&quot;/update&quot;)
+    public Result update(@RequestBody SysRole sysRole) &#123;
+        /*
+         boolean update = sysRoleService.update(sysRole, null);
+         这里没有设置updateWrapper条件构造器, 所有修改的值是表中的所有记录
+        */
+
+        boolean flag = sysRoleService.updateById(sysRole);
+        if (flag) &#123;
+            return Result.ok();
+        &#125; else &#123;
+            return Result.fail();
+        &#125;
+    &#125;
+/*
+    @ApiOperation(&quot;删除角色&quot;)
+    @DeleteMapping(&quot;/remove/&#123;id&#125;&quot;)
+    public Result delete(@PathVariable Integer id) &#123;
+        boolean flag = sysRoleService.removeById(id);
+        return Result.ok(flag);
+    &#125;*/
+
+    /**
+     * json数组格式 -- java的list集合
+     *
+     * @param list
+     * @return
+     */
+    @ApiOperation(&quot;根据id列表删除&quot;)
+    @DeleteMapping(&quot;/batchRemove&quot;)
+    public Result batchRemove(@RequestBody List&lt;Long&gt; list) &#123;
+        boolean flag = sysRoleService.removeByIds(list);
+        if (flag) &#123;
+            return Result.ok();
+        &#125; else &#123;
+            return Result.fail();
+        &#125;
+    &#125;
+&#125;
+</code></pre>
+<h2 id="全局异常"><a href="#全局异常" class="headerlink" title="全局异常"></a>全局异常</h2><pre><code class="java">package com.atguigu.system.handler;
+
+import com.atguigu.common.result.Result;
+import com.atguigu.system.execption.GuiguException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+/**
+ * 全局异常处理类
+ * 有异常出现, 先找有没有异常对应的方法, 有的话执行, 如果没有的话, 执行全局异常
+ */
+@ControllerAdvice
+public class GlobalExceptionHandler &#123;
+
+    @ExceptionHandler(Exception.class)
+    @ResponseBody
+    public Result error(Exception e) &#123;
+        e.printStackTrace();
+        return Result.fail().message(&quot;执行了全局异常&quot;);
+    &#125;
+
+    @ExceptionHandler(ArithmeticException.class)
+    @ResponseBody
+    public Result error(ArithmeticException e)&#123;
+        e.printStackTrace();
+        return Result.fail().message(&quot;执行了特定异常处理&quot;);
+    &#125;
+
+    @ExceptionHandler(GuiguException.class)
+    @ResponseBody
+    public Result error(GuiguException e)&#123;
+        e.printStackTrace();
+        return Result.fail().message(e.getMessage()).code(e.getCode());
+    &#125;
+&#125;
+</code></pre>
+<p>自定义异常</p>
+<pre><code class="java">package com.atguigu.system.execption;
+
+import com.atguigu.common.result.ResultCodeEnum;
+import lombok.Data;
+
+/**
+ * 自定义全局异常类
+ *
+ */
+@Data
+public class GuiguException extends RuntimeException &#123;
+
+    private Integer code;
+
+    private String message;
+
+    /**
+     * 通过状态码和错误消息创建异常对象
+     * @param code
+     * @param message
+     */
+    public GuiguException(Integer code, String message) &#123;
+        super(message);
+        this.code = code;
+        this.message = message;
+    &#125;
+
+    /**
+     * 接收枚举类型对象
+     * @param resultCodeEnum
+     */
+    public GuiguException(ResultCodeEnum resultCodeEnum) &#123;
+        super(resultCodeEnum.getMessage());
+        this.code = resultCodeEnum.getCode();
+        this.message = resultCodeEnum.getMessage();
+    &#125;
+
+    @Override
+    public String toString() &#123;
+        return &quot;GuliException&#123;&quot; +
+                &quot;code=&quot; + code +
+                &quot;, message=&quot; + this.getMessage() +
+                &#39;&#125;&#39;;
+    &#125;
+&#125;
+</code></pre>
+<p>测试异常</p>
+<pre><code class="java">    @Autowired
+    private SysRoleService sysRoleService;
+
+    @ApiOperation(&quot;查询所有角色列表&quot;)
+    @GetMapping(&quot;/findAll&quot;)
+    public Result&lt;List&lt;SysRole&gt;&gt; findAll() &#123;
+        try &#123;
+            int a = 1/0;
+        &#125; catch (Exception e) &#123;
+            // 手动抛出异常
+            throw new GuiguException(20001,&quot;出现自定义异常&quot;);
+        &#125;
+        List&lt;SysRole&gt; list = sysRoleService.list(null);
+        return Result.ok(list);
+    &#125;
+</code></pre>
+<h2 id="安装-vscode"><a href="#安装-vscode" class="headerlink" title="安装 vscode"></a>安装 vscode</h2><p>下载四个插件<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fj-To2OPZjwQA-qAmej5a9Vd8WFC.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiWqfqI7aey-sdwibV5ij6wk3aL2.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnMn7OtDR_VWwp-Fv4fXCtPl1vBK.png"></p>
+<p>创建工作区</p>
+<ul>
+<li>先创建一个空的文件夹</li>
+<li>然后在 vscode 中打开这个空文件夹</li>
+<li>在空文件夹中另存为工作区 (workspace.code-workspace)</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FpeQSy_-NAklQeB6qPOwUaC2r8Uj.png"></p>
+<h2 id="Nodejs-简单入门"><a href="#Nodejs-简单入门" class="headerlink" title="Nodejs 简单入门"></a>Nodejs 简单入门</h2><p>官网：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a><br>中文网：<a target="_blank" rel="noopener" href="http://nodejs.cn/">http://nodejs.cn/</a><br>LTS：长期支持版本<br>Current：最新版</p>
+<p>查看 node 版本<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuCEJBRxdvYTXUUjHJSZoX23rewK.png"><br>在 vscode 中打开终端, 同样也可以查看版本<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjB2sJFakH0ERkUU1xEba-0JmoHt.png"></p>
+<p>编写第一个 nodejs 服务器<br>01.js<br>console.log(‘Hello Node.js’)<br>node 02.js<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqUYTZWxLppFrccWMKRsB-hXwFWU.png"></p>
+<p>02.js</p>
+<pre><code class="javascript">const http = require(&quot;http&quot;);
+http
+  .createServer(function (request, response) &#123;
+    // 发送 HTTP 头部
+    // HTTP 状态值: 200 : OK
+    // 内容类型: text/plain
+    response.writeHead(200, &#123; &quot;Content-Type&quot;: &quot;text/plain&quot; &#125;);
+    // 发送响应数据 &quot;Hello World&quot;
+    response.end(&quot;Hello Server&quot;);
+  &#125;)
+  .listen(8888);
+// 终端打印如下信息
+console.log(&quot;Server running at http://127.0.0.1:8888/&quot;);
+</code></pre>
+<p>node 02.js<br>Server running at <a target="_blank" rel="noopener" href="http://127.0.0.1:8888/">http://127.0.0.1:8888/</a>说明服务器已经运行起来了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FmFyfFnJZWxyRIgkn9Q9fBbKKaEX.png"></p>
+<h2 id="NPM"><a href="#NPM" class="headerlink" title="NPM"></a>NPM</h2><p>构建前端项目<br>管理前端依赖</p>
+<h2 id="npm-初始化项目"><a href="#npm-初始化项目" class="headerlink" title="npm 初始化项目"></a>npm 初始化项目</h2><pre><code class="bash">PS E:\Code\权限项目\guigu-auth-front\npmdemo&gt; npm init
+
+PS E:\Code\权限项目\guigu-auth-front\npmdemo&gt; npm init -y
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FurLI6Oj3iCrGpr3-Iye7U41eBJk.png"></p>
+<h2 id="修改-npm-镜像源"><a href="#修改-npm-镜像源" class="headerlink" title="修改 npm 镜像源"></a>修改 npm 镜像源</h2><pre><code class="bash">
+# 第一种查看修改npm镜像源的方法
+#经过下面的配置，以后所有的 npm install 都会经过淘宝的镜像地址下载
+npm config set registry https://registry.npm.taobao.org
+#查看npm配置信息
+npm config list
+
+# 第二种查看修改npm镜像源的方法
+npm config get registry  // 查看npm当前镜像源
+npm config set registry https://registry.npm.taobao.org/  // 设置npm镜像源为淘宝镜像
+
+# 修改yarn的镜像源的方法
+# yarn 是一个快速、可靠、安全的依赖管理工具，一款新的JavaScript包管理工具
+#yarn config get registry  // 查看yarn当前镜像源
+#yarn config set registry https://registry.npm.taobao.org/  // 设置yarn镜像源为淘宝镜像
+
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Ft__ReMATmVwqMB5XcPmuVe8liCq.png"></p>
+<h2 id="配置仓库地址"><a href="#配置仓库地址" class="headerlink" title="配置仓库地址"></a>配置仓库地址</h2><pre><code class="bash"># 配置全局安装：
+npm config set prefix D:\atguigu\node-global
+
+# 配置缓存路径：
+npm config set cache D:\atguigu\node-cache
+
+#查看npm配置信息
+npm config list
+</code></pre>
+<h2 id="npm-install-命令的使用"><a href="#npm-install-命令的使用" class="headerlink" title="npm install 命令的使用"></a>npm install 命令的使用</h2><pre><code class="shell">#使用 npm install 安装依赖包的最新版，
+#模块安装的位置：项目目录\node_modules
+#安装会自动在项目目录下添加 package-lock.json文件，这个文件帮助锁定安装包的版本
+#同时package.json 文件中，依赖包会被添加到dependencies节点下，类似maven中的 &lt;dependencies&gt;
+npm install jquery
+#npm管理的项目在备份和传输的时候一般不携带node_modules文件夹
+
+# 根据配置文件直接下载依赖
+npm install #根据package.json中的配置下载依赖，初始化项目
+
+#如果安装时想指定特定的版本
+npm install jquery@2.1.x
+# 局部安装
+#devDependencies节点：开发时的依赖包，项目打包到生产环境的时候不包含的依赖
+#使用 -D参数将依赖添加到devDependencies节点
+npm install --save-dev eslint
+#或
+npm install -D eslint
+#全局安装
+#Node.js全局安装的npm包和工具的位置：用户目录\AppData\Roaming\npm\node_modules
+#一些命令行工具常使用全局安装的方式
+npm install -g webpack
+--global
+</code></pre>
+<h2 id="其他命令"><a href="#其他命令" class="headerlink" title="其他命令"></a>其他命令</h2><pre><code class="shell">#更新包（更新到最新版本）
+npm update 包名
+#全局更新
+npm update -g 包名
+#卸载包
+npm uninstall 包名
+#全局卸载
+npm uninstall -g 包名
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiZxH55ahPvTSowyxPzgXRhoOfdq.png"><br>package.json 项目初始化时候生成文件<br>node_modules 下载依赖在这个目录下<br>package-lock.json 锁定当前版本</p>
+<h2 id="前端模块化开发-ES5"><a href="#前端模块化开发-ES5" class="headerlink" title="前端模块化开发(ES5)"></a>前端模块化开发(ES5)</h2><p>创建两个 js 文件<br>01.js<br>02.js</p>
+<pre><code class="javascript">function sum(a, b) &#123;
+  return a + b;
+&#125;
+
+function sub(a, b) &#123;
+  return a - b;
+&#125;
+
+module.exports = &#123;
+  sum,
+  sub,
+&#125;;
+</code></pre>
+<pre><code class="javascript">var m = require(&quot;./01.js&quot;);
+
+var sum = m.sum(1, 2);
+console.log(sum);
+
+var sub = m.sub(2, 2);
+console.log(sub);
+</code></pre>
+<p>运行 02.js, 发现成功调用了 01.js 里面的方法<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuiOYpSrVacBusY9HiHZLPBPeDNX.png"></p>
+<h2 id="ES6-模块化写法"><a href="#ES6-模块化写法" class="headerlink" title="ES6 模块化写法"></a>ES6 模块化写法</h2><p>创建一个文件夹 es6<br>在文件夹中创建文件 01.js 和 02.js</p>
+<pre><code class="javascript">export function getList() &#123;
+  console.log(&quot;获取数据列表&quot;);
+&#125;
+
+export function save() &#123;
+  console.log(&quot;保存数据&quot;);
+&#125;
+</code></pre>
+<pre><code class="javascript">import &#123; getList, save &#125; from &quot;./01.js&quot;;
+
+getList();
+
+save();
+</code></pre>
+<p>直接运行会发现报错<br>因为 ES6 的模块化无法在 Node.js 中执行<br>需要用 Babel 编辑成 ES5 后再执行</p>
+<pre><code class="powershell">
+PS E:\Code\权限项目\guigu-auth-front\moduledemo\es6&gt; node .\02.js
+(node:13464) Warning: To load an ES module, set &quot;type&quot;: &quot;module&quot; in the package.json or use the .mjs extension.
+(Use `node --trace-warnings ...` to show where the warning was created)
+E:\Code\权限项目\guigu-auth-front\moduledemo\es6\02.js:2
+import &#123;getList, save&#125; from &quot;./01.js&quot;;
+^^^^^^
+
+SyntaxError: Cannot use import statement outside a module
+at Object.compileFunction (node:vm:352:18)
+at wrapSafe (node:internal/modules/cjs/loader:1025:15)
+at Module._compile (node:internal/modules/cjs/loader:1059:27)
+at Object.Module._extensions..js (node:internal/modules/cjs/loader:1147:10)
+at Module.load (node:internal/modules/cjs/loader:975:32)
+at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)
+at node:internal/main/run_main_module:17:47
+
+Node.js v17.0.1
+</code></pre>
+<h2 id="安装-Babel"><a href="#安装-Babel" class="headerlink" title="安装 Babel"></a>安装 Babel</h2><pre><code class="bash">npm install --global babel-cli
+#查看是否安装成功
+babel --version
+</code></pre>
+<p>如果出现了如下报错</p>
+<pre><code class="bash">PS E:\Code\权限项目\guigu-auth-front\moduledemo\es6&gt; babel --version
+babel : 无法加载文件 D:\Nodejs\node_global\babel.ps1，因为在此系统上禁止运行脚本。有关详细信息，请参阅 https:/g
+o.microsoft.com/fwlink/?LinkID=135170 中的 about_Execution_Policies。
+所在位置 行:1 字符: 1
++ babel --version
++ ~~~~~
+    + CategoryInfo          : SecurityError: (:) []，PSSecurityException
+    + FullyQualifiedErrorId : UnauthorizedAccess
+</code></pre>
+<p>请在 windows10 电脑中搜索 PowerShell, 并且需要使用管理员权限打开, 输入如下指令, 然后按 y</p>
+<pre><code class="bash">set-ExecutionPolicy RemoteSigned
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fi9cFsSGv_f-9i2chqN_y0-4qjC0.png"></p>
+<h2 id="配置-babelrc"><a href="#配置-babelrc" class="headerlink" title="配置.babelrc"></a>配置.babelrc</h2><p>在项目的根目录下创建.babelrc 文件, 然后保存如下内容</p>
+<pre><code class="bash">&#123;
+    &quot;presets&quot;: [&quot;es2015&quot;],
+    &quot;plugins&quot;: []
+&#125;
+</code></pre>
+<h2 id="安装转码器"><a href="#安装转码器" class="headerlink" title="安装转码器"></a>安装转码器</h2><p>在项目的根目录下输入</p>
+<pre><code class="bash">npm install --save-dev babel-preset-es2015
+</code></pre>
+<p>转码</p>
+<pre><code class="bash"># 整个目录转码
+mkdir es5
+# --out-dir 或 -d 参数指定输出目录
+babel es6 -d es5
+</code></pre>
+<p>运行程序</p>
+<pre><code class="bash">node es5/02.js
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fu6NXMzLRZfdiLasUOAJcxgfTxme.png"></p>
+<h2 id="ES6-模块化写法-二"><a href="#ES6-模块化写法-二" class="headerlink" title="ES6 模块化写法(二)"></a>ES6 模块化写法(二)</h2><p>创建 es62 目录<br>01.js</p>
+<pre><code class="javascript">export default &#123;
+  getList() &#123;
+    console.log(&quot;获取数据列表2&quot;);
+  &#125;,
+  save() &#123;
+    console.log(&quot;保存数据&quot;);
+  &#125;,
+&#125;;
+</code></pre>
+<p>02.js</p>
+<pre><code class="javascript">import m from &quot;./01&quot;; // 这里引入文件可以省略不写.js文件
+
+m.getList();
+m.save();
+</code></pre>
+<pre><code class="bash">PS E:\Code\权限项目\guigu-auth-front\moduledemo&gt; babel .\es62\ -d .\es52\
+es62\01.js -&gt; es52\01.js
+es62\02.js -&gt; es52\02.js
+PS E:\Code\权限项目\guigu-auth-front\moduledemo&gt; node .\es52\02.js
+获取数据列表2
+保存数据
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq9niyJi3uhs8j5CCIKydY5tfCPU.png"></p>
+<h2 id="搭建前端环境"><a href="#搭建前端环境" class="headerlink" title="搭建前端环境"></a>搭建前端环境</h2><p>vue-admin-template 后台管理系统模板<br><strong>GitHub 地址：</strong><a target="_blank" rel="noopener" href="https://github.com/PanJiaChen/vue-admin-template">https://github.com/PanJiaChen/vue-admin-template</a></p>
+<p>下载项目</p>
+<pre><code class="bash"># Clone project
+git clone https://github.com/PanJiaChen/vue-admin-template.git
+</code></pre>
+<p><strong>建议：</strong>你可以在 vue-admin-template 的基础上进行二次开发，把 vue-element-admin 当做工具箱，想要什么功能或者组件就去 vue-element-admin 那里复制过来。</p>
+<pre><code class="bash">#修改项目名称 vue-admin-template 改为 guigu-auth-ui
+# 解压压缩包
+# 进入目录
+cd vue-admin-template
+# 安装依赖
+npm install
+# 启动。执行后，浏览器自动弹出并访问http://localhost:9528/
+npm run dev
+</code></pre>
+<p>如果出现了如下报错</p>
+<pre><code class="bash">Error: error:0308010C:digital envelope routines::unsupported
+    at new Hash (node:internal/crypto/hash:67:19)
+    at Object.createHash (node:crypto:130:10)
+    at module.exports (E:\Code\guigu-auth\guigu-auth-front\system-front\node_modules\webpack\lib\util\createHash.js:135:53)
+</code></pre>
+<p>npm run dev 如果报错了, 请把 nodejs 版本降低到 16 版本以前</p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><pre><code class="bash">|-dist 生产环境打包生成的打包项目
+|-mock 产生模拟数据
+|-public 包含会被自动打包到项目根路径的文件夹
+    |-index.html 唯一的页面
+|-src
+    |-api 包含接口请求函数模块
+        |-table.js  表格列表mock数据接口的请求函数
+        |-user.js  用户登陆相关mock数据接口的请求函数
+    |-assets 组件中需要使用的公用资源
+        |-404_images 404页面的图片
+    |-components 非路由组件
+        |-SvgIcon svg图标组件
+        |-Breadcrumb 面包屑组件(头部水平方向的层级组件)
+        |-Hamburger 用来点击切换左侧菜单导航的图标组件
+    |-icons
+        |-svg 包含一些svg图片文件
+        |-index.js 全局注册SvgIcon组件,加载所有svg图片并暴露所有svg文件名的数组
+    |-layout
+        |-components 组成整体布局的一些子组件
+        |-mixin 组件中可复用的代码
+        |-index.vue 后台管理的整体界面布局组件
+    |-router
+        |-index.js 路由器
+    |-store
+        |-modules
+            |-app.js 管理应用相关数据
+            |-settings.js 管理设置相关数据
+            |-user.js 管理后台登陆用户相关数据
+        |-getters.js 提供子模块相关数据的getters计算属性
+        |-index.js vuex的store
+    |-styles
+        |-xxx.scss 项目组件需要使用的一些样式(使用scss)
+    |-utils 一些工具函数
+        |-auth.js 操作登陆用户的token cookie
+        |-get-page-title.js 得到要显示的网页title
+        |-request.js axios二次封装的模块
+        |-validate.js 检验相关工具函数
+        |-index.js 日期和请求参数处理相关工具函数
+    |-views 路由组件文件夹
+        |-dashboard 首页
+        |-login 登陆
+    |-App.vue 应用根组件
+    |-main.js 入口js
+    |-permission.js 使用全局守卫实现路由权限控制的模块
+    |-settings.js 包含应用设置信息的模块
+|-.env.development 指定了开发环境的代理服务器前缀路径
+|-.env.production 指定了生产环境的代理服务器前缀路径
+|-.eslintignore eslint的忽略配置
+|-.eslintrc.js eslint的检查配置
+|-.gitignore git的忽略配置
+|-.npmrc 指定npm的淘宝镜像和sass的下载地址
+|-babel.config.js babel的配置
+|-jsconfig.json 用于vscode引入路径提示的配置
+|-package.json 当前项目包信息
+|-package-lock.json 当前项目依赖的第三方包的精确信息
+|-vue.config.js webpack相关配置(如: 代理服务器)
+</code></pre>
+<h2 id="改造登录和退出功能"><a href="#改造登录和退出功能" class="headerlink" title="改造登录和退出功能"></a>改造登录和退出功能</h2><h5 id="vue-config-js"><a href="#vue-config-js" class="headerlink" title="vue.config.js"></a>vue.config.js</h5><ul>
+<li>注释掉 mock 接口配置</li>
+<li>配置代理转发请求到目标接口</li>
+</ul>
+<pre><code class="javascript">// before: require(&#39;./mock/mock-server.js&#39;)
+proxy: &#123;
+  &#39;/dev-api&#39;: &#123; // 匹配所有以 &#39;/dev-api&#39;开头的请求路径
+    target: &#39;http://localhost:8800&#39;,
+      changeOrigin: true, // 支持跨域
+      pathRewrite: &#123; // 重写路径: 去掉路径中开头的&#39;/dev-api&#39;
+      &#39;^/dev-api&#39;: &#39;&#39;
+    &#125;
+  &#125;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fk9PXi0T3ZkCHzDIi_wI9NtcWcpg.png"></p>
+<h5 id="src-x2F-utils-x2F-request-js"><a href="#src-x2F-utils-x2F-request-js" class="headerlink" title="src&#x2F;utils&#x2F;request.js"></a>src&#x2F;utils&#x2F;request.js</h5><pre><code class="javascript">if (res.code !== 200) &#123;
+  Message(&#123;
+    message: res.message || &quot;Error&quot;,
+    type: &quot;error&quot;,
+    duration: 5 * 1000,
+  &#125;);
+  return Promise.reject(new Error(res.message || &quot;Error&quot;));
+&#125; else &#123;
+  return res;
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnTgx13SPclHF5ko92fa_7INEiac.png"></p>
+<h5 id="src-x2F-api-x2F-user-js"><a href="#src-x2F-api-x2F-user-js" class="headerlink" title="src&#x2F;api&#x2F;user.js"></a>src&#x2F;api&#x2F;user.js</h5><p>修改 url</p>
+<pre><code class="javascript">import request from &quot;@/utils/request&quot;;
+
+export function login(data) &#123;
+  return request(&#123;
+    url: &quot;/admin/system/index/login&quot;,
+    method: &quot;post&quot;,
+    data,
+  &#125;);
+&#125;
+
+export function getInfo(token) &#123;
+  return request(&#123;
+    url: &quot;/admin/system/index/info&quot;,
+    method: &quot;get&quot;,
+    params: &#123; token &#125;,
+  &#125;);
+&#125;
+
+export function logout() &#123;
+  return request(&#123;
+    url: &quot;/admin/system/index/logout&quot;,
+    method: &quot;post&quot;,
+  &#125;);
+&#125;
+</code></pre>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsLeNupuF1H57KMvVwMGfol_XQYZ.png"><br>后端代码</p>
+<pre><code class="java">package com.atguigu.system.controller;
+
+import com.atguigu.common.result.Result;
+import io.swagger.annotations.Api;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@Api(&quot;后台管理登录&quot;)
+@RestController
+@RequestMapping(&quot;/admin/system/index&quot;)
+public class IndexController &#123;
+
+    /**
+     * &#123;&quot;code&quot;:20000,
+     * &quot;data&quot;:&#123;&quot;token&quot;:&quot;admin-token&quot;&#125;&#125;
+     */
+    @PostMapping(&quot;/login&quot;)
+    public Result login() &#123;
+        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;token&quot;, &quot;admin-token xiamu&quot;);
+        return Result.ok(map);
+    &#125;
+
+    /**
+     * &#123;&quot;code&quot;:20000,
+     * &quot;data&quot;:&#123;&quot;roles&quot;:[&quot;admin&quot;],
+     * &quot;introduction&quot;:&quot;I am a super administrator&quot;,
+     * &quot;avatar&quot;:&quot;https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif&quot;,
+     * &quot;name&quot;:&quot;Super Admin&quot;&#125;&#125;
+     */
+    @GetMapping(&quot;/info&quot;)
+    public Result info() &#123;
+        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(&quot;roles&quot;, &quot;[admin]&quot;);
+        map.put(&quot;introduction&quot;, &quot;I am a super administrator&quot;);
+        map.put(&quot;avatar&quot;, &quot;https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif&quot;);
+        map.put(&quot;name&quot;, &quot;Super Admin xiamu&quot;);
+        return Result.ok(map);
+    &#125;
+
+    @PostMapping(&quot;/logout&quot;)
+    public Result logout()&#123;
+        return Result.ok();
+    &#125;
+&#125;
+</code></pre>
+<h2 id="修改路由"><a href="#修改路由" class="headerlink" title="修改路由"></a>修改路由</h2><p>修改 src&#x2F;router&#x2F;index.js 文件，重新定义 constantRoutes</p>
+<pre><code class="javascript">export const constantRoutes = [
+  &#123;
+    path: &quot;/login&quot;,
+    component: () =&gt; import(&quot;@/views/login/index&quot;),
+    hidden: true,
+  &#125;,
+
+  &#123;
+    path: &quot;/404&quot;,
+    component: () =&gt; import(&quot;@/views/404&quot;),
+    hidden: true,
+  &#125;,
+
+  &#123;
+    path: &quot;/&quot;,
+    component: Layout,
+    redirect: &quot;/dashboard&quot;,
+    children: [
+      &#123;
+        path: &quot;dashboard&quot;,
+        name: &quot;Dashboard&quot;,
+        component: () =&gt; import(&quot;@/views/dashboard/index&quot;),
+        meta: &#123; title: &quot;Dashboard&quot;, icon: &quot;dashboard&quot; &#125;,
+      &#125;,
+    ],
+  &#125;,
+
+  &#123;
+    path: &quot;/system&quot;,
+    component: Layout,
+    redirect: &quot;/system/sysUser&quot;,
+    name: &quot;System&quot;,
+    meta: &#123; title: &quot;系统管理&quot;, icon: &quot;el-icon-s-help&quot; &#125;,
+    children: [
+      &#123;
+        path: &quot;sysRole&quot;,
+        name: &quot;SysRole&quot;,
+        component: () =&gt; import(&quot;@/views/system/sysRole/list&quot;),
+        meta: &#123; title: &quot;角色管理&quot;, icon: &quot;table&quot; &#125;,
+      &#125;,
+      &#123;
+        path: &quot;sysUser&quot;,
+        name: &quot;SysUser&quot;,
+        component: () =&gt; import(&quot;@/views/system/sysUser/list&quot;),
+        meta: &#123; title: &quot;用户管理&quot;, icon: &quot;tree&quot; &#125;,
+      &#125;,
+    ],
+  &#125;,
+
+  // 404 page must be placed at the end !!!
+  &#123; path: &quot;*&quot;, redirect: &quot;/404&quot;, hidden: true &#125;,
+];
+</code></pre>
+<p>views&#x2F;system&#x2F;sysRole&#x2F;list.vue 内容</p>
+<pre><code class="vue">&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;角色列表&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<p>views&#x2F;system&#x2F;sysUser&#x2F;list.vue 内容</p>
+<pre><code class="vue">&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;用户列表&lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h2 id="定义-api"><a href="#定义-api" class="headerlink" title="定义 api"></a>定义 api</h2><p>在 system-front\src\api\system\sysRole.js 定义</p>
+<pre><code class="javascript">import request from &quot;@/utils/request&quot;;
+
+export default &#123;
+  getList(page, limit, serachObj) &#123;
+    return request(&#123;
+      url: &quot;/admin/system/sysRole&quot; + &quot;/&quot; + page + &quot;/&quot; + limit,
+      method: &quot;get&quot;,
+      params: serachObj,
+    &#125;);
+  &#125;,
+&#125;;
+</code></pre>
+<h2 id="实现角色的管理"><a href="#实现角色的管理" class="headerlink" title="实现角色的管理"></a>实现角色的管理</h2><p><strong>JavaScript 的整数类型是正负 2 的 53 次方, 跟 Java 的 Long 类型的范围要小</strong><br>list.vue</p>
+<pre><code class="vue">&lt;template&gt;
+  &lt;div class=&quot;app-container&quot;&gt;
+    角色列表
+    &lt;!--查询表单--&gt;
+    &lt;div class=&quot;search-div&quot;&gt;
+      &lt;el-form
+        label-width=&quot;70px&quot;
+        size=&quot;small&quot;
+        @keyup.enter.native=&quot;fetchData()&quot;
+      &gt;
+        &lt;el-row&gt;
+          &lt;el-col :span=&quot;24&quot;&gt;
+            &lt;el-form-item label=&quot;角色名称&quot;&gt;
+              &lt;el-input
+                style=&quot;width: 100%&quot;
+                v-model=&quot;searchObj.roleName&quot;
+                placeholder=&quot;角色名称&quot;
+              &gt;&lt;/el-input&gt;
+            &lt;/el-form-item&gt;
+          &lt;/el-col&gt;
+        &lt;/el-row&gt;
+        &lt;el-row style=&quot;display:flex&quot;&gt;
+          &lt;el-button
+            type=&quot;primary&quot;
+            icon=&quot;el-icon-search&quot;
+            size=&quot;mini&quot;
+            @click=&quot;fetchData()&quot;
+            &gt;搜索&lt;/el-button
+          &gt;
+          &lt;el-button icon=&quot;el-icon-refresh&quot; size=&quot;mini&quot; @click=&quot;resetData&quot;
+            &gt;重置&lt;/el-button
+          &gt;
+        &lt;/el-row&gt;
+      &lt;/el-form&gt;
+    &lt;/div&gt;
+
+    &lt;!-- 添加组件 --&gt;
+    &lt;div class=&quot;tools-div&quot;&gt;
+      &lt;el-button type=&quot;success&quot; icon=&quot;el-icon-plus&quot; size=&quot;mini&quot; @click=&quot;add&quot;
+        &gt;添 加&lt;/el-button
+      &gt;
+      &lt;el-button class=&quot;btn-add&quot; size=&quot;mini&quot; @click=&quot;batchRemove&quot;
+        &gt;批量删除&lt;/el-button
+      &gt;
+    &lt;/div&gt;
+
+    &lt;!-- 表格 --&gt;
+    &lt;el-table
+      v-loading=&quot;listLoading&quot;
+      :data=&quot;list&quot;
+      stripe
+      border
+      style=&quot;width: 100%;margin-top: 10px;&quot;
+      @selection-change=&quot;handleSelectionChange&quot;
+    &gt;
+      &lt;!-- 添加复选框 --&gt;
+      &lt;el-table-column type=&quot;selection&quot; /&gt;
+
+      &lt;el-table-column label=&quot;序号&quot; width=&quot;70&quot; align=&quot;center&quot;&gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+          &#123;&#123; (page - 1) * limit + scope.$index + 1 &#125;&#125;
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+
+      &lt;el-table-column prop=&quot;roleName&quot; label=&quot;角色名称&quot; /&gt;
+      &lt;el-table-column prop=&quot;roleCode&quot; label=&quot;角色编码&quot; /&gt;
+      &lt;el-table-column prop=&quot;createTime&quot; label=&quot;创建时间&quot; width=&quot;160&quot; /&gt;
+      &lt;el-table-column label=&quot;操作&quot; width=&quot;200&quot; align=&quot;center&quot;&gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+          &lt;el-button
+            type=&quot;primary&quot;
+            icon=&quot;el-icon-edit&quot;
+            size=&quot;mini&quot;
+            @click=&quot;edit(scope.row.id)&quot;
+            title=&quot;修改&quot;
+          /&gt;
+          &lt;el-button
+            type=&quot;danger&quot;
+            icon=&quot;el-icon-delete&quot;
+            size=&quot;mini&quot;
+            @click=&quot;removeDataById(scope.row.id)&quot;
+            title=&quot;删除&quot;
+          /&gt;
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+    &lt;/el-table&gt;
+
+    &lt;!-- 分页组件 --&gt;
+    &lt;el-pagination
+      :current-page=&quot;page&quot;
+      :total=&quot;total&quot;
+      :page-size=&quot;limit&quot;
+      style=&quot;padding: 30px 0; text-align: center;&quot;
+      layout=&quot;total, prev, pager, next, jumper&quot;
+      @current-change=&quot;fetchData&quot;
+    /&gt;
+
+    &lt;!-- 定义弹出框 --&gt;
+    &lt;el-dialog title=&quot;添加/修改&quot; :visible.sync=&quot;dialogVisible&quot; width=&quot;40%&quot;&gt;
+      &lt;el-form
+        ref=&quot;dataForm&quot;
+        :model=&quot;sysRole&quot;
+        label-width=&quot;150px&quot;
+        size=&quot;small&quot;
+        style=&quot;padding-right: 40px;&quot;
+      &gt;
+        &lt;el-form-item label=&quot;角色名称&quot;&gt;
+          &lt;el-input v-model=&quot;sysRole.roleName&quot; /&gt;
+        &lt;/el-form-item&gt;
+        &lt;el-form-item label=&quot;角色编码&quot;&gt;
+          &lt;el-input v-model=&quot;sysRole.roleCode&quot; /&gt;
+        &lt;/el-form-item&gt;
+      &lt;/el-form&gt;
+      &lt;span slot=&quot;footer&quot; class=&quot;dialog-footer&quot;&gt;
+        &lt;el-button
+          @click=&quot;dialogVisible = false&quot;
+          size=&quot;small&quot;
+          icon=&quot;el-icon-refresh-right&quot;
+          &gt;取 消&lt;/el-button
+        &gt;
+        &lt;el-button
+          type=&quot;primary&quot;
+          icon=&quot;el-icon-check&quot;
+          @click=&quot;saveOrUpdate()&quot;
+          size=&quot;small&quot;
+          &gt;确 定&lt;/el-button
+        &gt;
+      &lt;/span&gt;
+    &lt;/el-dialog&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+// 引入定义接口的js文件
+import api from &quot;@/api/system/sysRole&quot;;
+const defaultForm = &#123;
+  id: &quot;&quot;,
+  roleName: &quot;&quot;,
+  roleCode: &quot;&quot;,
+&#125;;
+export default &#123;
+  //定义初始值
+  data() &#123;
+    return &#123;
+      listLoading: true, // 数据是否正在加载
+      list: [], // 角色列表
+      total: 0, // 总记录数
+      page: 1, //页码
+      limit: 8, // 每页记录数
+      searchObj: &#123;&#125;, // 查询条件
+      dialogVisible: false, // 不弹框
+      sysRole: defaultForm, // 封装提交的对象
+      saveBtnDisabled: false,
+      multipleSelection: [], // 批量删除选中的记录列表
+    &#125;;
+  &#125;,
+  // 页面渲染之前执行
+  created() &#123;
+    this.fetchData();
+  &#125;,
+  // 具体方法
+  methods: &#123;
+    // 复选框发生变化时处理
+    handleSelectionChange(selection) &#123;
+      //console.log(selection);
+      this.multipleSelection = selection;
+    &#125;,
+    // 批量删除
+    batchRemove() &#123;
+      if (this.multipleSelection.length == 0) &#123;
+        this.$message.warning(&quot;请选择你要删除的记录!&quot;);
+        return;
+      &#125;
+      this.$confirm(&quot;此操作将永久删除该记录, 是否继续?&quot;, &quot;提示&quot;, &#123;
+        confirmButtonText: &quot;确定&quot;,
+        cancelButtonText: &quot;取消&quot;,
+        type: &quot;warning&quot;,
+      &#125;)
+        .then(() =&gt; &#123;
+          // 点击确定，远程调用ajax
+          // 遍历selection，将id取出放入id列表
+          var idList = [];
+          this.multipleSelection.forEach((item) =&gt; &#123;
+            idList.push(item.id);
+          &#125;);
+          // 调用api
+          api.batchRemove(idList).then((response) =&gt; &#123;
+            console.log(response);
+            this.fetchData();
+            this.$message.success(response.message);
+          &#125;);
+        &#125;)
+        .catch((error) =&gt; &#123;
+          if (error === &quot;cancel&quot;) &#123;
+            this.$message.info(&quot;取消删除&quot;);
+          &#125;
+        &#125;);
+    &#125;,
+
+    edit(id) &#123;
+      this.dialogVisible = true;
+      api.getById(id).then((response) =&gt; &#123;
+        this.sysRole = response.data;
+      &#125;);
+    &#125;,
+
+    // 弹出添加功能的表单
+    add() &#123;
+      this.dialogVisible = true;
+      this.sysRole = &#123;&#125;;
+    &#125;,
+
+    saveOrUpdate() &#123;
+      if (!this.sysRole.id) &#123;
+        this.saveRole();
+      &#125; else &#123;
+        this.updateRole();
+      &#125;
+    &#125;,
+
+    saveRole() &#123;
+      api.save(this.sysRole).then((response) =&gt; &#123;
+        // 提示保存成功
+        this.$message(&#123;
+          type: &quot;success&quot;,
+          message: &quot;保存成功!&quot;,
+        &#125;);
+        this.fetchData();
+        this.dialogVisible = false;
+      &#125;);
+    &#125;,
+
+    updateRole() &#123;
+      api.updateById(this.sysRole).then((response) =&gt; &#123;
+        // 提示保存成功
+        this.$message(&#123;
+          type: &quot;success&quot;,
+          message: &quot;修改成功!&quot;,
+        &#125;);
+        this.fetchData(this.page);
+        this.dialogVisible = false;
+      &#125;);
+    &#125;,
+
+    // 条件分页查询列表方法
+    fetchData(pageNum = 1) &#123;
+      // 页数赋值
+      this.page = pageNum;
+      // ajax                                     searchObj
+      api
+        .getPageList(this.page, this.limit, this.searchObj)
+        .then((response) =&gt; &#123;
+          // console.log(response);
+          this.listLoading = false;
+          // 每页数据列表
+          this.list = response.data.records;
+          // 总记录数
+          this.total = response.data.total;
+        &#125;);
+    &#125;,
+
+    // 重置表单
+    resetData() &#123;
+      console.log(&quot;重置查询表单&quot;);
+      // 清空表单
+      this.searchObj = &#123;&#125;;
+      // 查询所有数据
+      this.fetchData();
+    &#125;,
+
+    // 删除角色
+    removeDataById(id) &#123;
+      this.$confirm(&quot;此操作将永久删除该角色, 是否继续?&quot;, &quot;提示&quot;, &#123;
+        confirmButtonText: &quot;确定&quot;,
+        cancelButtonText: &quot;取消&quot;,
+        type: &quot;warning&quot;,
+      &#125;)
+        .then(() =&gt; &#123;
+          // 调用方法删除
+          api.removeId(id).then((response) =&gt; &#123;
+            // 提示删除成功
+            this.$message(&#123;
+              type: &quot;success&quot;,
+              message: &quot;删除成功!&quot;,
+            &#125;);
+            // 刷新页面
+            this.fetchData();
+          &#125;);
+        &#125;)
+        .catch(() =&gt; &#123;
+          this.$message(&#123;
+            type: &quot;info&quot;,
+            message: &quot;已取消删除&quot;,
+          &#125;);
+        &#125;);
+    &#125;,
+  &#125;,
+&#125;;
+&lt;/script&gt;
+</code></pre>
+<p>sysRole.js</p>
+<pre><code class="javascript">import request from &quot;@/utils/request&quot;;
+
+const api_name = &quot;/admin/system/sysRole&quot;;
+
+export default &#123;
+  getPageList(page, limit, serachObj) &#123;
+    return request(&#123;
+      //url: &#39;/admin/system/sysRole&#39; + &#39;/&#39; + page + &#39;/&#39; + limit,
+      url: `$&#123;api_name&#125;/$&#123;page&#125;/$&#123;limit&#125;`,
+      method: &quot;get&quot;,
+      params: serachObj,
+    &#125;);
+  &#125;,
+  removeId(id) &#123;
+    return request(&#123;
+      url: `$&#123;api_name&#125;/remove/$&#123;id&#125;`,
+      method: &quot;delete&quot;,
+    &#125;);
+  &#125;,
+  save(role) &#123;
+    return request(&#123;
+      url: `$&#123;api_name&#125;/save`,
+      method: &quot;post&quot;,
+      data: role,
+      // data表达json参数
+      // params是添加到url的请求字符串中的，一般用于get请求
+      // data是添加到请求体（body）中的， 一般用于post请求
+    &#125;);
+  &#125;,
+  // 通过id查询
+  getById(id) &#123;
+    return request(&#123;
+      url: `$&#123;api_name&#125;/findRoleById/$&#123;id&#125;`,
+      method: &quot;post&quot;,
+    &#125;);
+  &#125;,
+  // 更新
+  updateById(role) &#123;
+    return request(&#123;
+      url: `$&#123;api_name&#125;/update`,
+      method: &quot;post&quot;,
+      data: role,
+    &#125;);
+  &#125;,
+  // 批量删除
+  batchRemove(idList) &#123;
+    return request(&#123;
+      url: `$&#123;api_name&#125;/batchRemove`,
+      method: &quot;delete&quot;,
+      data: idList,
+    &#125;);
+  &#125;,
+&#125;;
+</code></pre>
+<h2 id="实现用户的管理"><a href="#实现用户的管理" class="headerlink" title="实现用户的管理"></a>实现用户的管理</h2><h2 id="树形结构工具类"><a href="#树形结构工具类" class="headerlink" title="树形结构工具类"></a>树形结构工具类</h2><h2 id="前后端打包"><a href="#前后端打包" class="headerlink" title="前后端打包"></a>前后端打包</h2><p><strong>后端打包</strong>在 pom.xml 加上如下代码</p>
+<pre><code>&lt;build&gt;
+    &lt;finalName&gt;$&#123;project.artifactId&#125;&lt;/finalName&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;
+</code></pre>
+<p>点击 maven 的 package 进行打包, 打包之后的文件存在 target 下<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqqTJnCe20txSJ7ckXmKggHwQSm5.png"><br><strong>前端打包</strong>需要把代理修改成 prod 生产环境</p>
+<pre><code class="bash">PS E:\Code\guigu-auth\guigu-auth-front\system-front&gt; npm run build:prod
+</code></pre>
+<p>打包完之后, 打包之后的文件存在 dist 下<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuFciSbp_-KzF3lpopc2QSKZwRDh.png"></p>
+
+  </div>
+  <div id="gitalk-container"></div>
+</div>
+
+<script>
+  
+Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
+  dragToClose: true,
+  Toolbar: true,
+  closeButton: "top",
+  Image: {
+    zoom: true,
+  },
+  on: {
+    initCarousel: (fancybox) => {
+      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+    "Carousel.change": (fancybox, carousel, to, from) => {
+      const slide = carousel.slides[to];
+      fancybox.$container.style.setProperty(
+        "--bg-image",
+        `url("${slide.$thumb.src}")`
+      );
+    },
+  },
+});
+</script>
+
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 9999;
+        /* width: 600px !important; */
+        min-width: 0%;
+        max-width: 90%;
+        max-height: 80%;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            max-width: 88%
+        }
+    }
+</style>
+
+    <div class="post-paging">
+    
+    <a href="/2022/11/12/%E6%B3%A8%E5%86%8C%E8%A1%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E9%AA%9A%E6%93%8D%E4%BD%9C/">
+        <div class="post-paging-last">
+            <span>上一篇</span>
+            <p>注册表的一些骚操作</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/10/25/Nginx/">
+        <div class="post-paging-next">
+            <span>下一篇</span>
+            <p>Nginx</p>
+        </div>
+    </a>
+    
+</div>
+</div>
+		
+<div class="footer">
+	<div class="Copyright">
+		©2023 By Joey. 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
+			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            transition: border .5s;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 20px;
+            height: 20px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $( '#js-go_top' )
+	.gotoTop( {
+		offset: 500,
+		speed: 300,
+		animationShow: {
+			'transform': 'translate(0,0)',
+			'transition': 'transform .5s ease-in-out'
+		},
+		animationHide: {
+			'transform': 'translate(100px,0)',
+			'transition': 'transform .5s ease-in-out'
+		}
+	} );
+</script>
+
+
+    <!-- Gitalk -->
+    <script>
+        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
+        const gitalk = new Gitalk({
+            ...JSON.parse( data),
+            id:location.pathname,
+            distractionFreeMode:false
+        })
+        
+        if(Boolean('true')){
+            gitalk.render('gitalk-container')
+        }
+    </script>
+
+<script>
+	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+</script>
+	</body>
+</html>
+

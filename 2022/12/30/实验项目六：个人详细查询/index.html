@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World-Quiet</title>
+<title>实验项目六：个人详细查询-Quiet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -284,7 +284,7 @@
             
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>实验项目六：个人详细查询</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -299,7 +299,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2023-02-07 17:00:33</p>
+                <p>2022-12-30 23:20:29</p>
             </div>
         </div>
     </div>
@@ -309,19 +309,123 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+    <p><strong>实验项目六：个人详细查询</strong></p>
+<p>通过 eclispe；idea；使用前端页面 提交根据个人的详细 id 查询数据，然后通过 servlet 接受数据。把查询到的数据进行页面展示； 可以通过 response 的方式 (实验每个步骤写在报告中包括题目编写好一起提交)<br>（1）实验目的与原理<br>理解 JavaWeb 数据查询中的根据具体条件进行查询操作；和返回数据到页面。<br>（2）实验内容与步骤 1.创建项目。 1.创建项目。<br>创建项目<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjqPSRSBc8AX74wwDTPRQ3tamV1x.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsmDBRuXC-cVEFd6OiqZQI-AXymI.png"></p>
+<p>在 pom.xml 导入 jar 包</p>
+<pre><code class="bash"> &lt;packaging&gt;war&lt;/packaging&gt;
+
+    &lt;dependencies&gt;
+        &lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;3.1.0&lt;/version&gt;
+        &lt;/dependency&gt;
+
+        &lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;8.0.30&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf --&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.thymeleaf&lt;/groupId&gt;
+            &lt;artifactId&gt;thymeleaf&lt;/artifactId&gt;
+            &lt;version&gt;3.0.11.RELEASE&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+            &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+            &lt;version&gt;1.2.76&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+            &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+            &lt;version&gt;1.2.76&lt;/version&gt;
+            &lt;scope&gt;compile&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
+<p>sql 表结构如下:</p>
+<pre><code class="bash">/*
+SQLyog Ultimate v11.25 (64 bit)
+MySQL - 8.0.28
+*********************************************************************
+*/
+/*!40101 SET NAMES utf8 */;
+
+create table `student` (
+    `id` int (11),
+    `name` varchar (60),
+    `password` varchar (60),
+    `age` int (11),
+    `sex` varchar (30),
+    `email` varchar (90)
+);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;1&#39;,&#39;黄磊&#39;,&#39;123456&#39;,&#39;1000&#39;,&#39;男&#39;,&#39;123456@qq.com&#39;);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;2&#39;,&#39;夏珑桂&#39;,&#39;123456&#39;,&#39;0&#39;,&#39;男&#39;,&#39;&#39;);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;3&#39;,&#39;IKUN&#39;,&#39;鸡你太美&#39;,&#39;0&#39;,&#39;&#39;,&#39;&#39;);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;4&#39;,&#39;隔壁老王&#39;,&#39;&#39;,&#39;0&#39;,&#39;&#39;,&#39;&#39;);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;5&#39;,&#39;吴俊杰&#39;,&#39;123456&#39;,NULL,NULL,NULL);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;6&#39;,&#39;黄志鹏&#39;,NULL,NULL,NULL,NULL);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;7&#39;,&#39;龙晓军&#39;,NULL,NULL,NULL,NULL);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;8&#39;,&#39;欧政武&#39;,NULL,NULL,NULL,NULL);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;9&#39;,&#39;刘威&#39;,NULL,NULL,NULL,NULL);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;10&#39;,&#39;周杰伦&#39;,NULL,NULL,NULL,NULL);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;11&#39;,&#39;易烊千玺&#39;,NULL,NULL,NULL,NULL);
+insert into `student` (`id`, `name`, `password`, `age`, `sex`, `email`) values(&#39;12&#39;,&#39;法外狂徒张三&#39;,NULL,NULL,NULL,NULL);
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FrmY3LP0VIQWqHVe-iRbhcm6FWQl.png"> 2.通过前端传递数据到后端（id 或者名字 等等），根据传输数据操作进行数据库的操作返回数据。<br>前端展示如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fj5Y6aiCNoUcu-8p4RMLVPJ98Yza.png"><br>搜索吴俊杰, 成功显示吴俊杰的信息<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkU6Nl-ixjqBk-D23zMdCnPc4pHf.png"><br>搜索 id, id&#x3D;1, 成功显示黄磊<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhWPdMgh2B1dAOuxtu9audR_bMOD.png"><br>后端核心代码:</p>
+<pre><code class="bash">
+@WebServlet(&quot;/select/student&quot;)
+public class SelectStudentServlet extends ThymeleafViewServlet &#123;
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException &#123;
+        request.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setCharacterEncoding(&quot;UTF-8&quot;);
+        response.setContentType(&quot;application/json; charset=utf-8&quot;);
+
+        String keyword = request.getParameter(&quot;keyword&quot;);
+
+        StudentDAO studentDAO = new StudentDAOImpl();
+
+        try &#123;
+            List&lt;Student&gt; list = studentDAO.selectStudentByIdOrName(keyword);
+            HttpSession session = request.getSession();
+            session.setAttribute(&quot;keyword&quot;, keyword);
+            session.setAttribute(&quot;students&quot;, list);
+            processTemplate(&quot;studentInfo&quot;, request, response);
+        &#125; catch (SQLException e) &#123;
+            e.printStackTrace();
+        &#125;
+    &#125;
+&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
+<p>dao 代码:</p>
+<pre><code>public class StudentDAOImpl extends BaseDAO&lt;Student&gt; implements StudentDAO &#123;
+    @Override
+    public List&lt;Student&gt; selectStudentByIdOrName(String keyword) throws SQLException &#123;
+        return executeQuery(&quot;select * from student where id = ? or name = ?&quot;,
+                keyword, keyword);
+    &#125;
+&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p>3.前端显示数据，可以使用后端响应的方式进行数据展示。<br>前端核心代码:</p>
+<pre><code class="bash">    &lt;form action=&quot;/select/student&quot; method=&quot;post&quot; style=&quot;margin-bottom: 20px&quot;&gt;
+        &lt;label for=&quot;searchStudent&quot;&gt;搜索: &lt;/label&gt;
+        &lt;input type=&quot;text&quot; id=&quot;searchStudent&quot; name=&quot;keyword&quot; placeholder=&quot;请输入学生id或者学生姓名&quot; th:value=&quot;$&#123;session.keyword&#125;&quot;&gt;
+        &lt;button type=&quot;submit&quot;&gt;搜索&lt;/button&gt;
+    &lt;/form&gt;
+</code></pre>
+<p>（3）主要仪器及耗材<br>笔记本电脑<br>（4）教学方式<br>案例教学法+现场操作<br>试验要求：认真编写，认真截图，认真截图 工作态度第一</p>
+<ol>
+<li>通过安装软件截图到文档中；</li>
+<li>在文档中使用软件进行详细的说明；</li>
+</ol>
+<p>在每个步骤上都有自己的认识和自己的见</p>
 
   </div>
   <div id="gitalk-container"></div>
@@ -382,19 +486,19 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2023/02/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <a href="/2023/01/01/HDFS/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>我的第一篇博客</p>
+            <p>HDFS</p>
         </div>
     </a>
     
 
     
-    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+    <a href="/2022/12/29/%E5%85%A5%E9%97%A8/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>Hexo本地使用</p>
+            <p>入门</p>
         </div>
     </a>
     

@@ -2,7 +2,7 @@
 <html>
 	<head>
 		
-<title>Hello World-Quiet</title>
+<title>javaweb-黄富春-Quiet</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -284,7 +284,7 @@
             
         </ul>
         
-        <h1>Hello World</h1>
+        <h1>javaweb-黄富春</h1>
         <div class="post-header-info">
             <div class="post-header-info-author">
                 
@@ -299,7 +299,7 @@
                 <div class="post-header-info-author-categories">
                     
                 </div>
-                <p>2023-02-07 17:00:33</p>
+                <p>2022-12-26 09:44:28</p>
             </div>
         </div>
     </div>
@@ -309,19 +309,24 @@
   <div id="article" class="post-content-info">
     
 
-    <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;
+    <h2 id="2022-x2F-12-x2F-14-看完了"><a href="#2022-x2F-12-x2F-14-看完了" class="headerlink" title="2022&#x2F;12&#x2F;14 看完了"></a>2022&#x2F;12&#x2F;14 看完了</h2><p>讲述了前后端项目, 抛出了前后端的概念, 发了前端模板和后端模板, 让我们创建项目, 跑通这两个模板<br>通过<a target="_blank" rel="noopener" href="http://localhost:8080/admin/">http://localhost:8080/admin/</a>访问后端页面<br>通过<a target="_blank" rel="noopener" href="http://localhost:8080/user/">http://localhost:8080/user/</a>访问后端页面<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgJKpv4JLMKzdPySnrv-UghMWuRt.png"></p>
+<h2 id="2022-x2F-12-x2F-16-看完了"><a href="#2022-x2F-12-x2F-16-看完了" class="headerlink" title="2022&#x2F;12&#x2F;16 看完了"></a>2022&#x2F;12&#x2F;16 看完了</h2><p>对登录后端的几个文件(dao, entity, servlet)的介绍, 并且创建了相对应的数据库, 通过 LoginAddUserServlet 实现登录注册功能<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fjz2pkc0ZkrUU_WVvuyx5L2iPmEI.png"></p>
+<h2 id="2022-x2F-12-x2F-21"><a href="#2022-x2F-12-x2F-21" class="headerlink" title="2022&#x2F;12&#x2F;21"></a>2022&#x2F;12&#x2F;21</h2><p>回顾了 12&#x2F;16 的内容, 演示了一遍 LoginAddUserServlet 中的注册功能, 通过注册, 把用户添加到数据库中<br>发了邮箱工具类和 jar 包, 实现发送邮件的功能<br>修改 myEmailAccount 和 myEmailPassword<br>myEmailAccount 就是你的邮箱<br>myEmailPassword 就是你的 POP3 密码<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fur2_Fdjwm9v_GNv9C4ke_RTwdNi.png"><br>测试类:</p>
+<pre><code>import org.junit.Test;
+import tools.Email;
+
+public class EmailTest &#123;
+    @Test
+    public void sendEmail() throws Exception &#123;
+        Email email = new Email();
+        email.sendEmail(&quot;2964565044@qq.com&quot;);
+    &#125;
+&#125;
 </code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy
-</code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h2 id="2022-x2F-12-x2F-23"><a href="#2022-x2F-12-x2F-23" class="headerlink" title="2022&#x2F;12&#x2F;23"></a>2022&#x2F;12&#x2F;23</h2><p>实现注册功能, 注册之后跳转到登录页面<br>实现了登录功能, 点击登录, 跳转到首页</p>
+<h2 id="2022-x2F-12-x2F-24"><a href="#2022-x2F-12-x2F-24" class="headerlink" title="2022&#x2F;12&#x2F;24"></a>2022&#x2F;12&#x2F;24</h2><p>黄老师电脑卡崩了, 实现了通过邮箱找回密码的功能</p>
+<h2 id="2022-x2F-12-x2F-26"><a href="#2022-x2F-12-x2F-26" class="headerlink" title="2022&#x2F;12&#x2F;26"></a>2022&#x2F;12&#x2F;26</h2><p>完成了首页用户展示的功能</p>
+<p>大家在原来的项目的基础上： 1.完成用户的注册；<br>2 完成用户注册的跳转； 3.完成用户的登录校验； 4.完成用户的密码找回</p>
 
   </div>
   <div id="gitalk-container"></div>
@@ -382,19 +387,19 @@ Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
 
     <div class="post-paging">
     
-    <a href="/2023/02/07/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+    <a href="/2022/12/26/Maven%20ClassNotFoundException%20MySql/">
         <div class="post-paging-last">
             <span>上一篇</span>
-            <p>我的第一篇博客</p>
+            <p>Maven ClassNotFoundException MySql</p>
         </div>
     </a>
     
 
     
-    <a href="/2023/02/07/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/">
+    <a href="/2022/12/24/ElasticSearch/">
         <div class="post-paging-next">
             <span>下一篇</span>
-            <p>Hexo本地使用</p>
+            <p>ElasticSearch</p>
         </div>
     </a>
     
