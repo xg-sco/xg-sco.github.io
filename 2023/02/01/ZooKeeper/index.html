@@ -13,7 +13,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="肉豆蔻">
   <meta name="keywords" content="">
   
     <meta name="description" content="下载https:&#x2F;&#x2F;zookeeper.apache.org&#x2F;https:&#x2F;&#x2F;archive.apache.org&#x2F;dist&#x2F;zookeeper&#x2F;我们选择比较稳定的版本 3.5.7 安装上传到 linux 上解压缩[xiamu@hadoop202 software]$ tar -zxvf apache-zookeeper-3.5.7-bin.tar.gz -C &#x2F;opt&#x2F;module&#x2F;修改名称[x">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqbwPnz9Ln1HD3-Q8OjdbDZuOp2D.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtXhjPVhA1Tys_otpR_uijfuukAo.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsZm6TzE8INSUkqTrmtmQVIA2lY5.png">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/33666212/1675339374157-fca4bf8c-c299-4bc3-b8b4-58c4c5a0f564.png#averageHue=%23fdf8f6&clientId=u0aed97ec-01c1-4&from=paste&height=374&id=u4f1b3f04&name=image.png&originHeight=561&originWidth=1007&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=50371&status=done&style=none&taskId=u945d7771-6958-4766-93a3-14128da9b2d&title=&width=671.3333333333334">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuK7zbV66YRHxh8BmN3wRG832Aul.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjOze3LIfkv2-WEGdNURdrdW2-0i.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqILmd_t_GMvf-oidgQUnL-Sj_ON.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqH9kCAQfDTwVBTeIS9C-vYZM14l.png">
@@ -44,8 +44,9 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgVm80ZOqotskMbUSOO63uoZCNoL.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlypVeE8541AHqPHg1zJJQbnGTWQ.png">
 <meta property="article:published_time" content="2023-02-01T08:30:00.000Z">
-<meta property="article:modified_time" content="2023-02-08T15:41:11.860Z">
+<meta property="article:modified_time" content="2023-02-27T13:20:55.123Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="ZooKeeper">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnfDmz4hkkqKN8B9weL91s63SXeZ.png">
   
@@ -225,6 +226,11 @@
           
   <div class="mt-3">
     
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻
+      </span>
+    
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
@@ -395,7 +401,7 @@
 <p>监听的同时, 在 linux 中添加&#x2F;删除节点, idea 能监听得到<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtXhjPVhA1Tys_otpR_uijfuukAo.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FsZm6TzE8INSUkqTrmtmQVIA2lY5.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="客户端-判断节点是否存在"><a href="#客户端-判断节点是否存在" class="headerlink" title="客户端-判断节点是否存在"></a>客户端-判断节点是否存在</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">// 判断Znode是否存在<br>@Test<br>public void exist() throws InterruptedException, KeeperException &#123;<br>    Stat <span class="hljs-built_in">stat</span> = zooKeeper.exists(<span class="hljs-string">&quot;/atguigu&quot;</span>, <span class="hljs-literal">false</span>);<br>    System.out.println(<span class="hljs-built_in">stat</span> == null ? <span class="hljs-string">&quot;not exist&quot;</span> : <span class="hljs-string">&quot;exist&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="写数据原理"><a href="#写数据原理" class="headerlink" title="写数据原理"></a>写数据原理</h2><p>ack 表示应答<br>write 表示写操作<br><img src="https://cdn.nlark.com/yuque/0/2023/png/33666212/1675339374157-fca4bf8c-c299-4bc3-b8b4-58c4c5a0f564.png#averageHue=%23fdf8f6&clientId=u0aed97ec-01c1-4&from=paste&height=374&id=u4f1b3f04&name=image.png&originHeight=561&originWidth=1007&originalType=binary%E2%88%B6=1&rotation=0&showTitle=false&size=50371&status=done&style=none&taskId=u945d7771-6958-4766-93a3-14128da9b2d&title=&width=671.3333333333334" srcset="/img/loading.gif" lazyload alt="image.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjOze3LIfkv2-WEGdNURdrdW2-0i.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="写数据原理"><a href="#写数据原理" class="headerlink" title="写数据原理"></a>写数据原理</h2><p>ack 表示应答<br>write 表示写操作<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FuK7zbV66YRHxh8BmN3wRG832Aul.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjOze3LIfkv2-WEGdNURdrdW2-0i.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="服务器动态上下线"><a href="#服务器动态上下线" class="headerlink" title="服务器动态上下线"></a>服务器动态上下线</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqILmd_t_GMvf-oidgQUnL-Sj_ON.png" srcset="/img/loading.gif" lazyload></p>
 <p>操作上线<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqH9kCAQfDTwVBTeIS9C-vYZM14l.png" srcset="/img/loading.gif" lazyload><br>操作下线<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgsUd_bwbql-VQZMJ1J-CDfXp9Xy.png" srcset="/img/loading.gif" lazyload></p>
 <p>DistributeServer 代码</p>
@@ -431,6 +437,13 @@
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/ZooKeeper/">#ZooKeeper</a>
+      
+    </div>
+  
 </div>
 
 
@@ -446,7 +459,7 @@
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>John Doe</div>
+          <div>肉豆蔻</div>
         </div>
       
       
@@ -494,8 +507,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/02/01/Yarn/" title="Yarn">
-                        <span class="hidden-mobile">Yarn</span>
+                      <a href="/2023/01/13/Snipaste/" title="Snipaste">
+                        <span class="hidden-mobile">Snipaste</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
