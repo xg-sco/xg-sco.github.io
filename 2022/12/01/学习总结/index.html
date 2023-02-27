@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
     <meta name="description" content="编译原理是一套复杂庞大的偏底层的知识体系。目的是将高级程序设计语言转换成计算机硬件能识别的机器语言，以便计算机进行处理。本文将给大家提炼介绍整体的流程，以及具体深挖部分细节流程。主要会围绕以下几个方面进行介绍：  代码到底是什么 什么是编译 计算机如何将代码转换成可以运行的目标程序(重点介绍) 计算机怎么理解机器语言并落实在硬件上执行 JS 代码的编译解析执行过程  代码到底是什么如果你是内行。代">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习总结">
-<meta property="og:url" content="http://example.com/2022/12/01/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="http://roudoukou.github.io.com/2022/12/01/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="xiamu">
 <meta property="og:description" content="编译原理是一套复杂庞大的偏底层的知识体系。目的是将高级程序设计语言转换成计算机硬件能识别的机器语言，以便计算机进行处理。本文将给大家提炼介绍整体的流程，以及具体深挖部分细节流程。主要会围绕以下几个方面进行介绍：  代码到底是什么 什么是编译 计算机如何将代码转换成可以运行的目标程序(重点介绍) 计算机怎么理解机器语言并落实在硬件上执行 JS 代码的编译解析执行过程  代码到底是什么如果你是内行。代">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FkGuU0HqFd5AZwIF7taEVgSkziAT.webp">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FmtaeAwGtQXBho7zHYm2JNpg1RZC.webp">
 <meta property="article:published_time" content="2022-12-01T03:51:57.000Z">
 <meta property="article:modified_time" content="2023-02-27T12:54:04.126Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="计算机基础">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary_large_image">
@@ -41,7 +41,7 @@
   
   
   
-  <title>学习总结 - Hexo</title>
+  <title>学习总结 - xiamu</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -79,7 +79,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"roudoukou.github.io.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -217,7 +217,7 @@
     
       <span class="post-meta mr-2">
         <i class="iconfont icon-author" aria-hidden="true"></i>
-        John Doe
+        肉豆蔻吖
       </span>
     
     
@@ -457,13 +457,13 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>学习总结</div>
-      <div>http://example.com/2022/12/01/学习总结/</div>
+      <div>http://roudoukou.github.io.com/2022/12/01/学习总结/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>John Doe</div>
+          <div>肉豆蔻吖</div>
         </div>
       
       

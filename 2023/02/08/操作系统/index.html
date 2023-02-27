@@ -13,14 +13,14 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="John Doe">
+  <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
     <meta name="description" content="缺页问题 FIFO (先进先出) LRU (最久未使用) OPT (在未来最长时间内, 不在被访问的页面)   一个上课例题 几页就画几行，缺页率&#x3D;缺页个数&#x2F;访问顺序个数 计算物理地址 操作系统的功能:处理机管理功能，储存器管理功能，设备管理功能，文件管理功能，以及作为用户与硬件系统之间的接口。 进程调度 先来先服务调度 最短作业调度 短的先来  等待时间 &#x3D; 开始时">
 <meta property="og:type" content="article">
 <meta property="og:title" content="操作系统">
-<meta property="og:url" content="http://example.com/2023/02/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:url" content="http://roudoukou.github.io.com/2023/02/08/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/index.html">
+<meta property="og:site_name" content="xiamu">
 <meta property="og:description" content="缺页问题 FIFO (先进先出) LRU (最久未使用) OPT (在未来最长时间内, 不在被访问的页面)   一个上课例题 几页就画几行，缺页率&#x3D;缺页个数&#x2F;访问顺序个数 计算物理地址 操作系统的功能:处理机管理功能，储存器管理功能，设备管理功能，文件管理功能，以及作为用户与硬件系统之间的接口。 进程调度 先来先服务调度 最短作业调度 短的先来  等待时间 &#x3D; 开始时">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Ful_KSgI45NIK1cdc-AT4v4DEX3B.png">
@@ -30,14 +30,14 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FobpBFVSyn_F2xrK0_hWF7A-QG8j.png">
 <meta property="article:published_time" content="2023-02-08T05:29:13.000Z">
 <meta property="article:modified_time" content="2023-02-27T12:53:24.399Z">
-<meta property="article:author" content="John Doe">
+<meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="计算机基础">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Ful_KSgI45NIK1cdc-AT4v4DEX3B.png">
   
   
   
-  <title>操作系统 - Hexo</title>
+  <title>操作系统 - xiamu</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -75,7 +75,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"roudoukou.github.io.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -213,7 +213,7 @@
     
       <span class="post-meta mr-2">
         <i class="iconfont icon-author" aria-hidden="true"></i>
-        John Doe
+        肉豆蔻吖
       </span>
     
     
@@ -369,13 +369,13 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>操作系统</div>
-      <div>http://example.com/2023/02/08/操作系统/</div>
+      <div>http://roudoukou.github.io.com/2023/02/08/操作系统/</div>
     </div>
     <div class="license-meta">
       
         <div class="license-meta-item">
           <div>作者</div>
-          <div>John Doe</div>
+          <div>肉豆蔻吖</div>
         </div>
       
       
