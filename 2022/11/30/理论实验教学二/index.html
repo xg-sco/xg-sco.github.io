@@ -1,481 +1,358 @@
+
+
 <!DOCTYPE html>
-<html>
-	<head>
-		
-<title>理论实验教学二-Quiet</title>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
-
-<link rel="stylesheet" href="/css/index.css">
+<html lang="zh-CN" data-default-color-scheme=auto>
 
 
-<meta name="keywords" content="hexo主题,hexo扁平化主题,Quiet主题">
-<meta name="description" content="描述">
 
-
-<script src="/js/jquery.min.js"></script>
-
-
-<script src="/js/index.js"></script>
-
-
-<script src="/js/fancybox.umd.js"></script>
-
-
-<script src="/js/fancybox-images.js"></script>
-
-
-<script src="/js/gitalk.min.js"></script>
-
-
-<script src="/js/hljs.min.js"></script>
- 
-<script>hljs.highlightAll();</script>
-
-	<meta name="generator" content="Hexo 6.3.0"></head>
-
-	<body>
-		
-	<div class="header">
-		<div class="header-top" id="header-top">
-			<div class="h-left">
-				<a href="/">
-					<img src="/image/logo.png" alt="Quiet">
-				</a>
-			</div>
-			<div class="h-right">
-				<ul>
-					
-						
-								<li>
-									<a href="/">
-										HOME
-									</a>
-									<span class="dot"></span>
-								</li>
-								
-									
-						
-								<li>
-									<a href="/archives">
-										ARCHIVE
-									</a>
-									<span class="dot"></span>
-								</li>
-								
-									
-						
-								<li>
-									<a href="/categories">
-										CATEGORIES
-									</a>
-									<span class="dot"></span>
-								</li>
-								
-									
-						
-								<li>
-									<a href="/tags">
-										TAGS
-									</a>
-									<span class="dot"></span>
-								</li>
-								
-									
-						
-								<li>
-									<a href="/links">
-										LINKS
-									</a>
-									<span class="dot"></span>
-								</li>
-								
-									
-						
-								<li>
-									<a href="/about">
-										ABOUT
-									</a>
-									<span class="dot"></span>
-								</li>
-								
-									
-				</ul>
-			</div>
-			<div class="h-right-close">
-				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-					<path fill="none" d="M0 0h24v24H0z" />
-					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
-				</svg>
-			</div>
-		</div>
-	</div>
-	<div class="sidebar">
-    <div class="topo">
-        <h2>Joey</h2>
-    </div>
-    <ul>
-        
-        <li>
-            <a href="/">HOME</a>
-        </li>
-        
-        <li>
-            <a href="/archives">ARCHIVE</a>
-        </li>
-        
-        <li>
-            <a href="/categories">CATEGORIES</a>
-        </li>
-        
-        <li>
-            <a href="/tags">TAGS</a>
-        </li>
-        
-        <li>
-            <a href="/links">LINKS</a>
-        </li>
-        
-        <li>
-            <a href="/about">ABOUT</a>
-        </li>
-        
-    </ul>
-    <div class="my_foot">
-        
-        <a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
-            <img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
-        </a>
-        
-    </div>
-</div>
-<div class='shelter'>
-</div>
-<style>
-    .shelter{
-        background-color: #333;
-        opacity:0.5;
-        cursor: pointer;
-        display: none; 
-        position: fixed;
-        left: 0;
-        top: 0; 
-        right: 0;
-        bottom: 0;
-        z-index: 1998;
-    }
-    .sidebar {
-        width: 66%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        right: -100%;
-        bottom: 0;
-        background: #fff;
-        z-index: 1999;
-        text-align: center;
-        box-shadow: -6px 0 20px rgba(98, 94, 94, .815);
-    }
-
-    .topo {
-        width: 100%;
-        height: 200px;
-        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
-        background-size: 100% 100%;
-        position: relative;
-        display: flex;
-        align-items: flex-end
-    }
-
-    .topo h2 {
-        color: #fff;
-        z-index: 1;
-        position: relative;
-        margin: 0 0 10px 10px;
-        font-size: 1.2em;
-        box-sizing: border-box
-    }
-
-    .topo:before {
-        content: '';
-        background-image: url(/image/pattern.png);
-        background-repeat: repeat;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 1
-    }
-
-    .sidebar ul {
-        width: 100%;
-        margin-top: 50px
-    }
-
-    .sidebar ul li {
-        height: 50px;
-        list-style: none;
-        font-size: 1.2em;
-        text-align: right;
-        margin-right: 10px
-    }
-
-    .sidebar ul li a {
-        display: grid;
-        color: #5d606a;
-        text-overflow: ellipsis;
-        width: 100%;
-        text-decoration: none
-    }
-
-    .my_foot {
-        width: 100%;
-        padding: 10px;
-        margin-bottom: 10px;
-        position: absolute;
-        bottom: 0
-    }
-
-    .my_foot a {
-        text-decoration: none;
-        margin-right: 10px;
-        display: inline-block
-    }
-
-    .my_foot a img {
-        width: 30px;
-        height: 30px
-    }
-</style>
-
-<script>
-    $( function () {
-	$( '.h-right-close>svg' )
-		.click( function () {
-			$( '.sidebar' )
-				.animate( {
-					right: "0"
-				}, 500 );
-			$( '.shelter' )
-				.fadeIn( "slow" )
-		} );
-	$( '.shelter' )
-		.click( function ( e ) {
-			$( '.sidebar' )
-				.animate( {
-					right: "-100%"
-				}, 500 );
-			$( '.shelter' )
-				.fadeOut( "slow" )
-		} )
-} )
-
-</script>
-
-<div class="post">
-    <div class="post-header-background post-header-img"
-    style="background: url('https://api.ixiaowai.cn/gqapi/gqapi.php')" 
->
-    <div class="post-header-background-content">
-        <ul class="post-header-tag">
-            
-        </ul>
-        
-        <h1>理论实验教学二</h1>
-        <div class="post-header-info">
-            <div class="post-header-info-author">
-                
-                    <svg t="1604839279282" class="icon" viewBox="0 0 1024 1024" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" p-id="2901" width="20" height="20">
-                        <path
-                            d="M513 956.3c-247.7 0-448-200.3-448-448S265.3 66.2 513 66.2s448 200.3 448 448-200.3 442.1-448 442.1z m0-830.9c-212.2 0-388.8 170.7-388.8 388.8C124.2 726.3 294.9 903 513 903c212.2 0 388.8-170.7 388.8-388.8S725.2 125.4 513 125.4z m0 430.2c-94.2 0-170.7-76.5-170.7-170.7S418.8 207.8 513 207.8s170.7 76.5 170.7 170.7S607.2 555.6 513 555.6z m0-289.1c-64.6 0-112 52.8-112 112s47.4 117.9 112 117.9 112-52.8 112-112-47.4-117.9-112-117.9z m0 689.8c-135.7 0-259-58.7-341.9-158.9l-11.8-17.8 11.8-17.8c76.5-117.9 206.2-188.5 347.8-188.5 135.7 0 265 64.6 341.9 182.6l11.8 17.8-11.8 17.8C778 897.1 648.7 956.3 513 956.3zM230.3 773.2C300.9 849.7 406.9 897 513 897c112 0 218.1-47.4 288.6-129.8-70.5-88.2-170.7-135.6-282.7-135.6s-218.1 53.3-288.6 141.6z"
-                            p-id="2902" fill="#ffffff"></path>
-                    </svg>
-                    
-                <span class="post-header-info-author-text"> <a href="../../about">Joey</a></span>
-                <div class="post-header-info-author-categories">
-                    
-                </div>
-                <p>2022-11-30 19:39:38</p>
-            </div>
-        </div>
-    </div>
-</div>
-    <div class="post-content" id="content">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
   
-  <div id="article" class="post-content-info">
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1. helloworld.c 的分步编译过程及说明helloworld.c 代码如下:  gcc 编译工具，部分参数功能：-E 预处理、-S 编译、-c 汇编、-o 链接  (1)将 helloworld.c 文件预处理为 helloworld.i 文件gcc -E helloworld.c -o helloworld.i(2)将预处理文件 helloworld.i 文件编译为 hellowor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理论实验教学二">
+<meta property="og:url" content="http://example.com/2022/11/30/%E7%90%86%E8%AE%BA%E5%AE%9E%E9%AA%8C%E6%95%99%E5%AD%A6%E4%BA%8C/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1. helloworld.c 的分步编译过程及说明helloworld.c 代码如下:  gcc 编译工具，部分参数功能：-E 预处理、-S 编译、-c 汇编、-o 链接  (1)将 helloworld.c 文件预处理为 helloworld.i 文件gcc -E helloworld.c -o helloworld.i(2)将预处理文件 helloworld.i 文件编译为 hellowor">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA6TXVdX6OYlRKIxQnAh5lgQVI_.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq53u7rGd8v2Ffa33OXRG-n_JhUd.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fotsw12A0mz8mZx9tcNWmfruLDDu.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjTp38RKxflcs6WVLD2GSOevR8S2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjuP7uGvefyn4a6_k4DI22SySLOp.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fo2wSdn1D03ENo_8m8wwXnt3DEZS.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhQlELDCCTXpjqlPB0ofrAXhVlS-.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fsph6pVIOUX5YZpuRBGwa_41uNX2.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlFBHV--IM8p8TQy3TePIwy7DbzP.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqLxduPiFd7QOsI8tOq8l8uDC-cT.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FthSqtE5QNZJSDNU3fz33rLXI5xx.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtflxDWzXsvaQO_08I6O55sfiyDs.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA6TXVdX6OYlRKIxQnAh5lgQVI_.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjBEHZHjydKQBO8E8MrinRbw46oT.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fva3NGqlROyPH6rTVCNJMdrzGrVc.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FprxMqsGWXW1oWrEvL-scG3Wzp4Y.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjahOnzMma90drEToTI2FwOx7817.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtYdpjO3cT7P-OM8oRx_jplxxY2G.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlVKsLr1lBfRwqARc6ieZxdHToEK.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnDUTzIpjp6ciSOJ6OjymxZMze7Z.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtYGh33chcunukfpe6MWFmVv4960.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fibdh8NnhFhwiTyCGGCV-ezViTh0.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fv_7ruN8a0wtyGbC-zvFV7sMX_Eq.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiJv1SahgbPDvcXmi5aq3p68nUw4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fj5qZP-ypuIS9CGs7I0Q8hSauNrJ.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FoRdm18hzZU7hfQuy79lDciMqZSp.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgZdX1qIqHT05o1TEa7uEjMJtStF.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhXdia4dZwlnnxSKvpLUxvgtF59p.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fvm6BQcamgdikbYZaMvCQwh9UgG8.png">
+<meta property="article:published_time" content="2022-11-30T11:39:38.000Z">
+<meta property="article:modified_time" content="2023-02-08T15:56:43.680Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA6TXVdX6OYlRKIxQnAh5lgQVI_.png">
+  
+  
+  
+  <title>理论实验教学二 - Hexo</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
     
 
-    <h2 id="1-helloworld-c-的分步编译过程及说明"><a href="#1-helloworld-c-的分步编译过程及说明" class="headerlink" title="1. helloworld.c 的分步编译过程及说明"></a>1. helloworld.c 的分步编译过程及说明</h2><p>helloworld.c 代码如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA6TXVdX6OYlRKIxQnAh5lgQVI_.png"></p>
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Fluid</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="理论实验教学二"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-30 19:39" pubdate>
+          2022年11月30日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          51 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">理论实验教学二</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-helloworld-c-的分步编译过程及说明"><a href="#1-helloworld-c-的分步编译过程及说明" class="headerlink" title="1. helloworld.c 的分步编译过程及说明"></a>1. helloworld.c 的分步编译过程及说明</h2><p>helloworld.c 代码如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA6TXVdX6OYlRKIxQnAh5lgQVI_.png" srcset="/img/loading.gif" lazyload></p>
 <blockquote>
 <p>gcc 编译工具，部分参数功能：-E 预处理、-S 编译、-c 汇编、-o 链接</p>
 </blockquote>
-<p>(1)将 helloworld.c 文件预处理为 helloworld.i 文件<br>gcc -E helloworld.c -o helloworld.i<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq53u7rGd8v2Ffa33OXRG-n_JhUd.png"><br>(2)将预处理文件 helloworld.i 文件编译为 helloworld.s 汇编文件<br>gcc -S helloworld.i -o helloworld.s<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fotsw12A0mz8mZx9tcNWmfruLDDu.png"><br>(3)将 helloworld.s 汇编文件汇编成目标代码 helloworld.o<br>gcc -c helloworld.s -o helloworld.o<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjTp38RKxflcs6WVLD2GSOevR8S2.png"><br>(4)将 helloworld.o 目标代码链接成为可执行文件 helloworld<br>gcc helloworld.o -o helloworld<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjuP7uGvefyn4a6_k4DI22SySLOp.png"></p>
-<h2 id="2-字符集的选择"><a href="#2-字符集的选择" class="headerlink" title="2. 字符集的选择"></a>2. 字符集的选择</h2><p>(1)汉字输入法的配置：应用程序—&gt;系统工具—&gt;设置—&gt;Region&amp;Language—&gt;输入源，点击“+”按钮，即可选择安装如“汉语(Intelligent Pinyin)”这样的汉字拼音输入法。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fo2wSdn1D03ENo_8m8wwXnt3DEZS.png"><br>(2)使用应用程序—&gt;附件—&gt;文本编辑器，打开 helloworld.c 文件后，进行“另存为”操作，注意窗口下面的“字符编码”是可以选择的，选择 GBK 字符编码，文件名修改成 helloworld-GBK.c<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhQlELDCCTXpjqlPB0ofrAXhVlS-.png"></p>
-<p>保存后在终端中 ll 查看一下，对比一下相同内容的源程序文件，发现 GBK 格式的文件比原先的 UTF8 文件大小要小<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fsph6pVIOUX5YZpuRBGwa_41uNX2.png"><br>使用 cat 命令显示一下, 发现之前在 printf 中的中文乱码了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlFBHV--IM8p8TQy3TePIwy7DbzP.png"><br>使用 gcc 将源程序编译成可执行程序后，执行结果会乱码, 之前的结果是 “你好, 世界”, 但是 GBK 编译之后的中文乱码了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqLxduPiFd7QOsI8tOq8l8uDC-cT.png"><br>给终端设置编码格式为 GBK, 再次运行可执行文件, 发现 GBK 格式的运行结果没有乱码了, 但是之前的 UTF8 文件乱码了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FthSqtE5QNZJSDNU3fz33rLXI5xx.png"><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtflxDWzXsvaQO_08I6O55sfiyDs.png"><br>综上, 解决乱码的问题是让终端和文件保持着同一个编码格式</p>
-<h2 id="3-helloworld-c-的模块化改进：helloworld-项目"><a href="#3-helloworld-c-的模块化改进：helloworld-项目" class="headerlink" title="3. helloworld.c 的模块化改进：helloworld 项目"></a>3. helloworld.c 的模块化改进：helloworld 项目</h2><p>helloworld.c 代码如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA6TXVdX6OYlRKIxQnAh5lgQVI_.png"></p>
+<p>(1)将 helloworld.c 文件预处理为 helloworld.i 文件<br>gcc -E helloworld.c -o helloworld.i<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fq53u7rGd8v2Ffa33OXRG-n_JhUd.png" srcset="/img/loading.gif" lazyload><br>(2)将预处理文件 helloworld.i 文件编译为 helloworld.s 汇编文件<br>gcc -S helloworld.i -o helloworld.s<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fotsw12A0mz8mZx9tcNWmfruLDDu.png" srcset="/img/loading.gif" lazyload><br>(3)将 helloworld.s 汇编文件汇编成目标代码 helloworld.o<br>gcc -c helloworld.s -o helloworld.o<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjTp38RKxflcs6WVLD2GSOevR8S2.png" srcset="/img/loading.gif" lazyload><br>(4)将 helloworld.o 目标代码链接成为可执行文件 helloworld<br>gcc helloworld.o -o helloworld<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjuP7uGvefyn4a6_k4DI22SySLOp.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="2-字符集的选择"><a href="#2-字符集的选择" class="headerlink" title="2. 字符集的选择"></a>2. 字符集的选择</h2><p>(1)汉字输入法的配置：应用程序—&gt;系统工具—&gt;设置—&gt;Region&amp;Language—&gt;输入源，点击“+”按钮，即可选择安装如“汉语(Intelligent Pinyin)”这样的汉字拼音输入法。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fo2wSdn1D03ENo_8m8wwXnt3DEZS.png" srcset="/img/loading.gif" lazyload><br>(2)使用应用程序—&gt;附件—&gt;文本编辑器，打开 helloworld.c 文件后，进行“另存为”操作，注意窗口下面的“字符编码”是可以选择的，选择 GBK 字符编码，文件名修改成 helloworld-GBK.c<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhQlELDCCTXpjqlPB0ofrAXhVlS-.png" srcset="/img/loading.gif" lazyload></p>
+<p>保存后在终端中 ll 查看一下，对比一下相同内容的源程序文件，发现 GBK 格式的文件比原先的 UTF8 文件大小要小<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fsph6pVIOUX5YZpuRBGwa_41uNX2.png" srcset="/img/loading.gif" lazyload><br>使用 cat 命令显示一下, 发现之前在 printf 中的中文乱码了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlFBHV--IM8p8TQy3TePIwy7DbzP.png" srcset="/img/loading.gif" lazyload><br>使用 gcc 将源程序编译成可执行程序后，执行结果会乱码, 之前的结果是 “你好, 世界”, 但是 GBK 编译之后的中文乱码了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FqLxduPiFd7QOsI8tOq8l8uDC-cT.png" srcset="/img/loading.gif" lazyload><br>给终端设置编码格式为 GBK, 再次运行可执行文件, 发现 GBK 格式的运行结果没有乱码了, 但是之前的 UTF8 文件乱码了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FthSqtE5QNZJSDNU3fz33rLXI5xx.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtflxDWzXsvaQO_08I6O55sfiyDs.png" srcset="/img/loading.gif" lazyload><br>综上, 解决乱码的问题是让终端和文件保持着同一个编码格式</p>
+<h2 id="3-helloworld-c-的模块化改进：helloworld-项目"><a href="#3-helloworld-c-的模块化改进：helloworld-项目" class="headerlink" title="3. helloworld.c 的模块化改进：helloworld 项目"></a>3. helloworld.c 的模块化改进：helloworld 项目</h2><p>helloworld.c 代码如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnA6TXVdX6OYlRKIxQnAh5lgQVI_.png" srcset="/img/loading.gif" lazyload></p>
 <p>把该程序化成三个文件: main.c, hello.h, hello.c</p>
 <blockquote>
 <p>模块化的核心意义在于分离职责，它的关注点在于功能划分。 这里我总结了它的四大好处：保持输出一致性、提高设计效率、适用性强便于维护、便于协作。</p>
 </blockquote>
 <p>main.c 代码如下:</p>
-<pre><code class="c">/*main.c程序源代码, 工程文件中, 只有main.c有main主函数*/
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*main.c程序源代码, 工程文件中, 只有main.c有main主函数*/</span><br><br><span class="hljs-comment">// 注意, main.c不直接使用stdio.h, 使用我们自定义的hello.h</span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;hello.h&quot;</span></span><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>        <span class="hljs-comment">// main.c调用功能函数myprint()</span><br>        myprint(<span class="hljs-string">&quot;Hello World!你好,世界!&quot;</span>);<br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-// 注意, main.c不直接使用stdio.h, 使用我们自定义的hello.h
-#include &quot;hello.h&quot;
-int main()
-&#123;
-        // main.c调用功能函数myprint()
-        myprint(&quot;Hello World!你好,世界!&quot;);
-        return 0;
-&#125;
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjBEHZHjydKQBO8E8MrinRbw46oT.png"><br>hello.h 代码如下:</p>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjBEHZHjydKQBO8E8MrinRbw46oT.png" srcset="/img/loading.gif" lazyload><br>hello.h 代码如下:</p>
 <blockquote>
 <p>#ifndef 它是 if not define 的简写，是宏定义的一种，实际上确切的说，这应该是预处理功能三种（宏定义、文件包含、条件编译）中的一种—-条件编译。</p>
 </blockquote>
-<pre><code class="c">/*hello.h头文件源代码*/
-#ifndef FUQIANG_H
-#define FUQIANG_H
-        void myprint(const char *name);
-#endif
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fva3NGqlROyPH6rTVCNJMdrzGrVc.png"><br>hello.c 代码如下:</p>
-<pre><code class="c">/*hello.c定义文件源代码, 在hello.c中具体实现myprint函数具体功
-能*/
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*hello.h头文件源代码*/</span><br><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> FUQIANG_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> FUQIANG_H</span><br>        <span class="hljs-type">void</span> <span class="hljs-title function_">myprint</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name)</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br></code></pre></td></tr></table></figure>
 
-#include &lt;stdio.h&gt;
-void myprint(const char *name)
-&#123;
-        printf(name);
-&#125;
-</code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FprxMqsGWXW1oWrEvL-scG3Wzp4Y.png"></p>
-<h2 id="4-helloworld-项目的静态编译、动态编译及运行"><a href="#4-helloworld-项目的静态编译、动态编译及运行" class="headerlink" title="4. helloworld 项目的静态编译、动态编译及运行"></a>4. helloworld 项目的静态编译、动态编译及运行</h2><p><strong>(1)直接编译</strong><br>直接 gcc 编译 hello.c 并输出可执行程序是不行的，因为 hello.c 中没有 main 函数，直接编译 main.c 生成可执行程序也不成功，因为 main.c 中的 myprint 函数没有实现，需要将两个 c 程序文件先编译为目标文件，然后将两个目标文件再生成可执行程序：<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjahOnzMma90drEToTI2FwOx7817.png"><br><strong>(2)静态链接</strong><br>使用静态链接，将把所有.a 的静态库文件链接到最终可执行文件上。<br>注意：请先安装好 libc-static 静态链接库<br>使用 ar 命令将目标文件.o 转换成.a 静态库文件:<br>ar rcs libmyhello.a hello.o<br>使用 gcc -static 来进行静态链接<br>gcc -o helloStatic main.c -static -L. -lmyhello<br>使用常规-lxxx 方式，这里的 xxx 是静态库名称，也可以直接指定静态库文件名：<br>gcc -o helloStatic main.c -static -L. -l:libmyhello.a<br>说明：-L. 参数告诉 gcc，当前目录也是搜索库文件的路径<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtYdpjO3cT7P-OM8oRx_jplxxY2G.png"><br><strong>(3)动态链接</strong><br>使用动态链接，共享.so 动态库文件，最终可执行文件将小很多。<br>gcc -shared -fPIC -c hello.c<br>gcc -shared -fPIC -o libmyhello.so hello.o<br>第一条命令将 hello.c 编译生成 hello.o 目标代码，第二条命令将 hello.o 生成动态链接库文件 libmyhello.so<br>参数说明：<br>-share 代表是动态链接库<br>-fPIC 命令行标记告诉 GCC 产生的代码不要包含对函数和变量具体内存位置的引用，这是因为现在还无法知道使用该消息代码的应用程序会将它连接到哪一段内存地址空间。这样编译出的 hello.o 可以被用于建立共享链接库<br>最后 gcc -o hello main.c -L. -lmyhello 生成 hello 可执行文件，注意执行的时候可能会报错，说找不到这个 libmyhello.so 文件。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlVKsLr1lBfRwqARc6ieZxdHToEK.png"></p>
-<h2 id="5-动态链接库的位置与相关设置"><a href="#5-动态链接库的位置与相关设置" class="headerlink" title="5. 动态链接库的位置与相关设置"></a>5. 动态链接库的位置与相关设置</h2><p>提示：如果动态库文件 libmyhello.so 放在操作系统系统库文件目录下，那么执行动态链接生成的可执行程序不会报错，如果放在其他目录下，则需要使用 export 命令来设置 LD_LIBRARY_PATH 环境变量。<br>临时修改，log out 之后就失效<br>在命令行输入 export LD_LIBRARY_PATH&#x3D;.&#x2F;<br>[root@xiamu compilers-principles]# export LD_LIBRARY_PATH&#x3D;.&#x2F;<br>再次运行 hello 就不会报错了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnDUTzIpjp6ciSOJ6OjymxZMze7Z.png"></p>
-<h2 id="6-汉诺塔程序的设计与运行"><a href="#6-汉诺塔程序的设计与运行" class="headerlink" title="6. 汉诺塔程序的设计与运行"></a>6. 汉诺塔程序的设计与运行</h2><p>将汉诺塔程序改造为汉诺塔项目，请进行：<br>（1）对 hanoi 函数进行注释说明，并编译执行提供的汉诺塔递归程序；<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtYGh33chcunukfpe6MWFmVv4960.png"><br>hanoi 代码:</p>
-<pre><code class="c">#include &lt;stdio.h&gt;
-int c = 0;// 用来记录当前是第几步
-void move(char x, int n, char z) //输出x移动到z
-&#123;
-    printf(&quot;第%i步: 将%i号盘从%c移到%c\n&quot;, ++c, n, x, z);
-&#125;
-void hanoi(int n, char x, char y, char z)
-// 圆盘x利用y移动到z
-&#123;
-    if (n == 1)
-        move(x, 1, z);
-    else
-    &#123;
-        hanoi(n-1, x, z, y);
-        move(x, n, z);
-        hanoi(n-1, y, x, z);
-    &#125;
-&#125;
-int main()
-&#123;
-    int n;
-    printf(&quot;3个塔座为a, b, c, 圆盘最初在a座, 借助b座移到c座. 请输入圆盘数: &quot;);
-    scanf(&quot;%d&quot;, &amp;n);
-    hanoi(n, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;);
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fva3NGqlROyPH6rTVCNJMdrzGrVc.png" srcset="/img/loading.gif" lazyload><br>hello.c 代码如下:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*hello.c定义文件源代码, 在hello.c中具体实现myprint函数具体功</span><br><span class="hljs-comment">能*/</span><br><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">myprint</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name)</span><br>&#123;<br>        <span class="hljs-built_in">printf</span>(name);<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-    return 0;
-&#125;
-</code></pre>
-<p>（2）尝试使用不同的字符集（GBK、UTF-8）保存源程序，编译执行看效果；<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fibdh8NnhFhwiTyCGGCV-ezViTh0.png"><br>当前终端的编码是 UTF8, 所以运行 GBK 的可执行文件的代码会显示乱码<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fv_7ruN8a0wtyGbC-zvFV7sMX_Eq.png"><br>（3）将提供的汉诺塔程序改造为模块化的 C 语言项目；</p>
-<p>模块化文件如下, hanoi-GBK.c 是 GBK 的格式的代码, 与模块化无关<br>hanoi.c 是汉诺塔操作代码<br>main.c 是主程序<br>move.c 是移动操作代码<br>mycin.c 是输入操作代码<br>mycout.c 是输出操作代码<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiJv1SahgbPDvcXmi5aq3p68nUw4.png"><br>hanoi.h</p>
-<pre><code class="c">#ifndef HANOI_H
-#define HANOI_H
-extern int c;
-void mycout(const char *name, ...);
-void mycin(const char *name, ...);
-void hanoi(int n, char x, char y, char z);
-void move(char x, int n, char z);
-#endif
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FprxMqsGWXW1oWrEvL-scG3Wzp4Y.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="4-helloworld-项目的静态编译、动态编译及运行"><a href="#4-helloworld-项目的静态编译、动态编译及运行" class="headerlink" title="4. helloworld 项目的静态编译、动态编译及运行"></a>4. helloworld 项目的静态编译、动态编译及运行</h2><p><strong>(1)直接编译</strong><br>直接 gcc 编译 hello.c 并输出可执行程序是不行的，因为 hello.c 中没有 main 函数，直接编译 main.c 生成可执行程序也不成功，因为 main.c 中的 myprint 函数没有实现，需要将两个 c 程序文件先编译为目标文件，然后将两个目标文件再生成可执行程序：<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FjahOnzMma90drEToTI2FwOx7817.png" srcset="/img/loading.gif" lazyload><br><strong>(2)静态链接</strong><br>使用静态链接，将把所有.a 的静态库文件链接到最终可执行文件上。<br>注意：请先安装好 libc-static 静态链接库<br>使用 ar 命令将目标文件.o 转换成.a 静态库文件:<br>ar rcs libmyhello.a hello.o<br>使用 gcc -static 来进行静态链接<br>gcc -o helloStatic main.c -static -L. -lmyhello<br>使用常规-lxxx 方式，这里的 xxx 是静态库名称，也可以直接指定静态库文件名：<br>gcc -o helloStatic main.c -static -L. -l:libmyhello.a<br>说明：-L. 参数告诉 gcc，当前目录也是搜索库文件的路径<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtYdpjO3cT7P-OM8oRx_jplxxY2G.png" srcset="/img/loading.gif" lazyload><br><strong>(3)动态链接</strong><br>使用动态链接，共享.so 动态库文件，最终可执行文件将小很多。<br>gcc -shared -fPIC -c hello.c<br>gcc -shared -fPIC -o libmyhello.so hello.o<br>第一条命令将 hello.c 编译生成 hello.o 目标代码，第二条命令将 hello.o 生成动态链接库文件 libmyhello.so<br>参数说明：<br>-share 代表是动态链接库<br>-fPIC 命令行标记告诉 GCC 产生的代码不要包含对函数和变量具体内存位置的引用，这是因为现在还无法知道使用该消息代码的应用程序会将它连接到哪一段内存地址空间。这样编译出的 hello.o 可以被用于建立共享链接库<br>最后 gcc -o hello main.c -L. -lmyhello 生成 hello 可执行文件，注意执行的时候可能会报错，说找不到这个 libmyhello.so 文件。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FlVKsLr1lBfRwqARc6ieZxdHToEK.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="5-动态链接库的位置与相关设置"><a href="#5-动态链接库的位置与相关设置" class="headerlink" title="5. 动态链接库的位置与相关设置"></a>5. 动态链接库的位置与相关设置</h2><p>提示：如果动态库文件 libmyhello.so 放在操作系统系统库文件目录下，那么执行动态链接生成的可执行程序不会报错，如果放在其他目录下，则需要使用 export 命令来设置 LD_LIBRARY_PATH 环境变量。<br>临时修改，log out 之后就失效<br>在命令行输入 export LD_LIBRARY_PATH&#x3D;.&#x2F;<br>[root@xiamu compilers-principles]# export LD_LIBRARY_PATH&#x3D;.&#x2F;<br>再次运行 hello 就不会报错了<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FnDUTzIpjp6ciSOJ6OjymxZMze7Z.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="6-汉诺塔程序的设计与运行"><a href="#6-汉诺塔程序的设计与运行" class="headerlink" title="6. 汉诺塔程序的设计与运行"></a>6. 汉诺塔程序的设计与运行</h2><p>将汉诺塔程序改造为汉诺塔项目，请进行：<br>（1）对 hanoi 函数进行注释说明，并编译执行提供的汉诺塔递归程序；<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FtYGh33chcunukfpe6MWFmVv4960.png" srcset="/img/loading.gif" lazyload><br>hanoi 代码:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-type">int</span> c = <span class="hljs-number">0</span>;<span class="hljs-comment">// 用来记录当前是第几步</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">(<span class="hljs-type">char</span> x, <span class="hljs-type">int</span> n, <span class="hljs-type">char</span> z)</span> <span class="hljs-comment">//输出x移动到z</span><br>&#123;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;第%i步: 将%i号盘从%c移到%c\n&quot;</span>, ++c, n, x, z);<br>&#125;<br><span class="hljs-type">void</span> <span class="hljs-title function_">hanoi</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">char</span> x, <span class="hljs-type">char</span> y, <span class="hljs-type">char</span> z)</span><br><span class="hljs-comment">// 圆盘x利用y移动到z</span><br>&#123;<br>	<span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>)<br>		move(x, <span class="hljs-number">1</span>, z);<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		hanoi(n<span class="hljs-number">-1</span>, x, z, y);<br>		move(x, n, z);<br>		hanoi(n<span class="hljs-number">-1</span>, y, x, z);<br>	&#125;<br>&#125;<br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>	<span class="hljs-type">int</span> n;<br>	<span class="hljs-built_in">printf</span>(<span class="hljs-string">&quot;3个塔座为a, b, c, 圆盘最初在a座, 借助b座移到c座. 请输入圆盘数: &quot;</span>);<br>	<span class="hljs-built_in">scanf</span>(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>	hanoi(n, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>);<br><br>	<span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-</code></pre>
+<p>（2）尝试使用不同的字符集（GBK、UTF-8）保存源程序，编译执行看效果；<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fibdh8NnhFhwiTyCGGCV-ezViTh0.png" srcset="/img/loading.gif" lazyload><br>当前终端的编码是 UTF8, 所以运行 GBK 的可执行文件的代码会显示乱码<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fv_7ruN8a0wtyGbC-zvFV7sMX_Eq.png" srcset="/img/loading.gif" lazyload><br>（3）将提供的汉诺塔程序改造为模块化的 C 语言项目；</p>
+<p>模块化文件如下, hanoi-GBK.c 是 GBK 的格式的代码, 与模块化无关<br>hanoi.c 是汉诺塔操作代码<br>main.c 是主程序<br>move.c 是移动操作代码<br>mycin.c 是输入操作代码<br>mycout.c 是输出操作代码<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FiJv1SahgbPDvcXmi5aq3p68nUw4.png" srcset="/img/loading.gif" lazyload><br>hanoi.h</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">ifndef</span> HANOI_H</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> HANOI_H</span><br><span class="hljs-keyword">extern</span> <span class="hljs-type">int</span> c;<br><span class="hljs-type">void</span> <span class="hljs-title function_">mycout</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name, ...)</span>;<br><span class="hljs-type">void</span> <span class="hljs-title function_">mycin</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name, ...)</span>;<br><span class="hljs-type">void</span> <span class="hljs-title function_">hanoi</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">char</span> x, <span class="hljs-type">char</span> y, <span class="hljs-type">char</span> z)</span>;<br><span class="hljs-type">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">(<span class="hljs-type">char</span> x, <span class="hljs-type">int</span> n, <span class="hljs-type">char</span> z)</span>;<br><span class="hljs-meta">#<span class="hljs-keyword">endif</span></span><br><br><br></code></pre></td></tr></table></figure>
+
 <p>hanoi.c</p>
-<pre><code class="c">
-#include &quot;hanoi.h&quot;
-void hanoi(int n, char x, char y, char z)
-// 圆盘x利用y移动到z
-&#123;
-    if (n == 1)
-        move(x, 1, z);
-    else
-    &#123;
-        hanoi(n-1, x, z, y);
-        move(x, n, z);
-        hanoi(n-1, y, x, z);
-    &#125;
-&#125;
-</code></pre>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs c"><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;hanoi.h&quot;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">hanoi</span><span class="hljs-params">(<span class="hljs-type">int</span> n, <span class="hljs-type">char</span> x, <span class="hljs-type">char</span> y, <span class="hljs-type">char</span> z)</span><br><span class="hljs-comment">// 圆盘x利用y移动到z</span><br>&#123;<br>	<span class="hljs-keyword">if</span> (n == <span class="hljs-number">1</span>)<br>		move(x, <span class="hljs-number">1</span>, z);<br>	<span class="hljs-keyword">else</span><br>	&#123;<br>		hanoi(n<span class="hljs-number">-1</span>, x, z, y);<br>		move(x, n, z);<br>		hanoi(n<span class="hljs-number">-1</span>, y, x, z);<br>	&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
 <p>main.c</p>
-<pre><code class="c">#include &quot;hanoi.h&quot;
-int c = 0;// 用来记录当前是第几步
-/*
-void move(char x, int n, char z) //输出x移动到z
-&#123;
-        mycout(&quot;第%i步: 将%i号盘从%c移到%c\n&quot;, ++c, n, x, z);
-&#125;
-*/
-/*
-void hanoi(int n, char x, char y, char z)
-// 圆盘x利用y移动到z
-&#123;
-    if (n == 1)
-        move(x, 1, z);
-    else
-    &#123;
-        hanoi(n-1, x, z, y);
-        move(x, n, z);
-        hanoi(n-1, y, x, z);
-    &#125;
-&#125;
-*/
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;hanoi.h&quot;</span></span><br><span class="hljs-type">int</span> c = <span class="hljs-number">0</span>;<span class="hljs-comment">// 用来记录当前是第几步</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">void move(char x, int n, char z) //输出x移动到z</span><br><span class="hljs-comment">&#123;</span><br><span class="hljs-comment">        mycout(&quot;第%i步: 将%i号盘从%c移到%c\n&quot;, ++c, n, x, z);</span><br><span class="hljs-comment">&#125;</span><br><span class="hljs-comment">*/</span><br><span class="hljs-comment">/*</span><br><span class="hljs-comment">void hanoi(int n, char x, char y, char z)</span><br><span class="hljs-comment">// 圆盘x利用y移动到z</span><br><span class="hljs-comment">&#123;</span><br><span class="hljs-comment">	if (n == 1)</span><br><span class="hljs-comment">		move(x, 1, z);</span><br><span class="hljs-comment">	else</span><br><span class="hljs-comment">	&#123;</span><br><span class="hljs-comment">		hanoi(n-1, x, z, y);</span><br><span class="hljs-comment">		move(x, n, z);</span><br><span class="hljs-comment">		hanoi(n-1, y, x, z);</span><br><span class="hljs-comment">	&#125;</span><br><span class="hljs-comment">&#125;</span><br><span class="hljs-comment">*/</span><br><br><span class="hljs-type">int</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>        <span class="hljs-type">int</span> n;<br>        mycout(<span class="hljs-string">&quot;3个塔座为a, b, c, 圆盘最初在a座, 借助b座移到c座. 请输&gt;入圆盘数: &quot;</span>);<br>        mycin(<span class="hljs-string">&quot;%d&quot;</span>, &amp;n);<br>        hanoi(n, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>);<br><br>        <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
 
-int main()
-&#123;
-        int n;
-        mycout(&quot;3个塔座为a, b, c, 圆盘最初在a座, 借助b座移到c座. 请输&gt;入圆盘数: &quot;);
-        mycin(&quot;%d&quot;, &amp;n);
-        hanoi(n, &#39;a&#39;, &#39;b&#39;, &#39;c&#39;);
-
-        return 0;
-&#125;
-
-</code></pre>
 <p>move.c</p>
-<pre><code class="c">
-#include &quot;hanoi.h&quot;
-int c;
-void move(char x, int n, char z) //输出x移动到z
-&#123;
-        mycout(&quot;第%i步: 将%i号盘从%c移到%c\n&quot;, ++c, n, x, z);
-&#125;
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs c"><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;hanoi.h&quot;</span></span><br><span class="hljs-type">int</span> c;<br><span class="hljs-type">void</span> <span class="hljs-title function_">move</span><span class="hljs-params">(<span class="hljs-type">char</span> x, <span class="hljs-type">int</span> n, <span class="hljs-type">char</span> z)</span> <span class="hljs-comment">//输出x移动到z</span><br>&#123;<br>        mycout(<span class="hljs-string">&quot;第%i步: 将%i号盘从%c移到%c\n&quot;</span>, ++c, n, x, z);<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
 
-</code></pre>
 <p>mycin.c</p>
-<pre><code class="c">#include &lt;stdio.h&gt;
-#include &quot;hanoi.h&quot;
-void mycin(const char *name, ...)
-&#123;
-        scanf(name);
-&#125;
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;hanoi.h&quot;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">mycin</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name, ...)</span><br>&#123;<br>        <span class="hljs-built_in">scanf</span>(name);<br>&#125;<br><br><br></code></pre></td></tr></table></figure>
 
-</code></pre>
 <p>mycout.c</p>
-<pre><code class="c">#include &lt;stdio.h&gt;
-#include &quot;hanoi.h&quot;
-void mycout(const char *name, ...)
-&#123;
-        printf(name);
-&#125;
-</code></pre>
-<p>（4）对汉诺塔 C 语言项目进行直接编译、静态编译，并运行；<br>**直接编译: **<br>[root@xiamu hanoi]# gcc -c *.c<br>[root@xiamu hanoi]# gcc main.o hanoi.o mycout.o mycin.o move.o -o hanoi<br>[root@xiamu hanoi]# .&#x2F;hanoi<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fj5qZP-ypuIS9CGs7I0Q8hSauNrJ.png"><br>**静态编译: **</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stdio.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&quot;hanoi.h&quot;</span></span><br><span class="hljs-type">void</span> <span class="hljs-title function_">mycout</span><span class="hljs-params">(<span class="hljs-type">const</span> <span class="hljs-type">char</span> *name, ...)</span><br>&#123;<br>        <span class="hljs-built_in">printf</span>(name);<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>（4）对汉诺塔 C 语言项目进行直接编译、静态编译，并运行；<br>**直接编译: **<br>[root@xiamu hanoi]# gcc -c *.c<br>[root@xiamu hanoi]# gcc main.o hanoi.o mycout.o mycin.o move.o -o hanoi<br>[root@xiamu hanoi]# .&#x2F;hanoi<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fj5qZP-ypuIS9CGs7I0Q8hSauNrJ.png" srcset="/img/loading.gif" lazyload><br>**静态编译: **</p>
 <blockquote>
 <p>ar 是 Linux 的一个备份压缩命令，它可以将多个文件打包成一个备份文件（也叫归档文件），也可以从备份文件中提取成员文件。ar 命令最常见的用法是将目标文件打包为静态链接库。</p>
 <ul>
@@ -484,200 +361,350 @@ void mycout(const char *name, ...)
 <li>参数 s 用来创建目标文件索引，这在创建较大的库时能提高速度。</li>
 </ul>
 </blockquote>
-<p>[root@xiamu hanoi]# gcc -c *.c<br>[root@xiamu hanoi]# ar rs libhanoi.a main.o mycin.o mycout.o move.o hanoi.o<br>[root@xiamu hanoi]# gcc main.c -L. -lhanoi -Ihanoi -o hanoi2<br>[root@xiamu hanoi]# .&#x2F;hanoi2<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FoRdm18hzZU7hfQuy79lDciMqZSp.png"><br>（5）对汉诺塔 C 语言项目进行动态编译，并运行；<br><strong>动态编译</strong></p>
+<p>[root@xiamu hanoi]# gcc -c *.c<br>[root@xiamu hanoi]# ar rs libhanoi.a main.o mycin.o mycout.o move.o hanoi.o<br>[root@xiamu hanoi]# gcc main.c -L. -lhanoi -Ihanoi -o hanoi2<br>[root@xiamu hanoi]# .&#x2F;hanoi2<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FoRdm18hzZU7hfQuy79lDciMqZSp.png" srcset="/img/loading.gif" lazyload><br>（5）对汉诺塔 C 语言项目进行动态编译，并运行；<br><strong>动态编译</strong></p>
 <blockquote>
 <p>-L 选项告诉编译器去哪里找需要的库文件，-L.表示在当前目录找。-lstack 告诉编译器要链 接 libstack 库，-I 选项告诉编译器去哪里找头文件。注意，即使库文件就在当前目录，编译器默认 也不会去找的，所以-L.选项不能少。</p>
 </blockquote>
-<p>动态编译之后运行会报错, 只需要加上 export LD_LIBRARY_PATH&#x3D;.&#x2F; 再次运行就不会报错了<br>[root@xiamu hanoi]# gcc -shared -fPIC -c *.c<br>[root@xiamu hanoi]# gcc -shared -fPIC -o libhanoi.so main.o hanoi.o mycout.o mycin.o move.o<br>[root@xiamu hanoi]# gcc -o hanoi main.c -L. -lhanoi<br>[root@xiamu hanoi]# .&#x2F;hanoi<br>.&#x2F;hanoi: error while loading shared libraries: libhanoi.so: cannot open shared object file: No such file or directory<br>[root@xiamu hanoi]# export LD_LIBRARY_PATH&#x3D;.&#x2F;<br>[root@xiamu hanoi]# .&#x2F;hanoi<br>没输入 export LD_LIBRARY_PATH&#x3D;.&#x2F;编译运行就会报错<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgZdX1qIqHT05o1TEa7uEjMJtStF.png"><br>输入 export LD_LIBRARY_PATH&#x3D;.&#x2F;过后的编译运行就不会报错<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhXdia4dZwlnnxSKvpLUxvgtF59p.png"><br>（6）比较直接编译、静态编译、动态编译生成的可执行文件的不同；<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fvm6BQcamgdikbYZaMvCQwh9UgG8.png"><br>三种编译的可执行文件大小最终几乎差不多 1.直接编译: 直接使用 gcc 源文件 -o 目标文件就可以编译出结果 2.静态编译：编译器在编译可执行文件时，把需要用到的对应动态链接库(.so 或.ilb)中的部分提取出来，链接到可执行文件中去， 使可执行文件在运行时不需要依赖于动态链接库. 3.动态编译: 动态编译的可执行文件需要附带一个的动态链接库，在执行时，需要调用其对应动态链接库中的命令。<br>（7）想办法让动态编译后的执行程序能正常运行起来。<br>终端输入如下<br>[root@xiamu hanoi]# export LD_LIBRARY_PATH&#x3D;.&#x2F;</p>
+<p>动态编译之后运行会报错, 只需要加上 export LD_LIBRARY_PATH&#x3D;.&#x2F; 再次运行就不会报错了<br>[root@xiamu hanoi]# gcc -shared -fPIC -c *.c<br>[root@xiamu hanoi]# gcc -shared -fPIC -o libhanoi.so main.o hanoi.o mycout.o mycin.o move.o<br>[root@xiamu hanoi]# gcc -o hanoi main.c -L. -lhanoi<br>[root@xiamu hanoi]# .&#x2F;hanoi<br>.&#x2F;hanoi: error while loading shared libraries: libhanoi.so: cannot open shared object file: No such file or directory<br>[root@xiamu hanoi]# export LD_LIBRARY_PATH&#x3D;.&#x2F;<br>[root@xiamu hanoi]# .&#x2F;hanoi<br>没输入 export LD_LIBRARY_PATH&#x3D;.&#x2F;编译运行就会报错<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FgZdX1qIqHT05o1TEa7uEjMJtStF.png" srcset="/img/loading.gif" lazyload><br>输入 export LD_LIBRARY_PATH&#x3D;.&#x2F;过后的编译运行就不会报错<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/FhXdia4dZwlnnxSKvpLUxvgtF59p.png" srcset="/img/loading.gif" lazyload><br>（6）比较直接编译、静态编译、动态编译生成的可执行文件的不同；<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/roudoukou.github.io/blog-img/Fvm6BQcamgdikbYZaMvCQwh9UgG8.png" srcset="/img/loading.gif" lazyload><br>三种编译的可执行文件大小最终几乎差不多 1.直接编译: 直接使用 gcc 源文件 -o 目标文件就可以编译出结果 2.静态编译：编译器在编译可执行文件时，把需要用到的对应动态链接库(.so 或.ilb)中的部分提取出来，链接到可执行文件中去， 使可执行文件在运行时不需要依赖于动态链接库. 3.动态编译: 动态编译的可执行文件需要附带一个的动态链接库，在执行时，需要调用其对应动态链接库中的命令。<br>（7）想办法让动态编译后的执行程序能正常运行起来。<br>终端输入如下<br>[root@xiamu hanoi]# export LD_LIBRARY_PATH&#x3D;.&#x2F;</p>
 
-  </div>
-  <div id="gitalk-container"></div>
-</div>
-
-<script>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
   
-Fancybox.bind('[data-fancybox="fancybox-gallery-img"]', {
-  dragToClose: true,
-  Toolbar: true,
-  closeButton: "top",
-  Image: {
-    zoom: true,
-  },
-  on: {
-    initCarousel: (fancybox) => {
-      const slide = fancybox.Carousel.slides[fancybox.Carousel.page];
-      fancybox.$container.style.setProperty(
-        "--bg-image",
-        `url("${slide.$thumb.src}")`
-      );
-    },
-    "Carousel.change": (fancybox, carousel, to, from) => {
-      const slide = carousel.slides[to];
-      fancybox.$container.style.setProperty(
-        "--bg-image",
-        `url("${slide.$thumb.src}")`
-      );
-    },
-  },
-});
-</script>
+  
+</div>
 
-<style>
-    #noneimg img {
-        display: none;
-        z-index: 9999;
-        /* width: 600px !important; */
-        min-width: 0%;
-        max-width: 90%;
-        max-height: 80%;
-        border-radius: 0px;
-        position: fixed;
-        box-shadow: 0 0 0px #c3c3c300 !important;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto !important;
-    }
 
-    @media screen and (max-width:600px) {
-        #noneimg img {
-            max-width: 88%
-        }
-    }
-</style>
+              
+  
 
-    <div class="post-paging">
-    
-    <a href="/2022/12/01/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">
-        <div class="post-paging-last">
-            <span>上一篇</span>
-            <p>学习总结</p>
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>理论实验教学二</div>
+      <div>http://example.com/2022/11/30/理论实验教学二/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>John Doe</div>
         </div>
-    </a>
-    
-
-    
-    <a href="/2022/11/30/%E7%90%86%E8%AE%BA%E5%AE%9E%E9%AA%8C%E6%95%99%E5%AD%A6%E4%B8%80/">
-        <div class="post-paging-next">
-            <span>下一篇</span>
-            <p>理论实验教学一</p>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月30日</div>
         </div>
-    </a>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/12/01/%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" title="学习总结">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">学习总结</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/30/%E7%90%86%E8%AE%BA%E5%AE%9E%E9%AA%8C%E6%95%99%E5%AD%A6%E4%B8%80/" title="理论实验教学一">
+                        <span class="hidden-mobile">理论实验教学一</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
     
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
 </div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
 </div>
-		
-<div class="footer">
-	<div class="Copyright">
-		©2023 By Joey. 主题：<a
-			style="text-decoration: none;display: contents; color: #898F9F;"
-			target="_blank" rel="noopener" href="https://github.com/79e/hexo-theme-quiet">Quiet</a>
-	</div>
-	<div class="contact">
-		
-		<a target="_blank" rel="noopener" href="https://github.com/79E/hexo-theme-quiet">
-			<img src="https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png" alt="Quiet主题">
-		</a>
-		
-	</div>
-</div>
 
-<script src="/js/gotop.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
 
 
-<style type="text/css">
-    @media screen and (min-width: 600px) {
-        .goTop>span {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            opacity: 0.8;
-            background: rgba(18, 24, 58, 0.06);
-            text-align: center;
-            transition: border .5s;
-            border: 1px solid rgba(18, 24, 58, 0.06);
-
-            -moz-transition: border .5s;
-            /* Firefox 4 */
-            -webkit-transition: border .5s;
-            /* Safari 和 Chrome */
-            -o-transition: border .5s;
-            /* Opera */
-        }
-
-        .goTop>span:hover {
-            border: 1px solid #6680B3;
-        }
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
-        .goTop {
-            position: fixed;
-            right: 30px;
-            bottom: 80px;
-        }
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
 
-        .goTop>span>svg {
-            width: 20px;
-            height: 20px;
-            opacity: 0.7;
-        }
 
-    }
 
-    @media screen and (max-width: 600px) {
-        .goTop {
-            display: none;
-        }
-    }
-</style>
-<div class="goTop" id="js-go_top">
-    <span>
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-            <g>
-                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
-            </g>
-        </svg>
-    </span>
-</div>
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
 <script>
-    $( '#js-go_top' )
-	.gotoTop( {
-		offset: 500,
-		speed: 300,
-		animationShow: {
-			'transform': 'translate(0,0)',
-			'transition': 'transform .5s ease-in-out'
-		},
-		animationHide: {
-			'transform': 'translate(100px,0)',
-			'transition': 'transform .5s ease-in-out'
-		}
-	} );
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
 </script>
 
 
-    <!-- Gitalk -->
-    <script>
-        const data = '{"clientID":"02b3c","clientSecret":"adfc7b4","repo":"gimment","owner":"duneng","admin":"duneng"}'
-        const gitalk = new Gitalk({
-            ...JSON.parse( data),
-            id:location.pathname,
-            distractionFreeMode:false
-        })
-        
-        if(Boolean('true')){
-            gitalk.render('gitalk-container')
-        }
-    </script>
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
 <script>
-	console.log('\n %c Hexo-Quiet 主题 %c https://github.com/79e/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
 </script>
-	</body>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>
-
