@@ -1,0 +1,682 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="实验项目二：用户后台登录退出 通过 eclispe；idea；使用前端页面提交数据，然后通过 servlet 接受数据。然后对数据进行判断，如果后台获取的数据中有就登录成功，如果没有数据就跳回登录页面。 (实验每个步骤写在报告中包括题目编写好一起提交)（1）实验目的与原理理解 JavaWeb 数据传输和数据存储的过程和请求转发和重定向，具体的步骤。（2）实验内容与步骤 1.创建项目。 Sql 表结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实验项目二：用户后台登录退出">
+<meta property="og:url" content="http://roudoukou.github.io/2022/11/15/yuque/%E5%AE%9E%E9%AA%8C%E9%A1%B9%E7%9B%AE%E4%BA%8C%EF%BC%9A%E7%94%A8%E6%88%B7%E5%90%8E%E5%8F%B0%E7%99%BB%E5%BD%95%E9%80%80%E5%87%BA/index.html">
+<meta property="og:site_name" content="xiamu">
+<meta property="og:description" content="实验项目二：用户后台登录退出 通过 eclispe；idea；使用前端页面提交数据，然后通过 servlet 接受数据。然后对数据进行判断，如果后台获取的数据中有就登录成功，如果没有数据就跳回登录页面。 (实验每个步骤写在报告中包括题目编写好一起提交)（1）实验目的与原理理解 JavaWeb 数据传输和数据存储的过程和请求转发和重定向，具体的步骤。（2）实验内容与步骤 1.创建项目。 Sql 表结">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Flqs6lSrHh3SNhLBRwq0DedwOkpB.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FkrOzK0BMhZZKSYGQjb80FLXEeN6.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FhitVF-92NwoxMeapQHdOHQyj0R3.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FoxORWYmxJnpTtzQIHJrxxp3XfVG.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FncdVAP09EA4a9Wh87yXEwSymNpZ.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Fgn8viQiXuK8eMERX56lgUA6lYJI.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrrNlsd-wA6_wgzLTK69SLMYO6ts.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FoSNS6ASBR5fe_O5qWUsRbuZHeLj.png">
+<meta property="article:published_time" content="2022-11-15T04:10:07.000Z">
+<meta property="article:modified_time" content="2023-02-28T12:32:38.061Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Flqs6lSrHh3SNhLBRwq0DedwOkpB.png">
+  
+  
+  
+  <title>实验项目二：用户后台登录退出 - xiamu</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"roudoukou.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>xiamu</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="实验项目二：用户后台登录退出"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-15 12:10" pubdate>
+          2022年11月15日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          76 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">实验项目二：用户后台登录退出</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p><strong>实验项目二：用户后台登录退出</strong></p>
+<p>通过 eclispe；idea；使用前端页面提交数据，然后通过 servlet 接受数据。然后对数据进行判断，如果后台获取的数据中有就登录成功，如果没有数据就跳回登录页面。 (实验每个步骤写在报告中包括题目编写好一起提交)<br>（1）实验目的与原理<br>理解 JavaWeb 数据传输和数据存储的过程和请求转发和重定向，具体的步骤。<br>（2）实验内容与步骤 1.创建项目。<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Flqs6lSrHh3SNhLBRwq0DedwOkpB.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FkrOzK0BMhZZKSYGQjb80FLXEeN6.png" srcset="/img/loading.gif" lazyload></p>
+<p>Sql 表结构</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-comment">/*</span><br><span class="hljs-comment">SQLyog Ultimate v11.25 (64 bit)</span><br><span class="hljs-comment">MySQL - 8.0.28</span><br><span class="hljs-comment">*********************************************************************</span><br><span class="hljs-comment">*/</span><br><span class="hljs-comment">/*!40101 SET NAMES utf8 */</span>;<br><br><span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> `student` (<br>	`id` <span class="hljs-type">int</span> (<span class="hljs-number">11</span>),<br>	`name` <span class="hljs-type">varchar</span> (<span class="hljs-number">60</span>),<br>	`password` <span class="hljs-type">varchar</span> (<span class="hljs-number">60</span>),<br>	`age` <span class="hljs-type">int</span> (<span class="hljs-number">11</span>),<br>	`sex` <span class="hljs-type">varchar</span> (<span class="hljs-number">30</span>),<br>	`email` <span class="hljs-type">varchar</span> (<span class="hljs-number">90</span>)<br>);<br><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> `student` (`id`, `name`, `password`, `age`, `sex`, `email`) <span class="hljs-keyword">values</span>(<span class="hljs-string">&#x27;1&#x27;</span>,<span class="hljs-string">&#x27;黄磊&#x27;</span>,<span class="hljs-string">&#x27;123456&#x27;</span>,<span class="hljs-string">&#x27;1000&#x27;</span>,<span class="hljs-string">&#x27;神龙&#x27;</span>,<span class="hljs-string">&#x27;123456@qq.com&#x27;</span>);<br><br></code></pre></td></tr></table></figure>
+
+<p>2.添加数据库驱动程序。<br>在 pom.xml 文件中添加驱动</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">packaging</span>&gt;</span>war<span class="hljs-tag">&lt;/<span class="hljs-name">packaging</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>javax.servlet<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>javax.servlet-api<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>8.0.30<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-comment">&lt;!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.thymeleaf<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>thymeleaf<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.0.11.RELEASE<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FhitVF-92NwoxMeapQHdOHQyj0R3.png" srcset="/img/loading.gif" lazyload> 3.进行数据库连接存储数据。<br>数据库连接代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> utils;<br><br><span class="hljs-keyword">import</span> java.sql.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">JDBCUtils</span> &#123;<br>    <span class="hljs-keyword">private</span> <span class="hljs-title function_">JDBCUtils</span><span class="hljs-params">()</span> &#123;<br><br>    &#125;<br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> Connection con;<br>    <span class="hljs-comment">//定义静态代码块，最先执行</span><br>    <span class="hljs-keyword">static</span> &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-comment">//1.注册驱动 反射技术,将驱动类加入到内容</span><br>            Class.forName(<span class="hljs-string">&quot;com.mysql.cj.jdbc.Driver&quot;</span>);<br><br>            <span class="hljs-comment">//2.获得数据库连接  DriverManager类中静态方法</span><br>            <span class="hljs-type">String</span> <span class="hljs-variable">url</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;jdbc:mysql://localhost:3306/ssm?serverTimezone=UTC&quot;</span>;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;root&quot;</span>;<br>            <span class="hljs-type">String</span> <span class="hljs-variable">password</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;123456&quot;</span>;<br>            con = DriverManager.getConnection(url, username, password);<br>        &#125;<span class="hljs-keyword">catch</span> (Exception ex)&#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(ex + <span class="hljs-string">&quot;连接数据库失败！&quot;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">//3.定义静态方法，返回数据库的连接对象</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Connection <span class="hljs-title function_">getConnertion</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-keyword">return</span> con;<br>    &#125;<br><br>    <span class="hljs-comment">//4.释放资源,由于释放资源的时候会有不同，可以采用方法重载</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">close</span><span class="hljs-params">(Connection con, PreparedStatement pre)</span>&#123;<br>        <span class="hljs-keyword">if</span>(con != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">try</span>&#123;<br>                con.close();<br>            &#125;<span class="hljs-keyword">catch</span>(SQLException ex)&#123;&#125;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span>(pre != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">try</span>&#123;<br>                pre.close();<br>            &#125;<span class="hljs-keyword">catch</span>(SQLException ex)&#123;&#125;<br>        &#125;<br>    &#125;<br>    <span class="hljs-comment">//释放资源（重载）</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">close</span><span class="hljs-params">(Connection con, PreparedStatement pre, ResultSet res)</span>&#123;<br>        <span class="hljs-keyword">if</span>(con != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">try</span>&#123;<br>                con.close();<br>            &#125;<span class="hljs-keyword">catch</span>(SQLException ex)&#123;&#125;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span>(pre != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">try</span>&#123;<br>                pre.close();<br>            &#125;<span class="hljs-keyword">catch</span>(SQLException ex)&#123;&#125;<br>        &#125;<br><br>        <span class="hljs-keyword">if</span>(res != <span class="hljs-literal">null</span>)&#123;<br>            <span class="hljs-keyword">try</span>&#123;<br>                res.close();<br>            &#125;<span class="hljs-keyword">catch</span>(SQLException ex)&#123;&#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>4.前端传递数据到后端进行对比。<br>login.html 代码</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;X-UA-Compatible&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;IE=edge&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>login<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span></span><br><span class="language-xml"></span><br><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/login&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;color: red&quot;</span> <span class="hljs-attr">th:text</span>=<span class="hljs-string">&quot;$</span></span></span><span class="hljs-template-variable">&#123;session.msg&#125;</span><span class="language-xml"><span class="hljs-tag"><span class="hljs-string">&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span></span><br><span class="language-xml">    账户: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;username&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span></span><br><span class="language-xml">    密码: <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;password&quot;</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;password&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span></span><br><span class="language-xml">    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;登录&quot;</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span><br><span class="language-xml"><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></span><br></code></pre></td></tr></table></figure>
+
+<p>success.html 代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;en&quot;</span> <span class="hljs-attr">xmlns:th</span>=<span class="hljs-string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>成功<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>登录成功<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/login&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;get&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;退出登录&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>loginServlet 代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> servlet;<br><br><span class="hljs-keyword">import</span> utils.JDBCUtils;<br><br><span class="hljs-keyword">import</span> javax.servlet.ServletException;<br><span class="hljs-keyword">import</span> javax.servlet.annotation.WebServlet;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServlet;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletResponse;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpSession;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><span class="hljs-keyword">import</span> java.sql.Connection;<br><span class="hljs-keyword">import</span> java.sql.PreparedStatement;<br><span class="hljs-keyword">import</span> java.sql.ResultSet;<br><span class="hljs-keyword">import</span> java.sql.SQLException;<br><br><span class="hljs-meta">@WebServlet(&quot;/login&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LoginServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ThymeleafViewServlet</span>  &#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doGet</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>        <span class="hljs-type">HttpSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> request.getSession();<br>        session.removeAttribute(<span class="hljs-string">&quot;msg&quot;</span>);<br>        processTemplate(<span class="hljs-string">&quot;login&quot;</span>, request, response);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doPost</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response)</span> <span class="hljs-keyword">throws</span> ServletException, IOException &#123;<br>        <span class="hljs-type">HttpSession</span> <span class="hljs-variable">session</span> <span class="hljs-operator">=</span> request.getSession();<br>        request.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);<br>        response.setCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">username</span> <span class="hljs-operator">=</span> request.getParameter(<span class="hljs-string">&quot;username&quot;</span>);<br>        <span class="hljs-type">String</span> <span class="hljs-variable">password</span> <span class="hljs-operator">=</span> request.getParameter(<span class="hljs-string">&quot;password&quot;</span>);<br><br>        System.out.println(username);<br>        System.out.println(password);<br><br>        <span class="hljs-type">Connection</span> <span class="hljs-variable">connertion</span> <span class="hljs-operator">=</span> JDBCUtils.getConnertion();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">sql</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;select * from student where name = ?&quot;</span>;<br>        <span class="hljs-keyword">try</span> &#123;<br>            <span class="hljs-type">PreparedStatement</span> <span class="hljs-variable">preparedStatement</span> <span class="hljs-operator">=</span> connertion.prepareStatement(sql);<br>            preparedStatement.setString(<span class="hljs-number">1</span>,username);<br>            <span class="hljs-type">ResultSet</span> <span class="hljs-variable">resultSet</span> <span class="hljs-operator">=</span> preparedStatement.executeQuery();<br><br>            <span class="hljs-keyword">if</span> (resultSet.next()) &#123;<br>                <span class="hljs-type">String</span> <span class="hljs-variable">pwd</span> <span class="hljs-operator">=</span> resultSet.getString(<span class="hljs-string">&quot;password&quot;</span>);<br>                System.out.println(pwd);<br>                <span class="hljs-keyword">if</span> (pwd.equals(password)) &#123;<br>                    session.setAttribute(<span class="hljs-string">&quot;msg&quot;</span>, <span class="hljs-string">&quot;登录成功&quot;</span>);<br>                    response.sendRedirect(<span class="hljs-string">&quot;/success&quot;</span>);<br>                &#125; <span class="hljs-keyword">else</span> &#123;<br>                    session.setAttribute(<span class="hljs-string">&quot;msg&quot;</span>, <span class="hljs-string">&quot;登录失败&quot;</span>);<br>                    <span class="hljs-built_in">super</span>.processTemplate(<span class="hljs-string">&quot;login&quot;</span>, request, response);<br>                &#125;<br>                <span class="hljs-keyword">return</span>;<br>            &#125;<br>        &#125; <span class="hljs-keyword">catch</span> (SQLException e) &#123;<br>            e.printStackTrace();<br>        &#125;<br>        session.setAttribute(<span class="hljs-string">&quot;msg&quot;</span>, <span class="hljs-string">&quot;登录失败&quot;</span>);<br>        <span class="hljs-built_in">super</span>.processTemplate(<span class="hljs-string">&quot;login&quot;</span>, request, response);<br>        <span class="hljs-keyword">return</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>successServlet 代码</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs scala"><span class="hljs-keyword">package</span> servlet;<br><br><span class="hljs-keyword">import</span> javax.servlet.<span class="hljs-type">ServletException</span>;<br><span class="hljs-keyword">import</span> javax.servlet.annotation.<span class="hljs-type">WebServlet</span>;<br><span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServletRequest</span>;<br><span class="hljs-keyword">import</span> javax.servlet.http.<span class="hljs-type">HttpServletResponse</span>;<br><span class="hljs-keyword">import</span> java.io.<span class="hljs-type">IOException</span>;<br><br><span class="hljs-meta">@WebServlet</span>(<span class="hljs-string">&quot;/success&quot;</span>)<br>public <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">successServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ThymeleafViewServlet</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> void doGet(<span class="hljs-type">HttpServletRequest</span> req, <span class="hljs-type">HttpServletResponse</span> resp) <span class="hljs-keyword">throws</span> <span class="hljs-type">ServletException</span>, <span class="hljs-type">IOException</span> &#123;<br>        processTemplate(<span class="hljs-string">&quot;success&quot;</span>, req, resp);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>ThymeleafViewServlet 代码:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> servlet;<br><br><span class="hljs-keyword">import</span> org.thymeleaf.TemplateEngine;<br><span class="hljs-keyword">import</span> org.thymeleaf.context.WebContext;<br><span class="hljs-keyword">import</span> org.thymeleaf.templatemode.TemplateMode;<br><span class="hljs-keyword">import</span> org.thymeleaf.templateresolver.ServletContextTemplateResolver;<br><span class="hljs-keyword">import</span> javax.servlet.ServletContext;<br><span class="hljs-keyword">import</span> javax.servlet.ServletException;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServlet;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletRequest;<br><span class="hljs-keyword">import</span> javax.servlet.http.HttpServletResponse;<br><span class="hljs-keyword">import</span> java.io.IOException;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Thymeleaf 视图处理</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> TonySong</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ThymeleafViewServlet</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">HttpServlet</span> &#123;<br><br>    <span class="hljs-keyword">private</span> TemplateEngine templateEngine;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> ServletException &#123;<br>        <span class="hljs-comment">//获取ServletContext对象</span><br>        <span class="hljs-type">ServletContext</span> <span class="hljs-variable">servletContext</span> <span class="hljs-operator">=</span> <span class="hljs-built_in">this</span>.getServletContext();<br>        <span class="hljs-comment">//创建Thymeleaf解析对象</span><br>        <span class="hljs-type">ServletContextTemplateResolver</span> <span class="hljs-variable">templateResolver</span> <span class="hljs-operator">=</span><br>                <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServletContextTemplateResolver</span>(servletContext);<br>        <span class="hljs-comment">//设置模板模式为HTML</span><br>        templateResolver.setTemplateMode(TemplateMode.HTML);<br>        <span class="hljs-comment">//从web.xml文件获取视图的前缀</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">prefix</span> <span class="hljs-operator">=</span> servletContext.getInitParameter(<span class="hljs-string">&quot;prefix&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;prefix&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&quot;</span>+prefix);<br>        templateResolver.setPrefix(<span class="hljs-string">&quot;/WEB-INF/view/&quot;</span>);<br>        <span class="hljs-comment">//获取后缀</span><br>        <span class="hljs-type">String</span> <span class="hljs-variable">suffix</span> <span class="hljs-operator">=</span> servletContext.getInitParameter(<span class="hljs-string">&quot;suffix&quot;</span>);<br>        System.out.println(<span class="hljs-string">&quot;suffix....&gt;&quot;</span>+suffix);<br>        templateResolver.setSuffix(<span class="hljs-string">&quot;.html&quot;</span>);<br>        <span class="hljs-comment">//关闭缓存</span><br>        templateResolver.setCacheable(<span class="hljs-literal">false</span>);<br>        <span class="hljs-comment">//设置编码方式</span><br>        templateResolver.setCharacterEncoding(<span class="hljs-string">&quot;utf-8&quot;</span>);<br>        <span class="hljs-comment">//实例化视图引擎</span><br>        <span class="hljs-built_in">this</span>.templateEngine = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TemplateEngine</span>();<br>        <span class="hljs-comment">//设置视图引擎为templateResolver</span><br>        <span class="hljs-built_in">this</span>.templateEngine.setTemplateResolver(templateResolver);<br>    &#125;<br><br>    <span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">processTemplate</span><span class="hljs-params">(String templateName, HttpServletRequest req, HttpServletResponse resp)</span> <span class="hljs-keyword">throws</span> IOException,ServletException&#123;<br>        resp.setContentType(<span class="hljs-string">&quot;text/html;charset=utf-8&quot;</span>);<br>        req.setCharacterEncoding(<span class="hljs-string">&quot;utf-8&quot;</span>);<br>        <span class="hljs-comment">//根据请求对象和响应对象和全局对象创建web上下文全局对象</span><br>        <span class="hljs-type">WebContext</span> <span class="hljs-variable">context</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">WebContext</span>(req, resp, getServletContext());<br>        <span class="hljs-comment">//根据模板名称和全局对象并依据响应输出流来渲染页面： 前缀+名称+后缀 /WEB-INF/view/list.html</span><br>        <span class="hljs-built_in">this</span>.templateEngine.process(templateName,context,resp.getWriter());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>最终实现效果:<br>登录肉豆蔻, 登录不成功<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FoxORWYmxJnpTtzQIHJrxxp3XfVG.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FncdVAP09EA4a9Wh87yXEwSymNpZ.png" srcset="/img/loading.gif" lazyload><br>登录黄磊账号, 登录成功, 点击退出登录, 跳回首页<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Fgn8viQiXuK8eMERX56lgUA6lYJI.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrrNlsd-wA6_wgzLTK69SLMYO6ts.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FoSNS6ASBR5fe_O5qWUsRbuZHeLj.png" srcset="/img/loading.gif" lazyload> 5.数据对比成功进行页面的跳转。<br>（3）主要仪器及耗材<br>笔记本电脑<br>（4）教学方式<br>案例教学法+现场操作<br>试验要求：认真编写，认真截图，认真截图工作态度第一</p>
+<ol>
+<li>通过安装软件截图到文档中；</li>
+<li>在文档中使用软件进行详细的说明；<br>在每个步骤上都有自己的认识和自己的见</li>
+</ol>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>实验项目二：用户后台登录退出</div>
+      <div>http://roudoukou.github.io/2022/11/15/yuque/实验项目二：用户后台登录退出/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/11/18/yuque/%E5%AE%9E%E9%AA%8C%E9%A1%B9%E7%9B%AE%E5%9B%9B%EF%BC%9A%E5%AD%A6%E7%94%9F%E4%BF%A1%E6%81%AF%E6%9F%A5%E8%AF%A2%E4%BF%AE%E6%94%B9/" title="实验项目四：学生信息查询修改">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">实验项目四：学生信息查询修改</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/13/yuque/Vue/" title="Vue">
+                        <span class="hidden-mobile">Vue</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease" 
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
