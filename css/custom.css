@@ -4,4 +4,6 @@
     background: rgb(209, 234, 254);
 }
 
-
+.navbar .dropdown-collapse, .top-nav-collapse, .navbar-col-show {
+    background: #96c0d3cc;
+}
