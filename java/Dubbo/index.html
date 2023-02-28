@@ -1,0 +1,781 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="安装 zookeeper在 windows 环境安装 zookeeper, 为了省事(其实我就是偷懒, 视频中安装的地方就是 windows)在根目录下创建 data 目录,打开 conf 拷贝zoo_sample.cfg一份, 修改名称为zoo.cfg打开 cmd, 进入 bin 目录, zkServer.cmd启动服务打开 cmd, 进入 bin 目录, zkCli.cmd启动客户端 安装 d">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dubbo">
+<meta property="og:url" content="http://roudoukou.github.io/java/Dubbo/index.html">
+<meta property="og:site_name" content="xiamu">
+<meta property="og:description" content="安装 zookeeper在 windows 环境安装 zookeeper, 为了省事(其实我就是偷懒, 视频中安装的地方就是 windows)在根目录下创建 data 目录,打开 conf 拷贝zoo_sample.cfg一份, 修改名称为zoo.cfg打开 cmd, 进入 bin 目录, zkServer.cmd启动服务打开 cmd, 进入 bin 目录, zkCli.cmd启动客户端 安装 d">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FicRGS_5xp-JnHlMro0hjy_8z0IJ.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FhSrof70m_-KUUGvhXLXRoNDK9CA.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrlJKPBb9cq0JxynSOxUGJFDdewM.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FjxbwnUUeh39vshBLZPSqtZJ_Wdx.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FuW2NgR42hnerMfvuXmrxOA-7B_Z.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrTWv3zBCd6npkCyxy85vEtP9qyJ.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FpENFOe1aTMuc4jInTiElFUjygSL.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FnQCXGDh3ZZDCyXtRO-6sElCXUF_.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Fp6bTu3GgacsF3aTJAZPi_xfAjF4.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FiwVJVdhG4uvWQQo2jY_GWYFuLqq.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FhkXLPsfNxxUfOT8crH6KpBmn1CK.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrsSSA79uNBtD1yNJVcPE3QIiDUl.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FsJH2h6IOBRPRQMe4-i6x91QNOZO.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Flvfok_AEYHshAkYio0k7b5veHHu.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FuwcXwwihNRc2MfQjgBtjX6-lIHW.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FjaEbiGhM8BJPZ69ZETZ6jFEDrKj.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FujPqz_xF60myaTq46SBsQ9inpyS.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FsQEVVw9ry0hR_YJmou6whjy6JGg.png">
+<meta property="article:published_time" content="2023-02-03T03:21:08.000Z">
+<meta property="article:modified_time" content="2023-02-28T12:25:02.141Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FicRGS_5xp-JnHlMro0hjy_8z0IJ.png">
+  
+  
+  
+  <title>Dubbo - xiamu</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"roudoukou.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>xiamu</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Dubbo"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-02-03 11:21" pubdate>
+          2023年2月3日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          102 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Dubbo</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="安装-zookeeper"><a href="#安装-zookeeper" class="headerlink" title="安装 zookeeper"></a>安装 zookeeper</h2><p>在 windows 环境安装 zookeeper, 为了省事(其实我就是偷懒, 视频中安装的地方就是 windows)<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FicRGS_5xp-JnHlMro0hjy_8z0IJ.png" srcset="/img/loading.gif" lazyload><br>在根目录下创建 data 目录,<br>打开 conf 拷贝<code>zoo_sample.cfg</code>一份, 修改名称为<code>zoo.cfg</code><br>打开 cmd, 进入 bin 目录, <code>zkServer.cmd</code>启动服务<br>打开 cmd, 进入 bin 目录, <code>zkCli.cmd</code>启动客户端</p>
+<h2 id="安装-dubbo-admin"><a href="#安装-dubbo-admin" class="headerlink" title="安装 dubbo-admin"></a>安装 dubbo-admin</h2><p>dubbo 本身并不是一个服务软件。它其实就是一个 jar 包能够帮你的 java 程序连接到 zookeeper，并利用 zookeeper 消费、提供服务。所以你不用在 Linux 上启动什么 dubbo 服务。<br>但是为了让用户更好的管理监控众多的 dubbo 服务，官方提供了一个可视化的监控程序，不过这个监控即使不装也不影响使用。<br>github 地址:<br><a target="_blank" rel="noopener" href="https://github.com/apache/dubbo-admin">https://github.com/apache/dubbo-admin</a></p>
+<h3 id="通过源码打包运行"><a href="#通过源码打包运行" class="headerlink" title="通过源码打包运行"></a>通过源码打包运行</h3><ol>
+<li>下载代码: git clone <a target="_blank" rel="noopener" href="https://github.com/apache/dubbo-admin.git">https://github.com/apache/dubbo-admin.git</a></li>
+<li>在 dubbo-admin-server&#x2F;src&#x2F;main&#x2F;resources&#x2F;application.properties 中指定注册中心地址</li>
+<li>构建<ul>
+<li>mvn clean package -Dmaven.test.skip&#x3D;true</li>
+</ul>
+</li>
+<li>启动<ul>
+<li>mvn –projects dubbo-admin-server spring-boot:run 或者</li>
+<li>cd dubbo-admin-distribution&#x2F;target; java -jar dubbo-admin-${project.version}.jar</li>
+</ul>
+</li>
+<li>访问 <a target="_blank" rel="noopener" href="http://localhost:38080/">http://localhost:38080</a></li>
+</ol>
+<p>检查 zookeeper 的主机地址是否正确<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FhSrof70m_-KUUGvhXLXRoNDK9CA.png" srcset="/img/loading.gif" lazyload><br>使用 maven 进行打包<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrlJKPBb9cq0JxynSOxUGJFDdewM.png" srcset="/img/loading.gif" lazyload><br>运行打包好的 jar 项目<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FjxbwnUUeh39vshBLZPSqtZJ_Wdx.png" srcset="/img/loading.gif" lazyload><br>可见端口是 7001,<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FuW2NgR42hnerMfvuXmrxOA-7B_Z.png" srcset="/img/loading.gif" lazyload><br>访问<a target="_blank" rel="noopener" href="http://localhost:7001/">http://localhost:7001/</a><br>账号 root, 密码 root<img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrTWv3zBCd6npkCyxy85vEtP9qyJ.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="服务消费者配置-amp-测试"><a href="#服务消费者配置-amp-测试" class="headerlink" title="服务消费者配置&amp;测试"></a>服务消费者配置&amp;测试</h2><table>
+<thead>
+<tr>
+<th>模块</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>订单服务 web 模块</td>
+<td>创建订单等</td>
+</tr>
+<tr>
+<td>用户服务 service 模块</td>
+<td>查询用户地址等</td>
+</tr>
+</tbody></table>
+<p>测试预期结果：<br>订单服务 web 模块在 A 服务器，用户服务模块在 B 服务器，A 可以远程调用 B 的功能。</p>
+<h2 id="监控中心-Simple-Monitor-安装配置"><a href="#监控中心-Simple-Monitor-安装配置" class="headerlink" title="监控中心-Simple Monitor 安装配置"></a>监控中心-Simple Monitor 安装配置</h2><p>对 dubbo-monitor-simple 使用 maven 进行打包<code>mvn package</code><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FpENFOe1aTMuc4jInTiElFUjygSL.png" srcset="/img/loading.gif" lazyload><br>检查配置文件端口是否正确<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FnQCXGDh3ZZDCyXtRO-6sElCXUF_.png" srcset="/img/loading.gif" lazyload><br>E:\Code\Dubbo\课件\software\dubbo-monitor-simple-2.0.0\assembly.bin<br>在 bin 目录下双击 start.bat 启动 dubbo<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Fp6bTu3GgacsF3aTJAZPi_xfAjF4.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FiwVJVdhG4uvWQQo2jY_GWYFuLqq.png" srcset="/img/loading.gif" lazyload><br>启动好了之后访问<a target="_blank" rel="noopener" href="http://localhost:8080/">http://localhost:8080/</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FhkXLPsfNxxUfOT8crH6KpBmn1CK.png" srcset="/img/loading.gif" lazyload><br><strong>配置监控中心</strong><br><a target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh/docsv2.7/user/references/xml/dubbo-monitor/">https://cn.dubbo.apache.org/zh/docsv2.7/user/references/xml/dubbo-monitor/</a><br>consumer.xml 中配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 配置监控中心 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:monitor</span> <span class="hljs-attr">protocol</span>=<span class="hljs-string">&quot;registry&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:monitor</span>&gt;</span><br><span class="hljs-comment">&lt;!--&lt;dubbo:monitor address=&quot;127.0.0.1:7070&quot;&gt;&lt;/dubbo:monitor&gt;--&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>provider.xml 中配置</p>
+<h2 id="Dubbo-与-SpringBoot-整合"><a href="#Dubbo-与-SpringBoot-整合" class="headerlink" title="Dubbo 与 SpringBoot 整合"></a>Dubbo 与 SpringBoot 整合</h2><h2 id="配置-Dubbo-properties-amp-属性加载顺序"><a href="#配置-Dubbo-properties-amp-属性加载顺序" class="headerlink" title="配置-Dubbo.properties&amp;属性加载顺序"></a>配置-Dubbo.properties&amp;属性加载顺序</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FrsSSA79uNBtD1yNJVcPE3QIiDUl.png" srcset="/img/loading.gif" lazyload><br>BootUserServiceProviderApplicaion<br>VM options 运行参数 <code>-Ddubbo.protocol.port=20880</code><br>applicaion.yaml 配置 (相当于 XML)</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dts"><span class="hljs-symbol">dubbo:</span><br><span class="hljs-symbol">  application:</span><br><span class="hljs-symbol">    name:</span> user-service-provider<br><span class="hljs-symbol">  registry:</span><br><span class="hljs-symbol">    address:</span> zookeeper:<span class="hljs-comment">//127.0.0.1:2181</span><br><span class="hljs-symbol">  protocol:</span><br><span class="hljs-symbol">    name:</span> dubbo<br><span class="hljs-symbol">    port:</span> <span class="hljs-number">20881</span><br><span class="hljs-symbol">  monitor:</span><br><span class="hljs-symbol">    protocol:</span> registry<br></code></pre></td></tr></table></figure>
+
+<p>dubbo.properties 配置</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elm"><span class="hljs-title">dubbo</span>.protocol.<span class="hljs-keyword">port</span>=20882<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="配置-启动检查"><a href="#配置-启动检查" class="headerlink" title="配置-启动检查"></a>配置-启动检查</h2><p><a target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh/docs/advanced/preflight-check/">https://cn.dubbo.apache.org/zh/docs/advanced/preflight-check/</a><br>关闭某个服务的启动时检查(没有提供者时报错)</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs applescript">&lt;dubbo:<span class="hljs-keyword">reference</span> <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;UserService&quot;</span> interface=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span> /&gt;<br><br></code></pre></td></tr></table></figure>
+
+<p>关闭所有服务的启动时检查(没有提供者时报错)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:consumer</span> <span class="hljs-attr">check</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:consumer</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="配置-超时-amp-配置覆盖关系"><a href="#配置-超时-amp-配置覆盖关系" class="headerlink" title="配置-超时&amp;配置覆盖关系"></a>配置-超时&amp;配置覆盖关系</h2><p><a target="_blank" rel="noopener" href="https://cn.dubbo.apache.org/zh/docs/references/configuration/xml/">https://cn.dubbo.apache.org/zh/docs/references/configuration/xml/</a><br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FsJH2h6IOBRPRQMe4-i6x91QNOZO.png" srcset="/img/loading.gif" lazyload><br>优先级:</p>
+<ul>
+<li>方法级优先，接口级次之，全局配置再次之。</li>
+<li>如果级别一样，则消费方优先，提供方次之。</li>
+</ul>
+<p>provider.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 声明需要暴露的服务接口 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:service</span> <span class="hljs-attr">interface</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;UserServiceImpl&quot;</span></span><br><span class="hljs-tag">               <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;4000&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;getUserAddressList&quot;</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;2000&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:method</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:service</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:provider</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;6000&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:provider</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>consumer.xml</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;dubbo:reference<br>        <span class="hljs-built_in">id</span>=<span class="hljs-string">&quot;UserService&quot;</span><br>        interface=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span><br>        <span class="hljs-built_in">timeout</span>=<span class="hljs-string">&quot;3000&quot;</span>&gt;<br>    &lt;dubbo:method name=<span class="hljs-string">&quot;getUserAddressList&quot;</span> <span class="hljs-built_in">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span>&gt;&lt;/dubbo:method&gt;<br>&lt;/dubbo:reference&gt;<br><br>&lt;dubbo:consumer check=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-built_in">timeout</span>=<span class="hljs-string">&quot;5000&quot;</span>&gt;&lt;/dubbo:consumer&gt;<br></code></pre></td></tr></table></figure>
+
+<h2 id="配置-重试次数"><a href="#配置-重试次数" class="headerlink" title="配置-重试次数"></a>配置-重试次数</h2><p>retries-“”: 重试次数, 不包含第一次调用, 0 代表不重试<br>幂等(设置重试次数)[查询, 删除, 修改] 非幂等(不能设置重试次数)[新增]</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- retries-&quot;&quot;: 重试次数, 不包含第一次调用, 0代表不重试 --&gt;</span><br><span class="hljs-comment">&lt;!-- 幂等(设置重试次数)[查询, 删除, 修改] 非幂等(不能设置重试次数)[新增] --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:reference</span></span><br><span class="hljs-tag">        <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;UserService&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">interface</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;5000&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">retries</span>=<span class="hljs-string">&quot;3&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--&lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;--&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:reference</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>重试三次, 如果有三个提供者, 将会每个都重试一遍<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/Flvfok_AEYHshAkYio0k7b5veHHu.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="配置-多版本"><a href="#配置-多版本" class="headerlink" title="配置-多版本"></a>配置-多版本</h2><p>provider.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:service</span> <span class="hljs-attr">interface</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;UserServiceImpl01&quot;</span></span><br><span class="hljs-tag">               <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.0.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;getUserAddressList&quot;</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:method</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:service</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:service</span> <span class="hljs-attr">interface</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;UserServiceImpl02&quot;</span></span><br><span class="hljs-tag">               <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;2.0.0&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;getUserAddressList&quot;</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:method</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:service</span>&gt;</span><br><br><span class="hljs-comment">&lt;!-- 和本地bean一样实现服务 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;UserServiceImpl01&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.impl.UserServiceImpl&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;UserServiceImpl02&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.impl.UserServiceImpl2&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>consumer.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:reference</span></span><br><span class="hljs-tag">        <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;UserService&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">interface</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;5000&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">retries</span>=<span class="hljs-string">&quot;3&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;*&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--&lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;--&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:reference</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>消费者指定需要使用的 version<br>version 可以填 1.0.0&#x2F;2.0.0&#x2F;* *表示随机的新老版本<br>不同运行结果如下:<br><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FuwcXwwihNRc2MfQjgBtjX6-lIHW.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="配置-本地存根"><a href="#配置-本地存根" class="headerlink" title="配置-本地存根"></a>配置-本地存根</h2><p>UserServiceStub.java</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserServiceStub</span> <span class="hljs-title">implements</span> <span class="hljs-title">UserService</span> &#123;<br><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">final</span> UserService userService;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 传入的是userService远程的代理对象</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@param</span> userService</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> UserServiceStub(UserService userService) &#123;<br>        <span class="hljs-keyword">this</span>.userService = userService;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> List&lt;UserAddress&gt; getUserAddressList(String userId) &#123;<br>        System.<span class="hljs-keyword">out</span>.println(<span class="hljs-string">&quot;UserServiceStub...&quot;</span>);<br>        <span class="hljs-keyword">if</span> (!StringUtils.isEmpty(userId)) &#123;<br>            <span class="hljs-keyword">return</span> userService.getUserAddressList(userId);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>consumer.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dubbo:reference</span></span><br><span class="hljs-tag">        <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;UserService&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">interface</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;5000&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">retries</span>=<span class="hljs-string">&quot;3&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;*&quot;</span></span><br><span class="hljs-tag">        <span class="hljs-attr">stub</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserServiceStub&quot;</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--&lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;--&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:reference</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>给 stub 设置包名</p>
+<h2 id="配置-SpringBoot-整合的三种方式"><a href="#配置-SpringBoot-整合的三种方式" class="headerlink" title="配置-SpringBoot 整合的三种方式"></a>配置-SpringBoot 整合的三种方式</h2><ol>
+<li>导入 dubbo-starter, 在 application.properties 配置属性, 使用@Service[暴露服务], 使用@Reference[引用服务]</li>
+<li>保留 dubbo.xml 配置文件</li>
+</ol>
+<p>导入 dubbo-starter, 使用@ImportResource 导入 dubbo 的配置文件即可</p>
+<ol start="3">
+<li>使用注解 API 的方式</li>
+</ol>
+<p>将每一个组件手动创建到容器中, 让 dubbo 来扫描其他的组件</p>
+<p><strong>xml 的方式</strong><br>provider.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span>?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xmlns:dubbo</span>=<span class="hljs-string">&quot;http://dubbo.apache.org/schema/dubbo&quot;</span></span><br><span class="hljs-tag">       <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans        http://www.springframework.org/schema/beans/spring-beans-4.3.xsd        http://dubbo.apache.org/schema/dubbo        http://dubbo.apache.org/schema/dubbo/dubbo.xsd&quot;</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 提供方应用信息，用于计算依赖关系 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:application</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;boot-user-service-provider&quot;</span> /&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 使用multicast广播注册中心暴露服务地址 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:registry</span> <span class="hljs-attr">address</span>=<span class="hljs-string">&quot;zookeeper://127.0.0.1:2181&quot;</span> /&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 用dubbo协议在20880端口暴露服务 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:protocol</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dubbo&quot;</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;20882&quot;</span> /&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 和本地bean一样实现服务 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;UserServiceImpl&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.impl.UserServiceImpl&quot;</span>/&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 声明需要暴露的服务接口 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:service</span> <span class="hljs-attr">interface</span>=<span class="hljs-string">&quot;com.atguigu.gmall.service.UserService&quot;</span></span><br><span class="hljs-tag">                   <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;UserServiceImpl&quot;</span></span><br><span class="hljs-tag">                   <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span> <span class="hljs-attr">version</span>=<span class="hljs-string">&quot;1.0.0&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:method</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;getUserAddressList&quot;</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:method</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:service</span>&gt;</span><br><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:provider</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&quot;1000&quot;</span> <span class="hljs-attr">token</span>=<span class="hljs-string">&quot;true&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:provider</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- 连接监控中心 --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dubbo:monitor</span> <span class="hljs-attr">protocol</span>=<span class="hljs-string">&quot;registry&quot;</span> &gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">dubbo:monitor</span>&gt;</span><br><br><span class="hljs-tag">&lt;/<span class="hljs-name">beans</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>这个 xml 文件中注入了 bean, UserService 就不需要@Service 这个注解暴露服务<br>UserService 中<br>@Service 是 com.alibaba.dubbo.config.annotation.Service;包下的</p>
+<figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs haxe"><span class="hljs-keyword">import</span> com.alibaba.dubbo.config.annotation.Service;<br><br><span class="hljs-comment">//@Service   // 暴露服务</span><br>@Component<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">UserServiceImpl</span> <span class="hljs-keyword"><span class="hljs-keyword">implements</span> <span class="hljs-type">UserService</span></span> </span>&#123;<br><br>    @Override<br>    <span class="hljs-keyword">public</span> List&lt;UserAddress&gt; getUserAddressList(<span class="hljs-keyword">String</span> userId) &#123;<br>        UserAddress address1 = <span class="hljs-keyword">new</span> <span class="hljs-type">UserAddress</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;北京市昌平区宏福科技园综合楼3层&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;李老师&quot;</span>, <span class="hljs-string">&quot;010-56253825&quot;</span>, <span class="hljs-string">&quot;Y&quot;</span>);<br>        UserAddress address2 = <span class="hljs-keyword">new</span> <span class="hljs-type">UserAddress</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;深圳市宝安区西部硅谷大厦B座3层（深圳分校）&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;王老师&quot;</span>, <span class="hljs-string">&quot;010-56253825&quot;</span>, <span class="hljs-string">&quot;N&quot;</span>);<br><br>        <span class="hljs-keyword">return</span> Arrays.asList(address1,address2);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Application</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-comment">//@EnableDubbo // 开启基于注解的dubbo功能</span><br><span class="hljs-variable">@ImportResource</span>(locations = <span class="hljs-string">&quot;classpath:provider.xml&quot;</span>)<br><span class="hljs-variable">@SpringBootApplication</span><br>public class BootUserServiceProviderApplication &#123;<br><br>    <span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">static</span> <span class="hljs-selector-tag">void</span> <span class="hljs-selector-tag">main</span>(String[] args) &#123;<br>        <span class="hljs-selector-tag">SpringApplication</span><span class="hljs-selector-class">.run</span>(BootUserServiceProviderApplication.class, args);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><strong>注解的方式</strong><br>MyDubboConfig</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.atguigu.gmall.config;<br><br><span class="hljs-keyword">import</span> com.alibaba.dubbo.config.*;<br><span class="hljs-keyword">import</span> com.atguigu.gmall.service.UserService;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Bean;<br><span class="hljs-keyword">import</span> org.springframework.context.annotation.Configuration;<br><br><span class="hljs-keyword">import</span> java.util.ArrayList;<br><span class="hljs-keyword">import</span> java.util.List;<br><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MyDubboConfig</span> &#123;<br><br>    <span class="hljs-comment">//    &lt;dubbo:application name=&quot;boot-user-service-provider&quot; /&gt;</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> ApplicationConfig <span class="hljs-title function_">applicationConfig</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">ApplicationConfig</span> <span class="hljs-variable">applicationConfig</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ApplicationConfig</span>();<br>        applicationConfig.setName(<span class="hljs-string">&quot;boot-user-service-provider&quot;</span>);<br>        <span class="hljs-keyword">return</span> applicationConfig;<br>    &#125;<br><br>    <span class="hljs-comment">//    &lt;dubbo:registry address=&quot;zookeeper://127.0.0.1:2181&quot; /&gt;</span><br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> RegistryConfig <span class="hljs-title function_">registryConfig</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">RegistryConfig</span> <span class="hljs-variable">registryConfig</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RegistryConfig</span>();<br>        registryConfig.setAddress(<span class="hljs-string">&quot;zookeeper://127.0.0.1:2181&quot;</span>);<br>        <span class="hljs-keyword">return</span> registryConfig;<br>    &#125;<br><br>    <span class="hljs-comment">//    &lt;dubbo:protocol name=&quot;dubbo&quot; port=&quot;20882&quot; /&gt;</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> ProtocolConfig <span class="hljs-title function_">protocolConfig</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">ProtocolConfig</span> <span class="hljs-variable">protocolConfig</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProtocolConfig</span>();<br>        protocolConfig.setName(<span class="hljs-string">&quot;dubbo&quot;</span>);<br>        protocolConfig.setPort(<span class="hljs-number">20882</span>);<br>        <span class="hljs-keyword">return</span> protocolConfig;<br>    &#125;<br><br>    <span class="hljs-comment">//    &lt;dubbo:service interface=&quot;com.atguigu.gmall.service.UserService&quot;</span><br>    <span class="hljs-comment">//                   ref=&quot;UserServiceImpl&quot;</span><br>    <span class="hljs-comment">//                   timeout=&quot;1000&quot; version=&quot;1.0.0&quot;&gt;</span><br>    <span class="hljs-comment">//        &lt;dubbo:method name=&quot;getUserAddressList&quot; timeout=&quot;1000&quot;&gt;&lt;/dubbo:method&gt;</span><br>    <span class="hljs-comment">//    &lt;/dubbo:service&gt;</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> ServiceConfig&lt;UserService&gt; <span class="hljs-title function_">userServiceServiceConfig</span><span class="hljs-params">(UserService userService)</span> &#123;<br>        ServiceConfig&lt;UserService&gt; userServiceServiceConfig = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ServiceConfig</span>&lt;&gt;();<br>        userServiceServiceConfig.setInterface(UserService.class);<br>        userServiceServiceConfig.setRef(userService);<br>        userServiceServiceConfig.setVersion(<span class="hljs-string">&quot;1.0.0&quot;</span>);<br><br>        <span class="hljs-comment">// 配置每一个method的信息</span><br>        <span class="hljs-type">MethodConfig</span> <span class="hljs-variable">methodConfig</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MethodConfig</span>();<br>        methodConfig.setName(<span class="hljs-string">&quot;getUserAddressList&quot;</span>);<br>        methodConfig.setTimeout(<span class="hljs-number">1000</span>);<br><br>        <span class="hljs-comment">// 将method的设置关联到service配置中</span><br>        List&lt;MethodConfig&gt; methodConfigList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        methodConfigList.add(methodConfig);<br>        userServiceServiceConfig.setMethods(methodConfigList);<br>        <span class="hljs-keyword">return</span> userServiceServiceConfig;<br>    &#125;<br><br>    <span class="hljs-comment">//    &lt;dubbo:provider timeout=&quot;1000&quot;&gt;&lt;/dubbo:provider&gt;</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> ProviderConfig <span class="hljs-title function_">providerConfig</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">ProviderConfig</span> <span class="hljs-variable">providerConfig</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ProviderConfig</span>();<br>        providerConfig.setTimeout(<span class="hljs-number">1000</span>);<br>        <span class="hljs-keyword">return</span> providerConfig;<br>    &#125;<br><br>    <span class="hljs-comment">//    &lt;dubbo:monitor protocol=&quot;registry&quot; &gt;&lt;/dubbo:monitor&gt;</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> MonitorConfig <span class="hljs-title function_">monitorConfig</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">MonitorConfig</span> <span class="hljs-variable">monitorConfig</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">MonitorConfig</span>();<br>        monitorConfig.setProtocol(<span class="hljs-string">&quot;registry&quot;</span>);<br>        <span class="hljs-keyword">return</span> monitorConfig;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>UserService 需要暴露服务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span>   <span class="hljs-comment">// 暴露服务</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">UserServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">UserService</span> &#123;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> List&lt;UserAddress&gt; <span class="hljs-title function_">getUserAddressList</span><span class="hljs-params">(String userId)</span> &#123;<br>        <span class="hljs-type">UserAddress</span> <span class="hljs-variable">address1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserAddress</span>(<span class="hljs-number">1</span>, <span class="hljs-string">&quot;北京市昌平区宏福科技园综合楼3层&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;李老师&quot;</span>, <span class="hljs-string">&quot;010-56253825&quot;</span>, <span class="hljs-string">&quot;Y&quot;</span>);<br>        <span class="hljs-type">UserAddress</span> <span class="hljs-variable">address2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">UserAddress</span>(<span class="hljs-number">2</span>, <span class="hljs-string">&quot;深圳市宝安区西部硅谷大厦B座3层（深圳分校）&quot;</span>, <span class="hljs-string">&quot;1&quot;</span>, <span class="hljs-string">&quot;王老师&quot;</span>, <span class="hljs-string">&quot;010-56253825&quot;</span>, <span class="hljs-string">&quot;N&quot;</span>);<br><br>        <span class="hljs-keyword">return</span> Arrays.asList(address1,address2);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Application</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-comment">//@EnableDubbo // 开启基于注解的dubbo功能</span><br><span class="hljs-comment">//@ImportResource(locations = &quot;classpath:provider.xml&quot;)</span><br><span class="hljs-variable">@EnableDubbo</span>(scanBasePackages = <span class="hljs-string">&quot;com.atguigu.gmall&quot;</span>)<br><span class="hljs-variable">@SpringBootApplication</span><br>public class BootUserServiceProviderApplication &#123;<br><br>    <span class="hljs-selector-tag">public</span> <span class="hljs-selector-tag">static</span> <span class="hljs-selector-tag">void</span> <span class="hljs-selector-tag">main</span>(String[] args) &#123;<br>        <span class="hljs-selector-tag">SpringApplication</span><span class="hljs-selector-class">.run</span>(BootUserServiceProviderApplication.class, args);<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="高可用-ZooKeeper-宕机与-Dubbo-直连"><a href="#高可用-ZooKeeper-宕机与-Dubbo-直连" class="headerlink" title="高可用-ZooKeeper 宕机与 Dubbo 直连"></a>高可用-ZooKeeper 宕机与 Dubbo 直连</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FjaEbiGhM8BJPZ69ZETZ6jFEDrKj.png" srcset="/img/loading.gif" lazyload><br>注册中心挂了, 仍然能消耗暴露的服务<br>健壮性</p>
+<ul>
+<li>监控中心宕掉不影响使用，只是丢失部分采样数据</li>
+<li>数据库宕掉后，注册中心仍能通过缓存提供服务列表查询，但不能注册新服务</li>
+<li>注册中心对等集群，任意一台宕掉后，将自动切换到另一台</li>
+<li><strong>注册中心全部宕掉后，服务提供者和服务消费者仍能通过本地缓存通讯</strong></li>
+<li>服务提供者无状态，任意一台宕掉后，不影响使用</li>
+<li>服务提供者全部宕掉后，服务消费者应用将无法使用，并无限次重连等待服务提供者恢复</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FujPqz_xF60myaTq46SBsQ9inpyS.png" srcset="/img/loading.gif" lazyload></p>
+<p>dubbo 直连</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs kotlin"><span class="hljs-meta">@Reference(url = <span class="hljs-string">&quot;127.0.0.1:20882&quot;</span>)</span> <span class="hljs-comment">// dubbo直连</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p><img src="https://cdn.jsdelivr.net/gh/roudoukou/blog-img/blog-img/FsQEVVw9ry0hR_YJmou6whjy6JGg.png" srcset="/img/loading.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Dubbo</div>
+      <div>http://roudoukou.github.io/java/Dubbo/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年2月3日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/hexo/Hexo%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8/" title="Hexo本地使用">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hexo本地使用</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/java/ZooKeeper/" title="ZooKeeper">
+                        <span class="hidden-mobile">ZooKeeper</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease" 
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
