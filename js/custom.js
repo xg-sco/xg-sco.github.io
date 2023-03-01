@@ -1,0 +1,1 @@
+document.querySelector('.banner').style = 'background: url("/img/bg.jpg") center right / cover no-repeat;transform: translate3d(0px, 0px, 0px);'
