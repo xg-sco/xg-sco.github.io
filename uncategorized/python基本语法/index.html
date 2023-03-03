@@ -16,24 +16,21 @@
   <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
-    <meta name="description" content="非常蛋疼的 bug, 大写的时候代码会报错, 手动改成消息就能正常访问页面了 参考Hexo 部署到 Github 后文件夹名大小写引起的问题 因为 git 的命令忽略了文件名的大小写进入 hexo 根目录, .deploy_git&#x2F;.git&#x2F;config将 ignorecase 修改成 false 123[core]	symlinks &#x3D; false	ignorecase &#x3D;">
+    <meta name="description" content="格式化输出大小写 12 题.lower() — 全部小写.upper() — 全部大写.title() — 各个字符的首字母大写.capitalize() — 首字母大写 1234name &#x3D; input()print(name.lower())print(name.upper())print(name.title())  去除空格.strip() — 删除两边空格.lstrip() — 删除左边">
 <meta property="og:type" content="article">
-<meta property="og:title" content="hexo url大小写bug">
-<meta property="og:url" content="https://xiamu.icu/uncategorized/hexo%20url%E5%A4%A7%E5%B0%8F%E5%86%99bug/index.html">
+<meta property="og:title" content="python基本语法">
+<meta property="og:url" content="https://xiamu.icu/uncategorized/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/index.html">
 <meta property="og:site_name" content="xiamu">
-<meta property="og:description" content="非常蛋疼的 bug, 大写的时候代码会报错, 手动改成消息就能正常访问页面了 参考Hexo 部署到 Github 后文件夹名大小写引起的问题 因为 git 的命令忽略了文件名的大小写进入 hexo 根目录, .deploy_git&#x2F;.git&#x2F;config将 ignorecase 修改成 false 123[core]	symlinks &#x3D; false	ignorecase &#x3D;">
+<meta property="og:description" content="格式化输出大小写 12 题.lower() — 全部小写.upper() — 全部大写.title() — 各个字符的首字母大写.capitalize() — 首字母大写 1234name &#x3D; input()print(name.lower())print(name.upper())print(name.title())  去除空格.strip() — 删除两边空格.lstrip() — 删除左边">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://cdn.xiamu.icu//FoVsWuiMYXKTGC3TghqnR_bJ4rWB.png">
-<meta property="og:image" content="http://cdn.xiamu.icu//FpUKyeIqr_w_iOcpUWGEP7M-ZwVg.png">
-<meta property="article:published_time" content="2023-03-01T12:02:04.000Z">
-<meta property="article:modified_time" content="2023-03-03T02:55:56.121Z">
+<meta property="article:published_time" content="2023-03-02T02:56:31.000Z">
+<meta property="article:modified_time" content="2023-03-03T02:55:55.028Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://cdn.xiamu.icu//FoVsWuiMYXKTGC3TghqnR_bJ4rWB.png">
   
   
   
-  <title>hexo url大小写bug - xiamu</title>
+  <title>python基本语法 - xiamu</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -203,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="hexo url大小写bug"></span>
+            <span id="subtitle" data-typed-text="python基本语法"></span>
           
         </div>
 
@@ -219,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-03-01 20:02" pubdate>
-          2023年3月1日 晚上
+        <time datetime="2023-03-02 10:56" pubdate>
+          2023年3月2日 上午
         </time>
       </span>
     
@@ -231,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          279 字
+          717 字
         
       </span>
     
@@ -242,7 +239,7 @@
         
         
         
-          3 分钟
+          6 分钟
         
       </span>
     
@@ -280,20 +277,25 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">hexo url大小写bug</h1>
+            <h1 style="display: none">python基本语法</h1>
             
             
               <div class="markdown-body">
                 
-                <p>非常蛋疼的 bug, 大写的时候代码会报错, 手动改成消息就能正常访问页面了<br><img src="http://cdn.xiamu.icu//FoVsWuiMYXKTGC3TghqnR_bJ4rWB.png" srcset="/img/loading.gif" lazyload><br><img src="http://cdn.xiamu.icu//FpUKyeIqr_w_iOcpUWGEP7M-ZwVg.png" srcset="/img/loading.gif" lazyload></p>
-<p>参考<a target="_blank" rel="noopener" href="https://trifond.github.io/2018/12/05/hexo-folder-ignore-case/">Hexo 部署到 Github 后文件夹名大小写引起的问题</a></p>
-<p>因为 git 的命令忽略了文件名的大小写<br>进入 hexo 根目录, .deploy_git&#x2F;.git&#x2F;config<br>将 ignorecase 修改成 false</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[core]</span><br>	<span class="hljs-attr">symlinks</span> = <span class="hljs-literal">false</span><br>	<span class="hljs-attr">ignorecase</span> = <span class="hljs-literal">false</span><br></code></pre></td></tr></table></figure>
+                <h2 id="格式化输出"><a href="#格式化输出" class="headerlink" title="格式化输出"></a>格式化输出</h2><h4 id="大小写-12-题"><a href="#大小写-12-题" class="headerlink" title="大小写 12 题"></a>大小写 12 题</h4><p>.lower() — 全部小写<br>.upper() — 全部大写<br>.title() — 各个字符的首字母大写<br>.capitalize() — 首字母大写</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">name = <span class="hljs-selector-tag">input</span>()<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(name.lower()</span></span>)<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(name.upper()</span></span>)<br><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(name.title()</span></span>)<br></code></pre></td></tr></table></figure>
 
-<p>接着把.deploy_git 的其他目录删除干净, github 仓库也清理下</p>
-<figure class="highlight nsis"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs nsis">git rm -rf *<br>git commit -m ‘clean <span class="hljs-literal">all</span> <span class="hljs-keyword">file</span>’<br>git <span class="hljs-keyword">push</span><br></code></pre></td></tr></table></figure>
+<h4 id="去除空格"><a href="#去除空格" class="headerlink" title="去除空格"></a>去除空格</h4><p>.strip() — 删除两边空格<br>.lstrip() — 删除左边空格<br>.rstrip() — 删除右边空格<br>.replace(“ “,””) — 删除所有空格<br>.split() — 先切分，””.join() — 再拼接</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(input()</span></span><span class="hljs-selector-class">.strip</span>())<br></code></pre></td></tr></table></figure>
 
-<p>接着再重新部署到 github 就行了</p>
+<h4 id="不用循环语句的重复输出"><a href="#不用循环语句的重复输出" class="headerlink" title="不用循环语句的重复输出"></a>不用循环语句的重复输出</h4><p>使用*可以重复输出这段字符串</p>
+<figure class="highlight isbl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs isbl"><span class="hljs-function"><span class="hljs-title">print</span>(<span class="hljs-title">input</span>() * <span class="hljs-number">100</span>)</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="截取字符串前-10-个字符"><a href="#截取字符串前-10-个字符" class="headerlink" title="截取字符串前 10 个字符"></a>截取字符串前 10 个字符</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus"><span class="hljs-function"><span class="hljs-title">print</span><span class="hljs-params">(input()</span></span><span class="hljs-selector-attr">[0:10]</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="list-列表的添加和移除"><a href="#list-列表的添加和移除" class="headerlink" title="list 列表的添加和移除"></a>list 列表的添加和移除</h4><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs stylus">offer_list = <span class="hljs-selector-attr">[<span class="hljs-string">&#x27;Allen&#x27;</span>, <span class="hljs-string">&#x27;Tom&#x27;</span>]</span><br><span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> offer_list:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;&#123;&#125;, you have passed our interview and will soon become a member of our company.&#x27;</span><span class="hljs-selector-class">.format</span>(i))<br><br>offer_list<span class="hljs-selector-class">.remove</span>(<span class="hljs-string">&#x27;Tom&#x27;</span>)<br>offer_list<span class="hljs-selector-class">.append</span>(<span class="hljs-string">&#x27;Andy&#x27;</span>)<br><br><span class="hljs-keyword">for</span> <span class="hljs-selector-tag">i</span> <span class="hljs-keyword">in</span> offer_list:<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&#x27;&#123;&#125;, welcome to join us!&#x27;</span><span class="hljs-selector-class">.format</span>(i))<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/question/56927648">https://www.zhihu.com/question/56927648</a></p>
 
                 
               </div>
@@ -311,8 +313,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>hexo url大小写bug</div>
-      <div>https://xiamu.icu/uncategorized/hexo url大小写bug/</div>
+      <div>python基本语法</div>
+      <div>https://xiamu.icu/uncategorized/python基本语法/</div>
     </div>
     <div class="license-meta">
       
@@ -324,7 +326,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年3月1日</div>
+          <div>2023年3月2日</div>
         </div>
       
       
@@ -356,18 +358,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/uncategorized/python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95/" title="python基本语法">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python基本语法</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/hexo/Hexo%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/" title="Hexo绑定域名">
-                        <span class="hidden-mobile">Hexo绑定域名</span>
+                      <a href="/uncategorized/hexo%20url%E5%A4%A7%E5%B0%8F%E5%86%99bug/" title="hexo url大小写bug">
+                        <span class="hidden-mobile">hexo url大小写bug</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
