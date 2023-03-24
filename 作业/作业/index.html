@@ -16,25 +16,20 @@
   <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
-    <meta name="description" content="编写 WordCountWordCountMapper 代码 123456789101112131415161718192021222324252627&#x2F;** * KEYIN, map阶段输入的key的类型: LongWritable * VALUEIN, map阶段输入value类型: Text * KEYOUT, map阶段输出的Key类型: Text * VALUEOUT, map阶段输出的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="MapReduce">
-<meta property="og:url" content="https://xiamu.icu/Hadoop/MapReduce/index.html">
+    <meta property="og:type" content="article">
+<meta property="og:title" content="超级无敌吊炸天">
+<meta property="og:url" content="https://xiamu.icu/%E4%BD%9C%E4%B8%9A/%E4%BD%9C%E4%B8%9A/index.html">
 <meta property="og:site_name" content="肉豆蔻吖">
-<meta property="og:description" content="编写 WordCountWordCountMapper 代码 123456789101112131415161718192021222324252627&#x2F;** * KEYIN, map阶段输入的key的类型: LongWritable * VALUEIN, map阶段输入value类型: Text * KEYOUT, map阶段输出的Key类型: Text * VALUEOUT, map阶段输出的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
-<meta property="og:image" content="http://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png">
-<meta property="article:published_time" content="2023-01-15T11:52:28.000Z">
-<meta property="article:modified_time" content="2023-03-08T00:44:08.981Z">
+<meta property="article:published_time" content="2023-03-20T06:32:47.198Z">
+<meta property="article:modified_time" content="2023-03-20T06:43:34.972Z">
 <meta property="article:author" content="肉豆蔻吖">
-<meta property="article:tag" content="Hadoop">
+<meta property="article:tag" content="作业">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
   
   
   
-  <title>MapReduce - 肉豆蔻吖</title>
+  <title>超级无敌吊炸天 - 肉豆蔻吖</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="MapReduce"></span>
+            <span id="subtitle" data-typed-text="超级无敌吊炸天"></span>
           
         </div>
 
@@ -220,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-15 19:52" pubdate>
-          2023年1月15日 晚上
+        <time datetime="2023-03-20 14:32" pubdate>
+          2023年3月20日 下午
         </time>
       </span>
     
@@ -232,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          5.1k 字
         
       </span>
     
@@ -243,7 +238,7 @@
         
         
         
-          24 分钟
+          43 分钟
         
       </span>
     
@@ -281,27 +276,55 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MapReduce</h1>
+            <h1 style="display: none">超级无敌吊炸天</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="编写-WordCount"><a href="#编写-WordCount" class="headerlink" title="编写 WordCount"></a>编写 WordCount</h2><p>WordCountMapper 代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs bash">/**<br> * KEYIN, map阶段输入的key的类型: LongWritable<br> * VALUEIN, map阶段输入value类型: Text<br> * KEYOUT, map阶段输出的Key类型: Text<br> * VALUEOUT, map阶段输出的value类型: IntWritable<br> */<br>public class WordCountMapper extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; &#123;<br><br>    private Text outK = new Text();<br>    private IntWritable outV = new IntWritable(1);<br><br>    @Override<br>    protected void map(LongWritable key, Text value, Mapper&lt;LongWritable, Text, Text, IntWritable&gt;.Context context) throws IOException, InterruptedException &#123;<br>        // 1.获取一行<br>        String line = key.toString();<br><br>        // 2.切割<br>        String[] words = line.split(<span class="hljs-string">&quot; &quot;</span>);<br><br>        // 3.循环写出<br>        <span class="hljs-keyword">for</span> (String word : words) &#123;<br>            outK.<span class="hljs-built_in">set</span>(word);<br>            context.write(outK, outV);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+                <h2 id="Python实验"><a href="#Python实验" class="headerlink" title="Python实验"></a>Python实验</h2><ul>
+<li><p>实验1：Python初体验</p>
+</li>
+<li><p>实验2：Python基本编程操作案例（1）</p>
+</li>
+</ul>
+<h2 id="HBase"><a href="#HBase" class="headerlink" title="HBase"></a>HBase</h2><h3 id="实验三：Hbase-shell操作表数据"><a href="#实验三：Hbase-shell操作表数据" class="headerlink" title="实验三：Hbase shell操作表数据"></a>实验三：Hbase shell操作表数据</h3><h4 id="（1）创建名为software-study的命名空间"><a href="#（1）创建名为software-study的命名空间" class="headerlink" title="（1）创建名为software_study的命名空间"></a>（1）创建名为software_study的命名空间</h4><blockquote>
+<p>注意: 在做本实验时, 前置知识非常的多, 需要启动(所有集群的, 注意先后顺序)zookeeper, hadoop, hbase</p>
+</blockquote>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">create_namespace</span> <span class="hljs-string">&#x27;software_study&#x27;</span><br></code></pre></td></tr></table></figure>
 
-<p>WordCountDriver</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs bash">public class WordCountDriver &#123;<br>    public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException &#123;<br>        // 1.获取job<br>        Configuration conf = new Configuration();<br>        Job job = Job.getInstance(conf);<br><br>        // 2.设置jar包路径<br>        job.setJarByClass(WordCountDriver.class);<br><br>        // 3.关联mapper和reducer<br>        job.setMapperClass(WordCountMapper.class);<br>        job.setReducerClass(WordCountReducer.class);<br><br>        // 4.设置map输出的kv类型<br>        job.setMapOutputKeyClass(Text.class);<br>        job.setOutputValueClass(IntWritable.class);<br><br>        // 5.设置最终输出的kv类型<br>        job.setOutputKeyClass(Text.class);<br>        job.setOutputValueClass(IntWritable.class);<br><br>        // 6.设置输入路径和输出路径<br>        FileInputFormat.addInputPath(job, new Path(<span class="hljs-string">&quot;E:\\hadoop\\input&quot;</span>));<br>        FileOutputFormat.setOutputPath(job, new Path(<span class="hljs-string">&quot;E:\\hadoop\\output666&quot;</span>));<br><br>        // 7.提交job<br>        boolean result = job.waitForCompletion(<span class="hljs-literal">true</span>);<br><br>        System.<span class="hljs-built_in">exit</span>(result ? 0 : 1);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="（2）在software-study命名空间下创建名为student01的表，要求列族为student-grade"><a href="#（2）在software-study命名空间下创建名为student01的表，要求列族为student-grade" class="headerlink" title="（2）在software_study命名空间下创建名为student01的表，要求列族为student,grade"></a>（2）在software_study命名空间下创建名为student01的表，要求列族为student,grade</h4><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">create</span> &quot;software_study:student01&quot;,&#123;<span class="hljs-type">NAME</span>=&gt;&quot;student&quot;&#125;,&#123;<span class="hljs-type">NAME</span>=&gt;&quot;grade&quot;&#125;<br></code></pre></td></tr></table></figure>
 
-<p>WordCountMapper</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">/**<br> * KEYIN, reduce阶段输入的key的类型: LongWritable<br> * VALUEIN, reduce阶段输入value类型: Text<br> * KEYOUT, reduce阶段输出的Key类型: Text<br> * VALUEOUT, reduce阶段输出的value类型: IntWritable<br> */<br>public class WordCountReducer extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; &#123;<br><br>    private IntWritable outV = new IntWritable();<br><br>    @Override<br>    protected void reduce(Text key, Iterable&lt;IntWritable&gt; values, Reducer&lt;Text, IntWritable, Text, IntWritable&gt;.Context context) throws IOException, InterruptedException &#123;<br><br>        int <span class="hljs-built_in">sum</span> = 0;<br>        // 累加<br>        <span class="hljs-keyword">for</span> (IntWritable value : values) &#123;<br>            <span class="hljs-built_in">sum</span> += value.get();<br>        &#125;<br><br>        outV.<span class="hljs-built_in">set</span>(<span class="hljs-built_in">sum</span>);<br><br>        // 写出<br>        context.write(key, outV);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h4 id="（3）将上图的表数据插入到相应的列族中"><a href="#（3）将上图的表数据插入到相应的列族中" class="headerlink" title="（3）将上图的表数据插入到相应的列族中"></a>（3）将上图的表数据插入到相应的列族中</h4><pre><code class="hljs">学生信息	成绩信息
+</code></pre>
+<p>学号（行键）	姓名	性别	出生年月	年龄	语文	数学	英语	历史<br>101         	张杰	男  	2023	    18  	88  	80	    79  	86<br>102	            张三	女  	2024	    19  	89	    81  	80  	87<br>103	            李东	男  	2025	    20  	90	    82  	81  	88<br>104	            王六	女  	2026	    21  	91	    83  	82  	89<br>105	            袁杰	男  	2027	    22  	92  	84  	83  	90</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs hbase">put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:姓名&#x27;,&#x27;张杰&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:姓名&#x27;,&#x27;张三&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:姓名&#x27;,&#x27;李东&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:姓名&#x27;,&#x27;王六&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:姓名&#x27;,&#x27;袁杰&#x27;<br><br>put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:性别&#x27;,&#x27;男&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:性别&#x27;,&#x27;女&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:性别&#x27;,&#x27;男&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:性别&#x27;,&#x27;女&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:性别&#x27;,&#x27;男&#x27;<br><br>put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:出生年月&#x27;,&#x27;2023&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:出生年月&#x27;,&#x27;2024&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:出生年月&#x27;,&#x27;2025&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:出生年月&#x27;,&#x27;2026&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:出生年月&#x27;,&#x27;2027&#x27;<br><br>put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:年龄&#x27;,&#x27;2023&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:年龄&#x27;,&#x27;2024&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:年龄&#x27;,&#x27;2025&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:年龄&#x27;,&#x27;2026&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:年龄&#x27;,&#x27;2027&#x27;<br><br>put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:语文&#x27;,&#x27;88&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:语文&#x27;,&#x27;89&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:语文&#x27;,&#x27;90&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:语文&#x27;,&#x27;91&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:语文&#x27;,&#x27;92&#x27;<br><br>put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:数学&#x27;,&#x27;80&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:数学&#x27;,&#x27;81&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:数学&#x27;,&#x27;82&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:数学&#x27;,&#x27;83&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:数学&#x27;,&#x27;84&#x27;<br><br>put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:英语&#x27;,&#x27;79&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:英语&#x27;,&#x27;80&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:英语&#x27;,&#x27;81&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:英语&#x27;,&#x27;82&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:英语&#x27;,&#x27;83&#x27;<br><br>put &#x27;software_study:student01&#x27;,&#x27;101&#x27;,&#x27;student:历史&#x27;,&#x27;86&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;102&#x27;,&#x27;student:历史&#x27;,&#x27;87&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;103&#x27;,&#x27;student:历史&#x27;,&#x27;88&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;104&#x27;,&#x27;student:历史&#x27;,&#x27;89&#x27;<br>put &#x27;software_study:student01&#x27;,&#x27;105&#x27;,&#x27;student:历史&#x27;,&#x27;90&#x27;<br><br>&lt;!-- 查看刚刚插入的数据 --&gt;<br>scan &#x27;software_study:student01&#x27;,&#123;FORMATTER =&gt; &#x27;toString&#x27;&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>将代码打包上传到 hadoop, 然后进行测试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[xiamu@hadoop202 hadoop-3.1.3]$ hadoop jar wc.jar com.atguigu.mapreduce.wordcount2.WordCountDriver /input /output<br><br></code></pre></td></tr></table></figure>
+<p>（4）查询学号为104的学生的性别</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dart"><span class="hljs-keyword">get</span> <span class="hljs-string">&#x27;software_study:student01&#x27;</span>,<span class="hljs-string">&#x27;104&#x27;</span>, &#123;COLUMN =&gt; <span class="hljs-string">&#x27;student:性别&#x27;</span>&#125;<br></code></pre></td></tr></table></figure>
 
-<h2 id="Partition-分区"><a href="#Partition-分区" class="headerlink" title="Partition 分区"></a>Partition 分区</h2><p>分区总结<br>(1) 如果 ReduceTask 的数量&gt;getPartition 的结果数, 则会多产生几个空的输出文件 part-r-000xx;<br>(2) 如果 1&lt;ReduceTask 的数量&lt;getPartition 的结果数, 则有一部分分区数据无处安放, 会 Exception<br>(3) 如果 ReduceTask 的数量&#x3D;1, 则不管 MapTask 端输出多少个分区文件, 最终结果都交给这一个 ReduceTask, 最终也就只会产生一个结果文件 part-r-00000;<br>(4) 分区号必须从零开始, 逐一累加</p>
-<p>例如: 假设自定义分区数为 5, 则<br>(1) job.setNumReduceTasks(1); 会正常运行, 只不过会产生一个输出文件<br>(2) job.setNumReduceTasks(2); 会报错<br>(3) job.setNumReduceTasks(6);</p>
-<h2 id="MapTask-工作机制"><a href="#MapTask-工作机制" class="headerlink" title="MapTask 工作机制"></a>MapTask 工作机制</h2><p>Read 阶段, Map 阶段, Collect 阶段, 溢写阶段, Merge 阶段<br><img src="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="ReduceTask-工作机制"><a href="#ReduceTask-工作机制" class="headerlink" title="ReduceTask 工作机制"></a>ReduceTask 工作机制</h2><p>copy 阶段, sort 阶段, reduce 阶段<br><img src="http://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png" srcset="/img/loading.gif" lazyload></p>
+<p>（5）查询学号为103的学生的年龄</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!-- 中文乱码十六进制没有解决 --&gt;</span></span><br><span class="language-xml">get &#x27;software_study:student01&#x27;,&#x27;103&#x27;, </span><span class="hljs-template-variable">&#123;COLUMN =&gt; &#x27;student:年龄&#x27;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>（6）查询student01表中的所有数据</p>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml"><span class="hljs-comment">&lt;!-- 中文乱码十六进制没有解决 --&gt;</span></span><br><span class="language-xml">scan &#x27;software_study:student01&#x27;,</span><span class="hljs-template-variable">&#123;FORMATTER =&gt; &#x27;toString&#x27;&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>（7）统计student01表的行数</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade"><span class="hljs-built_in">count</span> <span class="hljs-string">&#x27;software_study:student01&#x27;</span><br></code></pre></td></tr></table></figure>
+
+<p>（8）查询学号102到104的学生信息</p>
+<p>（9）查询studen01表中的前3行数据</p>
+<p>（10）删除成绩信息列族</p>
+<!-- alter "student:school",{NAME=>"student",METHOD=>"delete"} -->
+
+<p>（11）删除student01表</p>
+<!-- drop "student:school" -->
+
+
+<h3 id="第二次作业-已完成"><a href="#第二次作业-已完成" class="headerlink" title="第二次作业(已完成)"></a>第二次作业(已完成)</h3><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">AB</span><br>AB<br>ABC<br>AC<br>ABCD<br>ABCD<br>ABC<br>大题没有<br>大题没有<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="第三次作业-已完成"><a href="#第三次作业-已完成" class="headerlink" title="第三次作业(已完成)"></a>第三次作业(已完成)</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs dos">AB<br>AB<br>ACD<br>ABCD<br><span class="hljs-built_in">CD</span><br>AD<br>ABCD<br>ABCD<br>BCD<br>大题没有<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -320,7 +343,7 @@
     
       <span class="category-chain">
         
-  <a href="/categories/Hadoop/" class="category-chain-item">Hadoop</a>
+  <a href="/categories/%E4%BD%9C%E4%B8%9A/" class="category-chain-item">作业</a>
   
   
 
@@ -335,7 +358,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Hadoop/">#Hadoop</a>
+        <a href="/tags/%E4%BD%9C%E4%B8%9A/">#作业</a>
       
     </div>
   
@@ -347,8 +370,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>MapReduce</div>
-      <div>https://xiamu.icu/Hadoop/MapReduce/</div>
+      <div>超级无敌吊炸天</div>
+      <div>https://xiamu.icu/作业/作业/</div>
     </div>
     <div class="license-meta">
       
@@ -360,7 +383,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月15日</div>
+          <div>2023年3月20日</div>
         </div>
       
       
@@ -392,18 +415,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Hadoop/Yarn/" title="Yarn">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Yarn</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/uncategorized/Snipaste/" title="Snipaste">
-                        <span class="hidden-mobile">Snipaste</span>
+                      <a href="/uncategorized/%E6%97%A0%E6%A0%87%E9%A2%98/" title="无标题">
+                        <span class="hidden-mobile">无标题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

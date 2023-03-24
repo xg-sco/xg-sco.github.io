@@ -16,25 +16,21 @@
   <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
-    <meta name="description" content="编写 WordCountWordCountMapper 代码 123456789101112131415161718192021222324252627&#x2F;** * KEYIN, map阶段输入的key的类型: LongWritable * VALUEIN, map阶段输入value类型: Text * KEYOUT, map阶段输出的Key类型: Text * VALUEOUT, map阶段输出的">
+    <meta name="description" content="查看服务的位置的命令 123root@d23096201e11:&#x2F;# whereis mysqlmysql: &#x2F;usr&#x2F;bin&#x2F;mysql &#x2F;usr&#x2F;lib&#x2F;mysql &#x2F;etc&#x2F;mysql &#x2F;usr&#x2F;share&#x2F;mysql">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MapReduce">
-<meta property="og:url" content="https://xiamu.icu/Hadoop/MapReduce/index.html">
+<meta property="og:title" content="无标题">
+<meta property="og:url" content="https://xiamu.icu/uncategorized/%E6%97%A0%E6%A0%87%E9%A2%98/index.html">
 <meta property="og:site_name" content="肉豆蔻吖">
-<meta property="og:description" content="编写 WordCountWordCountMapper 代码 123456789101112131415161718192021222324252627&#x2F;** * KEYIN, map阶段输入的key的类型: LongWritable * VALUEIN, map阶段输入value类型: Text * KEYOUT, map阶段输出的Key类型: Text * VALUEOUT, map阶段输出的">
+<meta property="og:description" content="查看服务的位置的命令 123root@d23096201e11:&#x2F;# whereis mysqlmysql: &#x2F;usr&#x2F;bin&#x2F;mysql &#x2F;usr&#x2F;lib&#x2F;mysql &#x2F;etc&#x2F;mysql &#x2F;usr&#x2F;share&#x2F;mysql">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
-<meta property="og:image" content="http://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png">
-<meta property="article:published_time" content="2023-01-15T11:52:28.000Z">
-<meta property="article:modified_time" content="2023-03-08T00:44:08.981Z">
+<meta property="article:published_time" content="2023-03-05T15:10:26.000Z">
+<meta property="article:modified_time" content="2023-03-08T00:43:52.872Z">
 <meta property="article:author" content="肉豆蔻吖">
-<meta property="article:tag" content="Hadoop">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
   
   
   
-  <title>MapReduce - 肉豆蔻吖</title>
+  <title>无标题 - 肉豆蔻吖</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -204,7 +200,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="MapReduce"></span>
+            <span id="subtitle" data-typed-text="无标题"></span>
           
         </div>
 
@@ -220,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-01-15 19:52" pubdate>
-          2023年1月15日 晚上
+        <time datetime="2023-03-05 23:10" pubdate>
+          2023年3月5日 晚上
         </time>
       </span>
     
@@ -232,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.8k 字
+          105 字
         
       </span>
     
@@ -243,7 +239,7 @@
         
         
         
-          24 分钟
+          1 分钟
         
       </span>
     
@@ -281,27 +277,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">MapReduce</h1>
+            <h1 style="display: none">无标题</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="编写-WordCount"><a href="#编写-WordCount" class="headerlink" title="编写 WordCount"></a>编写 WordCount</h2><p>WordCountMapper 代码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs bash">/**<br> * KEYIN, map阶段输入的key的类型: LongWritable<br> * VALUEIN, map阶段输入value类型: Text<br> * KEYOUT, map阶段输出的Key类型: Text<br> * VALUEOUT, map阶段输出的value类型: IntWritable<br> */<br>public class WordCountMapper extends Mapper&lt;LongWritable, Text, Text, IntWritable&gt; &#123;<br><br>    private Text outK = new Text();<br>    private IntWritable outV = new IntWritable(1);<br><br>    @Override<br>    protected void map(LongWritable key, Text value, Mapper&lt;LongWritable, Text, Text, IntWritable&gt;.Context context) throws IOException, InterruptedException &#123;<br>        // 1.获取一行<br>        String line = key.toString();<br><br>        // 2.切割<br>        String[] words = line.split(<span class="hljs-string">&quot; &quot;</span>);<br><br>        // 3.循环写出<br>        <span class="hljs-keyword">for</span> (String word : words) &#123;<br>            outK.<span class="hljs-built_in">set</span>(word);<br>            context.write(outK, outV);<br>        &#125;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<p>WordCountDriver</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs bash">public class WordCountDriver &#123;<br>    public static void main(String[] args) throws IOException, InterruptedException, ClassNotFoundException &#123;<br>        // 1.获取job<br>        Configuration conf = new Configuration();<br>        Job job = Job.getInstance(conf);<br><br>        // 2.设置jar包路径<br>        job.setJarByClass(WordCountDriver.class);<br><br>        // 3.关联mapper和reducer<br>        job.setMapperClass(WordCountMapper.class);<br>        job.setReducerClass(WordCountReducer.class);<br><br>        // 4.设置map输出的kv类型<br>        job.setMapOutputKeyClass(Text.class);<br>        job.setOutputValueClass(IntWritable.class);<br><br>        // 5.设置最终输出的kv类型<br>        job.setOutputKeyClass(Text.class);<br>        job.setOutputValueClass(IntWritable.class);<br><br>        // 6.设置输入路径和输出路径<br>        FileInputFormat.addInputPath(job, new Path(<span class="hljs-string">&quot;E:\\hadoop\\input&quot;</span>));<br>        FileOutputFormat.setOutputPath(job, new Path(<span class="hljs-string">&quot;E:\\hadoop\\output666&quot;</span>));<br><br>        // 7.提交job<br>        boolean result = job.waitForCompletion(<span class="hljs-literal">true</span>);<br><br>        System.<span class="hljs-built_in">exit</span>(result ? 0 : 1);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>WordCountMapper</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash">/**<br> * KEYIN, reduce阶段输入的key的类型: LongWritable<br> * VALUEIN, reduce阶段输入value类型: Text<br> * KEYOUT, reduce阶段输出的Key类型: Text<br> * VALUEOUT, reduce阶段输出的value类型: IntWritable<br> */<br>public class WordCountReducer extends Reducer&lt;Text, IntWritable, Text, IntWritable&gt; &#123;<br><br>    private IntWritable outV = new IntWritable();<br><br>    @Override<br>    protected void reduce(Text key, Iterable&lt;IntWritable&gt; values, Reducer&lt;Text, IntWritable, Text, IntWritable&gt;.Context context) throws IOException, InterruptedException &#123;<br><br>        int <span class="hljs-built_in">sum</span> = 0;<br>        // 累加<br>        <span class="hljs-keyword">for</span> (IntWritable value : values) &#123;<br>            <span class="hljs-built_in">sum</span> += value.get();<br>        &#125;<br><br>        outV.<span class="hljs-built_in">set</span>(<span class="hljs-built_in">sum</span>);<br><br>        // 写出<br>        context.write(key, outV);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-
-<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><p>将代码打包上传到 hadoop, 然后进行测试</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[xiamu@hadoop202 hadoop-3.1.3]$ hadoop jar wc.jar com.atguigu.mapreduce.wordcount2.WordCountDriver /input /output<br><br></code></pre></td></tr></table></figure>
-
-<h2 id="Partition-分区"><a href="#Partition-分区" class="headerlink" title="Partition 分区"></a>Partition 分区</h2><p>分区总结<br>(1) 如果 ReduceTask 的数量&gt;getPartition 的结果数, 则会多产生几个空的输出文件 part-r-000xx;<br>(2) 如果 1&lt;ReduceTask 的数量&lt;getPartition 的结果数, 则有一部分分区数据无处安放, 会 Exception<br>(3) 如果 ReduceTask 的数量&#x3D;1, 则不管 MapTask 端输出多少个分区文件, 最终结果都交给这一个 ReduceTask, 最终也就只会产生一个结果文件 part-r-00000;<br>(4) 分区号必须从零开始, 逐一累加</p>
-<p>例如: 假设自定义分区数为 5, 则<br>(1) job.setNumReduceTasks(1); 会正常运行, 只不过会产生一个输出文件<br>(2) job.setNumReduceTasks(2); 会报错<br>(3) job.setNumReduceTasks(6);</p>
-<h2 id="MapTask-工作机制"><a href="#MapTask-工作机制" class="headerlink" title="MapTask 工作机制"></a>MapTask 工作机制</h2><p>Read 阶段, Map 阶段, Collect 阶段, 溢写阶段, Merge 阶段<br><img src="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="ReduceTask-工作机制"><a href="#ReduceTask-工作机制" class="headerlink" title="ReduceTask 工作机制"></a>ReduceTask 工作机制</h2><p>copy 阶段, sort 阶段, reduce 阶段<br><img src="http://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png" srcset="/img/loading.gif" lazyload></p>
+                <p>查看服务的位置的命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">root@d23096201e11:/# whereis mysql<br>mysql: /usr/bin/mysql /usr/lib/mysql /etc/mysql /usr/share/mysql<br><br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -310,34 +292,6 @@
             <div>
               <div class="post-metas my-3">
   
-    <div class="post-meta mr-3 d-flex align-items-center">
-      <i class="iconfont icon-category"></i>
-      
-
-<span class="category-chains">
-  
-  
-    
-      <span class="category-chain">
-        
-  <a href="/categories/Hadoop/" class="category-chain-item">Hadoop</a>
-  
-  
-
-      </span>
-    
-  
-</span>
-
-    </div>
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Hadoop/">#Hadoop</a>
-      
-    </div>
   
 </div>
 
@@ -347,8 +301,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>MapReduce</div>
-      <div>https://xiamu.icu/Hadoop/MapReduce/</div>
+      <div>无标题</div>
+      <div>https://xiamu.icu/uncategorized/无标题/</div>
     </div>
     <div class="license-meta">
       
@@ -360,7 +314,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年1月15日</div>
+          <div>2023年3月5日</div>
         </div>
       
       
@@ -392,9 +346,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Hadoop/Yarn/" title="Yarn">
+                      <a href="/%E4%BD%9C%E4%B8%9A/%E4%BD%9C%E4%B8%9A/" title="超级无敌吊炸天">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Yarn</span>
+                        <span class="hidden-mobile">超级无敌吊炸天</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -402,8 +356,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/uncategorized/Snipaste/" title="Snipaste">
-                        <span class="hidden-mobile">Snipaste</span>
+                      <a href="/Java/Docker/" title="Docker">
+                        <span class="hidden-mobile">Docker</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
