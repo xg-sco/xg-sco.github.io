@@ -23,14 +23,14 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="编写 WordCountWordCountMapper 代码 123456789101112131415161718192021222324252627&#x2F;** * KEYIN, map阶段输入的key的类型: LongWritable * VALUEIN, map阶段输入value类型: Text * KEYOUT, map阶段输出的Key类型: Text * VALUEOUT, map阶段输出的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
-<meta property="og:image" content="http://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png">
+<meta property="og:image" content="https://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
+<meta property="og:image" content="https://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png">
 <meta property="article:published_time" content="2023-01-15T11:52:28.000Z">
-<meta property="article:modified_time" content="2023-03-08T00:44:08.981Z">
+<meta property="article:modified_time" content="2023-03-31T14:53:19.739Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Hadoop">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
+<meta name="twitter:image" content="https://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png">
   
   
   
@@ -300,8 +300,8 @@
 
 <h2 id="Partition-分区"><a href="#Partition-分区" class="headerlink" title="Partition 分区"></a>Partition 分区</h2><p>分区总结<br>(1) 如果 ReduceTask 的数量&gt;getPartition 的结果数, 则会多产生几个空的输出文件 part-r-000xx;<br>(2) 如果 1&lt;ReduceTask 的数量&lt;getPartition 的结果数, 则有一部分分区数据无处安放, 会 Exception<br>(3) 如果 ReduceTask 的数量&#x3D;1, 则不管 MapTask 端输出多少个分区文件, 最终结果都交给这一个 ReduceTask, 最终也就只会产生一个结果文件 part-r-00000;<br>(4) 分区号必须从零开始, 逐一累加</p>
 <p>例如: 假设自定义分区数为 5, 则<br>(1) job.setNumReduceTasks(1); 会正常运行, 只不过会产生一个输出文件<br>(2) job.setNumReduceTasks(2); 会报错<br>(3) job.setNumReduceTasks(6);</p>
-<h2 id="MapTask-工作机制"><a href="#MapTask-工作机制" class="headerlink" title="MapTask 工作机制"></a>MapTask 工作机制</h2><p>Read 阶段, Map 阶段, Collect 阶段, 溢写阶段, Merge 阶段<br><img src="http://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="ReduceTask-工作机制"><a href="#ReduceTask-工作机制" class="headerlink" title="ReduceTask 工作机制"></a>ReduceTask 工作机制</h2><p>copy 阶段, sort 阶段, reduce 阶段<br><img src="http://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="MapTask-工作机制"><a href="#MapTask-工作机制" class="headerlink" title="MapTask 工作机制"></a>MapTask 工作机制</h2><p>Read 阶段, Map 阶段, Collect 阶段, 溢写阶段, Merge 阶段<br><img src="https://cdn.xiamu.icu//Fmgj8p7YRsjOuSq9B-FBLhgimq1H.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="ReduceTask-工作机制"><a href="#ReduceTask-工作机制" class="headerlink" title="ReduceTask 工作机制"></a>ReduceTask 工作机制</h2><p>copy 阶段, sort 阶段, reduce 阶段<br><img src="https://cdn.xiamu.icu//Fu2MTtWXDbV1NN-8GBWdsiZY_Qkm.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
@@ -402,7 +402,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/uncategorized/Snipaste/" title="Snipaste">
+                      <a href="/%E8%BD%AF%E4%BB%B6/Snipaste/" title="Snipaste">
                         <span class="hidden-mobile">Snipaste</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
