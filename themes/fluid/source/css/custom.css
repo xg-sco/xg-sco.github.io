@@ -1,0 +1,14 @@
+::selection {
+    color: unset;
+    padding: 0px;
+    background: rgb(209, 234, 254);
+}
+
+.navbar .dropdown-collapse, .top-nav-collapse, .navbar-col-show {
+    background: #96c0d3cc;
+}
+
+.code pre span::selection {
+    background: #d1eafe;
+    color: #ff645d;
+}
