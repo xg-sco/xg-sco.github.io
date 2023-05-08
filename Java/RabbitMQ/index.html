@@ -1,7 +1,7 @@
 
 
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
+<html lang="zh-CN" >
 
 
 
@@ -82,8 +82,6 @@
 
 
   <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -203,12 +201,6 @@
           </li>
           
         
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
         
       </ul>
     </div>
@@ -525,7 +517,7 @@
     Fluid.utils.loadComments('#valine', function() {
       Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
         var options = Object.assign(
-          {"appId":"Haq24NRgHl4QheEi7oVqtAsM-gzGzoHsz","appKey":"kGbxzGaSiqqlFPxg24Tk3dVN","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
+          {"appId":"${{ VALINE_APPID }}","appKey":"${{ VALINE_APPKEY }}","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":true},
           {
             el: "#valine",
             path: window.location.pathname
