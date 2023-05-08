@@ -12,3 +12,7 @@
     background: #d1eafe;
     color: #ff645d;
 }
+
+#board {
+    z-index: 0;
+}
