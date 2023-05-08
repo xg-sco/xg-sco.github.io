@@ -23,22 +23,22 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="0.安装 DockerDocker 分为 CE 和 EE 两大版本。CE 即社区版（免费，支持周期 7 个月），EE 即企业版，强调安全，付费使用，支持周期 24 个月。 Docker CE 分为 stable test 和 nightly 三个更新频道。 官方网站上有各种环境下的 安装指南，这里主要介绍 Docker CE 在 CentOS 上的安装。 1.CentOS 安装 DockerDoc">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.xiamu.icu//Fmx_08MNIIxqu37SAdf51aE9QRqO.png">
-<meta property="og:image" content="https://cdn.xiamu.icu//Fusj2XrrHCRfer_ltWXNIQXD3kmZ.png">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/33666212/1677939482275-428eb192-b8cc-4b0d-b2cf-2c2a3748695f.png">
-<meta property="og:image" content="https://cdn.xiamu.icu//FqvMNK6SXwTcAj_IHKD5NPi4Xhbn.png">
-<meta property="og:image" content="https://cdn.xiamu.icu//FlVzpGCbBO98f0aCqCjY1yD-mtzU.png">
-<meta property="og:image" content="https://cdn.xiamu.icu//Fq2EuDHStnnzvvMiqXg3KRGwcZZb.png">
-<meta property="og:image" content="https://cdn.xiamu.icu//FmQpUMiN35yIC-741AaBp07JQAfz.png">
-<meta property="og:image" content="https://cdn.xiamu.icu//Fv_F25epucimj8BhEb6zvfGVmdvK.png">
-<meta property="og:image" content="https://cdn.xiamu.icu//FiPOc8O5mEHeW9kF3VGwNfLwCuK6.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5Cb5e99077fce34d10bdf742f625940a4b.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C21967879728a44ff85ad7a284ff9b408.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C908181a4d0c347ada25f58bfc71f6e62.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C1000f1db18b841b0a240de85c7482bc5.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C831b6f2365bb432a878a9fdbec03623a.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C6845312bbade47b8b4e9af5a689d9627.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5Cdb419da7d77b4668894dca2f94cb503b.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C9639eefdd5fb449c8a84b3471368233a.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C9c52ef99b2d34f388974907d70eb7d23.png">
 <meta property="article:published_time" content="2023-03-04T14:00:03.000Z">
-<meta property="article:modified_time" content="2023-04-02T12:36:37.267Z">
+<meta property="article:modified_time" content="2023-05-08T02:44:25.071Z">
 <meta property="article:author" content="肉豆蔻吖">
-<meta property="article:tag" content="Docker">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.xiamu.icu//Fmx_08MNIIxqu37SAdf51aE9QRqO.png">
+<meta name="twitter:image" content="https://xiamu.icu/assets%5Cb5e99077fce34d10bdf742f625940a4b.png">
   
   
   
@@ -315,7 +315,7 @@
 <p>然后输入命令，可以查看 docker 版本：</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker -v</span><br></code></pre></td></tr></table></figure>
 
-<p>如图：<br><img src="https://cdn.xiamu.icu//Fmx_08MNIIxqu37SAdf51aE9QRqO.png" srcset="/img/loading.gif" lazyload></p>
+<p>如图：<br><img src="/assets%5Cb5e99077fce34d10bdf742f625940a4b.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="1-4-配置镜像加速"><a href="#1-4-配置镜像加速" class="headerlink" title="1.4.配置镜像加速"></a>1.4.配置镜像加速</h2><p>docker 官方镜像仓库网速较差，我们需要设置国内镜像服务：</p>
 <p>参考阿里云的镜像加速文档：<a target="_blank" rel="noopener" href="https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors">https://cr.console.aliyun.com/cn-hangzhou/instances/mirrors</a></p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs awk">sudo mkdir -p <span class="hljs-regexp">/etc/</span>docker<br>sudo tee <span class="hljs-regexp">/etc/</span>docker/daemon.json &lt;&lt;-<span class="hljs-string">&#x27;EOF&#x27;</span><br>&#123;<br>  <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<span class="hljs-string">&quot;https://ylmjgfp5.mirror.aliyuncs.com&quot;</span>]<br>&#125;<br>EOF<br>sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure>
@@ -324,7 +324,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">安装</span><br>curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
 
 <p>如果下载速度较慢，或者下载失败，可以使用课前资料提供的 docker-compose 文件：</p>
-<p><img src="https://cdn.xiamu.icu//Fusj2XrrHCRfer_ltWXNIQXD3kmZ.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets%5C21967879728a44ff85ad7a284ff9b408.png" srcset="/img/loading.gif" lazyload></p>
 <p>上传到<code>/usr/local/bin/</code>目录也可以。</p>
 <h2 id="2-2-修改文件权限"><a href="#2-2-修改文件权限" class="headerlink" title="2.2.修改文件权限"></a>2.2.修改文件权限</h2><p>修改文件权限：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">修改权限</span><br>chmod +x /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
@@ -356,7 +356,7 @@
 <h4 id="查看镜像"><a href="#查看镜像" class="headerlink" title="查看镜像"></a>查看镜像</h4><p>查看拉取到的镜像</p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">docker images</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.nlark.com/yuque/0/2023/png/33666212/1677939482275-428eb192-b8cc-4b0d-b2cf-2c2a3748695f.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets%5C908181a4d0c347ada25f58bfc71f6e62.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="打包镜像"><a href="#打包镜像" class="headerlink" title="打包镜像"></a>打包镜像</h4><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fortran">docker <span class="hljs-keyword">save</span> -o nginx.tar nginx:latest<br></code></pre></td></tr></table></figure>
 
 <h4 id="删除镜像"><a href="#删除镜像" class="headerlink" title="删除镜像"></a>删除镜像</h4><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> images<br>docker rmi nginx:latest<br>docker images<br><br></code></pre></td></tr></table></figure>
@@ -371,12 +371,12 @@
 <h4 id="查看容器的日志"><a href="#查看容器的日志" class="headerlink" title="查看容器的日志"></a>查看容器的日志</h4><p>记得加上容器的名称 mn</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">docker</span> logs mn<br><br>docker logs mn -f<br><span class="hljs-comment"># -f表示持续输出日志信息</span><br></code></pre></td></tr></table></figure>
 
-<p>nginx 启动成功, 能够正常访问<br><img src="https://cdn.xiamu.icu//FqvMNK6SXwTcAj_IHKD5NPi4Xhbn.png" srcset="/img/loading.gif" lazyload></p>
+<p>nginx 启动成功, 能够正常访问<br><img src="/assets%5C1000f1db18b841b0a240de85c7482bc5.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker <span class="hljs-built_in">exec</span> -it mn bash<br><br><span class="hljs-comment"># 容器内存在linux常用的命令, 但是没有vi,</span><br><span class="hljs-comment"># 所以不能修改容器内部的文件, 并且我们也不建议去修改容器内的文件</span><br><span class="hljs-built_in">pwd</span><br><span class="hljs-built_in">ls</span><br><span class="hljs-built_in">cd</span><br><br><span class="hljs-comment"># 进入redis容器的两种方式, 第一种先进入容器的再进入bash, 第二种直接进入redis-cli</span><br>docker <span class="hljs-built_in">exec</span> -it my-redis bash<br>docker <span class="hljs-built_in">exec</span> -it my-redis redis-cli<br></code></pre></td></tr></table></figure>
 
 <h4 id="进入-nginx-目录"><a href="#进入-nginx-目录" class="headerlink" title="进入 nginx 目录"></a>进入 nginx 目录</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs awk">find / -name nginx<br>cd <span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/nginx/</span>html<br><br><span class="hljs-comment"># 我们可以使用sed来修改容器内的内容, 但是还是建议尽量不要修改容器内的东西</span><br>sed -i -e <span class="hljs-string">&#x27;s#Welcome to nginx#传智教育欢迎您#g&#x27;</span> -e <span class="hljs-string">&#x27;s#&lt;head&gt;#&lt;head&gt;&lt;meta charset=&quot;utf-8&quot;&gt;#g&#x27;</span> index.html<br></code></pre></td></tr></table></figure>
 
-<p>修改完成之后页面也发生了变化<br><img src="https://cdn.xiamu.icu//FlVzpGCbBO98f0aCqCjY1yD-mtzU.png" srcset="/img/loading.gif" lazyload></p>
+<p>修改完成之后页面也发生了变化<br><img src="/assets%5C831b6f2365bb432a878a9fdbec03623a.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="退出容器"><a href="#退出容器" class="headerlink" title="退出容器"></a>退出容器</h4><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-keyword">exit</span><br></code></pre></td></tr></table></figure>
 
 <h4 id="停止容器"><a href="#停止容器" class="headerlink" title="停止容器"></a>停止容器</h4><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">docker <span class="hljs-built_in">stop</span> mn<br><br><span class="hljs-comment"># 表示查看当前正在运行的容器</span><br>docker ps<br><br><span class="hljs-comment"># -a表示查看所有的容器</span><br>docker ps -<span class="hljs-keyword">a</span><br></code></pre></td></tr></table></figure>
@@ -403,7 +403,7 @@
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs gradle">docker run --name mn -p <span class="hljs-number">80</span>:<span class="hljs-number">80</span> -v html:<span class="hljs-regexp">/usr/</span>share<span class="hljs-regexp">/nginx/</span>html -d nginx<br><br>查看运行的容器<br>docker ps<br><br>查看容器的详细信息<br>docker <span class="hljs-keyword">inspect</span> html<br> <span class="hljs-string">&quot;Mountpoint&quot;</span>: <span class="hljs-string">&quot;/var/lib/docker/volumes/html/_data&quot;</span>,<br><br>进入挂载点的目录<br>cd <span class="hljs-regexp">/var/</span>lib<span class="hljs-regexp">/docker/</span>volumes<span class="hljs-regexp">/html/</span>_data<br><br>使用vi命令随便修改index.html内容, 访问虚拟机ip, 发现nginx默认页面被修改掉了<br><br><br></code></pre></td></tr></table></figure>
 
 <p>tips: 以上挂载数据卷, 可以先提前创建数据卷<br>也可以不创建数据卷, 执行-v 参数, 会自动帮我们创建一个数据卷</p>
-<h4 id="练习题"><a href="#练习题" class="headerlink" title="练习题:"></a>练习题:</h4><p><img src="https://cdn.xiamu.icu//Fq2EuDHStnnzvvMiqXg3KRGwcZZb.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="练习题"><a href="#练习题" class="headerlink" title="练习题:"></a>练习题:</h4><p><img src="/assets%5C6845312bbade47b8b4e9af5a689d9627.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs awk">docker load -i mysql.tar<br>docker run \<br>--name mysql \<br>-v <span class="hljs-regexp">/tmp/my</span>sql<span class="hljs-regexp">/data:/</span>var<span class="hljs-regexp">/lib/my</span>sql \<br>-v <span class="hljs-regexp">/tmp/my</span>sql<span class="hljs-regexp">/conf/</span>hmy.cnf:<span class="hljs-regexp">/etc/my</span>sql<span class="hljs-regexp">/conf.d/</span>hmy.cnf \<br>-p <span class="hljs-number">3306</span>:<span class="hljs-number">3306</span> \<br>-e MYSQL_ROOT_PASSWORD=<span class="hljs-number">123456</span> \<br>-d \<br>mysql:<span class="hljs-number">5.7</span>.<span class="hljs-number">25</span><br>docker exec -it mysql mysql -uroot -p123456<br></code></pre></td></tr></table></figure>
 
 <p>不建议使用-v &#x2F;tmp&#x2F;mysql&#x2F;conf&#x2F;hmy.cnf:&#x2F;etc&#x2F;mysql&#x2F;my.cnf<br>更建议使用-v &#x2F;tmp&#x2F;mysql&#x2F;conf&#x2F;hmy.cnf:&#x2F;etc&#x2F;mysql&#x2F;conf.d&#x2F;hmy.cnf<br>conf.d 目录下的配置文件会加载到 my.cnf 中去, 如果用了第一种方式将会直接覆盖了 my.cnf<br>第二种方式将不会覆盖 my.cnf<br>-e 表示是环境变量</p>
@@ -421,11 +421,11 @@
 <h2 id="安装-DockerCompose"><a href="#安装-DockerCompose" class="headerlink" title="安装 DockerCompose"></a>安装 DockerCompose</h2><p>参考上面</p>
 <h2 id="DockerCompose-部署微服务集群"><a href="#DockerCompose-部署微服务集群" class="headerlink" title="DockerCompose 部署微服务集群"></a>DockerCompose 部署微服务集群</h2><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-comment"># 创建并执行容器</span><br>docker<span class="hljs-literal">-compose</span> up <span class="hljs-literal">-d</span><br><br><span class="hljs-comment"># 输出日志</span><br>docker<span class="hljs-literal">-compose</span> logs <span class="hljs-operator">-f</span><br><br><span class="hljs-comment"># 重启容器服务</span><br>docker<span class="hljs-literal">-compose</span> restart gateway userservice orderservice<br><br>docker<span class="hljs-literal">-compose</span> logs <span class="hljs-operator">-f</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.xiamu.icu//FmQpUMiN35yIC-741AaBp07JQAfz.png" srcset="/img/loading.gif" lazyload><br><img src="https://cdn.xiamu.icu//Fv_F25epucimj8BhEb6zvfGVmdvK.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets%5Cdb419da7d77b4668894dca2f94cb503b.png" srcset="/img/loading.gif" lazyload><br><img src="/assets%5C9639eefdd5fb449c8a84b3471368233a.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="Docker-镜像仓库"><a href="#Docker-镜像仓库" class="headerlink" title="Docker 镜像仓库"></a>Docker 镜像仓库</h2><p>参考上面的 <code>带有图形化界面版本</code></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><code class="hljs shell">vi /etc/docker/daemon.json<br>,&quot;insecure-registries&quot;:[&quot;http://192.168.1.100:8080&quot;]<br>systemctl daemon-reload<br>systemctl restart docker<br><br>cd /tmp/<br>mkdir registry-ui<br>cd registry-ui/<br>vim docker-compose.yml<br><br>version: &#x27;3.0&#x27;<br>services:<br>  registry:<br>    image: registry<br>    volumes:<br>      - ./registry-data:/var/lib/registry<br>  ui:<br>    image: joxit/docker-registry-ui:static<br>    ports:<br>      - 8080:80<br>    environment:<br>      - REGISTRY_TITLE=传智教育私有仓库<br>      - REGISTRY_URL=http://registry:5000<br>    depends_on:<br>      - registry<br><br><br>docker-compose up -d<br>docker-compose logs -f<br><span class="hljs-meta prompt_"># </span><span class="language-bash">访问http://192.168.1.100:8080/</span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">上传镜像</span><br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">下载镜像</span><br>docker images<br>docker tag nginx:latest 192.168.1.100:8080/nginx:1.0<br>docker images<br>docker push 192.168.1.100:8080/nginx:1.0<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">删除已有的镜像</span><br>docker rmi nginx:latest<br>docker rmi 192.168.1.100:8080/nginx:1.0<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">拉取镜像</span><br>docker pull 192.168.1.100:8080/nginx:1.0<br>docker images<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.xiamu.icu//FiPOc8O5mEHeW9kF3VGwNfLwCuK6.png" srcset="/img/loading.gif" lazyload><br>推送镜像到仓库前需要重命名镜像(docker tag), 以镜像仓库地址为前缀<br>镜像仓库推送前需要把仓库地址配置到 docker 服务的 daemon.json 文件中, 被 docker 信任</p>
+<p><img src="/assets%5C9c52ef99b2d34f388974907d70eb7d23.png" srcset="/img/loading.gif" lazyload><br>推送镜像到仓库前需要重命名镜像(docker tag), 以镜像仓库地址为前缀<br>镜像仓库推送前需要把仓库地址配置到 docker 服务的 daemon.json 文件中, 被 docker 信任</p>
 
                 
               </div>
@@ -459,9 +459,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Docker/">#Docker</a>
-      
         <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/Docker/">#Docker</a>
       
     </div>
   

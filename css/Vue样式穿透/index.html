@@ -23,15 +23,15 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="在开发中, 多多少少会用到组件库, 但是组件库的样式非常有限, 如果不懂 scoped 的话, 想要修改就有可能会变得有点困难常见的组件化开发都会见到 scoped, scoped 就相当于一个作用域, 只作用于当前这个组件, 不会被其他的组件所影响 123&lt;style lang&#x3D;&quot;scss&quot; scoped&gt;...&lt;&#x2F;style&gt;  此时页面上存在一个按">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/33666212/1679814980910-7e594787-7beb-40c4-be8c-a5ce2c02e493.png">
-<meta property="og:image" content="https://cdn.nlark.com/yuque/0/2023/png/33666212/1679815289577-3d190386-023b-433f-9da4-704d3c0cbe2c.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5C66c63b1be44f41d3bbe78a636a12d3e7.png">
+<meta property="og:image" content="https://xiamu.icu/assets%5Ca8ad61ec636c4410aa2f31df8566228e.png">
 <meta property="article:published_time" content="2023-03-26T00:00:00.000Z">
-<meta property="article:modified_time" content="2023-03-31T14:47:58.499Z">
+<meta property="article:modified_time" content="2023-05-08T02:46:54.975Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="CSS">
 <meta property="article:tag" content="Vue">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.nlark.com/yuque/0/2023/png/33666212/1679814980910-7e594787-7beb-40c4-be8c-a5ce2c02e493.png">
+<meta name="twitter:image" content="https://xiamu.icu/assets%5C66c63b1be44f41d3bbe78a636a12d3e7.png">
   
   
   
@@ -282,10 +282,10 @@
                 <p>在开发中, 多多少少会用到组件库, 但是组件库的样式非常有限, 如果不懂 scoped 的话, 想要修改就有可能会变得有点困难<br>常见的组件化开发都会见到 scoped, scoped 就相当于一个作用域, 只作用于当前这个组件, 不会被其他的组件所影响</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">&lt;style lang=&quot;scss&quot; scoped&gt;<br>...<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
 
-<p>此时页面上存在一个按钮, 如果直接使用标签名 &#x2F; class 来修改样式, 样式是不会被修改的(有可能有的组件可以修改)<br><img src="https://cdn.nlark.com/yuque/0/2023/png/33666212/1679814980910-7e594787-7beb-40c4-be8c-a5ce2c02e493.png" srcset="/img/loading.gif" lazyload></p>
+<p>此时页面上存在一个按钮, 如果直接使用标签名 &#x2F; class 来修改样式, 样式是不会被修改的(有可能有的组件可以修改)<br><img src="/assets%5C66c63b1be44f41d3bbe78a636a12d3e7.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs shell">&lt;template&gt;<br>  &lt;u-button type=&quot;warning&quot; size=&quot;mini&quot; class=&quot;u-button&quot;&gt;button&lt;/u-button&gt;<br>&lt;/template&gt;<br><br>&lt;style lang=&quot;scss&quot; scoped&gt;<br>u-button &#123;<br>  color: white;<br>  background-color: pink;<br>&#125;<br>.u-button &#123;<br>  color: white;<br>  background-color: pink;<br>&#125;<br>&lt;/style&gt;<br></code></pre></td></tr></table></figure>
 
-<p>定位元素, 观察页面, 发现是.u-btn–warning[data-v-6e15e680]控制的颜色<br><img src="https://cdn.nlark.com/yuque/0/2023/png/33666212/1679815289577-3d190386-023b-433f-9da4-704d3c0cbe2c.png" srcset="/img/loading.gif" lazyload><br>直接修改</p>
+<p>定位元素, 观察页面, 发现是.u-btn–warning[data-v-6e15e680]控制的颜色<br><img src="/assets%5Ca8ad61ec636c4410aa2f31df8566228e.png" srcset="/img/loading.gif" lazyload><br>直接修改</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">.u-btn--warning[data-v-6e15e680] &#123;<br>  color: white;<br>  background-color: pink;<br>&#125;<br></code></pre></td></tr></table></figure>
 
                 
@@ -389,8 +389,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/CSS/Vue%E6%A0%B7%E5%BC%8F%E7%A9%BF%E9%80%8F(%E6%B7%B1%E5%BA%A6%E4%BD%9C%E7%94%A8%E9%80%89%E6%8B%A9%E5%99%A8)/" title="Vue样式穿透(深度作用选择器)">
-                        <span class="hidden-mobile">Vue样式穿透(深度作用选择器)</span>
+                      <a href="/%E5%89%8D%E7%AB%AF/npm%20%E5%AE%89%E8%A3%85yarn/" title="npm 安装yarn">
+                        <span class="hidden-mobile">npm 安装yarn</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
