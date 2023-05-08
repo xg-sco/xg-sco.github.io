@@ -23,26 +23,26 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="定义HDFS(Hadoop Distributed File System), 它是一个文件系统, 用于存储文件, 通过目录树来定位文件;其次, 它是分布式, 由很多服务器联合起来实现其功能, 集群中的服务器有各自的角色.HDFS 的使用场景, 适合一次写入, 多次读书的场景. 一个文件经过创建, 写入和关闭之后就不需要改变.思考:NameNode 在生产环境中一般是 128G 的内存, 能存多少">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiamu.icu/assets%5Cd32a24d780cc4613945d2e447249fdb0.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C3afbcf8e9d474ea8afc9ece62c2b5a58.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5Cf35d097a64a4410e8ff0fd83e56ae949.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C58ff45c33ca84fdeb5871cb4335f32d9.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5Ca8d52262f042443fa1552fcd5132bb81.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C1a81628d86124b2ba22e98e5f346daa4.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5Cb23efde2c619469080a3ee9ec8d1e552.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C5b1adb7618bf436ba53348bc77af4720.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C2894aefb5f154601a0fc7ab326d2c65d.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C19f2078aaca7444687da94750a8018d5.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5Cbc0c9b59d19c479e8d9e3d824ad42153.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C67e29a97d91244bd8314d2e68114594b.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C2dc123cff50c4f77a83fdf8fd43e74e3.png">
-<meta property="og:image" content="https://xiamu.icu/assets%5C467278174dc04881aa0fc4734177ac13.png">
+<meta property="og:image" content="https://xiamu.icu/assets/45e5cf5fe538432f93150df2653c1abc.png">
+<meta property="og:image" content="https://xiamu.icu/assets/60df08894ec84d4fa3ec9235087839a1.png">
+<meta property="og:image" content="https://xiamu.icu/assets/d7557f260dd24e73b90fe2cbe8f83595.png">
+<meta property="og:image" content="https://xiamu.icu/assets/cfe9f404f95e4899ae96370eeeda2ed8.png">
+<meta property="og:image" content="https://xiamu.icu/assets/9514d501f27f45318897d42b00a616cd.png">
+<meta property="og:image" content="https://xiamu.icu/assets/a7753434121541b6a7ad43ca7b385bd7.png">
+<meta property="og:image" content="https://xiamu.icu/assets/9376ac0aa1aa4a1ea4301a400abcadac.png">
+<meta property="og:image" content="https://xiamu.icu/assets/cf128ed93f3b4471b1ae0ff9d9dcbfce.png">
+<meta property="og:image" content="https://xiamu.icu/assets/1e4216c4554a42339bb5907f702fe7f5.png">
+<meta property="og:image" content="https://xiamu.icu/assets/6719b1c56a194f5983a40936dd4e27c6.png">
+<meta property="og:image" content="https://xiamu.icu/assets/223d4fe82aa643d4ab0fcef27cf8489c.png">
+<meta property="og:image" content="https://xiamu.icu/assets/b77d8c70f4c849fb91796c5a6641f512.png">
+<meta property="og:image" content="https://xiamu.icu/assets/b6c1a47e021846718901d0791de046ad.png">
+<meta property="og:image" content="https://xiamu.icu/assets/88de50f6770b46b2b2dd26cd02b73d13.png">
 <meta property="article:published_time" content="2023-01-01T15:48:07.000Z">
-<meta property="article:modified_time" content="2023-05-08T02:44:45.456Z">
+<meta property="article:modified_time" content="2023-05-08T08:23:29.609Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Hadoop">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xiamu.icu/assets%5Cd32a24d780cc4613945d2e447249fdb0.png">
+<meta name="twitter:image" content="https://xiamu.icu/assets/45e5cf5fe538432f93150df2653c1abc.png">
   
   
   
@@ -290,11 +290,11 @@
             
               <div class="markdown-body">
                 
-                <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>HDFS(Hadoop Distributed File System), 它是一个文件系统, 用于存储文件, 通过目录树来定位文件;<br>其次, 它是分布式, 由很多服务器联合起来实现其功能, 集群中的服务器有各自的角色.<br>HDFS 的使用场景, 适合一次写入, 多次读书的场景. 一个文件经过创建, 写入和关闭之后就不需要改变.<br>思考:<br>NameNode 在生产环境中一般是 128G 的内存, 能存多少文件? 一个文件块占用 150 个字节, 128G 的内存能存储 9 亿个文件块<br>计算过程:<br>128G &#x3D; 128 _ 1024M &#x3D; 128 _ 1024 _ 1024KB &#x3D; 128 _ 1024 _ 1024 _ 1024Byte &#x3D; 237 Byte&#x3D; 137438953472Byte<br>一个文件块大小是 150Byte<br>那么能够存储的文件数量是<img src="/assets%5Cd32a24d780cc4613945d2e447249fdb0.png" srcset="/img/loading.gif" lazyload> &#x3D; 916259689.813 ≈ 9 亿<br>tip: Byte 是字节, bit 是位<br><img src="/assets%5C3afbcf8e9d474ea8afc9ece62c2b5a58.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="组成架构"><a href="#组成架构" class="headerlink" title="组成架构"></a>组成架构</h2><p><img src="/assets%5Cf35d097a64a4410e8ff0fd83e56ae949.png" srcset="/img/loading.gif" lazyload><br><img src="/assets%5C58ff45c33ca84fdeb5871cb4335f32d9.png" srcset="/img/loading.gif" lazyload><br>在 hdfs 创建文件夹:</p>
+                <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>HDFS(Hadoop Distributed File System), 它是一个文件系统, 用于存储文件, 通过目录树来定位文件;<br>其次, 它是分布式, 由很多服务器联合起来实现其功能, 集群中的服务器有各自的角色.<br>HDFS 的使用场景, 适合一次写入, 多次读书的场景. 一个文件经过创建, 写入和关闭之后就不需要改变.<br>思考:<br>NameNode 在生产环境中一般是 128G 的内存, 能存多少文件? 一个文件块占用 150 个字节, 128G 的内存能存储 9 亿个文件块<br>计算过程:<br>128G &#x3D; 128 _ 1024M &#x3D; 128 _ 1024 _ 1024KB &#x3D; 128 _ 1024 _ 1024 _ 1024Byte &#x3D; 237 Byte&#x3D; 137438953472Byte<br>一个文件块大小是 150Byte<br>那么能够存储的文件数量是<img src="/assets/45e5cf5fe538432f93150df2653c1abc.png" srcset="/img/loading.gif" lazyload> &#x3D; 916259689.813 ≈ 9 亿<br>tip: Byte 是字节, bit 是位<br><img src="/assets/60df08894ec84d4fa3ec9235087839a1.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="组成架构"><a href="#组成架构" class="headerlink" title="组成架构"></a>组成架构</h2><p><img src="/assets/d7557f260dd24e73b90fe2cbe8f83595.png" srcset="/img/loading.gif" lazyload><br><img src="/assets/cfe9f404f95e4899ae96370eeeda2ed8.png" srcset="/img/loading.gif" lazyload><br>在 hdfs 创建文件夹:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">[xiamu@hadoop202 bin]$ hadoop fs -<span class="hljs-built_in">mkdir</span> /aaa<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="/assets%5Ca8d52262f042443fa1552fcd5132bb81.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/9514d501f27f45318897d42b00a616cd.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="文件块大小"><a href="#文件块大小" class="headerlink" title="文件块大小"></a>文件块大小</h2><p>HDFS 中的文件在物理上是分块存储(Block), 块的大小可以通过配置参数(dfs.blocksize)来规定, 默认大小在 Hadoop2.x&#x2F;3.x 版本中是 128M, 1.x 版本中是 64M</p>
 <p>总结: HDFS 块的大小设置主要取决于磁盘传输速率</p>
 <h2 id="HDFS-的-Shell-操作-开发重点"><a href="#HDFS-的-Shell-操作-开发重点" class="headerlink" title="HDFS 的 Shell 操作(开发重点)"></a>HDFS 的 Shell 操作(开发重点)</h2><p>hadoop fs 具体命令 OR hdfs dfs 具体命令<br>两个是完全相同的</p>
@@ -369,8 +369,8 @@
 <ol start="11">
 <li>-setrep：设置 HDFS 中文件的副本数量</li>
 </ol>
-<p><img src="/assets%5C1a81628d86124b2ba22e98e5f346daa4.png" srcset="/img/loading.gif" lazyload><br>这里设置的副本数只是记录在 NameNode 的元数据中，是否真的会有这么多副本，还得看 DataNode 的数量。因为目前只有 3 台设备，最多也就 3 个副本，只有节点数的增加到 10 台时，副本数才能达到 10。</p>
-<h2 id="Windows-配置环境变量"><a href="#Windows-配置环境变量" class="headerlink" title="Windows 配置环境变量"></a>Windows 配置环境变量</h2><p><img src="/assets%5Cb23efde2c619469080a3ee9ec8d1e552.png" srcset="/img/loading.gif" lazyload><br><img src="/assets%5C5b1adb7618bf436ba53348bc77af4720.png" srcset="/img/loading.gif" lazyload><br>配置完成之后双击 winutils.exe, 一闪而过说明配置环境变量成功<br><img src="/assets%5C2894aefb5f154601a0fc7ab326d2c65d.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/a7753434121541b6a7ad43ca7b385bd7.png" srcset="/img/loading.gif" lazyload><br>这里设置的副本数只是记录在 NameNode 的元数据中，是否真的会有这么多副本，还得看 DataNode 的数量。因为目前只有 3 台设备，最多也就 3 个副本，只有节点数的增加到 10 台时，副本数才能达到 10。</p>
+<h2 id="Windows-配置环境变量"><a href="#Windows-配置环境变量" class="headerlink" title="Windows 配置环境变量"></a>Windows 配置环境变量</h2><p><img src="/assets/9376ac0aa1aa4a1ea4301a400abcadac.png" srcset="/img/loading.gif" lazyload><br><img src="/assets/cf128ed93f3b4471b1ae0ff9d9dcbfce.png" srcset="/img/loading.gif" lazyload><br>配置完成之后双击 winutils.exe, 一闪而过说明配置环境变量成功<br><img src="/assets/1e4216c4554a42339bb5907f702fe7f5.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="创建项目"><a href="#创建项目" class="headerlink" title="创建项目"></a>创建项目</h2><p><strong>在 IDEA 中创建一个 Maven 工程 HdfsClientDemo，并导入相应的依赖坐标+日志添加</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;dependencies&gt;<br>    &lt;dependency&gt;<br>        &lt;groupId&gt;org.apache.hadoop&lt;/groupId&gt;<br>        &lt;artifactId&gt;hadoop-client&lt;/artifactId&gt;<br>        &lt;version&gt;3.1.3&lt;/version&gt;<br>    &lt;/dependency&gt;<br>    &lt;dependency&gt;<br>        &lt;groupId&gt;junit&lt;/groupId&gt;<br>        &lt;artifactId&gt;junit&lt;/artifactId&gt;<br>        &lt;version&gt;4.12&lt;/version&gt;<br>    &lt;/dependency&gt;<br>    &lt;dependency&gt;<br>        &lt;groupId&gt;org.slf4j&lt;/groupId&gt;<br>        &lt;artifactId&gt;slf4j-log4j12&lt;/artifactId&gt;<br>        &lt;version&gt;1.7.30&lt;/version&gt;<br>    &lt;/dependency&gt;<br>&lt;/dependencies&gt;<br></code></pre></td></tr></table></figure>
 
@@ -404,7 +404,7 @@
 
 <h2 id="HDFS-API-文件详细查看"><a href="#HDFS-API-文件详细查看" class="headerlink" title="HDFS_API 文件详细查看"></a>HDFS_API 文件详细查看</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><code class="hljs bash">// 获取文件详细信息<br>@Test<br>public void fileDetail() throws IOException &#123;<br>    // 参数1 f: 表示哪一个路径<br>    // 参数2 recursive: 表示递归<br><br>    // 获取所有文件信息, 返回一个迭代器<br>    RemoteIterator&lt;LocatedFileStatus&gt; listFiles = fs.listFiles(new Path(<span class="hljs-string">&quot;/&quot;</span>), <span class="hljs-literal">true</span>);<br>    // 遍历迭代器<br>    <span class="hljs-keyword">while</span> (listFiles.hasNext()) &#123;<br>        LocatedFileStatus fileStatus = listFiles.next();<br>        System.out.println(<span class="hljs-string">&quot;=======&quot;</span> + fileStatus.getPath() + <span class="hljs-string">&quot;=======&quot;</span>);<br>        System.out.println(fileStatus.getPermission());<br>        System.out.println(fileStatus.getOwner());<br>        System.out.println(fileStatus.getGroup());<br>        System.out.println(fileStatus.getLen());<br>        System.out.println(fileStatus.getModificationTime());<br>        System.out.println(fileStatus.getReplication());<br>        System.out.println(fileStatus.getBlockSize());<br>        System.out.println(fileStatus.getPath().getName());<br><br>        // 获取块信息<br>        BlockLocation[] blockLocations = fileStatus.getBlockLocations();<br>        System.out.println(Arrays.toString(blockLocations));<br>        /*<span class="hljs-keyword">for</span> (BlockLocation blockLocation : blockLocations) &#123;<br>            System.out.println(blockLocation);<br>        &#125;*/<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>查询结果如下<br><img src="/assets%5C19f2078aaca7444687da94750a8018d5.png" srcset="/img/loading.gif" lazyload></p>
+<p>查询结果如下<br><img src="/assets/6719b1c56a194f5983a40936dd4e27c6.png" srcset="/img/loading.gif" lazyload></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash">=======hdfs://hadoop202:8020/hadoop-3.1.3.tar.gz=======<br>rw-r--r--<br>xiamu<br>supergroup<br>338075860<br>1673210373259<br>3<br>134217728<br>hadoop-3.1.3.tar.gz<br>[0,134217728,hadoop202,hadoop204,hadoop203, 134217728,134217728,hadoop202,hadoop204,hadoop203, 268435456,69640404,hadoop204,hadoop202,hadoop203]<br></code></pre></td></tr></table></figure>
 
 <p>0,134217728 表示从 0 字节开始存放, 存放的大小是 134217728 字节<br>134217728,134217728 表示从 134217728 字节开始存放, 存放的大小是 134217728 字节<br>268435456,69640404 表示从 268435456 字节开始存放, 存放的大小是 69640404 字节</p>
@@ -412,8 +412,8 @@
 
 <h2 id="网络拓扑-节点距离计算"><a href="#网络拓扑-节点距离计算" class="headerlink" title="网络拓扑-节点距离计算"></a>网络拓扑-节点距离计算</h2><pre><code class="hljs">在HDFS写数据的过程中，NameNode会选择距离待上传数据最近距离的DataNode接收数据。那么这个最近距离怎么计算呢？
 </code></pre>
-<p>节点距离：两个节点到达最近的共同祖先的距离总和。<br><img src="/assets%5Cbc0c9b59d19c479e8d9e3d824ad42153.png" srcset="/img/loading.gif" lazyload><br>例如，假设有数据中心 d1 机架 r1 中的节点 n1。该节点可以表示为&#x2F;d1&#x2F;r1&#x2F;n1。利用这种标记，这里给出四种距离描述。<br>大家算一算每两个节点之间的距离。<br>⑤ 和 ⑨ 距离是 3<br>⑩ 和 ② 距离是 3<br>相差几根线, 距离就是几<br><img src="/assets%5C67e29a97d91244bd8314d2e68114594b.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="oiv-查看-Fsimage-文件"><a href="#oiv-查看-Fsimage-文件" class="headerlink" title="oiv 查看 Fsimage 文件"></a><strong>oiv 查看 Fsimage 文件</strong></h2><p><img src="/assets%5C2dc123cff50c4f77a83fdf8fd43e74e3.png" srcset="/img/loading.gif" lazyload><br>（1）查看 oiv 和 oev 命令</p>
+<p>节点距离：两个节点到达最近的共同祖先的距离总和。<br><img src="/assets/223d4fe82aa643d4ab0fcef27cf8489c.png" srcset="/img/loading.gif" lazyload><br>例如，假设有数据中心 d1 机架 r1 中的节点 n1。该节点可以表示为&#x2F;d1&#x2F;r1&#x2F;n1。利用这种标记，这里给出四种距离描述。<br>大家算一算每两个节点之间的距离。<br>⑤ 和 ⑨ 距离是 3<br>⑩ 和 ② 距离是 3<br>相差几根线, 距离就是几<br><img src="/assets/b77d8c70f4c849fb91796c5a6641f512.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="oiv-查看-Fsimage-文件"><a href="#oiv-查看-Fsimage-文件" class="headerlink" title="oiv 查看 Fsimage 文件"></a><strong>oiv 查看 Fsimage 文件</strong></h2><p><img src="/assets/b6c1a47e021846718901d0791de046ad.png" srcset="/img/loading.gif" lazyload><br>（1）查看 oiv 和 oev 命令</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[atguigu@hadoop102 current]$ hdfs<br>oiv            apply the offline fsimage viewer to an fsimage<br>oev            apply the offline edits viewer to an edits file<br></code></pre></td></tr></table></figure>
 
 <p>（2）基本语法<br><code>hdfs oiv -p 文件类型 -i镜像文件 -o 转换后文件输出路径</code><br>（3）案例实操</p>
@@ -436,7 +436,7 @@
 <p><strong>2）一分钟检查一次操作次数，当操作次数达到 1 百万时，SecondaryNameNode 执行一次。</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;property&gt;<br>&lt;name&gt;dfs.namenode.checkpoint.txns&lt;/name&gt;<br>&lt;value&gt;1000000&lt;/value&gt;<br>&lt;description&gt;操作动作次数&lt;/description&gt;<br>&lt;/property&gt;<br><br>&lt;property&gt;<br>&lt;name&gt;dfs.namenode.checkpoint.check.period&lt;/name&gt;<br>&lt;value&gt;60s&lt;/value&gt;<br>&lt;description&gt; 1分钟检查一次操作次数&lt;/description&gt;<br>&lt;/property&gt;<br></code></pre></td></tr></table></figure>
 
-<h2 id="DataNode"><a href="#DataNode" class="headerlink" title="DataNode"></a>DataNode</h2><p><img src="/assets%5C467278174dc04881aa0fc4734177ac13.png" srcset="/img/loading.gif" lazyload><br>（1）一个数据块在 DataNode 上以文件形式存储在磁盘上，包括两个文件，一个是数据本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。<br>（2）DataNode 启动后向 NameNode 注册，通过后，周期性（6 小时）的向 NameNode 上报所有的块信息。<br>DN 向 NN 汇报当前解读信息的时间间隔，默认 6 小时；</p>
+<h2 id="DataNode"><a href="#DataNode" class="headerlink" title="DataNode"></a>DataNode</h2><p><img src="/assets/88de50f6770b46b2b2dd26cd02b73d13.png" srcset="/img/loading.gif" lazyload><br>（1）一个数据块在 DataNode 上以文件形式存储在磁盘上，包括两个文件，一个是数据本身，一个是元数据包括数据块的长度，块数据的校验和，以及时间戳。<br>（2）DataNode 启动后向 NameNode 注册，通过后，周期性（6 小时）的向 NameNode 上报所有的块信息。<br>DN 向 NN 汇报当前解读信息的时间间隔，默认 6 小时；</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">&lt;property&gt;<br>	&lt;name&gt;dfs.blockreport.intervalMsec&lt;/name&gt;<br>	&lt;value&gt;21600000&lt;/value&gt;<br>	&lt;description&gt;Determines block reporting interval <span class="hljs-keyword">in</span> milliseconds.&lt;/description&gt;<br>&lt;/property&gt;<br></code></pre></td></tr></table></figure>
 
 <p>DN 扫描自己节点块信息列表的时间，默认 6 小时</p>
