@@ -16,3 +16,7 @@
 #board {
     z-index: 0;
 }
+
+figure.highlight td.gutter {
+    user-select: none;
+}
