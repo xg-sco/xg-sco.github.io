@@ -27,8 +27,9 @@
 <meta property="og:image" content="https://xiamu.icu/assets/%E7%AC%94%E8%8A%AF.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-05-19-11-37-31.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-05-19-11-38-13.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-05-19-11-47-37.png">
 <meta property="article:published_time" content="2023-05-19T03:23:15.000Z">
-<meta property="article:modified_time" content="2023-05-19T03:41:42.492Z">
+<meta property="article:modified_time" content="2023-05-19T03:56:12.029Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="github">
@@ -227,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          498 字
+          1.3k 字
         
       </span>
     
@@ -238,7 +239,7 @@
         
         
         
-          5 分钟
+          11 分钟
         
       </span>
     
@@ -300,9 +301,25 @@
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">0</span>, href);<br><span class="hljs-keyword">if</span> (href.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;/source&quot;</span>) &gt; -<span class="hljs-number">1</span>) &#123;<br>  href = href.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&quot;/source&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)<br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>, href);<br></code></pre></td></tr></table></figure>
 
 <p>此时部署到web, 问题解决</p>
+<p>另外推荐一款插件, 可以快速将图片进行插入, 只需要按下快捷键 <code>Ctrl Alt V</code> 就能把剪切板的图片插入</p>
+<p>插件名叫<code>Paste Image</code></p>
+<p><img src="/assets/2023-05-19-11-47-37.png" srcset="/img/loading.gif" lazyload></p>
+<p>安装插件之后进行配置</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;pasteImage.path&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$&#123;projectRoot&#125;/source/assets&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;pasteImage.basePath&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;$&#123;projectRoot&#125;&quot;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;pasteImage.prefix&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;/&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>大致就是配置三处</p>
+<ul>
+<li>basePath配置成${projectRoot}</li>
+<li>path设置成${projectRoot}&#x2F;source&#x2F;assets</li>
+<li>prefix设置成&#x2F;</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs markdown"><span class="hljs-section"># basePath设置成currentFileDir的效果</span><br>![](<span class="hljs-link">/../assets/2023-05-19-11-53-14.png</span>)<br><span class="hljs-section"># basePath设置成projectRoot的效果</span><br>![](<span class="hljs-link">/source/assets/2023-05-19-11-53-32.png</span>)<br><br>一个是展示的是项目的路径, 另一个展示的相对路径<br><br>path这个是图片存储的路径$&#123;projectRoot&#125;/source/assets<br><br>prefix这个就是图片的前缀啦<br>设置前<br>![](<span class="hljs-link">source/assets/2023-05-19-11-53-32.png</span>)<br>设置之后<br>![](<span class="hljs-link">/source/assets/2023-05-19-11-53-32.png</span>)<br></code></pre></td></tr></table></figure>
+
+<p>具体含义可以参考<a target="_blank" rel="noopener" href="https://github.com/mushanshitiancai/vscode-paste-image">官方文档</a></p>
 <h4 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h4><ul>
 <li>图片路径问题 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bbbcbb7c4911">https://www.jianshu.com/p/bbbcbb7c4911</a></li>
 <li>Hexo官网-资源文件夹 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders.html">https://hexo.io/zh-cn/docs/asset-folders.html</a></li>
+<li>Paste Image插件 <a target="_blank" rel="noopener" href="https://github.com/mushanshitiancai/vscode-paste-image">https://github.com/mushanshitiancai/vscode-paste-image</a></li>
 </ul>
 
                 
