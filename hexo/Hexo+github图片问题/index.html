@@ -16,25 +16,28 @@
   <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
-    <meta name="description" content="在.idea&#x2F;workspace.xml中随便找个位置添加如下代码 然后重启idea 1234567891011121314151617&lt;component name&#x3D;&quot;RunDashboard&quot;&gt;  &lt;option name&#x3D;&quot;configurationTypes&quot;&gt;    &lt;set&gt;      &lt;opt">
+    <meta name="description" content="当本地插入图片时, 本地是可以预览的, 当部署到web页面的时候, 这张图片就预览不了了 1![](&#x2F;source&#x2F;assets&#x2F;笔芯.png)   如果想让web页面预览, 路径就应该修改成如下样子, 此时本地不能预览 1![](&#x2F;assets&#x2F;笔芯.png)   难道二者不可兼得? 后来找到一篇文章描述的也是这个问题 解决办法就是引入第三方的插件, 然后手动的修改一下插件 插件下载 1npm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="开启run dashboard">
-<meta property="og:url" content="https://xiamu.icu/uncategorized/%E5%BC%80%E5%90%AFrun-dashboard/index.html">
+<meta property="og:title" content="Hexo+github图片问题">
+<meta property="og:url" content="https://xiamu.icu/hexo/Hexo+github%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="肉豆蔻吖">
-<meta property="og:description" content="在.idea&#x2F;workspace.xml中随便找个位置添加如下代码 然后重启idea 1234567891011121314151617&lt;component name&#x3D;&quot;RunDashboard&quot;&gt;  &lt;option name&#x3D;&quot;configurationTypes&quot;&gt;    &lt;set&gt;      &lt;opt">
+<meta property="og:description" content="当本地插入图片时, 本地是可以预览的, 当部署到web页面的时候, 这张图片就预览不了了 1![](&#x2F;source&#x2F;assets&#x2F;笔芯.png)   如果想让web页面预览, 路径就应该修改成如下样子, 此时本地不能预览 1![](&#x2F;assets&#x2F;笔芯.png)   难道二者不可兼得? 后来找到一篇文章描述的也是这个问题 解决办法就是引入第三方的插件, 然后手动的修改一下插件 插件下载 1npm">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiamu.icu/assets/2023-05-19-10-23-15.png">
-<meta property="article:published_time" content="2023-05-15T11:17:00.000Z">
-<meta property="article:modified_time" content="2023-05-19T03:22:20.168Z">
+<meta property="og:image" content="https://xiamu.icu/assets/%E7%AC%94%E8%8A%AF.png">
+<meta property="og:image" content="https://xiamu.icu/assets/%E7%AC%94%E8%8A%AF.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-05-19-11-37-31.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-05-19-11-38-13.png">
+<meta property="article:published_time" content="2023-05-19T03:23:15.000Z">
+<meta property="article:modified_time" content="2023-05-19T03:41:42.492Z">
 <meta property="article:author" content="肉豆蔻吖">
-<meta property="article:tag" content="Spring">
-<meta property="article:tag" content="Java">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="github">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xiamu.icu/assets/2023-05-19-10-23-15.png">
+<meta name="twitter:image" content="https://xiamu.icu/assets/%E7%AC%94%E8%8A%AF.png">
   
   
   
-  <title>开启run dashboard - 肉豆蔻吖</title>
+  <title>Hexo+github图片问题 - 肉豆蔻吖</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +199,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="开启run dashboard"></span>
+            <span id="subtitle" data-typed-text="Hexo+github图片问题"></span>
           
         </div>
 
@@ -212,8 +215,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-15 19:17" pubdate>
-          2023年5月15日 晚上
+        <time datetime="2023-05-19 11:23" pubdate>
+          2023年5月19日 上午
         </time>
       </span>
     
@@ -224,7 +227,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          620 字
+          498 字
         
       </span>
     
@@ -235,7 +238,7 @@
         
         
         
-          6 分钟
+          5 分钟
         
       </span>
     
@@ -273,16 +276,34 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">开启run dashboard</h1>
+            <h1 style="display: none">Hexo+github图片问题</h1>
             
             
               <div class="markdown-body">
                 
-                <p>在.idea&#x2F;workspace.xml中随便找个位置添加如下代码</p>
-<p>然后重启idea</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">component</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;RunDashboard&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;configurationTypes&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">set</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;SpringBootApplicationConfigurationType&quot;</span> /&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">set</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;ruleStates&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">list</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">RuleState</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;ConfigurationTypeDashboardGroupingRule&quot;</span> /&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">RuleState</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">RuleState</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;name&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;StatusDashboardGroupingRule&quot;</span> /&gt;</span><br>      <span class="hljs-tag">&lt;/<span class="hljs-name">RuleState</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">list</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">component</span>&gt;</span><br></code></pre></td></tr></table></figure>
+                <p>当本地插入图片时, 本地是可以预览的, 当部署到web页面的时候, 这张图片就预览不了了</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![](<span class="hljs-link">/source/assets/笔芯.png</span>)<br></code></pre></td></tr></table></figure>
 
-<p>效果图<br><img src="/assets/2023-05-19-10-23-15.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/%E7%AC%94%E8%8A%AF.png" srcset="/img/loading.gif" lazyload></p>
+<p>如果想让web页面预览, 路径就应该修改成如下样子, 此时本地不能预览</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs markdown">![](<span class="hljs-link">/assets/笔芯.png</span>)<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/%E7%AC%94%E8%8A%AF.png" srcset="/img/loading.gif" lazyload></p>
+<p>难道二者不可兼得?</p>
+<p>后来找到一篇文章描述的也是这个<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bbbcbb7c4911">问题</a></p>
+<p>解决办法就是引入第三方的插件, 然后手动的修改一下插件</p>
+<p>插件下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install hexo-renderer-marked --save<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/2023-05-19-11-37-31.png" srcset="/img/loading.gif" lazyload></p>
+<p>然后定位到118行, 修改如下代码<br><img src="/assets/2023-05-19-11-38-13.png" srcset="/img/loading.gif" lazyload></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">0</span>, href);<br><span class="hljs-keyword">if</span> (href.<span class="hljs-title function_">indexOf</span>(<span class="hljs-string">&quot;/source&quot;</span>) &gt; -<span class="hljs-number">1</span>) &#123;<br>  href = href.<span class="hljs-title function_">replace</span>(<span class="hljs-string">&quot;/source&quot;</span>, <span class="hljs-string">&quot;&quot;</span>)<br>&#125;<br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-number">1</span>, href);<br></code></pre></td></tr></table></figure>
+
+<p>此时部署到web, 问题解决</p>
+<h4 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h4><ul>
+<li>图片路径问题 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/bbbcbb7c4911">https://www.jianshu.com/p/bbbcbb7c4911</a></li>
+<li>Hexo官网-资源文件夹 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/asset-folders.html">https://hexo.io/zh-cn/docs/asset-folders.html</a></li>
+</ul>
 
                 
               </div>
@@ -291,13 +312,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/hexo/" class="category-chain-item">hexo</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Spring/">#Spring</a>
+        <a href="/tags/hexo/">#hexo</a>
       
-        <a href="/tags/Java/">#Java</a>
+        <a href="/tags/github/">#github</a>
       
     </div>
   
@@ -309,8 +351,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>开启run dashboard</div>
-      <div>https://xiamu.icu/uncategorized/开启run-dashboard/</div>
+      <div>Hexo+github图片问题</div>
+      <div>https://xiamu.icu/hexo/Hexo+github图片问题/</div>
     </div>
     <div class="license-meta">
       
@@ -322,7 +364,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月15日</div>
+          <div>2023年5月19日</div>
         </div>
       
       
@@ -354,18 +396,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/hexo/Hexo+github%E5%9B%BE%E7%89%87%E9%97%AE%E9%A2%98/" title="Hexo+github图片问题">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Hexo+github图片问题</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Java/SpringCloud2/" title="SpringCloud">
-                        <span class="hidden-mobile">SpringCloud</span>
+                      <a href="/uncategorized/%E5%BC%80%E5%90%AFrun-dashboard/" title="开启run dashboard">
+                        <span class="hidden-mobile">开启run dashboard</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
