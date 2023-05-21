@@ -277,7 +277,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/b836f0f668424be4b0e2fff34d914d17.png">
 <meta property="og:image" content="https://xiamu.icu/assets/89e220fe2a54404a8f6649af2db84cad.png">
 <meta property="article:published_time" content="2023-05-21T11:11:22.000Z">
-<meta property="article:modified_time" content="2023-05-21T11:11:43.432Z">
+<meta property="article:modified_time" content="2023-05-21T11:18:48.783Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="云原生">
 <meta property="article:tag" content="kubenetes">
@@ -490,7 +490,7 @@
         
         
         
-          945 分钟
+          946 分钟
         
       </span>
     
@@ -972,7 +972,11 @@
 <p>开启邮箱通知<br><img src="/assets/02c089f5f56a455685c1a4f5d434e890.png" srcset="/img/loading.gif" lazyload><br><img src="/assets/e68f78abf0774188b41a83fa041de7cb.png" srcset="/img/loading.gif" lazyload><br>记得将body中的单引号换成双引号<br><img src="/assets/8babec576c824d61b70102e01194063c.png" srcset="/img/loading.gif" lazyload><br>配置ks-jenkins的邮箱地址, 这个相当于是系统通知, 刚刚上面配置的是流水线通知<br><img src="/assets/9ec95d31610548ea86143dd1c3fbb49d.png" srcset="/img/loading.gif" lazyload><br>然后平台设置邮件<br><img src="/assets/ca52e50dc834446f99e82f02c53c0c2f.png" srcset="/img/loading.gif" lazyload></p>
 <p>然后创建一个devops工程进行测试邮箱服务<br><img src="/assets/a50d77b662cd467fa3a4a757033f9bda.png" srcset="/img/loading.gif" lazyload><br>记得将这个变量的单引号变成双引号<br><img src="/assets/d3dcae5cd5134b3eba46049e29997112.png" srcset="/img/loading.gif" lazyload><br>因为单引号不能读取这个变量<br><img src="/assets/3bac765128904cd9aa561b421e24e440.png" srcset="/img/loading.gif" lazyload></p>
 <h3 id="导入mongodb数据"><a href="#导入mongodb数据" class="headerlink" title="导入mongodb数据"></a>导入mongodb数据</h3><p>配置mongodb外网访问<br><img src="/assets/8c0f6769b38b45ae91a1fc5be9c1d0a8.png" srcset="/img/loading.gif" lazyload><br>连接mongodb<br><img src="/assets/303e1bc672df4212ae414bdf2c95d19a.png" srcset="/img/loading.gif" lazyload><br>导入如下的数据<br><img src="/assets/b600de6d8b044f0385871918e59e058f.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="本地运行尚医通后台项目"><a href="#本地运行尚医通后台项目" class="headerlink" title="本地运行尚医通后台项目"></a>本地运行尚医通后台项目</h3><p>双击idea的shift键, 搜索到<code>JwtHelper</code><img src="/assets/0d7cfc4a1d214e45aa799a1e899f7651.png" srcset="/img/loading.gif" lazyload><br>将生成的token记录下来, 在src\store\modules\user.js文件修改<br><img src="/assets/8932d07cb2c045e6a408bb8fa540abfa.png" srcset="/img/loading.gif" lazyload><br>然后修改config&#x2F;dev.env.js 和 config&#x2F;prod.env.js<br>修改成暴露出来的server-gateway网关地址<br><img src="/assets/b6d15f88f83d4956af98dc6390e064f0.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="本地运行尚医通后台项目"><a href="#本地运行尚医通后台项目" class="headerlink" title="本地运行尚医通后台项目"></a>本地运行尚医通后台项目</h3><blockquote>
+<p>gitee仓库地址</p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/xialonggui/yygh-admin">https://gitee.com/xialonggui/yygh-admin</a><br><a target="_blank" rel="noopener" href="https://gitee.com/xialonggui/yygh-site">https://gitee.com/xialonggui/yygh-site</a></p>
+</blockquote>
+<p>双击idea的shift键, 搜索到<code>JwtHelper</code><img src="/assets/0d7cfc4a1d214e45aa799a1e899f7651.png" srcset="/img/loading.gif" lazyload><br>将生成的token记录下来, 在src\store\modules\user.js文件修改<br><img src="/assets/8932d07cb2c045e6a408bb8fa540abfa.png" srcset="/img/loading.gif" lazyload><br>然后修改config&#x2F;dev.env.js 和 config&#x2F;prod.env.js<br>修改成暴露出来的server-gateway网关地址<br><img src="/assets/b6d15f88f83d4956af98dc6390e064f0.png" srcset="/img/loading.gif" lazyload></p>
 <p>安装相关依赖</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 建议将node版本降低到14版本, 不然会出来严重的历史残留bug, 比如sass版本的不匹配</span><br><span class="hljs-comment"># 所以最简单的办法就是降低nodejs的版本</span><br>node -v<br><span class="hljs-comment"># v14.21.3</span><br><br><span class="hljs-comment"># 安装node-sass</span><br>npm i node-sass --sass_binary_site=https://npm.taobao.org/mirrors/node-sass/<br><br><span class="hljs-comment"># 安装</span><br>npm install --registry=https://registry.npm.taobao.org<br><br><span class="hljs-comment"># 运行</span><br>npm run dev<br><br></code></pre></td></tr></table></figure>
 <p>至此本地项目就运行起来了<br>然后在gitee上创建一个代码仓库, 为什么要创建仓库呢?<br>因为这个雷丰阳老师提供<a target="_blank" rel="noopener" href="https://gitee.com/leifengyang/yygh-admin">仓库</a>的地址的网关是没有修改的, 我们得修改成自己的网关地址, 也就是得使用自己的代码</p>
