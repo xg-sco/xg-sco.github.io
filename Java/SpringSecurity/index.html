@@ -16,17 +16,25 @@
   <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
+    <meta name="description" content="快速入门搭建一个SpringBoot工程 创建一个maven项目导入依赖 12345678910111213141516&lt;parent&gt;    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-boot-starter-parent&lt;&#x2F;artifactId&gt;">
+<meta property="og:type" content="article">
 <meta property="og:title" content="SpringSecurity">
 <meta property="og:url" content="https://xiamu.icu/Java/SpringSecurity/index.html">
 <meta property="og:site_name" content="肉豆蔻吖">
+<meta property="og:description" content="快速入门搭建一个SpringBoot工程 创建一个maven项目导入依赖 12345678910111213141516&lt;parent&gt;    &lt;groupId&gt;org.springframework.boot&lt;&#x2F;groupId&gt;    &lt;artifactId&gt;spring-boot-starter-parent&lt;&#x2F;artifactId&gt;">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-05-21-21-38-29.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-05-21-21-45-32.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-05-21-21-46-25.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-05-21-21-47-14.png">
 <meta property="article:published_time" content="2023-05-21T13:01:29.000Z">
-<meta property="article:modified_time" content="2023-05-21T13:30:36.057Z">
+<meta property="article:modified_time" content="2023-05-21T13:48:29.745Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="SpringSecurity">
 <meta property="article:tag" content="Spring">
+<meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiamu.icu/assets/2023-05-21-21-38-29.png">
   
   
   
@@ -220,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 字
+          1.3k 字
         
       </span>
     
@@ -231,7 +239,7 @@
         
         
         
-          1 分钟
+          11 分钟
         
       </span>
     
@@ -274,7 +282,28 @@
             
               <div class="markdown-body">
                 
-                
+                <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><p>搭建一个SpringBoot工程</p>
+<p>创建一个maven项目<br>导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>创建启动类<code>SecurityApplication.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">SecurityApplication</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        SpringApplication.run(SecurityApplication.class, args);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>编写controller</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">HelloController</span> &#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span><br>    <span class="hljs-keyword">public</span> String <span class="hljs-title function_">hello</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Hello&quot;</span>;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>运行项目<br><img src="/assets/2023-05-21-21-38-29.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="引入SpringSecurity"><a href="#引入SpringSecurity" class="headerlink" title="引入SpringSecurity"></a>引入SpringSecurity</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-security<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>重启项目, 再次请求<code>http://localhost:8080/</code></p>
+<p><img src="/assets/2023-05-21-21-45-32.png" srcset="/img/loading.gif" lazyload></p>
+<p>可以发现此时需要先登录, 才能进行刚刚的正常访问</p>
+<p>账号是: <code>user</code><br>密码将会在idea控制台中打印出来 <code>dd7079e7-0fb9-4735-850b-ccc3aaceea32</code></p>
+<p><img src="/assets/2023-05-21-21-46-25.png" srcset="/img/loading.gif" lazyload></p>
+<p>输入完账号密码之后又可以正常访问了</p>
+<p><img src="/assets/2023-05-21-21-47-14.png" srcset="/img/loading.gif" lazyload></p>
+<p>发送请求<code>http://localhost:8080/logout</code>退出登录</p>
+
                 
               </div>
             
@@ -310,6 +339,8 @@
         <a href="/tags/SpringSecurity/">#SpringSecurity</a>
       
         <a href="/tags/Spring/">#Spring</a>
+      
+        <a href="/tags/Java/">#Java</a>
       
     </div>
   
@@ -365,6 +396,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/%E6%B2%B9%E7%8C%B4/%E6%B2%B9%E7%8C%B4%E8%84%9A%E6%9C%AC%E5%8E%BB%E6%8E%89%E7%89%88%E6%9D%83%E5%A3%B0%E6%98%8E/" title="油猴脚本去掉版权声明">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">油猴脚本去掉版权声明</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
