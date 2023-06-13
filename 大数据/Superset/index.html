@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#96c0d3cc">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="安装Miniconda 下载地址：https:&#x2F;&#x2F;repo.anaconda.com&#x2F;miniconda&#x2F;Miniconda3-latest-Linux-x86_64.sh  1234567891011121314151617181920212223242526272829303132333435[xiamu@hadoop202 superset]$ lsMiniconda3-latest-Lin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Superset">
+<meta property="og:url" content="https://xiamu.icu/%E5%A4%A7%E6%95%B0%E6%8D%AE/Superset/index.html">
+<meta property="og:site_name" content="肉豆蔻吖">
+<meta property="og:description" content="安装Miniconda 下载地址：https:&#x2F;&#x2F;repo.anaconda.com&#x2F;miniconda&#x2F;Miniconda3-latest-Linux-x86_64.sh  1234567891011121314151617181920212223242526272829303132333435[xiamu@hadoop202 superset]$ lsMiniconda3-latest-Lin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiamu.icu/assets/%E7%AC%94%E8%8A%AF.png">
+<meta property="article:published_time" content="2023-06-13T00:14:24.000Z">
+<meta property="article:modified_time" content="2023-06-13T00:15:31.542Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Superset">
+<meta property="article:tag" content="Docker">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiamu.icu/assets/%E7%AC%94%E8%8A%AF.png">
+  
+  
+  
+  <title>Superset - 肉豆蔻吖</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiamu.icu","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>肉豆蔻吖</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Superset"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-06-13 08:14" pubdate>
+          2023年6月13日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          11k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          96 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Superset</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="安装Miniconda"><a href="#安装Miniconda" class="headerlink" title="安装Miniconda"></a>安装Miniconda</h2><blockquote>
+<p>下载地址：<a target="_blank" rel="noopener" href="https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh">https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs bash">[xiamu@hadoop202 superset]$ <span class="hljs-built_in">ls</span><br>Miniconda3-latest-Linux-x86_64.sh<br>[xiamu@hadoop202 superset]$ <span class="hljs-built_in">pwd</span><br>/opt/software/superset<br>[xiamu@hadoop202 superset]$ bash Miniconda3-latest-Linux-x86_64.sh<br><br><span class="hljs-comment"># 按回车</span><br><span class="hljs-comment"># 两次空格</span><br><span class="hljs-comment"># yes</span><br><span class="hljs-comment"># /opt/module/miniconda3</span><br><span class="hljs-comment"># yes</span><br><br>==&gt; For changes to take effect, close and re-open your current shell. &lt;==<br><br>If you<span class="hljs-string">&#x27;d prefer that conda&#x27;</span>s base environment not be activated on startup,<br>   <span class="hljs-built_in">set</span> the auto_activate_base parameter to <span class="hljs-literal">false</span>:<br><br>conda config --<span class="hljs-built_in">set</span> auto_activate_base <span class="hljs-literal">false</span><br><br>Thank you <span class="hljs-keyword">for</span> installing Miniconda3!<br><br><span class="hljs-comment"># 出现这段话说明安装成功了, 但是需要重新启动一下shell或者重新加载一次配置文件</span><br><span class="hljs-comment"># 加载配置文件</span><br>[xiamu@hadoop202 ~]$ <span class="hljs-built_in">source</span> ~/.bashrc<br><span class="hljs-comment"># 这是自动激活出现的base</span><br>(base) [xiamu@hadoop202 ~]$ python -V<br>Python 3.7.4<br>(base) [xiamu@hadoop202 ~]$<br><br><span class="hljs-comment"># 取消自动激活base</span><br>(base) [xiamu@hadoop202 ~]$ conda config --<span class="hljs-built_in">set</span> auto_activate_base <span class="hljs-literal">false</span><br><br><span class="hljs-comment"># 再开一个新shell, 查看版本变成了2.7</span><br>[xiamu@hadoop202 ~]$ python -V<br>Python 2.7.5<br></code></pre></td></tr></table></figure>
+
+<h2 id="创建不同的python环境"><a href="#创建不同的python环境" class="headerlink" title="创建不同的python环境"></a>创建不同的python环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 激活base环境</span><br>[xiamu@hadoop202 ~]$ conda activate base<br>(base) [xiamu@hadoop202 ~]$ python -V<br>Python 3.7.4<br><br><span class="hljs-comment"># 取消激活</span><br>(base) [xiamu@hadoop202 ~]$ conda deactivate<br>[xiamu@hadoop202 ~]$<br><br><span class="hljs-comment"># 配置conda国内镜像</span><br><br>[xiamu@hadoop202 ~]$ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free<br>[xiamu@hadoop202 ~]$ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main<br><br><span class="hljs-comment"># 查看源</span><br>[xiamu@hadoop202 ~]$ conda config --show-sources<br><br><span class="hljs-comment"># 创建Python环境</span><br>[xiamu@hadoop202 ~]$ conda create --name superset python=3.7<br><br><span class="hljs-comment"># 激活环境</span><br>[xiamu@hadoop202 ~]$ conda activate superset<br><span class="hljs-comment"># 取消激活</span><br>[xiamu@hadoop202 ~]$ conda deactivate<br></code></pre></td></tr></table></figure>
+
+<h2 id="Superset部署"><a href="#Superset部署" class="headerlink" title="Superset部署"></a>Superset部署</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 安装Superset之前，需安装以下所需依赖。</span><br>(superset) [xiamu@hadoop202 ~]$ sudo yum install -y gcc gcc-c++ libffi-devel python-devel python-pip python-wheel python-setuptools openssl-devel cyrus-sasl-devel openldap-devel<br><br><span class="hljs-comment"># 安装（更新）setuptools和pip</span><br>(superset) [xiamu@hadoop202 ~]$ pip install --upgrade setuptools pip -i https://pypi.douban.com/simple/<br><br><span class="hljs-comment"># 安装Supetset</span><br>(superset) [xiamu@hadoop202 ~]$ pip install apache-superset -i https://pypi.douban.com/simple/<br><br><br>(superset) [xiamu@hadoop202 ~]$ superset db upgrade<br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/bin/superset&quot;</span>, line 5, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.cli.main import superset<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/__init__.py&quot;</span>, line 18, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from flask import current_app, Flask<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/flask/__init__.py&quot;</span>, line 14, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from jinja2 import escape<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/jinja2/__init__.py&quot;</span>, line 12, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from .environment import Environment<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/jinja2/environment.py&quot;</span>, line 25, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from .defaults import BLOCK_END_STRING<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/jinja2/defaults.py&quot;</span>, line 3, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from .filters import FILTERS as DEFAULT_FILTERS  <span class="hljs-comment"># noqa: F401</span><br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/jinja2/filters.py&quot;</span>, line 13, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from markupsafe import soft_unicode<br>ImportError: cannot import name <span class="hljs-string">&#x27;soft_unicode&#x27;</span> from <span class="hljs-string">&#x27;markupsafe&#x27;</span> (/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/markupsafe/__init__.py)<br><br><span class="hljs-comment"># 如果出现这个报错</span><br><span class="hljs-comment"># 则执行如下命令，将markupsafe依赖的版本回退到 2.0.1。</span><br>(superset) [xiamu@hadoop202 superset]$ pip install --force-reinstall MarkupSafe==2.0.1<br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/bin/superset&quot;</span>, line 5, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.cli.main import superset<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/__init__.py&quot;</span>, line 21, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.app import create_app<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/app.py&quot;</span>, line 23, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.initialization import SupersetAppInitializer<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/initialization/__init__.py&quot;</span>, line 33, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.extensions import (<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/extensions/__init__.py&quot;</span>, line 116, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    celery_app = celery.Celery()<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/celery/local.py&quot;</span>, line 509, <span class="hljs-keyword">in</span> __getattr__<br>    module = __import__(self._object_origins[name], None, None, [name])<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/celery/app/__init__.py&quot;</span>, line 5, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from celery import _state<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/celery/_state.py&quot;</span>, line 17, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from celery.utils.threads import LocalStack<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/celery/utils/__init__.py&quot;</span>, line 19, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from .nodenames import nodename, nodesplit, worker_direct<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/celery/utils/nodenames.py&quot;</span>, line 9, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from kombu.entity import Exchange, Queue<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/kombu/entity.py&quot;</span>, line 9, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from .serialization import prepare_accept_content<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/kombu/serialization.py&quot;</span>, line 456, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    <span class="hljs-keyword">for</span> ep, args <span class="hljs-keyword">in</span> entrypoints(<span class="hljs-string">&#x27;kombu.serializers&#x27;</span>):  <span class="hljs-comment"># pragma: no cover</span><br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/kombu/utils/compat.py&quot;</span>, line 93, <span class="hljs-keyword">in</span> entrypoints<br>    <span class="hljs-keyword">for</span> ep <span class="hljs-keyword">in</span> importlib_metadata.entry_points().get(namespace, [])<br>AttributeError: <span class="hljs-string">&#x27;EntryPoints&#x27;</span> object has no attribute <span class="hljs-string">&#x27;get&#x27;</span><br><br>(superset) [xiamu@hadoop202 superset]$ pip install importlib-metadata==4.13.0<br><br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/bin/superset&quot;</span>, line 5, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.cli.main import superset<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/__init__.py&quot;</span>, line 21, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.app import create_app<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/app.py&quot;</span>, line 23, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.initialization import SupersetAppInitializer<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/initialization/__init__.py&quot;</span>, line 51, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.security import SupersetSecurityManager<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/security/__init__.py&quot;</span>, line 17, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.security.manager import SupersetSecurityManager  <span class="hljs-comment"># noqa: F401</span><br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/security/manager.py&quot;</span>, line 68, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.security.guest_token import (<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.7/site-packages/superset/security/guest_token.py&quot;</span>, line 18, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from typing import List, Optional, TypedDict, Union<br>ImportError: cannot import name <span class="hljs-string">&#x27;TypedDict&#x27;</span> from <span class="hljs-string">&#x27;typing&#x27;</span> (/opt/module/miniconda3/envs/superset/lib/python3.7/typing.py)<br><br><br>卸载Python版本<br>(superset) [xiamu@hadoop202 superset]$ conda deactivate<br>[xiamu@hadoop202 superset]$ conda remove -n superset --all<br><span class="hljs-comment"># 安装新版</span><br>[xiamu@hadoop202 superset]$ conda create --name superset python=3.9<br><br><span class="hljs-comment"># 参考</span><br>https://blog.csdn.net/qq1787546870/article/details/124582727<br><br>Traceback (most recent call last):<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/bin/superset&quot;</span>, line 5, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.cli.main import superset<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.9/site-packages/superset/__init__.py&quot;</span>, line 21, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.app import create_app<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.9/site-packages/superset/app.py&quot;</span>, line 23, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.initialization import SupersetAppInitializer<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.9/site-packages/superset/initialization/__init__.py&quot;</span>, line 33, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.extensions import (<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.9/site-packages/superset/extensions/__init__.py&quot;</span>, line 32, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.utils.async_query_manager import AsyncQueryManager<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.9/site-packages/superset/utils/async_query_manager.py&quot;</span>, line 26, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.utils.core import get_user_id<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.9/site-packages/superset/utils/core.py&quot;</span>, line 106, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    from superset.sql_parse import sanitize_clause<br>  File <span class="hljs-string">&quot;/opt/module/miniconda3/envs/superset/lib/python3.9/site-packages/superset/sql_parse.py&quot;</span>, line 67, <span class="hljs-keyword">in</span> &lt;module&gt;<br>    re.compile(r<span class="hljs-string">&quot;&#x27;(&#x27;&#x27;|\\\\|\\|[^&#x27;])*&#x27;&quot;</span>, sqlparse.keywords.FLAGS).match,<br>AttributeError: module <span class="hljs-string">&#x27;sqlparse.keywords&#x27;</span> has no attribute <span class="hljs-string">&#x27;FLAGS&#x27;</span><br>(superset) [xiamu@hadoop202 superset]$ pip install sqlparse==<span class="hljs-string">&#x27;0.4.3&#x27;</span><br><br>(superset) [xiamu@hadoop202 superset]$ superset db upgrade<br>Usage: superset [OPTIONS] COMMAND [ARGS]...<br>Try <span class="hljs-string">&#x27;superset --help&#x27;</span> <span class="hljs-keyword">for</span> <span class="hljs-built_in">help</span>.<br><br><br>Error: Could not locate a Flask application. You did not provide the <span class="hljs-string">&quot;FLASK_APP&quot;</span> environment variable, and a <span class="hljs-string">&quot;wsgi.py&quot;</span> or <span class="hljs-string">&quot;app.py&quot;</span> module was not found <span class="hljs-keyword">in</span> the current directory.<br>(superset) [xiamu@hadoop202 superset]$ <span class="hljs-built_in">export</span> FLASK_APP=superset<br><br><br>(superset) [xiamu@hadoop202 superset]$ superset db upgrade<br>--------------------------------------------------------------------------------<br>                                    WARNING<br>--------------------------------------------------------------------------------<br>A Default SECRET_KEY was detected, please use superset_config.py to override it.<br>Use a strong complex alphanumeric string and use a tool to <span class="hljs-built_in">help</span> you generate<br>a sufficiently random sequence, ex: openssl rand -<span class="hljs-built_in">base64</span> 42<br>--------------------------------------------------------------------------------<br>--------------------------------------------------------------------------------<br>Refusing to start due to insecure SECRET_KEY<br><br>(superset) [xiamu@hadoop202 superset]$ openssl rand -<span class="hljs-built_in">base64</span> 42<br>qh1gH4ZwdmLPN09dczEKhqbgE7U1EN8omxbtnSUSvpxeHwTiHqwcTbNc<br>(superset) [xiamu@hadoop202 superset]$ <span class="hljs-built_in">export</span> SECRET_KEY=<span class="hljs-string">&#x27;qh1gH4ZwdmLPN09dczEKhqbgE7U1EN8omxbtnSUSvp</span><br><span class="hljs-string">xeHwTiHqwcTbNc&#x27;</span><br><br>(superset) [xiamu@hadoop202 ~]$ superset db upgrade<br>--------------------------------------------------------------------------------<br>                                    WARNING<br>--------------------------------------------------------------------------------<br>A Default SECRET_KEY was detected, please use superset_config.py to override it.<br>Use a strong complex alphanumeric string and use a tool to <span class="hljs-built_in">help</span> you generate<br>a sufficiently random sequence, ex: openssl rand -<span class="hljs-built_in">base64</span> 42<br>--------------------------------------------------------------------------------<br>--------------------------------------------------------------------------------<br>Refusing to start due to insecure SECRET_KEY<br><br>pip install apache-superset==1.4.2<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="使用docker安装"><a href="#使用docker安装" class="headerlink" title="使用docker安装"></a>使用docker安装</h2><p>非常简单, 不折腾之前的安装方式了QAQ</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget https://github.com/apache/superset/archive/refs/heads/master.zip<br>下载安装包, 然后使用unzip解压<br>[xiamu@hadoop202 superset]$ unzip master.zip -d /opt/module/<br><br><span class="hljs-built_in">cd</span> superset-master/<br>sudo docker compose -f docker-compose-non-dev.yml pull<br>sudo docker compose -f docker-compose-non-dev.yml up<br>此时打开浏览器 输入：http://IP:8088/登录即可。<br>默认用户名密码是admin<br></code></pre></td></tr></table></figure>
+
+<p>参考: <a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37657585/article/details/130767228">https://blog.csdn.net/m0_37657585/article/details/130767228</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/" class="category-chain-item">大数据</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/">#Python</a>
+      
+        <a href="/tags/Superset/">#Superset</a>
+      
+        <a href="/tags/Docker/">#Docker</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Superset</div>
+      <div>https://xiamu.icu/大数据/Superset/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年6月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E5%89%8D%E7%AB%AF/Vue3/" title="Vue3">
+                        <span class="hidden-mobile">Vue3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Haq24NRgHl4QheEi7oVqtAsM-gzGzoHsz","appKey":"kGbxzGaSiqqlFPxg24Tk3dVN","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":"https://valinecdn.bili33.top","emojiMaps":{"Tieba-New2":"/Tieba-New/image_emoticon.png","Tieba-New3":"/Tieba-New/image_emoticon10.png","Tieba-New4":"/Tieba-New/image_emoticon100.png","Tieba-New5":"/Tieba-New/image_emoticon101.png","Tieba-New6":"/Tieba-New/image_emoticon102.png","Tieba-New7":"/Tieba-New/image_emoticon103.png","Tieba-New8":"/Tieba-New/image_emoticon104.png","Tieba-New9":"/Tieba-New/image_emoticon105.png","Tieba-New10":"/Tieba-New/image_emoticon106.png","Tieba-New11":"/Tieba-New/image_emoticon107.png","Tieba-New12":"/Tieba-New/image_emoticon108.png","Tieba-New13":"/Tieba-New/image_emoticon109.png","Tieba-New14":"/Tieba-New/image_emoticon11.png","Tieba-New15":"/Tieba-New/image_emoticon110.png","Tieba-New16":"/Tieba-New/image_emoticon111.png","Tieba-New17":"/Tieba-New/image_emoticon112.png","Tieba-New18":"/Tieba-New/image_emoticon113.png","Tieba-New19":"/Tieba-New/image_emoticon114.png","Tieba-New20":"/Tieba-New/image_emoticon115.png","Tieba-New21":"/Tieba-New/image_emoticon116.png","Tieba-New22":"/Tieba-New/image_emoticon117.png","Tieba-New23":"/Tieba-New/image_emoticon118.png","Tieba-New24":"/Tieba-New/image_emoticon119.png","Tieba-New25":"/Tieba-New/image_emoticon12.png","Tieba-New26":"/Tieba-New/image_emoticon120.png","Tieba-New27":"/Tieba-New/image_emoticon121.png","Tieba-New28":"/Tieba-New/image_emoticon122.png","Tieba-New29":"/Tieba-New/image_emoticon123.png","Tieba-New30":"/Tieba-New/image_emoticon124.png","Tieba-New31":"/Tieba-New/image_emoticon13.png","Tieba-New32":"/Tieba-New/image_emoticon14.png","Tieba-New33":"/Tieba-New/image_emoticon15.png","Tieba-New34":"/Tieba-New/image_emoticon16.png","Tieba-New35":"/Tieba-New/image_emoticon17.png","Tieba-New36":"/Tieba-New/image_emoticon18.png","Tieba-New37":"/Tieba-New/image_emoticon19.png","Tieba-New38":"/Tieba-New/image_emoticon2.png","Tieba-New39":"/Tieba-New/image_emoticon20.png","Tieba-New40":"/Tieba-New/image_emoticon21.png","Tieba-New41":"/Tieba-New/image_emoticon22.png","Tieba-New42":"/Tieba-New/image_emoticon23.png","Tieba-New43":"/Tieba-New/image_emoticon24.png","Tieba-New44":"/Tieba-New/image_emoticon25.png","Tieba-New45":"/Tieba-New/image_emoticon26.png","Tieba-New46":"/Tieba-New/image_emoticon27.png","Tieba-New47":"/Tieba-New/image_emoticon28.png","Tieba-New48":"/Tieba-New/image_emoticon29.png","Tieba-New49":"/Tieba-New/image_emoticon3.png","Tieba-New50":"/Tieba-New/image_emoticon30.png","Tieba-New51":"/Tieba-New/image_emoticon31.png","Tieba-New52":"/Tieba-New/image_emoticon32.png","Tieba-New53":"/Tieba-New/image_emoticon33.png","Tieba-New54":"/Tieba-New/image_emoticon34.png","Tieba-New55":"/Tieba-New/image_emoticon35.png","Tieba-New56":"/Tieba-New/image_emoticon36.png","Tieba-New57":"/Tieba-New/image_emoticon37.png","Tieba-New58":"/Tieba-New/image_emoticon38.png","Tieba-New59":"/Tieba-New/image_emoticon39.png","Tieba-New60":"/Tieba-New/image_emoticon4.png","Tieba-New61":"/Tieba-New/image_emoticon40.png","Tieba-New62":"/Tieba-New/image_emoticon41.png","Tieba-New63":"/Tieba-New/image_emoticon42.png","Tieba-New64":"/Tieba-New/image_emoticon43.png","Tieba-New65":"/Tieba-New/image_emoticon44.png","Tieba-New66":"/Tieba-New/image_emoticon45.png","Tieba-New67":"/Tieba-New/image_emoticon46.png","Tieba-New68":"/Tieba-New/image_emoticon47.png","Tieba-New69":"/Tieba-New/image_emoticon48.png","Tieba-New70":"/Tieba-New/image_emoticon49.png","Tieba-New71":"/Tieba-New/image_emoticon5.png","Tieba-New72":"/Tieba-New/image_emoticon50.png","Tieba-New73":"/Tieba-New/image_emoticon6.png","Tieba-New74":"/Tieba-New/image_emoticon66.png","Tieba-New75":"/Tieba-New/image_emoticon67.png","Tieba-New76":"/Tieba-New/image_emoticon68.png","Tieba-New77":"/Tieba-New/image_emoticon69.png","Tieba-New78":"/Tieba-New/image_emoticon7.png","Tieba-New79":"/Tieba-New/image_emoticon70.png","Tieba-New80":"/Tieba-New/image_emoticon71.png","Tieba-New81":"/Tieba-New/image_emoticon72.png","Tieba-New82":"/Tieba-New/image_emoticon73.png","Tieba-New83":"/Tieba-New/image_emoticon74.png","Tieba-New84":"/Tieba-New/image_emoticon75.png","Tieba-New85":"/Tieba-New/image_emoticon76.png","Tieba-New86":"/Tieba-New/image_emoticon77.png","Tieba-New87":"/Tieba-New/image_emoticon78.png","Tieba-New88":"/Tieba-New/image_emoticon79.png","Tieba-New89":"/Tieba-New/image_emoticon8.png","Tieba-New90":"/Tieba-New/image_emoticon80.png","Tieba-New91":"/Tieba-New/image_emoticon81.png","Tieba-New92":"/Tieba-New/image_emoticon82.png","Tieba-New93":"/Tieba-New/image_emoticon83.png","Tieba-New94":"/Tieba-New/image_emoticon84.png","Tieba-New95":"/Tieba-New/image_emoticon85.png","Tieba-New96":"/Tieba-New/image_emoticon86.png","Tieba-New97":"/Tieba-New/image_emoticon87.png","Tieba-New98":"/Tieba-New/image_emoticon88.png","Tieba-New99":"/Tieba-New/image_emoticon89.png","Tieba-New100":"/Tieba-New/image_emoticon9.png","Tieba-New101":"/Tieba-New/image_emoticon90.png","Tieba-New102":"/Tieba-New/image_emoticon91.png","Tieba-New103":"/Tieba-New/image_emoticon92.png","Tieba-New104":"/Tieba-New/image_emoticon93.png","Tieba-New105":"/Tieba-New/image_emoticon94.png","Tieba-New106":"/Tieba-New/image_emoticon95.png","Tieba-New107":"/Tieba-New/image_emoticon96.png","Tieba-New108":"/Tieba-New/image_emoticon97.png","Tieba-New109":"/Tieba-New/image_emoticon98.png","Tieba-New110":"/Tieba-New/image_emoticon99.png"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      湘ICP备2021007554号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <!-- 全局配置aplayer播放器 -->
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease"   
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
