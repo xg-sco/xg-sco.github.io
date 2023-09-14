@@ -39,8 +39,21 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2023-09-12-10-21-01.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-09-12-10-21-07.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-10-17-32.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-09-12.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-11-42.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-13-24.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-16-44.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-20-48.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-22-11.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-35-01.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-11-48-27.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-03-33.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-13-17.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-14-23.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-16-05.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-18-30.png">
 <meta property="article:published_time" content="2023-08-07T09:40:12.000Z">
-<meta property="article:modified_time" content="2023-09-14T02:17:39.014Z">
+<meta property="article:modified_time" content="2023-09-14T08:17:24.219Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="MySQL">
@@ -262,7 +275,7 @@
         
         
         
-          761 分钟
+          762 分钟
         
       </span>
     
@@ -507,6 +520,25 @@
 <h2 id="其他查询优化策略"><a href="#其他查询优化策略" class="headerlink" title="其他查询优化策略"></a>其他查询优化策略</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#### 其他查询优化策略, 主键采用升序UUID</span><br><br>SELECT UUID() FROM DUAL;<br><br>SET @uuid = UUID();<br><br>SELECT @uuid,uuid_to_bin(@uuid),uuid_to_bin(@uuid,TRUE);<br><br>/*<br>mysql&gt; SELECT UUID() FROM DUAL;<br>+--------------------------------------+<br>| UUID()                               |<br>+--------------------------------------+<br>| 7f4c28c9-52a2-11ee-bdd0-00163e033c74 |<br>+--------------------------------------+<br>1 row <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.01 sec)<br><br>mysql&gt; SET @uuid = UUID();<br>Query OK, 0 rows affected (0.00 sec)<br><br>mysql&gt; SELECT @uuid,uuid_to_bin(@uuid),uuid_to_bin(@uuid,TRUE);<br>+--------------------------------------+----------------------------------------+--------------------------------------------------+<br>| @uuid                                | uuid_to_bin(@uuid)                     | uuid_to_bin(@uuid,TRUE)                          |<br>+--------------------------------------+----------------------------------------+--------------------------------------------------+<br>| 81f72a11-52a2-11ee-bdd0-00163e033c74 | 0x81F72A1152A211EEBDD000163E033C74     | 0x11EE52A281F72A11BDD000163E033C74               |<br>+--------------------------------------+----------------------------------------+--------------------------------------------------+<br>1 row <span class="hljs-keyword">in</span> <span class="hljs-built_in">set</span> (0.00 sec)<br>*/<br><br></code></pre></td></tr></table></figure>
 
 
+<h2 id="第一范式"><a href="#第一范式" class="headerlink" title="第一范式"></a>第一范式</h2><blockquote>
+<p>第一范式应该满足<code>原子性</code>, 不可拆分</p>
+</blockquote>
+<p>在这如下表中, 一个人可能有两个手机号, 两个手机号存储在了一个字段中, 这是可以拆分的</p>
+<p><img src="/assets/2023-09-14-11-09-12.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-14-11-11-42.png" srcset="/img/loading.gif" lazyload></p>
+<p>属性的原子性是<code>主观性</code>的<br><img src="/assets/2023-09-14-11-13-24.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="第二范式"><a href="#第二范式" class="headerlink" title="第二范式"></a>第二范式</h2><blockquote>
+<p>在第一范式的基础上, 所有非主键索引<code>完全依赖</code>主键索引, 不能只依赖一部分<br><img src="/assets/2023-09-14-11-16-44.png" srcset="/img/loading.gif" lazyload></p>
+</blockquote>
+<p>这里 <code>姓名</code>和<code>年龄</code>依赖了<code>球员编号</code>, <code>比赛时间``比赛场地</code>依赖了<code>比赛编号</code><br><code>得分</code>依赖了<code>球员编号</code>和<code>比赛编号</code><br>只有成绩是完全依赖的关系, 所以需要分成 <code>球员表</code> <code>比赛表</code> <code>球员比赛关系表</code><br><img src="/assets/2023-09-14-11-20-48.png" srcset="/img/loading.gif" lazyload></p>
+<p>球员归球员表, 比赛归比赛表<br><img src="/assets/2023-09-14-11-22-11.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-14-11-35-01.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="第三范式"><a href="#第三范式" class="headerlink" title="第三范式"></a>第三范式</h2><p><img src="/assets/2023-09-14-11-48-27.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-14-14-03-33.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-14-14-13-17.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-14-14-14-23.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-14-14-16-05.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="范式总结"><a href="#范式总结" class="headerlink" title="范式总结"></a>范式总结</h2><p><img src="/assets/2023-09-14-14-18-30.png" srcset="/img/loading.gif" lazyload></p>
 <p><code>bash</code><br><code>bash</code><br><code>bash</code><br><code>bash</code></p>
 
                 

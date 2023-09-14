@@ -16,12 +16,12 @@
   <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
-    <meta name="description" content="安装记得在有管理员权限安装 12345[root@hadoop202 software]# rpm -ivh erlang-21.3-1.el7.x86_64.rpm[root@hadoop202 software]# yum install socat -y[xiamu@hadoop202 software]$ rpm -ivh rabbitmq-server-3.8.8-1.el7.noarc">
+    <meta name="description" content="安装记得在有管理员权限安装 1234567891011# 准备安装包, 网速如果不好, 借助科学工具[root@hadoop202 software]# wget https:&#x2F;&#x2F;github.com&#x2F;rabbitmq&#x2F;rabbitmq-server&#x2F;releases&#x2F;download&#x2F;v3.8.8&#x2F;rabbitmq-server-3.8.8-1.el7.noarch.rpm[root@hadoo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RabbitMQ">
 <meta property="og:url" content="https://xiamu.icu/Java/RabbitMQ/index.html">
 <meta property="og:site_name" content="肉豆蔻吖">
-<meta property="og:description" content="安装记得在有管理员权限安装 12345[root@hadoop202 software]# rpm -ivh erlang-21.3-1.el7.x86_64.rpm[root@hadoop202 software]# yum install socat -y[xiamu@hadoop202 software]$ rpm -ivh rabbitmq-server-3.8.8-1.el7.noarc">
+<meta property="og:description" content="安装记得在有管理员权限安装 1234567891011# 准备安装包, 网速如果不好, 借助科学工具[root@hadoop202 software]# wget https:&#x2F;&#x2F;github.com&#x2F;rabbitmq&#x2F;rabbitmq-server&#x2F;releases&#x2F;download&#x2F;v3.8.8&#x2F;rabbitmq-server-3.8.8-1.el7.noarch.rpm[root@hadoo">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiamu.icu/assets/dc38d8ef0d3f4b93858b84ee66f2f2e3.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2fb6d086ad5a4d07b8c046537e83bd48.png">
@@ -45,7 +45,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/9c0e8bcf3d75486f975d13f389ba4580.png">
 <meta property="og:image" content="https://xiamu.icu/assets/5ca25cddd5f94a74966e4f553d0a954d.png">
 <meta property="article:published_time" content="2023-02-14T03:19:46.000Z">
-<meta property="article:modified_time" content="2023-05-08T08:23:32.294Z">
+<meta property="article:modified_time" content="2023-09-14T08:26:29.572Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="MQ">
@@ -267,7 +267,7 @@
         
         
         
-          160 分钟
+          163 分钟
         
       </span>
     
@@ -311,9 +311,9 @@
               <div class="markdown-body">
                 
                 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>记得在有管理员权限安装</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs crystal">[root<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-comment"># rpm -ivh erlang-21.3-1.el7.x86_64.rpm</span><br><br>[root<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-comment"># yum install socat -y</span><br><br>[xiamu<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-variable">$ </span>rpm -ivh rabbitmq-server-<span class="hljs-number">3.8</span>.<span class="hljs-number">8</span>-<span class="hljs-number">1</span>.el7.noarch.rpm<br></code></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs crystal"><br><span class="hljs-comment"># 准备安装包, 网速如果不好, 借助科学工具</span><br>[root<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-comment"># wget https://github.com/rabbitmq/rabbitmq-server/releases/download/v3.8.8/rabbitmq-server-3.8.8-1.el7.noarch.rpm</span><br><br>[root<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-comment"># wget https://mirrors.cloud.tencent.com/erlang-solutions/centos/7/erlang-21.3-1.el7.x86_64.rpm</span><br><br>[root<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-comment"># rpm -ivh erlang-21.3-1.el7.x86_64.rpm</span><br><br>[root<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-comment"># yum install socat -y</span><br><br>[xiamu<span class="hljs-variable">@hadoop202</span> software]<span class="hljs-variable">$ </span>rpm -ivh rabbitmq-server-<span class="hljs-number">3.8</span>.<span class="hljs-number">8</span>-<span class="hljs-number">1</span>.el7.noarch.rpm<br></code></pre></td></tr></table></figure>
 
-<h2 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs autoit">[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl start rabbitmq-server</span><br><br>[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl statua rabbitmq-server</span><br><br>[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl stop rabbitmq-server</span><br></code></pre></td></tr></table></figure>
+<h2 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs autoit">[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl start rabbitmq-server</span><br><br>[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl status rabbitmq-server</span><br><br>[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl stop rabbitmq-server</span><br></code></pre></td></tr></table></figure>
 
 <h2 id="安装-Web-界面插件"><a href="#安装-Web-界面插件" class="headerlink" title="安装 Web 界面插件"></a>安装 Web 界面插件</h2><figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs autoit">[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl stop rabbitmq-server</span><br><br>[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># rabbitmq-plugins enable rabbitmq_management</span><br><br>[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl start rabbitmq-server</span><br><br>[root<span class="hljs-symbol">@hadoop202</span> software]<span class="hljs-meta"># systemctl status rabbitmq-server</span><br><br></code></pre></td></tr></table></figure>
 
