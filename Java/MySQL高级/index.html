@@ -52,8 +52,30 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-14-23.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-16-05.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-09-14-14-18-30.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-11-10-19.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-11-11-52.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-11-13-21.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-11-15-28.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-11-16-17.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-11-19-10.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-11-21-57.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-20-45.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-21-20.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-21-41.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-21-47.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-06-02.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-07-55.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-25-32.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-22-12.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-22-18.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-22-45.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-14-27-40.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-15-55-21.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-16-50-27.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-16-54-42.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-09-15-16-56-38.png">
 <meta property="article:published_time" content="2023-08-07T09:40:12.000Z">
-<meta property="article:modified_time" content="2023-09-14T08:17:24.219Z">
+<meta property="article:modified_time" content="2023-09-15T08:56:41.376Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="MySQL">
@@ -264,7 +286,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          91k 字
+          99k 字
         
       </span>
     
@@ -275,7 +297,7 @@
         
         
         
-          762 分钟
+          829 分钟
         
       </span>
     
@@ -539,7 +561,88 @@
 <p><img src="/assets/2023-09-14-14-14-23.png" srcset="/img/loading.gif" lazyload></p>
 <p><img src="/assets/2023-09-14-14-16-05.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="范式总结"><a href="#范式总结" class="headerlink" title="范式总结"></a>范式总结</h2><p><img src="/assets/2023-09-14-14-18-30.png" srcset="/img/loading.gif" lazyload></p>
-<p><code>bash</code><br><code>bash</code><br><code>bash</code><br><code>bash</code></p>
+<h2 id="反范式化"><a href="#反范式化" class="headerlink" title="反范式化"></a>反范式化</h2><h2 id="表设计规范"><a href="#表设计规范" class="headerlink" title="表设计规范"></a>表设计规范</h2><p>10.1 关于库</p>
+<ol>
+<li>【强制】库的名称必须控制在32个字符以内，只能使用英文字母、数字和下划线，建议以英文字<br>母开头。</li>
+<li>【强制】库名中英文 一律小写 ，不同单词采用 下划线 分割。须见名知意。</li>
+<li>【强制】库的名称格式：业务系统名称_子系统名。</li>
+<li>【强制】库名禁止使用关键字（如type,order等）。</li>
+<li>【强制】创建数据库时必须 显式指定字符集 ，并且字符集只能是utf8或者utf8mb4。<br>创建数据库SQL举例：CREATE DATABASE crm_fund DEFAULT CHARACTER SET ‘utf8’ ;</li>
+<li>【建议】对于程序连接数据库账号，遵循 权限最小原则<br>使用数据库账号只能在一个DB下使用，不准跨库。程序使用的账号 原则上不准有drop权限 。</li>
+<li>【建议】临时库以 tmp_ 为前缀，并以日期为后缀；<br>备份库以 bak_ 为前缀，并以日期为后缀。<br>10.2 关于表、列</li>
+<li>【强制】表和列的名称必须控制在32个字符以内，表名只能使用英文字母、数字和下划线，建议<br>以 英文字母开头 。</li>
+<li>【强制】 表名、列名一律小写 ，不同单词采用下划线分割。须见名知意。</li>
+<li>【强制】表名要求有模块名强相关，同一模块的表名尽量使用 统一前缀 。比如：crm_fund_item</li>
+<li>【强制】创建表时必须 显式指定字符集 为utf8或utf8mb4。</li>
+<li>【强制】表名、列名禁止使用关键字（如type,order等）。</li>
+<li>【强制】创建表时必须 显式指定表存储引擎 类型。如无特殊需求，一律为InnoDB。</li>
+<li>【强制】建表必须有comment。</li>
+<li>【强制】字段命名应尽可能使用表达实际含义的英文单词或 缩写 。如：公司 ID，不要使用<br>corporation_id, 而用corp_id 即可。</li>
+<li>【强制】布尔值类型的字段命名为 is_描述 。如member表上表示是否为enabled的会员的字段命<br>名为 is_enabled。</li>
+<li>【强制】禁止在数据库中存储图片、文件等大的二进制数据<br>通常文件很大，短时间内造成数据量快速增长，数据库进行数据库读取时，通常会进行大量的随<br>机IO操作，文件很大时，IO操作很耗时。通常存储于文件服务器，数据库只存储文件地址信息。</li>
+<li>【建议】建表时关于主键： 表必须有主键 (1)强制要求主键为id，类型为int或bigint，且为<br>auto_increment 建议使用unsigned无符号型。 (2)标识表里每一行主体的字段不要设为主键，建议<br>设为其他字段如user_id，order_id等，并建立unique key索引。因为如果设为主键且主键值为随机<br>插入，则会导致innodb内部页分裂和大量随机I&#x2F;O，性能下降。</li>
+<li>【建议】核心表（如用户表）必须有行数据的 创建时间字段 （create_time）和 最后更新时间字段<br>（update_time），便于查问题。</li>
+<li>【建议】表中所有字段尽量都是 NOT NULL 属性，业务可以根据需要定义 DEFAULT值 。 因为使用<br>NULL值会存在每一行都会占用额外存储空间、数据迁移容易出错、聚合函数计算结果偏差等问<br>题。</li>
+<li>【建议】所有存储相同数据的 列名和列类型必须一致 （一般作为关联列，如果查询时关联列类型<br>不一致会自动进行数据类型隐式转换，会造成列上的索引失效，导致查询效率降低）。</li>
+<li>【建议】中间表（或临时表）用于保留中间结果集，名称以 tmp_ 开头。<br>备份表用于备份或抓取源表快照，名称以 bak_ 开头。中间表和备份表定期清理。</li>
+<li>【示范】一个较为规范的建表语句：<br>CREATE TABLE user_info (<br><code>id</code> int unsigned NOT NULL AUTO_INCREMENT COMMENT ‘自增主键’,<br><code>user_id</code> bigint(11) NOT NULL COMMENT ‘用户id’,<br><code>username</code> varchar(45) NOT NULL COMMENT ‘真实姓名’,<br><code>email</code> varchar(30) NOT NULL COMMENT ‘用户邮箱’,<br><code>nickname</code> varchar(45) NOT NULL COMMENT ‘昵称’,<br><code>birthday</code> date NOT NULL COMMENT ‘生日’,<br><code>sex</code> tinyint(4) DEFAULT ‘0’ COMMENT ‘性别’,<br><code>short_introduce</code> varchar(150) DEFAULT NULL COMMENT ‘一句话介绍自己，最多50个汉字’,<br><code>user_resume</code> varchar(300) NOT NULL COMMENT ‘用户提交的简历存放地址’,<br><code>user_register_ip</code> int NOT NULL COMMENT ‘用户注册时的源ip’,<br><code>create_time</code> timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT ‘创建时间’,<br><code>update_time</code> timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE<br>CURRENT_TIMESTAMP COMMENT ‘修改时间’,<br><code>user_review_status</code> tinyint NOT NULL COMMENT ‘用户资料审核状态，1为通过，2为审核中，3为未<br>通过，4为还未提交审核’,</li>
+<li>【建议】创建表时，可以使用可视化工具。这样可以确保表、字段相关的约定都能设置上。<br>实际上，我们通常很少自己写 DDL 语句，可以使用一些可视化工具来创建和操作数据库和数据表。<br>可视化工具除了方便，还能直接帮我们将数据库的结构定义转化成 SQL 语言，方便数据库和数据表结构<br>的导出和导入。<br>10.3 关于索引</li>
+<li>【强制】InnoDB表必须主键为id int&#x2F;bigint auto_increment，且主键值 禁止被更新 。</li>
+<li>【强制】InnoDB和MyISAM存储引擎表，索引类型必须为 BTREE 。</li>
+<li>【建议】主键的名称以 pk_ 开头，唯一键以 uni_ 或 uk_ 开头，普通索引以 idx_ 开头，一律<br>使用小写格式，以字段的名称或缩写作为后缀。</li>
+<li>【建议】多单词组成的columnname，取前几个单词首字母，加末单词组成column_name。如:<br>sample 表 member_id 上的索引：idx_sample_mid。</li>
+<li>【建议】单个表上的索引个数 不能超过6个 。</li>
+<li>【建议】在建立索引时，多考虑建立 联合索引 ，并把区分度最高的字段放在最前面。</li>
+<li>【建议】在多表 JOIN 的SQL里，保证被驱动表的连接列上有索引，这样JOIN 执行效率最高。</li>
+<li>【建议】建表或加索引时，保证表里互相不存在 冗余索引 。 比如：如果表里已经存在key(a,b)，<br>则key(a)为冗余索引，需要删除。<br>10.4 SQL编写</li>
+<li>【强制】程序端SELECT语句必须指定具体字段名称，禁止写成 *。</li>
+<li>【建议】程序端insert语句指定具体字段名称，不要写成INSERT INTO t1 VALUES(…)。</li>
+<li>【建议】除静态表或小表（100行以内），DML语句必须有WHERE条件，且使用索引查找。</li>
+<li>【建议】INSERT INTO…VALUES(XX),(XX),(XX).. 这里XX的值不要超过5000个。 值过多虽然上线很<br>快，但会引起主从同步延迟。</li>
+<li>【建议】SELECT语句不要使用UNION，推荐使用UNION ALL，并且UNION子句个数限制在5个以<br>内。</li>
+<li>【建议】线上环境，多表 JOIN 不要超过5个表。</li>
+<li>【建议】减少使用ORDER BY，和业务沟通能不排序就不排序，或将排序放到程序端去做。ORDER<br>BY、GROUP BY、DISTINCT 这些语句较为耗费CPU，数据库的CPU资源是极其宝贵的。</li>
+<li>【建议】包含了ORDER BY、GROUP BY、DISTINCT 这些查询的语句，WHERE 条件过滤出来的结果<br>集请保持在1000行以内，否则SQL会很慢。</li>
+<li>【建议】对单表的多次alter操作必须合并为一次<br>对于超过100W行的大表进行alter table，必须经过DBA审核，并在业务低峰期执行，多个alter需整<br>合在一起。 因为alter table会产生 表锁 ，期间阻塞对于该表的所有写入，对于业务可能会产生极<br>大影响。</li>
+<li>【建议】批量操作数据时，需要控制事务处理间隔时间，进行必要的sleep。</li>
+<li>【建议】事务里包含SQL不超过5个。<br>因为过长的事务会导致锁数据较久，MySQL内部缓存、连接消耗过多等问题。</li>
+<li>【建议】事务里更新语句尽量基于主键或UNIQUE KEY，如UPDATE… WHERE id&#x3D;XX;<br>PRIMARY KEY (<code>id</code>),<br>UNIQUE KEY <code>uniq_user_id</code> (<code>user_id</code>),<br>KEY <code>idx_username</code>(<code>username</code>),<br>KEY <code>idx_create_time_status</code>(<code>create_time</code>,<code>user_review_status</code>)<br>) ENGINE&#x3D;InnoDB DEFAULT CHARSET&#x3D;utf8 COMMENT&#x3D;’网站用户基本信息’<br>否则会产生间隙锁，内部扩大锁定范围，导致系统性能下降，产生死锁。</li>
+</ol>
+<h2 id="PowerDesigner"><a href="#PowerDesigner" class="headerlink" title="PowerDesigner"></a>PowerDesigner</h2><p>官网地址: <a target="_blank" rel="noopener" href="https://www.powerdesigner.biz/">https://www.powerdesigner.biz/</a></p>
+<p>双击exe文件运行<br><img src="/assets/2023-09-15-11-10-19.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-11-11-52.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-11-13-21.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-11-15-28.png" srcset="/img/loading.gif" lazyload></p>
+<p>注意点: 在建立关联表中, 两个表的字段必须要区分,<br>比如 student(student_gender) 和 teacher(teacher_gender) 这两张表的两个字段不能都是gender, 在概念模型建立了关联表 转 物理模型时, 会错误的将这两个相同的字段认为是外键关联</p>
+<p>删除实体<br><img src="/assets/2023-09-15-11-16-17.png" srcset="/img/loading.gif" lazyload></p>
+<p>设置实体的属性<br><img src="/assets/2023-09-15-11-19-10.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-11-21-57.png" srcset="/img/loading.gif" lazyload></p>
+<p>概念模型转换成物理模型<br><img src="/assets/2023-09-15-14-20-45.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-14-21-20.png" srcset="/img/loading.gif" lazyload></p>
+<p>物理模型转换成概念模型<br><img src="/assets/2023-09-15-14-21-41.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-14-21-47.png" srcset="/img/loading.gif" lazyload></p>
+<p>只有物理数据模型可以设置主键自动递增<br><img src="/assets/2023-09-15-14-06-02.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-14-07-55.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-14-25-32.png" srcset="/img/loading.gif" lazyload></p>
+<p>将物理模型生成sql脚本<br><img src="/assets/2023-09-15-14-22-12.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-14-22-18.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-14-22-45.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-14-27-40.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="分析表、检查表与优化表"><a href="#分析表、检查表与优化表" class="headerlink" title="分析表、检查表与优化表"></a>分析表、检查表与优化表</h2><p><img src="/assets/2023-09-15-15-55-21.png" srcset="/img/loading.gif" lazyload></p>
+<p>使用 <code>mysqlcheck</code> 工具进行表的优化分析</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@iZf8z0puua6p4won7xep5rZ ~]<span class="hljs-comment"># mysqlcheck -o atguigudb3 user1 -uroot -p</span><br>Enter password: <br>atguigudb3.user1<br>note     : Table does not support optimize, doing recreate + analyze instead<br>status   : OK<br>[root@iZf8z0puua6p4won7xep5rZ ~]<span class="hljs-comment">#</span><br></code></pre></td></tr></table></figure>
+
+<h2 id="数据表的设计规范"><a href="#数据表的设计规范" class="headerlink" title="数据表的设计规范"></a>数据表的设计规范</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br><span class="hljs-comment">#07-数据表的设计规范</span><br><br><span class="hljs-comment">#反范式化的举例：</span><br><br>CREATE DATABASE atguigudb3;<br><br>USE atguigudb3;<br><br><span class="hljs-comment">#学生表</span><br>CREATE TABLE student(<br>stu_id INT PRIMARY KEY AUTO_INCREMENT,<br>stu_name VARCHAR(25),<br>create_time DATETIME<br>);<br><br><span class="hljs-comment">#课程评论表</span><br>CREATE TABLE class_comment(<br>comment_id INT PRIMARY KEY AUTO_INCREMENT,<br>class_id INT,<br>comment_text VARCHAR(35),<br>comment_time DATETIME,<br>stu_id INT<br>);<br><br><span class="hljs-comment">###创建向学生表中添加数据的存储过程</span><br>DELIMITER //<br><br>CREATE PROCEDURE batch_insert_student(IN START INT(10), IN max_num INT(10))<br>BEGIN<br>DECLARE i INT DEFAULT 0;<br>DECLARE date_start DATETIME DEFAULT (<span class="hljs-string">&#x27;2017-01-01 00:00:00&#x27;</span>);<br>DECLARE date_temp DATETIME;<br>SET date_temp = date_start;<br>SET autocommit=0;<br>REPEAT<br>SET i=i+1;<br>SET date_temp = DATE_ADD(date_temp, INTERVAL RAND()*60 SECOND);<br>INSERT INTO student(stu_id, stu_name, create_time)<br>VALUES((START+i), CONCAT(&#x27;stu_&#x27;,i), date_temp);<br>UNTIL i = max_num<br>END REPEAT;<br>COMMIT;<br>END //<br><br>DELIMITER ;<br><br>#调用存储过程，学生id从<span class="hljs-number">10001</span>开始，添加<span class="hljs-number">1000000</span>数据<br>CALL batch_insert_student(<span class="hljs-number">10000</span>,<span class="hljs-number">1000000</span>);<br><br>####创建向课程评论表中添加数据的存储过程<br>DELIMITER //<br><br>CREATE PROCEDURE batch_insert_class_comments(IN START INT(<span class="hljs-number">10</span>), IN max_num INT(<span class="hljs-number">10</span>))<br>BEGIN<br>DECLARE i INT DEFAULT 0;<br>DECLARE date_start DATETIME DEFAULT (<span class="hljs-string">&#x27;2018-01-01 00:00:00&#x27;</span>);<br>DECLARE date_temp DATETIME;<br>DECLARE comment_text VARCHAR(25);<br>DECLARE stu_id INT;<br>SET date_temp = date_start;<br>SET autocommit=0;<br>REPEAT<br>SET i=i+1;<br>SET date_temp = DATE_ADD(date_temp, INTERVAL RAND()*60 SECOND);<br>SET comment_text = SUBSTR(MD5(RAND()),1, 20);<br>SET stu_id = FLOOR(RAND()*1000000);<br>INSERT INTO class_comment(comment_id, class_id, comment_text, comment_time, stu_id)<br>VALUES((START+i), <span class="hljs-number">10001</span>, comment_text, date_temp, stu_id);<br>UNTIL i = max_num<br>END REPEAT;<br>COMMIT;<br>END //<br><br>DELIMITER ;<br><br>#添加数据的存储过程的调用，一共<span class="hljs-number">1000000</span>条记录<br>CALL batch_insert_class_comments(<span class="hljs-number">10000</span>,<span class="hljs-number">1000000</span>);<br><br>#########<br>SELECT COUNT(*) FROM student;<br><br>SELECT COUNT(*) FROM class_comment;<br><br>###需求######<br>SELECT p.comment_text, p.comment_time, stu.stu_name <br>FROM class_comment AS p LEFT JOIN student AS stu <br>ON p.stu_id = stu.stu_id <br>WHERE p.class_id = <span class="hljs-number">10001</span> <br>ORDER BY p.comment_id DESC <br>LIMIT <span class="hljs-number">10000</span>;<br><br><br>#####进行反范式化的设计######<br>#表的复制<br>CREATE TABLE class_comment1<br>AS<br>SELECT * FROM class_comment;<br><br>#添加主键，保证class_comment1 与class_comment的结构相同<br>ALTER TABLE class_comment1<br>ADD PRIMARY KEY (comment_id);<br><br>SHOW INDEX FROM class_comment1;<br><br>#向课程评论表中增加stu_name字段<br>ALTER TABLE class_comment1<br>ADD stu_name VARCHAR(<span class="hljs-number">25</span>);<br><br>#给新添加的字段赋值<br>UPDATE class_comment1 c<br>SET stu_name = (<br>SELECT stu_name<br>FROM student s<br>WHERE c.stu_id = s.stu_id<br>);<br><br>#查询同样的需求<br>SELECT comment_text, comment_time, stu_name <br>FROM class_comment1 <br>WHERE class_id = <span class="hljs-number">10001</span> <br>ORDER BY comment_id DESC <br>LIMIT <span class="hljs-number">10000</span>;<br><br><br><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="数据库的其他优化策略"><a href="#数据库的其他优化策略" class="headerlink" title="数据库的其他优化策略"></a>数据库的其他优化策略</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment">#08-数据库的其他优化策略</span><br>CREATE TABLE `user1` (<br>  `<span class="hljs-built_in">id</span>` INT NOT NULL AUTO_INCREMENT,<br>  `name` VARCHAR(255) DEFAULT NULL,<br>  `age` INT DEFAULT NULL,<br>  `sex` VARCHAR(255) DEFAULT NULL,<br>  PRIMARY KEY (`<span class="hljs-built_in">id</span>`),<br>  KEY `idx_name` (`name`) USING BTREE<br>) ENGINE=INNODB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3;<br><br><span class="hljs-comment">#######</span><br>SET GLOBAL log_bin_trust_function_creators = 1;<br><br>DELIMITER //<br>CREATE FUNCTION  rand_num (from_num INT ,to_num INT) RETURNS INT(11)<br>BEGIN   <br>DECLARE i INT DEFAULT 0;  <br>SET i = FLOOR(from_num +RAND()*(to_num - from_num+1))   ;<br>RETURN i;  <br>END //<br>DELIMITER ;<br><br><span class="hljs-comment">###</span><br>DELIMITER //<br>CREATE PROCEDURE  insert_user( max_num INT )<br>BEGIN  <br>DECLARE i INT DEFAULT 0;   <br> SET autocommit = 0;    <br> REPEAT  <br> SET i = i + 1;  <br> INSERT INTO `user1` ( NAME,age,sex ) <br> VALUES (<span class="hljs-string">&quot;atguigu&quot;</span>,rand_num(1,20),<span class="hljs-string">&quot;male&quot;</span>);  <br> UNTIL i = max_num  <br> END REPEAT;  <br> COMMIT; <br>END //<br>DELIMITER;<br><br><span class="hljs-comment">##</span><br>CALL insert_user(1000);<br><br>SHOW INDEX FROM user1;<br><br>SELECT * FROM user1;<br><br>UPDATE user1 SET NAME = <span class="hljs-string">&#x27;atguigu04&#x27;</span> WHERE <span class="hljs-built_in">id</span> = 4;<br><br><span class="hljs-comment">#分析表</span><br>ANALYZE TABLE user1;<br><br><span class="hljs-comment">#检查表</span><br>CHECK TABLE user1;<br><br><span class="hljs-comment">#优化表</span><br>CREATE TABLE t1(<span class="hljs-built_in">id</span> INT,NAME VARCHAR(15)) ENGINE = MYISAM;<br><br>OPTIMIZE TABLE t1;<br><br><br>CREATE TABLE t2(<span class="hljs-built_in">id</span> INT,NAME VARCHAR(15)) ENGINE = INNODB;<br><br>OPTIMIZE TABLE t2;<br><br><br><br></code></pre></td></tr></table></figure>
+
+<h2 id="通用表空间"><a href="#通用表空间" class="headerlink" title="通用表空间"></a>通用表空间</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs bash"><br><span class="hljs-comment">#### 全局通用表空间</span><br>CREATE TABLESPACE atguigu1 ADD DATAFILE <span class="hljs-string">&#x27;atguigu1.ibd&#x27;</span> file_block_size=16k;<br><br><br>CREATE TABLE <span class="hljs-built_in">test</span>(<span class="hljs-built_in">id</span> INT,NAME VARCHAR(10)) ENGINE=INNODB DEFAULT CHARSET utf8mb4 TABLESPACE atguigu1;<br><br>ALTER TABLE <span class="hljs-built_in">test</span> TABLESPACE atguigu1;<br><br>DROP TABLESPACE atguigu1;<br><br>DROP TABLE <span class="hljs-built_in">test</span>;<br><span class="hljs-comment"># 只有表空间中不存在表的时候, 才能够将表进行删除</span><br>DROP TABLESPACE atguigu1;<br><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="事务ACID的特性"><a href="#事务ACID的特性" class="headerlink" title="事务ACID的特性"></a>事务ACID的特性</h2><p>原子性 一致性 隔离性 持久性</p>
+<p><img src="/assets/2023-09-15-16-50-27.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-16-54-42.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-09-15-16-56-38.png" srcset="/img/loading.gif" lazyload></p>
 
                 
               </div>
