@@ -1,0 +1,893 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#96c0d3cc">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="环境准备IDEA 中的字符编码集都选择是UTF8 将解压的虚拟机进行赋值, 不选择移动 虚拟机账号密码 root &#x2F; centos mysql中的账号密码 root &#x2F; mysql gogs的账号密码 gogs &#x2F; gogs 启动docker 12systemctl start dockersh &#x2F;data&#x2F;soft&#x2F;restart.sh  将数据导入到数据库中, 使">
+<meta property="og:type" content="article">
+<meta property="og:title" content="学成在线项目笔记">
+<meta property="og:url" content="https://xiamu.icu/Java/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF%E9%A1%B9%E7%9B%AE%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="肉豆蔻吖">
+<meta property="og:description" content="环境准备IDEA 中的字符编码集都选择是UTF8 将解压的虚拟机进行赋值, 不选择移动 虚拟机账号密码 root &#x2F; centos mysql中的账号密码 root &#x2F; mysql gogs的账号密码 gogs &#x2F; gogs 启动docker 12systemctl start dockersh &#x2F;data&#x2F;soft&#x2F;restart.sh  将数据导入到数据库中, 使">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiamu.icu/assets/img.png">
+<meta property="og:image" content="https://xiamu.icu/assets/img_1.png">
+<meta property="article:published_time" content="2023-07-02T03:03:36.000Z">
+<meta property="article:modified_time" content="2023-09-18T12:51:18.329Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta property="article:tag" content="项目">
+<meta property="article:tag" content="学成在线">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiamu.icu/assets/img.png">
+  
+  
+  
+  <title>学成在线项目笔记 - 肉豆蔻吖</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiamu.icu","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>肉豆蔻吖</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="学成在线项目笔记"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-02 11:03" pubdate>
+          2023年7月2日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          114 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">学成在线项目笔记</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>IDEA 中的字符编码集都选择是UTF8</p>
+<p>将解压的虚拟机进行赋值, 不选择移动</p>
+<p>虚拟机账号密码 root &#x2F; centos</p>
+<p>mysql中的账号密码 root &#x2F; mysql</p>
+<p>gogs的账号密码 gogs &#x2F; gogs</p>
+<p>启动docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl start docker<br>sh /data/soft/restart.sh<br></code></pre></td></tr></table></figure>
+
+<p>将数据导入到数据库中, 使用代码生成器, 创建po类</p>
+<p>添加swagger依赖 , 然后进行测试<a target="_blank" rel="noopener" href="http://localhost:63040/content/swagger-ui.html">http://localhost:63040/content/swagger-ui.html</a></p>
+<p>添加config的配置类, <code>LocalDateTimeConfig</code>, 将日期进行展示<code>yyyy-MM-dd HH:mm:ss</code>格式<br>“createDate”: “2023-06-25 20:36:45”,</p>
+<p>拷贝代码生成器生成的mapper到service</p>
+<p>创建数据字典表</p>
+<p>使用 http client 插件进行接口测试</p>
+<p>部署前端工程 和 系统管理服务</p>
+<p>使用全局Cors过滤器, 解决前端工程的跨域问题</p>
+<p>前端工程还没提交代码</p>
+<p>编写mapper, 查询category树形结构类型的数据, 然后测试</p>
+<p>自连接的sql语句</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> one.id, one.label, two.id, two.label<br><span class="hljs-keyword">FROM</span> course_category `<span class="hljs-keyword">one</span>`<br><span class="hljs-keyword">JOIN</span> course_category two<br><span class="hljs-keyword">ON</span> two.parentid <span class="hljs-operator">=</span> one.id<br><span class="hljs-keyword">WHERE</span> one.parentid <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1&#x27;</span><br><span class="hljs-keyword">AND</span> one.is_show <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1&#x27;</span><br><span class="hljs-keyword">AND</span> two.is_show <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1&#x27;</span><br><span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> one.orderby, two.orderby<br><br><span class="hljs-keyword">WITH</span> <span class="hljs-keyword">recursive</span> t1 <span class="hljs-keyword">AS</span> (<br>  <span class="hljs-keyword">SELECT</span> <span class="hljs-number">1</span> <span class="hljs-keyword">AS</span> n<br>  <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br>  <span class="hljs-keyword">SELECT</span> n<span class="hljs-operator">+</span><span class="hljs-number">1</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">WHERE</span> n<span class="hljs-operator">&lt;</span><span class="hljs-number">5</span><br>)<br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1<br><br><span class="hljs-comment">-- 向上递归</span><br><span class="hljs-keyword">WITH</span> <span class="hljs-keyword">recursive</span> t1 <span class="hljs-keyword">AS</span> (<br>  <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> course_category <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1&#x27;</span><br>  <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span> <br>  <span class="hljs-keyword">SELECT</span> t2.<span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> course_category t2 <span class="hljs-keyword">JOIN</span> t1 <span class="hljs-keyword">ON</span> t1.id <span class="hljs-operator">=</span> t2.parentid<br>)<br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> t1.id<br><br><span class="hljs-comment">-- 向上递归</span><br><span class="hljs-keyword">WITH</span> <span class="hljs-keyword">recursive</span> t1 <span class="hljs-keyword">AS</span> (<br>  <span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> course_category <span class="hljs-keyword">WHERE</span> id <span class="hljs-operator">=</span> <span class="hljs-string">&#x27;1-1-1&#x27;</span><br>  <span class="hljs-keyword">UNION</span> <span class="hljs-keyword">ALL</span><br>  <span class="hljs-keyword">SELECT</span> t2.<span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> course_category t2 <span class="hljs-keyword">INNER</span> <span class="hljs-keyword">JOIN</span> t1 <span class="hljs-keyword">ON</span> t1.parentid <span class="hljs-operator">=</span> t2.id<br>)<br><span class="hljs-keyword">SELECT</span> <span class="hljs-operator">*</span> <span class="hljs-keyword">FROM</span> t1 <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> t1.id<br></code></pre></td></tr></table></figure>
+
+<p>课程分类查询</p>
+<h2 id="dev03"><a href="#dev03" class="headerlink" title="dev03"></a>dev03</h2><p>使用JSR303校验参数是否为空<br>在实体对象上添加注解 <code>@NotEmpty</code> , 然后再Controller接收参数使用<code>@Validated</code>激活<br>当增删改共用一个对象时, 还需要抛出不同的信息内容, 这时需要定义一个分组接口<br>注解内部 <code>@Validated</code> 需要指定下是用的哪个分组</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> CourseBaseInfoDto <span class="hljs-title function_">createCourseBase</span><span class="hljs-params">(</span><br><span class="hljs-params">    <span class="hljs-meta">@RequestBody</span> <span class="hljs-meta">@Validated(ValidationGroups.Insert.class)</span> AddCourseDto addCourseDto)</span>&#123;<br>    ...        <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 校验分组</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ValidationGroups</span> &#123;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Insert</span>&#123;&#125;;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Update</span>&#123;&#125;;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">interface</span> <span class="hljs-title class_">Delete</span>&#123;&#125;;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>修改课程, 先按照courseid查询出当前接口</p>
+<h2 id="关于mybatis"><a href="#关于mybatis" class="headerlink" title="关于mybatis"></a>关于mybatis</h2><p>插入语句之后返回主键<br>首先数据库的主键要自动递增<br>然后再insert标签上添加<code>useGeneratedKeys=&quot;true&quot; keyProperty=&quot;id&quot;</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--Integer addCourseTeacher(CourseTeacher courseTeacher);--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">insert</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;addCourseTeacher&quot;</span> <span class="hljs-attr">useGeneratedKeys</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">keyProperty</span>=<span class="hljs-string">&quot;id&quot;</span>&gt;</span><br>    insert into course_teacher(course_id,<br>                               teacher_name,<br>                               position,<br>                               introduction)<br>    values(#&#123;courseId&#125;,<br>           #&#123;teacherName&#125;,<br>           #&#123;position&#125;,<br>           #&#123;introduction&#125;)<br><span class="hljs-tag">&lt;/<span class="hljs-name">insert</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>插入之后, 主键返回在传入的对象当中</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">Integer</span> <span class="hljs-variable">integer</span> <span class="hljs-operator">=</span> courseTeacherMapper.addCourseTeacher(courseTeacher);<br><span class="hljs-comment">// 影响的行数</span><br>System.out.println(<span class="hljs-string">&quot;integer = &quot;</span> + integer);<br><span class="hljs-comment">// 返回的主键</span><br>System.out.println(courseTeacher.getId());<br></code></pre></td></tr></table></figure>
+
+<h3 id="各种返回值"><a href="#各种返回值" class="headerlink" title="各种返回值"></a>各种返回值</h3><p>insert：插入n条记录，返回影响行数n。（n&gt;&#x3D;1，n为0时实际为插入失败）<br>update：更新n条记录，返回影响行数n。（n&gt;&#x3D;0）<br>delete：删除n条记录，返回影响行数n。（n&gt;&#x3D;0）<br>参考: <a target="_blank" rel="noopener" href="https://www.cnblogs.com/aspirant/p/12213428.html">https://www.cnblogs.com/aspirant/p/12213428.html</a></p>
+<p>待完成: 通过远程调用传入字典值, 获取code</p>
+<h3 id="配置本地优先"><a href="#配置本地优先" class="headerlink" title="配置本地优先"></a>配置本地优先</h3><p>在nacos中配置override-none, 然后让微服务读取这个配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-attr">server:</span><br>  <span class="hljs-attr">servlet:</span><br>    <span class="hljs-attr">context-path:</span> <span class="hljs-string">/content</span><br>  <span class="hljs-attr">port:</span> <span class="hljs-number">63040</span><br><span class="hljs-comment"># 配置本地优先</span><br><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">cloud:</span><br>    <span class="hljs-attr">config:</span><br>      <span class="hljs-attr">override-none:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-comment"># datasource:</span><br>  <span class="hljs-comment">#   driver-class-name: com.mysql.cj.jdbc.Driver</span><br>  <span class="hljs-comment">#   url: jdbc:mysql://192.168.101.65:3306/xc402_content?serverTimezone=UTC&amp;userUnicode=true&amp;useSSL=false&amp;</span><br>  <span class="hljs-comment">#   username: root</span><br>  <span class="hljs-comment">#   password: mysql</span><br></code></pre></td></tr></table></figure>
+
+<p>本地运行添加这个参数, 就会按照63041端口运行微服务<br>-Dserver.port&#x3D;63041</p>
+<p>同样可以添加一个参数用来切换不同环境<code>-Dserver.port=63041 spring.profiles.active=test</code></p>
+<h2 id="事务优化"><a href="#事务优化" class="headerlink" title="事务优化"></a>事务优化</h2><p>一个普通方法(非事务方法)调用一个事务方法, 此时的事务会失效</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Service</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">MediaFileServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title class_">MediaFileService</span> &#123;<br>    <br>    <span class="hljs-meta">@Autowired</span><br>    MediaFileService mediaFileService;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 普通方法</span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-keyword">public</span> UploadFileResultDto <span class="hljs-title function_">uploadFile</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">// 不会回滚</span><br>        <span class="hljs-comment">// MediaFiles mediaFiles = addMediaFilesToDb();</span><br>        <span class="hljs-comment">// 不会回滚</span><br>        <span class="hljs-comment">// MediaFiles mediaFiles = this.addMediaFilesToDb();</span><br>        <br>        <span class="hljs-comment">// 事务控制必须是代理对象调用才有效果, 将自己注入给自己</span><br>        <span class="hljs-comment">// 这个`mediaFileService`就是一个代理对象, 此时调用的方法出现异常会进行事务的回滚</span><br>        <span class="hljs-type">MediaFiles</span> <span class="hljs-variable">mediaFiles</span> <span class="hljs-operator">=</span> mediaFileService.addMediaFilesToDb(); <br>    &#125;<br><br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">     * 事务方法</span><br><span class="hljs-comment">     * <span class="hljs-doctag">@return</span></span><br><span class="hljs-comment">     */</span><br>    <span class="hljs-meta">@Transactional</span><br>    <span class="hljs-keyword">public</span> MediaFiles <span class="hljs-title function_">addMediaFilesToDb</span><span class="hljs-params">()</span>&#123;<br>        <span class="hljs-comment">// 进行数据库的操作</span><br>        <span class="hljs-comment">// ...</span><br>        <br>        <span class="hljs-comment">// 异常</span><br>        <span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">1</span>/<span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>事务控制必须是代理对象调用才有效果</p>
+<h2 id="任务调度中心"><a href="#任务调度中心" class="headerlink" title="任务调度中心"></a>任务调度中心</h2><p><a target="_blank" rel="noopener" href="http://192.168.101.65:8088/xxl-job-admin">http://192.168.101.65:8088/xxl-job-admin</a></p>
+<p>admin<br>123456</p>
+<p>在使用任务调度的时候, 需要在配置中心将appname指定好</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">xxl:</span><br>  <span class="hljs-attr">job:</span><br>    <span class="hljs-attr">admin:</span> <br>      <span class="hljs-attr">addresses:</span> <span class="hljs-string">http://192.168.101.65:8088/xxl-job-admin</span><br>    <span class="hljs-attr">executor:</span><br>      <span class="hljs-attr">appname:</span> <span class="hljs-string">coursepublish-job</span><br>      <span class="hljs-attr">address:</span> <br>      <span class="hljs-attr">ip:</span> <br>      <span class="hljs-attr">port:</span> <span class="hljs-number">8999</span><br>      <span class="hljs-attr">logpath:</span> <span class="hljs-string">/data/applogs/xxl-job/jobhandler</span><br>      <span class="hljs-attr">logretentiondays:</span> <span class="hljs-number">30</span><br>    <span class="hljs-attr">accessToken:</span> <span class="hljs-string">default_token</span><br></code></pre></td></tr></table></figure>
+<p>然后在<code>执行器管理</code>中创建对应的appname<br>接着在 <code>任务管理</code> 中可以创建一些定时任务</p>
+<p>在需要执行定时调度任务的方法上添加注解 <code>@XxlJob</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//任务调度入口</span><br><span class="hljs-meta">@XxlJob(&quot;CoursePublishJobHandler&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">coursePublishJobHandler</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception &#123;&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="要注意的一点-service中的配置-使用的数据库并不是最新的数据库-现在暂时还没有全部修改"><a href="#要注意的一点-service中的配置-使用的数据库并不是最新的数据库-现在暂时还没有全部修改" class="headerlink" title="要注意的一点, service中的配置, 使用的数据库并不是最新的数据库, 现在暂时还没有全部修改"></a>要注意的一点, service中的配置, 使用的数据库并不是最新的数据库, 现在暂时还没有全部修改</h2><h2 id="关于test测试"><a href="#关于test测试" class="headerlink" title="关于test测试"></a>关于test测试</h2><p><img src="/assets/img.png" srcset="/img/loading.gif" lazyload alt="/assets/img.png"></p>
+<p>这个service模块是没有启动类的, 如果想在这下面使用@Test进行代码测试, 需要创建出来对应的启动类, 否则无法测试</p>
+<p>乐观锁, 不用先拿到锁, 尽管去执行, 执行失败了, 接着重试再执行<br>悲观锁, 要先拿到锁</p>
+<p><img src="/assets/img_1.png" srcset="/img/loading.gif" lazyload alt="/assets/img_1.png"></p>
+<h2 id="nginx部署门户"><a href="#nginx部署门户" class="headerlink" title="nginx部署门户"></a>nginx部署门户</h2><p>启动nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">.\nginx.exe<br></code></pre></td></tr></table></figure>
+
+<p>修改配置后重新加载nginx</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./nginx.exe -s reload<br></code></pre></td></tr></table></figure>
+
+<p>tips: nginx的安装目录不能在有中文的路径下<br>但是请求访问的静态资源的路径是可以存在中文的</p>
+<p>事务的特性ACID</p>
+<p>atomicity</p>
+<p>consistency</p>
+<p>isolation</p>
+<p>durability</p>
+<p>CAP理论<br>Consistency             一致性</p>
+<p>Availability            可用性</p>
+<p>Partition tolerance     分区容忍性</p>
+<p>AP的处理方式:<br>采用消息表＋定时任务调度</p>
+<h2 id="nginx代理"><a href="#nginx代理" class="headerlink" title="nginx代理"></a>nginx代理</h2><p>模板引擎就是服务端渲染<br>可以将渲染出来的html页面存储到minio, 当有用户来访问的时候直接从minio中读取该html静态资源, 减少服务器压力<br>部署完成之后访问地址:<br><a target="_blank" rel="noopener" href="http://192.168.101.65:9000/mediafiles/course/120.html">http://192.168.101.65:9000/mediafiles/course/120.html</a></p>
+<p>采用文件域名访问<br><a target="_blank" rel="noopener" href="http://file.51xuecheng.cn/mediafiles/course/120.html">http://file.51xuecheng.cn/mediafiles/course/120.html</a></p>
+<p>主站域名访问<br><a target="_blank" rel="noopener" href="http://www.51xuecheng.cn/course/120.html">http://www.51xuecheng.cn/course/120.html</a></p>
+<p>只有访问主站的静态资源才会加载css等其他的静态资源, 所以要对nginx进行设置代理<br>请求了 <code>www.51xuecheng.cn/course</code> 之后, 给他代理给 <code>file.51xuecheng.cn/mediafiles/course</code></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs text">server &#123;<br>    listen       80;<br>    server_name  www.51xuecheng.cn localhost;<br>    location /course/ &#123;  <br>    proxy_pass http://fileserver/mediafiles/course/;<br>    &#125; <br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Kibana无法启动"><a href="#Kibana无法启动" class="headerlink" title="Kibana无法启动"></a>Kibana无法启动</h2><p>Kibana server is not ready yet</p>
+<p>curl -XDELETE localhost:9200&#x2F;.kibana_task_manager_7.12.1_001</p>
+<p>之后重启elasticsearch和kibana</p>
+<p>docker restart kibana elasticsearch</p>
+<p>kibana的web访问连接: <a target="_blank" rel="noopener" href="http://192.168.101.65:5601/">http://192.168.101.65:5601/</a></p>
+<p>elasticsearch: <a target="_blank" rel="noopener" href="http://192.168.101.65:9200/">http://192.168.101.65:9200/</a></p>
+<h2 id="发布课程"><a href="#发布课程" class="headerlink" title="发布课程"></a>发布课程</h2><p>提交审核之后, 需要在<code>course_publish_pre</code>表中的status的状态修改成<code>202004</code><br>然后再<code>course_base</code>中修改<code>audit_status</code>字段成<code>202004</code> <code>status</code>保持<code>203001</code><br>此时就手动从数据库中审核过了</p>
+<h2 id="SpringSecurity部署"><a href="#SpringSecurity部署" class="headerlink" title="SpringSecurity部署"></a>SpringSecurity部署</h2><p>添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-security<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-oauth2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>然后修改配置文件, 然后指定mysql的<code>datasource.url</code>(数据源)</p>
+<p>给mapping设置权限, 当拥有此权限的登录用户才可以进行访问该mapping下的方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@RequestMapping(&quot;/r/r1&quot;)</span><br><span class="hljs-meta">@PreAuthorize(&quot;hasAuthority(&#x27;p1&#x27;)&quot;)</span><span class="hljs-comment">//拥有p1权限方可访问</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">r1</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;访问r1资源&quot;</span>;<br>&#125;<br><br><span class="hljs-meta">@RequestMapping(&quot;/r/r2&quot;)</span><br><span class="hljs-meta">@PreAuthorize(&quot;hasAuthority(&#x27;p2&#x27;)&quot;)</span><span class="hljs-comment">//拥有p2权限方可访问</span><br><span class="hljs-keyword">public</span> String <span class="hljs-title function_">r2</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;访问r2资源&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="IDEA程序包不存在"><a href="#IDEA程序包不存在" class="headerlink" title="IDEA程序包不存在"></a>IDEA程序包不存在</h2><p>需设置Maven &gt; Runner &gt; Delegate IDE build&#x2F;run actions to Maven。<br>勾选 <code>Delegate IDE build/run actions to Maven</code><br>然后再启动程序就可以了</p>
+<p>这种方式虽然说可以处理这个问题, 但仍在其他的项目任会出现一些其他的问题,<br>或者可以将.iml文件直接删除, 然后再运行该项目</p>
+<h2 id="整合微服务加入SpringSecurity管理"><a href="#整合微服务加入SpringSecurity管理" class="headerlink" title="整合微服务加入SpringSecurity管理"></a>整合微服务加入SpringSecurity管理</h2><p>添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--认证相关--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-security<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.cloud<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-cloud-starter-oauth2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>添加config配置</p>
+<p>TokenConfig配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Administrator</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TokenConfig</span> &#123;<br><br>    <span class="hljs-comment">//jwt签名密钥,与认证服务保持一致</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-type">String</span> <span class="hljs-variable">SIGNING_KEY</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;mq123&quot;</span>;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> TokenStore <span class="hljs-title function_">tokenStore</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-comment">//JWT令牌存储方案</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JwtTokenStore</span>(accessTokenConverter());<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-keyword">public</span> JwtAccessTokenConverter <span class="hljs-title function_">accessTokenConverter</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-type">JwtAccessTokenConverter</span> <span class="hljs-variable">converter</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">JwtAccessTokenConverter</span>();<br>        converter.setSigningKey(SIGNING_KEY);<br>        <span class="hljs-keyword">return</span> converter;<br>    &#125;<br><br>   <span class="hljs-comment">/* @Bean</span><br><span class="hljs-comment">    public TokenStore tokenStore() &#123;</span><br><span class="hljs-comment">        //使用内存存储令牌（普通令牌）</span><br><span class="hljs-comment">        return new InMemoryTokenStore();</span><br><span class="hljs-comment">    &#125;*/</span><br>&#125;<br><br><br></code></pre></td></tr></table></figure>
+
+<p>ResouceServerConfig配置</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@author</span> Administrator</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@version</span> 1.0</span><br><span class="hljs-comment"> **/</span><br><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableResourceServer</span><br><span class="hljs-meta">@EnableGlobalMethodSecurity(securedEnabled = true,prePostEnabled = true)</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ResouceServerConfig</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_">ResourceServerConfigurerAdapter</span> &#123;<br><br><br>    <span class="hljs-comment">//资源服务标识</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> <span class="hljs-type">String</span> <span class="hljs-variable">RESOURCE_ID</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;xuecheng-plus&quot;</span>;<br><br>    <span class="hljs-meta">@Autowired</span><br>    TokenStore tokenStore;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">configure</span><span class="hljs-params">(ResourceServerSecurityConfigurer resources)</span> &#123;<br>        resources.resourceId(RESOURCE_ID)<span class="hljs-comment">//资源 id</span><br>                .tokenStore(tokenStore)<br>                .stateless(<span class="hljs-literal">true</span>);<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception &#123;<br>        http.csrf().disable()<br>                .authorizeRequests()<br>                .antMatchers(<span class="hljs-string">&quot;/r/**&quot;</span>,<span class="hljs-string">&quot;/course/**&quot;</span>).authenticated()<span class="hljs-comment">//所有/r/**的请求必须认证通过</span><br>                .anyRequest().permitAll()<br>        ;<br>    &#125;<br><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>这个请求是以 <code>/content</code> 开头的<br>之前的请求在请求头不需要Authorization就可以直接查询课程信息</p>
+<figure class="highlight http"><figcaption><span>request</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs http">### 查询课程信息<br>POST &#123;&#123;gateway_host&#125;&#125;/content/course/list?pageNo=1&amp;pageSize=2<br><span class="hljs-attribute">Authorization</span><span class="hljs-punctuation">: </span>Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2OTE5NDMyMTEsImF1dGhvcml0aWVzIjpbInAxIl0sImp0aSI6Ijk4ZTUyMTkwLTUwNmUtNGQ4My04NjM0LWNlMGVhYjA5ZmUyMiIsImNsaWVudF9pZCI6IlhjV2ViQXBwIn0.qJ8hPG4KYJzGgav9LAPvBN4jXIbmppzIKpy28zR6k14<br><span class="hljs-attribute">Content-Type</span><span class="hljs-punctuation">: </span>application/json<br><br>&#123;<br>  &quot;auditStatus&quot;: &quot;202004&quot;,<br>  &quot;courseName&quot;: &quot;java&quot;,<br>  &quot;publishStatus&quot;: &quot;&quot;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="通过SecurityContextHolder获取用户身份"><a href="#通过SecurityContextHolder获取用户身份" class="headerlink" title="通过SecurityContextHolder获取用户身份"></a>通过SecurityContextHolder获取用户身份</h4><p>当传入了jwt令牌, 可以使用SecurityContextHolder获取当前用户的身份</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-type">Object</span> <span class="hljs-variable">principal</span> <span class="hljs-operator">=</span> SecurityContextHolder.getContext().getAuthentication().getPrincipal();<br>log.info(<span class="hljs-string">&quot;当前用户身份: &#123;&#125;&quot;</span>, principal); <span class="hljs-comment">// principal: zhangsan</span><br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight http"><figcaption><span>request</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs http"><br>### 校验jwt令牌<br>POST &#123;&#123;auth_host&#125;&#125;/auth/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctcGx1cyJdLCJ1c2VyX25hbWUiOiJ6aGFuZ3NhbiIsInNjb3BlIjpbImFsbCJdLCJleHAiOjE2OTE5NDExNTUsImF1dGhvcml0aWVzIjpbInAxIl0sImp0aSI6IjI5NDUwOGZiLTljYmEtNDAxZS1iMDNhLTRjYzFjYmFiZTBhNiIsImNsaWVudF9pZCI6IlhjV2ViQXBwIn0.Tv7RHqTU9gMChfwjcx1IKxogB9hse9eJL9mYU74bCEU<br><br>#&#123;<br>#  &quot;aud&quot;: [<br>#    &quot;xuecheng-plus&quot;<br>#  ],<br>#  &quot;user_name&quot;: &quot;zhangsan&quot;,<br>#  &quot;scope&quot;: [<br>#    &quot;all&quot;<br>#  ],<br>#  &quot;active&quot;: true,<br>#  &quot;exp&quot;: 1691941155,<br>#  &quot;authorities&quot;: [<br>#    &quot;p1&quot;<br>#  ],<br>#  &quot;jti&quot;: &quot;294508fb-9cba-401e-b03a-4cc1cbabe0a6&quot;,<br>#  &quot;client_id&quot;: &quot;XcWebApp&quot;<br>#&#125;<br>#Response file saved.<br>#&gt; 2023-08-13T222412.200.json<br>#<br>#Response code: 200; Time: 58ms (58 ms); Content length: 184 bytes (184 B)<br></code></pre></td></tr></table></figure>
+
+<h2 id="微服务网关的作用"><a href="#微服务网关的作用" class="headerlink" title="微服务网关的作用"></a>微服务网关的作用</h2><ol>
+<li>路由转发</li>
+<li>jwt认证</li>
+<li>网站的白名单维护</li>
+</ol>
+<h2 id="feign远程调用"><a href="#feign远程调用" class="headerlink" title="feign远程调用"></a>feign远程调用</h2><p>GET方式<br>错误写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@PostMapping(value = &quot;/verify&quot;)</span><br><span class="hljs-keyword">public</span> Boolean <span class="hljs-title function_">verify</span><span class="hljs-params">(String key, String code)</span>;<br><br></code></pre></td></tr></table></figure>
+
+<p>启动服务的时候，会报如下异常：</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs oxygene">Caused <span class="hljs-keyword">by</span>: java.lang.IllegalStateException: <span class="hljs-keyword">Method</span> <span class="hljs-title function_">has</span> <span class="hljs-title function_">too</span> <span class="hljs-title function_">many</span> <span class="hljs-title function_">Body</span> <span class="hljs-title function_">parameters</span>: <span class="hljs-keyword">public</span> <span class="hljs-keyword">abstract</span> java.lang.Boolean com.xuecheng.ucenter.feignclient.CheckCodeClient.verify(java.lang.String,java.lang.String)<br><br></code></pre></td></tr></table></figure>
+
+<p>异常原因：当使用Feign时，如果发送的是get请求，那么需要在请求参数前加上@RequestParam注解修饰，Controller里面可以不加该注解修饰。</p>
+<p>正确写法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><br><span class="hljs-meta">@PostMapping(value = &quot;/verify&quot;)</span><br><span class="hljs-keyword">public</span> Boolean <span class="hljs-title function_">verify</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;key&quot;)</span> String key, <span class="hljs-meta">@RequestParam(&quot;code&quot;)</span> String code)</span>;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="内网穿透工具"><a href="#内网穿透工具" class="headerlink" title="内网穿透工具"></a>内网穿透工具</h2><p>natapp<br><a target="_blank" rel="noopener" href="https://natapp.cn/">https://natapp.cn/</a></p>
+<h2 id="微信二维码"><a href="#微信二维码" class="headerlink" title="微信二维码"></a>微信二维码</h2><p>E:\Code\学成在线\xuecheng-plus-project\xc-ui-pc-static-portal\wxsign.html</p>
+<p>修改这个html的部分</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs JavaScript"><br><span class="hljs-comment">//请用微信生成二维码</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">generateWxQrcode</span>(<span class="hljs-params">token</span>) &#123;<br>  <span class="hljs-keyword">var</span> wxObj = <span class="hljs-keyword">new</span> <span class="hljs-title class_">WxLogin</span>(&#123;<br>      <span class="hljs-attr">self_redirect</span>:<span class="hljs-literal">true</span>,<br>      <span class="hljs-attr">id</span>:<span class="hljs-string">&quot;login_container&quot;</span>, <br>      <span class="hljs-attr">appid</span>: <span class="hljs-string">&quot;wxed9954c01bb89b47&quot;</span>,<br>      <span class="hljs-attr">scope</span>: <span class="hljs-string">&quot;snsapi_login&quot;</span>,<br>      <span class="hljs-attr">redirect_uri</span>: <span class="hljs-string">&quot;http://localhost:8160/auth/wxLogin&quot;</span>,<br>      <span class="hljs-comment">// redirect_uri: &quot;http://62qj2i.natappfree.cc/auth/wxLogin&quot;,</span><br>      <span class="hljs-comment">// redirect_uri: &quot;http://tjxt-user-t.itheima.net/xuecheng/auth/wxLogin&quot;,</span><br>      <span class="hljs-attr">state</span>: token,<br>      <span class="hljs-attr">style</span>: <span class="hljs-string">&quot;&quot;</span>,<br>      <span class="hljs-attr">href</span>: <span class="hljs-string">&quot;&quot;</span><br>    &#125;);<br>  &#125;<br></code></pre></td></tr></table></figure>
+
+<p>设置内网穿透的端口是63070<br><a target="_blank" rel="noopener" href="http://62qj2i.natappfree.cc/">http://62qj2i.natappfree.cc</a> -&gt; 127.0.0.1:63070</p>
+<p>然后修改AuthApplication微服务的端口是8160</p>
+<p><del>xxl-job 的数据库玩坏了还没修 QAQ</del>, 修好了</p>
+<p>可以参考的项目地址: <a target="_blank" rel="noopener" href="https://github.com/Cyborg2077/xuecheng-plus">https://github.com/Cyborg2077/xuecheng-plus</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.anlemon.cn/xiangmu/xuehcheng/xuecheng05/">https://www.anlemon.cn/xiangmu/xuehcheng/xuecheng05/</a></p>
+<p>E:\Code\学成在线\视频\day11 微服务授权 选课学习 支付接口测试</p>
+<p>E:\Code\学成在线\学成在线项目—资料\day11 微服务授权 选课学习 支付接口测试</p>
+<h2 id="支付宝沙箱账号"><a href="#支付宝沙箱账号" class="headerlink" title="支付宝沙箱账号"></a>支付宝沙箱账号</h2><p><a target="_blank" rel="noopener" href="https://open.alipay.com/develop/sandbox/account">https://open.alipay.com/develop/sandbox/account</a></p>
+<p>买家账号<a href="mailto:&#x61;&#103;&#x72;&#x61;&#104;&#x68;&#54;&#x30;&#x34;&#55;&#64;&#x73;&#97;&#110;&#100;&#98;&#111;&#120;&#46;&#99;&#111;&#x6d;">&#x61;&#103;&#x72;&#x61;&#104;&#x68;&#54;&#x30;&#x34;&#55;&#64;&#x73;&#97;&#110;&#100;&#98;&#111;&#120;&#46;&#99;&#111;&#x6d;</a><br>登录密码111111</p>
+<h2 id="关于支付宝订单支付"><a href="#关于支付宝订单支付" class="headerlink" title="关于支付宝订单支付"></a>关于支付宝订单支付</h2><p>2023-8-19 14:54:53<br>首先需要开启natapp进行内网穿透, 穿透到指定的微服务来处理支付请求</p>
+<p>之后配置好支付宝支付成功的回调地址</p>
+<p>支付成功之后, 可以先采用如下的连接进行商品的查询, 然后把这段查询的代码拷贝到自己的测试类跑通</p>
+<p><a target="_blank" rel="noopener" href="https://open.alipay.com/api/apiDebug?frontProdCode=I1080300001000041949&backProdCode=I1011000100000000003&apiNames=alipay.trade.query">https://open.alipay.com/api/apiDebug?frontProdCode=I1080300001000041949&amp;backProdCode=I1011000100000000003&amp;apiNames=alipay.trade.query</a></p>
+<p>注意跑通的时候pom.xml的 AlipayConfig 不是自己创建的配置类, 而是jar包自带的配置类</p>
+<p>俺用的是4.38.55.ALL版本, 测试通过了, 也不知道为啥他妈的他家的代码冗余了两个AlipayConfig , 成功的把我误导了</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- 支付宝SDK --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.alipay.sdk<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>alipay-sdk-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--&lt;version&gt;3.7.73.ALL&lt;/version&gt;--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>4.38.55.ALL<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>账号如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs text">商户账号rjewti2612@sandbox.com<br>登录密码111111<br>商户PID2088721008878120<br>账户余额999910.00<br>买家信息<br>买家账号agrahh6047@sandbox.com<br>登录密码111111<br>支付密码111111<br>用户UID2088722008861299<br>用户名称agrahh6047<br>证件类型IDENTITY_CARD<br>证件账号579355195104126366<br><br>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADIAQAAAACFI5MzAAABx0lEQVR42u2YTYqDQBCFS1z00iP0TeLFAgpeTG/SR3DpQqx5rzoxEpjlvAzDCAnan4uiql79aP7dZf/kt5PRzLqp+LK2OFjbgudWSib3o8PZDGy3zovHmZLU53R0u9GsssFUPZnceh+zzx8jo6UFPknLOnyAMD6Tbze7Gw7fIycgjxzdbs+/9+z9cRLXmLfe94x33hUsIOGYFhmy3jO8g0RtTr9pyJ6ZF54OeCXKRZo7l5LIkBDIUFir3PmilJStoW0Lo3IwOV61SkRCIBkYjkHdLMY7Jdlx6CyU9fCe03FGTkMctnXEKypFj54FUwcpgTob6BSJihydzXKNlJSwaxZoA3qBQAoMHKRkxI9mHVUlBr10LiXMUfSszZCoFOtVwRoCdzxyFFYudJaLyU5ZRMeASvooHK96LSHwDtqVJd6haA8xPkgJh0eEpg4wjI+9FCwiJeqDxwTZ8O4SOQmpFpXkqFUQCEaZ/twkNKTOLmzZUatav9RRDYn5DTmKZ/jp2USV5LHL1NmZfRsqcS2JOT7HOkHFXiY7JUHHWFiwsNDYGR8t8RqfpmLXEsZnz9GyY7FNLibPHK2bBDfK/rpNCcj/V5w/Rr4AHf0kPkDOgeoAAAAASUVORK5CYII=<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="查询测试"><a href="#查询测试" class="headerlink" title="查询测试"></a>查询测试</h2><p>查询支付结果测试, 需要先进行支付才能进行查询订单的详情</p>
+<h2 id="rabbitmq"><a href="#rabbitmq" class="headerlink" title="rabbitmq"></a>rabbitmq</h2><p>账号密码 root &#x2F; root<br>guest &#x2F; guest</p>
+<h2 id="瞎逼逼"><a href="#瞎逼逼" class="headerlink" title="瞎逼逼"></a>瞎逼逼</h2><p>截止到2023-8-22 14:48:53快学完了<br>问题来了, 课程审核的部分代码在哪???<br>该不会每次审核都是要自己手动修改数据库吧</p>
+<h2 id="关于nginx"><a href="#关于nginx" class="headerlink" title="关于nginx"></a>关于nginx</h2><p>nginx其实不是在这个项目的路径下的, nginx存在的路径应该是非中文下的路径, 而我这个项目的路径在中文目录下…</p>
+<h2 id="关于redis项目优化"><a href="#关于redis项目优化" class="headerlink" title="关于redis项目优化"></a>关于redis项目优化</h2><p>缓存穿透 , 就是在缓存中没有要的数据, 大量请求跳过了缓存, 直接查询数据库<br>解决缓存穿透的三种方法: 1. 增加校验机制, 如果传入的参数非法, 直接返回<br>                    2. 使用布隆过滤器<br>                    3. 不管来的值是什么, 都将这个值进行缓存起来, 空值也缓存起来(需要一个过期时间,<br>                        假设请求的时候, 由缓存之间返回来空值, 但是数据库中存在该值的这种情况)</p>
+<p>缓存雪崩, 缓存中的key恰好都同时失效了, 大量请求压力又给到了数据库中<br>解决方案  1. 用同步锁<br>        2. 给缓存中的key设置不同的过期时间, 防止这些缓存中的数据同时在相同的时间内过期<br>        3. 缓存预热, 开启一个定时任务, 在缓存中的数据快要过期时, 或者是每隔一段时间, 就源源不断的更新缓存中的数据</p>
+<p>缓存击穿 , 大量并发请求同一个热点数据, 当热点数据失效之后, 就都会请求数据库, 瞬间耗尽数据库资源<br>        1.使用同步锁<br>        2.热点数据不过期</p>
+<p>分布式引发的问题, 当大量请求来到网关, 网关负载均衡给每个微服务, 每个微服务都去查缓存然后查数据库,<br>这时每个数据库都有一次查询</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E9%A1%B9%E7%9B%AE/">#项目</a>
+      
+        <a href="/tags/%E5%AD%A6%E6%88%90%E5%9C%A8%E7%BA%BF/">#学成在线</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>学成在线项目笔记</div>
+      <div>https://xiamu.icu/Java/学成在线项目笔记/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月2日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/uncategorized/%E8%B7%AF%E7%A8%8B/" title="路程">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">路程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Java/%E4%B8%80%E4%BA%9B%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="一些快捷键">
+                        <span class="hidden-mobile">一些快捷键</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Haq24NRgHl4QheEi7oVqtAsM-gzGzoHsz","appKey":"kGbxzGaSiqqlFPxg24Tk3dVN","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":"https://valinecdn.bili33.top","emojiMaps":{"Tieba-New2":"/Tieba-New/image_emoticon.png","Tieba-New3":"/Tieba-New/image_emoticon10.png","Tieba-New4":"/Tieba-New/image_emoticon100.png","Tieba-New5":"/Tieba-New/image_emoticon101.png","Tieba-New6":"/Tieba-New/image_emoticon102.png","Tieba-New7":"/Tieba-New/image_emoticon103.png","Tieba-New8":"/Tieba-New/image_emoticon104.png","Tieba-New9":"/Tieba-New/image_emoticon105.png","Tieba-New10":"/Tieba-New/image_emoticon106.png","Tieba-New11":"/Tieba-New/image_emoticon107.png","Tieba-New12":"/Tieba-New/image_emoticon108.png","Tieba-New13":"/Tieba-New/image_emoticon109.png","Tieba-New14":"/Tieba-New/image_emoticon11.png","Tieba-New15":"/Tieba-New/image_emoticon110.png","Tieba-New16":"/Tieba-New/image_emoticon111.png","Tieba-New17":"/Tieba-New/image_emoticon112.png","Tieba-New18":"/Tieba-New/image_emoticon113.png","Tieba-New19":"/Tieba-New/image_emoticon114.png","Tieba-New20":"/Tieba-New/image_emoticon115.png","Tieba-New21":"/Tieba-New/image_emoticon116.png","Tieba-New22":"/Tieba-New/image_emoticon117.png","Tieba-New23":"/Tieba-New/image_emoticon118.png","Tieba-New24":"/Tieba-New/image_emoticon119.png","Tieba-New25":"/Tieba-New/image_emoticon12.png","Tieba-New26":"/Tieba-New/image_emoticon120.png","Tieba-New27":"/Tieba-New/image_emoticon121.png","Tieba-New28":"/Tieba-New/image_emoticon122.png","Tieba-New29":"/Tieba-New/image_emoticon123.png","Tieba-New30":"/Tieba-New/image_emoticon124.png","Tieba-New31":"/Tieba-New/image_emoticon13.png","Tieba-New32":"/Tieba-New/image_emoticon14.png","Tieba-New33":"/Tieba-New/image_emoticon15.png","Tieba-New34":"/Tieba-New/image_emoticon16.png","Tieba-New35":"/Tieba-New/image_emoticon17.png","Tieba-New36":"/Tieba-New/image_emoticon18.png","Tieba-New37":"/Tieba-New/image_emoticon19.png","Tieba-New38":"/Tieba-New/image_emoticon2.png","Tieba-New39":"/Tieba-New/image_emoticon20.png","Tieba-New40":"/Tieba-New/image_emoticon21.png","Tieba-New41":"/Tieba-New/image_emoticon22.png","Tieba-New42":"/Tieba-New/image_emoticon23.png","Tieba-New43":"/Tieba-New/image_emoticon24.png","Tieba-New44":"/Tieba-New/image_emoticon25.png","Tieba-New45":"/Tieba-New/image_emoticon26.png","Tieba-New46":"/Tieba-New/image_emoticon27.png","Tieba-New47":"/Tieba-New/image_emoticon28.png","Tieba-New48":"/Tieba-New/image_emoticon29.png","Tieba-New49":"/Tieba-New/image_emoticon3.png","Tieba-New50":"/Tieba-New/image_emoticon30.png","Tieba-New51":"/Tieba-New/image_emoticon31.png","Tieba-New52":"/Tieba-New/image_emoticon32.png","Tieba-New53":"/Tieba-New/image_emoticon33.png","Tieba-New54":"/Tieba-New/image_emoticon34.png","Tieba-New55":"/Tieba-New/image_emoticon35.png","Tieba-New56":"/Tieba-New/image_emoticon36.png","Tieba-New57":"/Tieba-New/image_emoticon37.png","Tieba-New58":"/Tieba-New/image_emoticon38.png","Tieba-New59":"/Tieba-New/image_emoticon39.png","Tieba-New60":"/Tieba-New/image_emoticon4.png","Tieba-New61":"/Tieba-New/image_emoticon40.png","Tieba-New62":"/Tieba-New/image_emoticon41.png","Tieba-New63":"/Tieba-New/image_emoticon42.png","Tieba-New64":"/Tieba-New/image_emoticon43.png","Tieba-New65":"/Tieba-New/image_emoticon44.png","Tieba-New66":"/Tieba-New/image_emoticon45.png","Tieba-New67":"/Tieba-New/image_emoticon46.png","Tieba-New68":"/Tieba-New/image_emoticon47.png","Tieba-New69":"/Tieba-New/image_emoticon48.png","Tieba-New70":"/Tieba-New/image_emoticon49.png","Tieba-New71":"/Tieba-New/image_emoticon5.png","Tieba-New72":"/Tieba-New/image_emoticon50.png","Tieba-New73":"/Tieba-New/image_emoticon6.png","Tieba-New74":"/Tieba-New/image_emoticon66.png","Tieba-New75":"/Tieba-New/image_emoticon67.png","Tieba-New76":"/Tieba-New/image_emoticon68.png","Tieba-New77":"/Tieba-New/image_emoticon69.png","Tieba-New78":"/Tieba-New/image_emoticon7.png","Tieba-New79":"/Tieba-New/image_emoticon70.png","Tieba-New80":"/Tieba-New/image_emoticon71.png","Tieba-New81":"/Tieba-New/image_emoticon72.png","Tieba-New82":"/Tieba-New/image_emoticon73.png","Tieba-New83":"/Tieba-New/image_emoticon74.png","Tieba-New84":"/Tieba-New/image_emoticon75.png","Tieba-New85":"/Tieba-New/image_emoticon76.png","Tieba-New86":"/Tieba-New/image_emoticon77.png","Tieba-New87":"/Tieba-New/image_emoticon78.png","Tieba-New88":"/Tieba-New/image_emoticon79.png","Tieba-New89":"/Tieba-New/image_emoticon8.png","Tieba-New90":"/Tieba-New/image_emoticon80.png","Tieba-New91":"/Tieba-New/image_emoticon81.png","Tieba-New92":"/Tieba-New/image_emoticon82.png","Tieba-New93":"/Tieba-New/image_emoticon83.png","Tieba-New94":"/Tieba-New/image_emoticon84.png","Tieba-New95":"/Tieba-New/image_emoticon85.png","Tieba-New96":"/Tieba-New/image_emoticon86.png","Tieba-New97":"/Tieba-New/image_emoticon87.png","Tieba-New98":"/Tieba-New/image_emoticon88.png","Tieba-New99":"/Tieba-New/image_emoticon89.png","Tieba-New100":"/Tieba-New/image_emoticon9.png","Tieba-New101":"/Tieba-New/image_emoticon90.png","Tieba-New102":"/Tieba-New/image_emoticon91.png","Tieba-New103":"/Tieba-New/image_emoticon92.png","Tieba-New104":"/Tieba-New/image_emoticon93.png","Tieba-New105":"/Tieba-New/image_emoticon94.png","Tieba-New106":"/Tieba-New/image_emoticon95.png","Tieba-New107":"/Tieba-New/image_emoticon96.png","Tieba-New108":"/Tieba-New/image_emoticon97.png","Tieba-New109":"/Tieba-New/image_emoticon98.png","Tieba-New110":"/Tieba-New/image_emoticon99.png"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      湘ICP备2021007554号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <!-- 全局配置aplayer播放器 -->
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease"   
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
