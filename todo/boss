@@ -7,17 +7,45 @@ jobCardLinks.forEach((link, index) => {
     var href = link.getAttribute('href');
     var fullHref = "https://www.zhipin.com" + href;
     if (startChatBtns[index].innerText === '继续沟通') { 
-
     } else {
-        console.log(index, fullHref, startChatBtns[index].innerText);
+        // console.log(index, fullHref, startChatBtns[index].innerText);
 
         window.open(fullHref);
     }
-    
-
 });
 
 
 912884
 
 window.localStorage.setItem('Authorization', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiY29kZXIiXSwidXNlcl9uYW1lIjoie1wicGVybWlzc2lvbnNcIjpbXSxcInVzZXJBdmF0YXJcIjpcImh0dHBzOi8veGlhbXUuaWN1L2ltZy9hdmF0YXIuanBnXCIsXCJ1c2VyQmFja2dyb3VuZFwiOlwiXCIsXCJ1c2VyRW1haWxcIjpcIjEwMjM4NzYyOTRAcXEuY29tXCIsXCJ1c2VySWRcIjo0NyxcInVzZXJJbnRyb2R1Y2VcIjpcIuepuuS9oOWHoOWTh1wiLFwidXNlck5hbWVcIjpcIuiCieixhuiUu-WQllwiLFwidXNlclBob25lXCI6XCIxNzM2OTMzMDkzNlwiLFwidXNlclJlZ1RpbWVcIjoxNjk1Mzg2Mzg4MDAwLFwidXNlclNleFwiOlwi55S3XCJ9Iiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTY5NTM5NTUxNSwiYXV0aG9yaXRpZXMiOlsidGVzdCJdLCJqdGkiOiI1NmU4ZTc0Ny03MDg3LTQ3Y2UtYTZkOC0xOTdlODdiODgzYzkiLCJjbGllbnRfaWQiOiJDb2RlckFwcCJ9.5b82_hZoreDmwdxOEX07t_ba2bpscheENCT0HAMbld8')
+
+
+
+
+let buttons = document.querySelectorAll('.btn-primary')
+
+
+buttons.forEach(item => {
+    console.log(item)
+})
+
+buttons.forEach(item => {
+    // console.log(item.getAttribute('class').indexOf('hide'))
+    if (item.getAttribute('class').indexOf('hide') === -1) {
+        setTimeout(() => {
+            console.log('投递第一个')
+        }, 6000);
+    }
+})
+
+async function logItems() {
+    for (let item of buttons) {
+      if (item.getAttribute('class').indexOf('hide') === -1) { 
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      console.log(item.click());
+    }
+  }
+}
+
+logItems();
+
