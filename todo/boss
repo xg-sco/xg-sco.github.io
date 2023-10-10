@@ -15,9 +15,9 @@ jobCardLinks.forEach((link, index) => {
 
 // boss sleep
 async function clickHrefBoss() {
+    await sleep(2000);
     let jobCardLinks = document.querySelectorAll('a.job-card-left');
     let startChatBtns = document.querySelectorAll('.start-chat-btn');
-    //jobCardLinks.forEach((link, index) => {
     let index = 0;
     for (let link of jobCardLinks) {
         let href = link.getAttribute('href');
@@ -30,7 +30,20 @@ async function clickHrefBoss() {
         }
         index++;
     }
-    // });
+
+    if (index === jobCardLinks.length) {
+        console.log('当前页面点击完成...');
+        console.log('即将开始下一页');
+        await sleep(2000);
+        let uiIconArrowRight = document.querySelector('.ui-icon-arrow-right')
+        let a = uiIconArrowRight.parentElement
+        if (a.getAttribute('class') === 'disabled') {
+            console.log('当前城市投递完毕...');
+            return;
+        }
+        await sleep(2000);
+        uiIconArrowRight.click()
+    }
 }
 
 function sleep(time) {
@@ -38,6 +51,19 @@ function sleep(time) {
 }
 
 
+// 投递
+async function applyBoss() {
+    let btnStartChat = document.querySelector('.btn-startchat')
+    let bossActiveTime = document.querySelector('.boss-active-time')
+    let bossActiveTimeArr = ['刚刚活跃']
+    if (bossActiveTimeArr.includes(bossActiveTime.innerText)) {
+        console.log(bossActiveTime.innerText);
+        await sleep(2000);
+        btnStartChat.click();
+
+        
+    }
+}
 
 
 
