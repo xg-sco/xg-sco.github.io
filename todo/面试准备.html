@@ -23,8 +23,8 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="面试官你好, 我叫夏珑桂, 是吉首大学张家界学院大四的在校大学生 目前掌握的技术栈是Spring vue mysql比较擅长的技术是mysql的索引优化 到店事业群 投递岗位: 【转正实习】软件服务（后端实习生） 1.参与美团餐饮SaaS业务的后端开发任务；2.参与美团餐饮SaaS业务的线上运营问题排查；3.参与单元测试用例编写。 租服务器 网络 存储设备 IaaS使用第三方服务的接口, 提供了一">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-10-10T02:28:47.928Z">
-<meta property="article:modified_time" content="2023-10-10T02:28:47.928Z">
+<meta property="article:published_time" content="2023-10-16T12:29:09.041Z">
+<meta property="article:modified_time" content="2023-10-16T12:29:09.041Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -365,6 +365,65 @@
 <li>Xmx	设置堆的最大内存值，等同于-XX:MaxHeapSize<br>-Xms	设置JVM启动时，堆的初始化大小<br>-Xmn	设置堆中新生代初始化及最大大小<br>-Xss	设置线程大小，等同于-XX:ThreadStackSize</li>
 </ul>
 <p>参数	记法<br>-Xmx	mx Maximum 最大堆内存<br>-Xms	Memory Start 初始堆大小<br>-Xmn	Memory New 新生代堆内存<br>-Xss	Stack size</p>
+<h4 id="索引失效的几种情况"><a href="#索引失效的几种情况" class="headerlink" title="索引失效的几种情况"></a>索引失效的几种情况</h4><p>使用了函数 left(‘column’, 2), </p>
+<p>类型不一致, 隐式转换也是使用了函数</p>
+<p>进行了算术表达式</p>
+<p>没有匹配上最左前缀原则 %张</p>
+<p>优化器认为这条sql 全表扫描比你索引+回表的操作更快</p>
+<p>正则表达式不会走索引</p>
+<h4 id="InnoDb-和-MyISAM的区别"><a href="#InnoDb-和-MyISAM的区别" class="headerlink" title="InnoDb 和 MyISAM的区别"></a>InnoDb 和 MyISAM的区别</h4><p>InnoDB 是支持行级锁的 表锁, 支持事务, 支持外键</p>
+<p>MyISAM 只支持表锁, 不支持事务, 不支持外键</p>
+<p>在查询比较多情况下, 使用MyISAM的效率更高</p>
+<p>使用count() 查询时, MyISAM底层有一个变量存储着数据量, 会直接返回结果<br>InnoDB则是需要一行一行的进行扫描, 最后返回结果</p>
+<h2 id="比较棘手的问题"><a href="#比较棘手的问题" class="headerlink" title="比较棘手的问题:"></a>比较棘手的问题:</h2><p>在开发网易云项目的时候, 本地跑的linux服务器, 在装的docker安装的mysql, 电脑微服务开太多了, linux宕机了<br>因为是docker, docker 突然就断电了, 之后重启docker 数据库连接不上了</p>
+<p>最先是nacos注册中心挂了, docker logs 排查的时候其实是mysql挂了<br>查看日志, mysql没有读取data文件下的权限, 需要删除掉</p>
+<h4 id="⾮关系型数据库和关系型数据库的区别？"><a href="#⾮关系型数据库和关系型数据库的区别？" class="headerlink" title="⾮关系型数据库和关系型数据库的区别？"></a>⾮关系型数据库和关系型数据库的区别？</h4><p>非关系型数据库常见的有redis, mongodb<br>关系型数据库有 mysql, SQLite, oracle</p>
+<p>关系型数据库顾名思义就是表与表中存在关系, 一对多, 多对多<br>非关系型数据库则没有这种关系</p>
+<p>关系型数据库采用表格形式来存储数据<br>非关系型数据库通常采用 文档 keyvalue键值对</p>
+<h4 id="事务的四⼤特性了解么"><a href="#事务的四⼤特性了解么" class="headerlink" title="事务的四⼤特性了解么?"></a>事务的四⼤特性了解么?</h4><p>ACID<br>A 表示 Atomicity 原子性 表示事物不可再分, 要么成功, 要么失败<br>C 表示 Consistency 一致性 从一个一致性状态转移到另一种一致性状态, 比如转账, A账户扣了10块钱, B账户就要多10块钱<br>I 表示 Isolation 隔离性 多个事物之间都是隔离的, 互不干扰<br>D 表示 Durability 持久性 事物一旦提交成功, 就持久化保存到了硬盘中</p>
+<h4 id="MySQL-事务隔离级别？默认是什么级别？"><a href="#MySQL-事务隔离级别？默认是什么级别？" class="headerlink" title="MySQL 事务隔离级别？默认是什么级别？"></a>MySQL 事务隔离级别？默认是什么级别？</h4><p>MySQL中有四种事物的隔离级别, 分别是</p>
+<p>每一种隔离界别都是为了解决一个问题</p>
+<p>读未提交 : 存在脏读<br>读已提交 : 存在<strong>不可重复读</strong><br>默认是可重复读 : 存在幻读<br>序列化</p>
+<p>Oracle 的默认的隔离级别是 读已提交</p>
+<h4 id="乐观锁与悲观锁的区别"><a href="#乐观锁与悲观锁的区别" class="headerlink" title="乐观锁与悲观锁的区别?"></a>乐观锁与悲观锁的区别?</h4><p>乐观锁的实现方式就是在表中添加一个版本号(时间戳)字段, 每次有事务来修改时, 让事务先修改, 修改完毕之后, 再跟之前的版本号进行对比<br>如果版本号一致, 直接修改, 如果版本号不一致, 读取此时的版本号, 再次进行修改, 直到修改成功</p>
+<p>悲观锁 使用 select … for update 将操作的数据进行上锁, 不允许其他事务进来操作上锁的数据, 当事务执行完毕, 锁也就释放了<br>就是在事务操作数据的时候, 如果遇到要修改的数据被上了锁, 就阻塞等待着, 直到锁释放</p>
+<h4 id="MySQL-数据库两种存储引擎的区别"><a href="#MySQL-数据库两种存储引擎的区别" class="headerlink" title="MySQL 数据库两种存储引擎的区别?"></a>MySQL 数据库两种存储引擎的区别?</h4><p>InnoDb 支持行锁, 表锁, 支持事务, 可以有外键, 使用count(<em>) 全表扫描的时候是挨个扫描<br>MyISAM 只支持表锁, 不支持事务, 不可以有外键, 使用count(</em>) 全表扫描的时候是直接返回结果</p>
+<h4 id="redis的常见数据结构"><a href="#redis的常见数据结构" class="headerlink" title="redis的常见数据结构"></a>redis的常见数据结构</h4><p>string<br>List<br>Set<br>zset<br>hash</p>
+<p>SpringBoot启动流程?</p>
+<p>在启动类中main, 运行函数, SpringApplication.run(类名.class, args)<br>加载 ApplicationContext 上下文<br>加载 config 配置类<br>包扫描 注解<br>创建Bean实例对象<br>依赖注入Bean实例对象</p>
+<p>hashmap的<br>springmvc执行流程<br><a target="_blank" rel="noopener" href="https://blog.51cto.com/u_15309887/5341042">https://blog.51cto.com/u_15309887/5341042</a></p>
+<p>association</p>
+<p>数字马力-24届秋招-后端开发工程师-1016 2023年10月16日 19:00 - 2023年10月16日 22:00（其余时段均不可作答）</p>
+<h2 id="下午三点的面试"><a href="#下午三点的面试" class="headerlink" title="下午三点的面试"></a>下午三点的面试</h2><p>sleep wait</p>
+<p>cookie session之间的区别</p>
+<p>Integer int 之间区别</p>
+<p>linux拷贝整个目录的命令</p>
+<p>drop truncate delete之间的区别</p>
+<p>Python有爬虫过的吗? 数据处理用什么库?</p>
+<p>20-30分钟</p>
+<p>自我介绍?</p>
+<p>八股文 + 项目</p>
+<p>项目中遇到什么难题?</p>
+<p>你有什么想问的?</p>
+<p>行测 申论 性格测试</p>
+<p>大厂的秋招投递<br>字节跳动<br>小米<br>网易</p>
+<p>快手: <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/pfY3gsBqoe6LjEPI2ggrLA">https://mp.weixin.qq.com/s/pfY3gsBqoe6LjEPI2ggrLA</a></p>
+<p>1.职业发展规划、人生规划</p>
+<p>2.期望薪资（非常决定性）</p>
+<p>3.你为什么愿意到我们公司，对公司的印象&#x2F;看法如何？</p>
+<p>4.岗位相关的专业问题（但不会问特别专业的）</p>
+<p>5.对行业有啥了解？</p>
+<p>6.对简历上一些过往经历的提问</p>
+<p>7.家庭情况</p>
+<p>1.是否认同公司核心价值观，与公司文化的融合性；</p>
+<p>2.是否有共创事业的意愿与长久打算？</p>
+<p>3.是否能适应公司当前的管理环境，特别是不足的地方？</p>
+<p>4.是否具备成长发展的潜力？</p>
+<p>5.胜任本岗位的核心能力是否达到？</p>
+<p>1.专业面试前可以准备相关的作品集（如MRD市场需求文档、创业做过的BRD商业需求文档、PRD产品需求文档、营销活动海报策划等）足以证明你可以胜任此份工作的材料。</p>
+<p>2.描述职业规划要非常清晰，建议想清楚自己的优势所在，想做哪个方向、以及擅长哪个方向。没有企业愿意招一个思路一点都不清晰的人</p>
+<p>3.自我介绍要精简。需要自我介绍时，尽量精简控制在一分钟之内，简历中详细的部分可以等待面试官提问时展开</p>
+<p>4.二面也要带上简历、技能证书、成绩单、学生证等材料</p>
 
 
   
