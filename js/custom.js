@@ -24,14 +24,29 @@ console.log('\n %c xiamu %c 肉豆蔻吖 \n', 'color: #fadfa3; background: #0303
 
 
 if (window.location.href === 'https://xiamu.icu/about/' || window.location.href === 'http://localhost:4000/about/') {
-    let ref = setInterval(function(){	//每隔2秒尝试播放一次
+
+
+    let ref = setInterval(function () {	//每隔2秒尝试播放一次
         isaplay();
-    },2000);
-    function isaplay(){
-        $(".aplayer-play")[0].click()	//尝试播放
-        setTimeout(function() {		//延时100毫秒再执行其内部的判断
-            if($(".aplayer-pause").length > 0){    //`aplayer-button aplayer-pause`是否存在
-            clearInterval(ref);		//停止Interval，即停止循环
-        }}, 100);
+    }, 2000);
+    function isaplay() {
+
+        let arr = document.querySelectorAll('.aplayer')
+        // console.log('#', arr);
+        arr.forEach(item => {
+            // console.log(item.getAttribute('data-id'));
+            if (item.getAttribute('data-id') === '5237049130') {
+                // console.log('干掉当前节点');
+                item.remove()
+            }
+        })
+
+        console.log('isaplay');
+        $(".aplayer-play").click()	//尝试播放
+        setTimeout(function () {		//延时100毫秒再执行其内部的判断
+            if ($(".aplayer-pause").length > 0) {    //`aplayer-button aplayer-pause`是否存在
+                clearInterval(ref);		//停止Interval，即停止循环
+            }
+        }, 100);
     }
 }
