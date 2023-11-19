@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2023-11-01-23-26-23.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-11-01-23-55-44.png">
 <meta property="article:published_time" content="2023-11-01T15:31:06.000Z">
-<meta property="article:modified_time" content="2023-11-10T06:30:24.777Z">
+<meta property="article:modified_time" content="2023-11-16T07:17:52.104Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Delphi">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          6.5k 字
+          7.1k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          55 分钟
+          60 分钟
         
       </span>
     
@@ -413,28 +413,15 @@ th.Resume;
 <p>procedure  TForm1.OnProcess(Sender: TObject);<br>begin<br>  pb1.Position : &#x3D;  pb1.Position  +   1 ;<br>end ;</p>
 <p>procedure  TForm1.OnStartCount(Sender: TObject);<br>begin<br>  pb1.Max : &#x3D;  TCountThread(Sender).BlockCount;<br>  pb1.Position : &#x3D;   0 ;<br>end ;</p>
 <p>end .</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs awk"><br>关于数组的遍历, 索引<br><br><br><br><br><br>我的电脑cpu到底是几核，四个内核八个逻辑处理器是什么意思<br>https:<span class="hljs-regexp">//</span>zhuanlan.zhihu.com<span class="hljs-regexp">/p/</span><span class="hljs-number">591815544</span><br><br>学成在线 多线程处理文件<br>https:<span class="hljs-regexp">//</span>blog.csdn.net<span class="hljs-regexp">/qq_57818853/</span>article<span class="hljs-regexp">/details/</span><span class="hljs-number">131170665</span><br><br><br>获取cpu核心数<br><br>创建线程池<br><br>获取任务list, 遍历任务, 然后将任务丢给线程池进行处理<br><br>等待所有线程任务完成, 超时异常<br><br><span class="hljs-comment">## 将Byte数组转成String输出</span><br><br>使用 SetString 函数将Byte数组转成String输出<br><br></code></pre></td></tr></table></figure>
+
+<p>procedure TForm26.Button2Click(Sender: TObject);<br>var<br>  FileStream: TFileStream;<br>  Buffer: array [1 .. 10] of byte;<br>  BlockSize: Integer;<br>  ReadSize: Integer;<br>  i: Integer;<br>  BufferStr: String;<br>begin</p>
+<p>  BlockSize :&#x3D; 10;<br>  &#x2F;&#x2F; 读取文件<br>  FileStream :&#x3D; TFileStream.Create(‘E:\input\input5.txt’, fmOpenRead);</p>
+<p>  &#x2F;&#x2F; showMessage(inttostr(FileStream.Size)); &#x2F;&#x2F; 42</p>
+<p>  ReadSize :&#x3D; FileStream.read(Buffer, BlockSize);</p>
+<p>  &#x2F;&#x2F; 将Byte转成String输出<br>  SetString(BufferStr, PAnsiChar(@Buffer), SizeOf(Buffer));<br>  ShowMessage(BufferStr);</p>
+<p>end;</p>
 <pre><code class="hljs">
-关于数组的遍历, 索引
-
-
-
-
-
-我的电脑cpu到底是几核，四个内核八个逻辑处理器是什么意思
-https://zhuanlan.zhihu.com/p/591815544
-
-学成在线 多线程处理文件
-https://blog.csdn.net/qq_57818853/article/details/131170665
-
-
-获取cpu核心数
-
-创建线程池
-
-获取任务list, 遍历任务, 然后将任务丢给线程池进行处理
-
-等待所有线程任务完成, 超时异常
-
 </code></pre>
 
                 
@@ -525,6 +512,12 @@ https://blog.csdn.net/qq_57818853/article/details/131170665
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/SpringBoot/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6/Java/SpringBoot%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0%E5%A4%A7%E5%B0%8F%E9%99%90%E5%88%B6/" title="SpringBoot文件上传大小限制">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">SpringBoot文件上传大小限制</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
