@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2023-11-01-23-26-23.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2023-11-01-23-55-44.png">
 <meta property="article:published_time" content="2023-11-01T15:31:06.000Z">
-<meta property="article:modified_time" content="2023-11-16T07:17:52.104Z">
+<meta property="article:modified_time" content="2023-11-20T07:05:32.259Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Delphi">
 <meta name="twitter:card" content="summary_large_image">
@@ -246,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.1k 字
+          7.7k 字
         
       </span>
     
@@ -257,7 +257,7 @@
         
         
         
-          60 分钟
+          65 分钟
         
       </span>
     
@@ -421,8 +421,16 @@ th.Resume;
 <p>  ReadSize :&#x3D; FileStream.read(Buffer, BlockSize);</p>
 <p>  &#x2F;&#x2F; 将Byte转成String输出<br>  SetString(BufferStr, PAnsiChar(@Buffer), SizeOf(Buffer));<br>  ShowMessage(BufferStr);</p>
 <p>end;</p>
-<pre><code class="hljs">
-</code></pre>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs oxygene"><br>创建线程 , 如果是<span class="hljs-keyword">True</span>, 表示创建线程但不会立即执行, 需要使用start才能执行<br>MyWorkerThread.FreeOnTerminate := <span class="hljs-keyword">True</span><span class="hljs-punctuation">;</span> 表示线程运行完成之后, 自动释放<br>```Delphi<br>  TMyWorkerThread = <span class="hljs-keyword">class</span>(TThread)<br>  <span class="hljs-keyword">public</span><br>    <span class="hljs-keyword">procedure</span> <span class="hljs-title function_">Execute</span>; <span class="hljs-keyword">override</span><span class="hljs-punctuation">;</span><br>  <span class="hljs-keyword">end</span><span class="hljs-punctuation">;</span><br><br><span class="hljs-keyword">var</span><br>  MyWorkerThread: TMyWorkerThread<span class="hljs-punctuation">;</span><br><br>  MyWorkerThread := TMyWorkerThread.Create(<span class="hljs-keyword">True</span>)<span class="hljs-punctuation">;</span><br>  MyWorkerThread.FreeOnTerminate := <span class="hljs-keyword">True</span><span class="hljs-punctuation">;</span><br>  MyWorkerThread.Start<span class="hljs-punctuation">;</span><br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/527851/general-question-for-messageboxes">https://stackoverflow.com/questions/527851/general-question-for-messageboxes</a><br>prompt js , 弹窗 , 确定 取消</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs Delphi">Res := Application.MessageBox(<span class="hljs-string">&#x27;Do you really want to exit?&#x27;</span>, <span class="hljs-string">&#x27;Are you sure?&#x27;</span>,<br>  MB_ICONQUESTION <span class="hljs-keyword">or</span> MB_YESNO);<br>  ShowMessage(<span class="hljs-string">&#x27;Res is &#x27;</span> + inttostr(Res));<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ProGram_Java521/article/details/108129322">delphi中使文本框获得焦点</a></p>
+<p><a target="_blank" rel="noopener" href="https://codeantenna.com/a/mDTQlQwkJS">关闭线程</a></p>
+<p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/552085947662712452.html">关闭线程</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/LegenDavid/article/details/80762537">命名缩写</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_27575841/article/details/105461223">计算变量中有多少个bit位是1的方法</a></p>
 
                 
               </div>
