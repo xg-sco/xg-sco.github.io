@@ -1,0 +1,1270 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#96c0d3cc">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="http https区别get post区别cookie session区别tcp udp区别spring springboot区别String StringBuffer StringBuilder区别HashMap HashTable ConcurrentMap区别final finally finalize区别这些是一些常见的面试题, 请仿造这种格式 “X1 与 X2 的区别是?” 罗列一些面">
+<meta property="og:type" content="article">
+<meta property="og:title" content="chatgpt辅助面试prompt">
+<meta property="og:url" content="https://xiamu.icu/Java/chatgpt%E8%BE%85%E5%8A%A9%E9%9D%A2%E8%AF%95prompt/index.html">
+<meta property="og:site_name" content="肉豆蔻吖">
+<meta property="og:description" content="http https区别get post区别cookie session区别tcp udp区别spring springboot区别String StringBuffer StringBuilder区别HashMap HashTable ConcurrentMap区别final finally finalize区别这些是一些常见的面试题, 请仿造这种格式 “X1 与 X2 的区别是?” 罗列一些面">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-12-28T13:12:41.000Z">
+<meta property="article:modified_time" content="2023-12-28T15:41:16.127Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>chatgpt辅助面试prompt - 肉豆蔻吖</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiamu.icu","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>肉豆蔻吖</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="chatgpt辅助面试prompt"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-28 21:12" pubdate>
+          2023年12月28日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          112 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">chatgpt辅助面试prompt</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>http https区别<br>get post区别<br>cookie session区别<br>tcp udp区别<br>spring springboot区别<br>String StringBuffer StringBuilder区别<br>HashMap HashTable ConcurrentMap区别<br>final finally finalize区别<br>这些是一些常见的面试题, 请仿造这种格式 “X1 与 X2 的区别是?” 罗列一些面试题<br>注意你无需回答上面的面试题, 而是让你仿造出题, 每次罗列一百道面试题出来<br>尽可能偏向Java后端, Spring , Redis , MySQL , 网络, 操作系统等的操作系统高频面试题</p>
+<hr>
+<p>2023-12-28 21:12:55</p>
+<ol>
+<li>HTTP与HTTPS的区别是？</li>
+<li>GET与POST请求的区别是？</li>
+<li>Cookie与Session的区别是？</li>
+<li>TCP与UDP的区别是？</li>
+<li>Spring与Spring Boot的区别是？</li>
+<li>String、StringBuffer和StringBuilder的区别是？</li>
+<li>HashMap、HashTable和ConcurrentMap的区别是？</li>
+<li>final、finally和finalize的区别是？</li>
+<li>RESTful与SOAP的区别是？</li>
+<li>MySQL的InnoDB与MyISAM存储引擎的区别是？</li>
+<li>Synchronized与ReentrantLock的区别是？</li>
+<li>SQL的INNER JOIN与LEFT JOIN的区别是？</li>
+<li>Java的多态与重载的区别是？</li>
+<li>JVM与JRE的区别是？</li>
+<li>Redis的数据结构及其适用场景有哪些？</li>
+<li>Spring AOP与Spring事务管理的区别是？</li>
+<li>CAP定理与BASE理论的概念及应用场景有哪些？</li>
+<li>MySQL索引的B-tree与B+ tree的区别是？</li>
+<li>Java的ClassLoader与Class对象的关系是？</li>
+<li>Redis与Memcached的区别是？</li>
+<li>Spring的IoC与DI的概念及关系是？</li>
+<li>什么是Java的泛型？泛型与反射的关系是？</li>
+<li>Linux与Windows操作系统的主要区别是？</li>
+<li>Redis的持久化方式有哪些，各自的优缺点是？</li>
+<li>Java中的强引用、软引用、弱引用和虚引用的区别是？</li>
+<li>什么是数据库事务的隔离级别，各级别的特点是？</li>
+<li>Spring中的Bean的生命周期是怎样的？</li>
+<li>Redis的主从复制原理是什么，有哪些应用场景？</li>
+<li>什么是微服务架构，与单体架构的对比有哪些优劣？</li>
+<li>Java中的反射机制是什么，有哪些应用场景？</li>
+<li>Spring Cloud与Spring Boot的关系是？</li>
+<li>MySQL的事务隔离级别有哪些，各自的解决方案是？</li>
+<li>HTTP协议的状态码有哪些，各自表示什么意思？</li>
+<li>Redis的数据淘汰策略有哪些，分别适用于什么场景？</li>
+<li>什么是分布式锁，有哪些实现方式，各自的优缺点是？</li>
+<li>Spring MVC与Spring Boot的区别是？</li>
+<li>Java中的异常处理机制是怎样的？</li>
+<li>Redis的事务是怎么实现的，有哪些注意事项？</li>
+<li>什么是Java中的注解，有哪些常见的注解？</li>
+<li>MySQL的存储过程与触发器的区别是？</li>
+<li>Spring Cloud中的服务注册与发现是如何实现的？</li>
+<li>Java中的NIO与IO的区别是？</li>
+<li>什么是ORM框架，常见的Java ORM框架有哪些？</li>
+<li>Redis的发布订阅模式是怎么实现的？</li>
+<li>Spring Boot中的自动配置原理是怎样的？</li>
+<li>Java中的线程池与Executor框架的关系是？</li>
+<li>MySQL的主键与唯一索引的区别是？</li>
+<li>什么是反向代理，有哪些常见的反向代理服务器？</li>
+<li>Spring Boot中的配置文件有哪些，各自的作用是？</li>
+<li>Java中的设计模式有哪些，简要介绍几种常见的设计模式？</li>
+<li>MySQL的事务日志是怎么实现的，有什么作用？</li>
+<li>什么是JWT，有哪些优势与不足？</li>
+<li>Spring中的AOP是怎么实现的，有哪些应用场景？</li>
+<li>Redis的缓存淘汰策略有哪些，分别适用于什么场景？</li>
+<li>Java中的内存模型是怎样的？</li>
+<li>Spring Boot中的@Conditional注解的作用是？</li>
+<li>MySQL的存储引擎有哪些，各自的特点是？</li>
+<li>什么是微内核架构，有哪些实际应用？</li>
+<li>Java中的Lambda表达式是什么，有哪些使用场景？</li>
+<li>Spring Cloud中的服务熔断是怎么实现的？</li>
+<li>Redis的数据类型有哪些，各自的使用场景是？</li>
+<li>什么是分布式事务，有哪些实现方式，各自的优缺点是？</li>
+<li>Java中的静态代理与动态代理的区别是？</li>
+<li>MySQL的索引优化策略有哪些？</li>
+<li>Spring Boot中的@Async注解的作用是？</li>
+<li>什么是消息中间件，有哪些常见的消息中间件？</li>
+<li>Java中的反序列化漏洞是什么，如何防范？</li>
+<li>Redis的持久化RDB与AOF的对比有哪些？</li>
+<li>Spring中的事务传播机制有哪些，各自的含义是？</li>
+<li>MySQL中的连接池有哪些，各自的特点是？</li>
+<li>什么是分布式缓存，有哪些常见的分布式缓存系统？</li>
+<li>Java中的ClassLoader如何实现热部署？</li>
+<li>Spring Boot中的Profile是什么，有什么作用？</li>
+<li>MySQL的悲观锁与乐观锁的区别是？</li>
+<li>什么是微服务网关，有哪些常见的微服务网关？</li>
+<li>Java中的JDBC与Hibernate的区别是？</li>
+<li>Redis的哨兵模式是什么，有什么作用？</li>
+<li>Spring Cloud中的服务降级是怎么实现的？</li>
+<li>MySQL的数据库范式与反范式的设计有哪些优劣？</li>
+<li>Java中的注解处理器是什么，有哪些应用场景？</li>
+<li>Spring Boot中的@SpringBootApplication注解的作用是？</li>
+<li>什么是分布式一致性，有哪些实现方式？</li>
+<li>Java中的内存泄漏是什么，如何避免？</li>
+<li>Redis的Lua脚本是怎么执行的，有什么优势？</li>
+<li>Spring中的IOC容器有哪些，各自的特点是？</li>
+<li>MySQL的查询优化策略有哪些？</li>
+<li>Spring Boot中的Starter是什么，有什么作用？</li>
+<li>Java中的线程安全问题有哪些，如何解决？</li>
+<li>Redis的分布式锁是怎么实现的，有什么问题？</li>
+<li>Spring Cloud中的服务注册中心有哪些？</li>
+<li>MySQL的事务日志与重做日志的区别是？</li>
+<li>Java中的JVM垃圾回收算法有哪些，各自的特点是？</li>
+<li>Spring中的BeanPostProcessor是什么，有什么作用？</li>
+<li>Redis的主从复制延迟问题是怎么解决的？</li>
+<li>Spring Boot中的外部配置有哪些方式？</li>
+<li>MySQL的字符集与校对规则的选择有哪些考虑？</li>
+<li>Java中的单例模式有哪些实现方式，各自的优缺点是？</li>
+<li>Spring Cloud中的服务治理是怎么实现的？</li>
+<li>Redis的集群模式是怎么实现的，有哪些优势？</li>
+<li>MySQL的分区表与分表的区别是？</li>
+</ol>
+<hr>
+<ol start="101">
+<li>HTTP&#x2F;1.0与HTTP&#x2F;1.1的区别是？</li>
+<li>Java中的序列化与反序列化的机制是？</li>
+<li>Spring中的BeanFactory与ApplicationContext的区别是？</li>
+<li>MySQL的存储引擎InnoDB与MEMORY的区别是？</li>
+<li>Java中的NPE（空指针异常）是怎么引起的，如何避免？</li>
+<li>Redis的缓存击穿与缓存雪崩的区别是？</li>
+<li>Spring Boot中的Actuator模块的作用是？</li>
+<li>MySQL的事务隔离级别SERIALIZABLE的特点是？</li>
+<li>Java中的CAS（Compare and Swap）是什么，有什么应用？</li>
+<li>Spring Cloud中的服务注册中心Eureka与Consul的区别是？</li>
+<li>HTTP的状态码401与403的区别是？</li>
+<li>Java中的线程池ThreadPoolExecutor的参数含义是？</li>
+<li>Redis的HyperLogLog是什么，有什么应用场景？</li>
+<li>Spring中的Bean的作用域有哪些，各自的特点是？</li>
+<li>MySQL的索引失效的原因有哪些，如何避免？</li>
+<li>Java中的ClassLoader双亲委派模型是怎么工作的？</li>
+<li>Spring Boot中的自定义Starter的步骤是？</li>
+<li>Redis的分布式事务问题是怎么解决的？</li>
+<li>MySQL的复制原理是什么，有哪些应用场景？</li>
+<li>Java中的volatile关键字的作用是？</li>
+<li>Spring Cloud中的服务消费方式有哪些，各自的优劣？</li>
+<li>HTTP的Keep-Alive与Connection的区别是？</li>
+<li>Java中的内部类与静态内部类的区别是？</li>
+<li>Redis的Bitmap是什么，有什么应用场景？</li>
+<li>Spring中的AOP的底层实现原理是？</li>
+<li>MySQL的触发器与存储过程的区别是？</li>
+<li>Java中的JVM内存结构有哪些区域？</li>
+<li>Spring Boot中的数据校验方式有哪些？</li>
+<li>Redis的持久化AOF的写入方式有哪些？</li>
+<li>MySQL的自增主键与UUID的选择有哪些考虑？</li>
+<li>Java中的泛型通配符是什么，有什么作用？</li>
+<li>Spring Cloud中的服务路由是怎么实现的？</li>
+<li>HTTP的ETag与Last-Modified的区别是？</li>
+<li>Java中的String.intern()的作用是？</li>
+<li>Redis的Lua脚本中的EVAL命令有什么特点？</li>
+<li>Spring中的IOC容器如何处理循环依赖？</li>
+<li>MySQL的查询优化器是如何工作的？</li>
+<li>Java中的多线程如何实现线程安全？</li>
+<li>Spring Boot中的拦截器与过滤器的区别是？</li>
+<li>Redis的ZSET是什么，有什么应用场景？</li>
+<li>Java中的注解与反射的关系是？</li>
+<li>MySQL的事务隔离级别READ COMMITTED的特点是？</li>
+<li>Spring Cloud中的服务熔断与降级的区别是？</li>
+<li>HTTP协议的Content-Type与Accept的区别是？</li>
+<li>Java中的OOM（Out of Memory）是怎么引起的？</li>
+<li>Redis的哨兵模式中SENTINEL的作用是？</li>
+<li>Spring Boot中的@Scheduled注解的作用是？</li>
+<li>MySQL的存储引擎MyISAM与InnoDB的对比是？</li>
+<li>Java中的BigDecimal与Double的运算有哪些注意事项？</li>
+<li>Spring中的事务传播机制PROPAGATION_NESTED的含义是？</li>
+<li>Redis的缓存预热是什么，有什么优势？</li>
+<li>Java中的Lambda表达式与匿名类的区别是？</li>
+<li>Spring Boot中的YAML与Properties配置文件的选择有哪些考虑？</li>
+<li>MySQL的分库分表策略有哪些，各自的优缺点是？</li>
+<li>Java中的ClassLoader的破坏性与保护性的区别是？</li>
+<li>Redis的SCAN命令与KEYS命令的区别是？</li>
+<li>Spring Cloud中的服务网关Zuul与Gateway的区别是？</li>
+<li>HTTP协议的Connection头与Keep-Alive头的作用是？</li>
+<li>Java中的ThreadLocal的作用与实现原理是？</li>
+<li>MySQL的存储引擎TokuDB的特点是？</li>
+<li>Spring Boot中的@ConditionalOnProperty注解的作用是？</li>
+<li>Redis的GeoHash是什么，有什么应用场景？</li>
+<li>Java中的类加载器双亲委派模型如何打破？</li>
+<li>Spring中的BeanPostProcessor的作用与应用场景是？</li>
+<li>MySQL的索引优化策略有哪些，各自的使用场景是？</li>
+<li>Java中的弱引用与虚引用的区别是？</li>
+<li>Redis的发布与订阅中的PUB&#x2F;SUB模式有什么特点？</li>
+<li>Spring Boot中的AOP如何获取方法参数？</li>
+<li>HTTP的协议头中的Pragma与Cache-Control的区别是？</li>
+<li>Java中的Object类的hashCode与equals方法的关系是？</li>
+<li>MySQL的主键与唯一索引的区别与应用场景是？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper与Etcd的区别是？</li>
+<li>Redis的数据过期策略有哪些，各自的适用场景是？</li>
+<li>Java中的动态代理与静态代理的区别是？</li>
+<li>Spring Boot中的@Value注解与@ConfigurationProperties注解的区别是？</li>
+<li>MySQL的事务隔离级别REPEATABLE READ的特点是？</li>
+<li>HTTP协议的Range头与Content-Range头的作用是？</li>
+<li>Java中的反射与性能的关系是？</li>
+<li>Redis的缓存雪崩是什么，如何防范？</li>
+<li>Spring中的Bean的生命周期与回调方法是？</li>
+<li>MySQL的触发器与存储过程的适用场景是？</li>
+<li>Java中的JConsole与VisualVM的区别是？</li>
+<li>Spring Cloud中的配置中心Config的作用是？</li>
+<li>Redis的Pipeline是什么，有什么优势？</li>
+<li>Java中的StringBuilder与StringBuffer的区别是？</li>
+<li>MySQL的连接池与数据库连接的关系是？</li>
+<li>Spring Boot中的@Async注解的使用与注意事项是？</li>
+<li>Redis的Lua脚本如何使用外部库？</li>
+<li>HTTP协议的OPTIONS方法与HEAD方法的区别是？</li>
+<li>Java中的ThreadLocal与InheritableThreadLocal的区别是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的自我保护机制是？</li>
+<li>MySQL的索引失效的情况有哪些，如何优化？</li>
+<li>Java中的线程池ThreadPoolExecutor的拒绝策略有哪些？</li>
+<li>Redis的数据淘汰策略LRU与LFU的区别是？</li>
+<li>Spring Boot中的Bean生命周期如何自定义？</li>
+<li>HTTP协议的User-Agent头与Referer头的作用是？</li>
+<li>Java中的JVM内存溢出OutOfMemoryError的原因有哪些？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper与Consul的区别是？</li>
+<li>MySQL的存储引擎Memory与InnoDB的区别是？</li>
+<li>Java中的ClassLoader破坏性与保护性的案例有哪些？</li>
+</ol>
+<hr>
+<ol start="201">
+<li>HTTP协议的Upgrade与Connection头的作用是？</li>
+<li>Java中的强引用、软引用与弱引用的应用场景是？</li>
+<li>Spring Boot中的@Retryable注解的作用是？</li>
+<li>MySQL的事务隔离级别READ UNCOMMITTED的特点是？</li>
+<li>Java中的BigDecimal与BigInteger的区别是？</li>
+<li>Redis的Lua脚本如何使用外部库？</li>
+<li>Spring Cloud中的服务注册中心Eureka的自我保护机制是？</li>
+<li>MySQL的索引失效的情况有哪些，如何优化？</li>
+<li>Java中的线程池ThreadPoolExecutor的拒绝策略有哪些？</li>
+<li>Redis的数据淘汰策略LRU与LFU的区别是？</li>
+<li>Spring Boot中的Bean生命周期如何自定义？</li>
+<li>HTTP协议的User-Agent头与Referer头的作用是？</li>
+<li>Java中的JVM内存溢出OutOfMemoryError的原因有哪些？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper与Consul的区别是？</li>
+<li>MySQL的存储引擎Memory与InnoDB的区别是？</li>
+<li>Java中的ClassLoader破坏性与保护性的案例有哪些？</li>
+<li>Redis的持久化RDB与AOF的混合使用有何优势？</li>
+<li>Spring Boot中的@PathVariable与@RequestParam的区别是？</li>
+<li>MySQL的分表与分区的选择有哪些因素？</li>
+<li>Java中的并发容器ConcurrentHashMap与Hashtable的区别是？</li>
+<li>HTTP协议的Content-Disposition头的作用是？</li>
+<li>Java中的ThreadLocal与全局变量的区别是？</li>
+<li>Redis的SCAN命令与KEYS命令的性能差异是？</li>
+<li>Spring Cloud中的服务降级与熔断的关系是？</li>
+<li>MySQL的索引最左匹配原则的应用场景是？</li>
+<li>Java中的类加载机制与双亲委派模型是如何工作的？</li>
+<li>Spring Boot中的@Cacheable注解的使用与原理是？</li>
+<li>Redis的ZSET的底层实现原理是？</li>
+<li>Java中的内存模型与内存屏障的关系是？</li>
+<li>MySQL的存储引擎TokuDB与InnoDB的对比是？</li>
+<li>Spring Cloud中的服务网关Zuul与Spring Cloud Gateway的区别是？</li>
+<li>HTTP协议的301与302状态码的区别是？</li>
+<li>Java中的Thread.sleep()与Object.wait()的区别是？</li>
+<li>Redis的分布式锁中的RedLock算法的特点是？</li>
+<li>Spring Boot中的AOP如何获取注解信息？</li>
+<li>MySQL的自增主键如何实现？</li>
+<li>Java中的序列化与反序列化的性能优化有哪些？</li>
+<li>Spring Cloud中的配置中心Config的实现原理是？</li>
+<li>Redis的数据淘汰策略是如何选择的？</li>
+<li>Java中的内存泄漏检测工具有哪些？</li>
+<li>HTTP协议的Cookie与Session的工作原理是？</li>
+<li>Java中的并发工具CountDownLatch与CyclicBarrier的区别是？</li>
+<li>Spring Boot中的@Condition注解的使用与原理是？</li>
+<li>MySQL的存储引擎Memory与MyISAM的区别是？</li>
+<li>Java中的反射与动态代理的关系是？</li>
+<li>Redis的AOF持久化与RDB持久化的对比是？</li>
+<li>Spring Cloud中的服务注册中心Consul的实现原理是？</li>
+<li>HTTP协议的半连接与全连接的区别是？</li>
+<li>Java中的线程安全问题与性能问题如何权衡？</li>
+<li>MySQL的事务隔离级别与死锁的关系是？</li>
+<li>Spring Boot中的@Configuration注解与@Bean注解的作用是？</li>
+<li>Redis的Bitfield命令的作用是？</li>
+<li>Java中的String的intern方法的作用是？</li>
+<li>Spring Cloud中的服务熔断Hystrix的原理是？</li>
+<li>MySQL的索引失效的原因有哪些，如何解决？</li>
+<li>Java中的Future与CompletableFuture的区别是？</li>
+<li>Redis的事务MULTI&#x2F;EXEC的执行原理是？</li>
+<li>Spring Boot中的事务传播机制有哪些？</li>
+<li>MySQL的存储引擎Memory与Archive的区别是？</li>
+<li>Java中的线程池与ScheduledExecutorService的区别是？</li>
+<li>HTTP协议的协商缓存与强制缓存的区别是？</li>
+<li>Java中的类加载器与模块化的关系是？</li>
+<li>Redis的Cluster模式中的槽分配原理是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的心跳机制是？</li>
+<li>MySQL的存储引擎InnoDB的行锁与表锁的区别是？</li>
+<li>Java中的GC算法有哪些，各自的特点是？</li>
+<li>Redis的缓存穿透与缓存雪崩的区别是？</li>
+<li>Spring Boot中的@Profile注解的使用与场景是？</li>
+<li>HTTP协议的协议版本有哪些，各自的特点是？</li>
+<li>Java中的Lambda表达式的类型推断机制是？</li>
+<li>MySQL的外连接与内连接的区别是？</li>
+<li>Redis的HyperLogLog与基数估计算法的关系是？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper的节点类型有哪些？</li>
+<li>Java中的注解与反射的性能影响是？</li>
+<li>MySQL的存储引擎TokuDB与Percona的区别是？</li>
+<li>HTTP协议的WebSocket与HTTP长连接的区别是？</li>
+<li>Java中的NIO与AIO的区别是？</li>
+<li>Redis的Pipeline与Transaction的区别是？</li>
+<li>Spring Boot中的WebMvcConfigurer的作用是？</li>
+<li>MySQL的事务隔离级别与锁的关系是？</li>
+<li>Java中的多线程如何实现线程安全？</li>
+<li>Redis的Scan算法与Keys命令的性能差异是？</li>
+<li>Spring Cloud中的配置中心Config的优势与不足是？</li>
+<li>HTTP协议的Connection头与Keep-Alive头的关系是？</li>
+<li>Java中的内部类与匿名内部类的区别是？</li>
+<li>MySQL的自增主键如何避免冲突？</li>
+<li>Redis的集群模式中的节点通信原理是？</li>
+<li>Spring Boot中的@Validated注解的作用是？</li>
+<li>HTTP协议的Location头与Redirect的区别是？</li>
+<li>Java中的内存泄漏检测工具有哪些？</li>
+<li>Redis的分布式锁中的过期与续租机制是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的服务注册流程是？</li>
+<li>MySQL的存储引擎InnoDB与MyISAM的事务支持情况是？</li>
+<li>Java中的ClassLoader与双亲委派模型的打破方式是？</li>
+<li>Redis的Bitmap如何用于统计用户在线时长？</li>
+<li>Spring Boot中的异步调用与多线程的区别是？</li>
+<li>HTTP协议的Transfer-Encoding头与Content-Encoding头的区别是？</li>
+<li>Java中的线程池ThreadPoolExecutor的参数含义是？</li>
+<li>MySQL的索引失效的原因有哪些，如何优化？</li>
+<li>Redis的数据淘汰策略LRU与LFU的区别是？</li>
+</ol>
+<hr>
+<ol start="301">
+<li>HTTP协议的Upgrade与Connection头的作用是？</li>
+<li>Java中的强引用、软引用与弱引用的应用场景是？</li>
+<li>Spring Boot中的@Retryable注解的作用是？</li>
+<li>MySQL的事务隔离级别READ UNCOMMITTED的特点是？</li>
+<li>Java中的BigDecimal与BigInteger的区别是？</li>
+<li>Redis的Lua脚本如何使用外部库？</li>
+<li>Spring Cloud中的服务注册中心Eureka的自我保护机制是？</li>
+<li>MySQL的索引失效的情况有哪些，如何优化？</li>
+<li>Java中的线程池ThreadPoolExecutor的拒绝策略有哪些？</li>
+<li>Redis的数据淘汰策略LRU与LFU的区别是？</li>
+<li>Spring Boot中的Bean生命周期如何自定义？</li>
+<li>HTTP协议的User-Agent头与Referer头的作用是？</li>
+<li>Java中的JVM内存溢出OutOfMemoryError的原因有哪些？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper与Consul的区别是？</li>
+<li>MySQL的存储引擎Memory与InnoDB的区别是？</li>
+<li>Java中的ClassLoader破坏性与保护性的案例有哪些？</li>
+<li>Redis的持久化RDB与AOF的混合使用有何优势？</li>
+<li>Spring Boot中的@PathVariable与@RequestParam的区别是？</li>
+<li>MySQL的分表与分区的选择有哪些因素？</li>
+<li>Java中的并发容器ConcurrentHashMap与Hashtable的区别是？</li>
+<li>HTTP协议的Content-Disposition头的作用是？</li>
+<li>Java中的ThreadLocal与全局变量的区别是？</li>
+<li>Redis的SCAN命令与KEYS命令的性能差异是？</li>
+<li>Spring Cloud中的服务降级与熔断的关系是？</li>
+<li>MySQL的索引最左匹配原则的应用场景是？</li>
+<li>Java中的类加载机制与双亲委派模型是如何工作的？</li>
+<li>Spring Boot中的@Cacheable注解的使用与原理是？</li>
+<li>Redis的ZSET的底层实现原理是？</li>
+<li>Java中的内存模型与内存屏障的关系是？</li>
+<li>MySQL的存储引擎TokuDB与Percona的区别是？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper的节点类型有哪些？</li>
+<li>Java中的注解与反射的性能影响是？</li>
+<li>MySQL的存储引擎Memory与Archive的区别是？</li>
+<li>HTTP协议的WebSocket与HTTP长连接的区别是？</li>
+<li>Java中的NIO与AIO的区别是？</li>
+<li>Redis的Pipeline与Transaction的区别是？</li>
+<li>Spring Boot中的WebMvcConfigurer的作用是？</li>
+<li>MySQL的事务隔离级别与锁的关系是？</li>
+<li>Java中的多线程如何实现线程安全？</li>
+<li>Redis的Scan算法与Keys命令的性能差异是？</li>
+<li>Spring Cloud中的配置中心Config的优势与不足是？</li>
+<li>HTTP协议的Connection头与Keep-Alive头的关系是？</li>
+<li>Java中的内部类与匿名内部类的区别是？</li>
+<li>MySQL的自增主键如何避免冲突？</li>
+<li>Redis的集群模式中的节点通信原理是？</li>
+<li>Spring Boot中的@Validated注解的作用是？</li>
+<li>HTTP协议的协商缓存与强制缓存的区别是？</li>
+<li>Java中的Lambda表达式的类型推断机制是？</li>
+<li>MySQL的外连接与内连接的区别是？</li>
+<li>Redis的HyperLogLog与基数估计算法的关系是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的心跳机制是？</li>
+<li>MySQL的存储引擎InnoDB的行锁与表锁的区别是？</li>
+<li>Java中的GC算法有哪些，各自的特点是？</li>
+<li>Redis的缓存穿透与缓存雪崩的区别是？</li>
+<li>Spring Boot中的@Profile注解的使用与场景是？</li>
+<li>HTTP协议的Transfer-Encoding头与Content-Encoding头的区别是？</li>
+<li>Java中的内存泄漏检测工具有哪些？</li>
+<li>Redis的分布式锁中的过期与续租机制是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的服务注册流程是？</li>
+<li>MySQL的存储引擎InnoDB与MyISAM的事务支持情况是？</li>
+<li>Java中的ClassLoader与模块化的关系是？</li>
+<li>Redis的Cluster模式中的槽分配原理是？</li>
+<li>Spring Cloud中的配置中心Config的实现原理是？</li>
+<li>HTTP协议的协议版本有哪些，各自的特点是？</li>
+<li>Java中的内部类与匿名内部类的区别是？</li>
+<li>MySQL的自增主键如何避免冲突？</li>
+<li>Redis的集群模式中的节点通信原理是？</li>
+<li>Spring Boot中的@Validated注解的作用是？</li>
+<li>HTTP协议的协商缓存与强制缓存的区别是？</li>
+<li>Java中的Lambda表达式的类型推断机制是？</li>
+<li>MySQL的外连接与内连接的区别是？</li>
+<li>Redis的HyperLogLog与基数估计算法的关系是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的心跳机制是？</li>
+<li>MySQL的存储引擎InnoDB的行锁与表锁的区别是？</li>
+<li>Java中的GC算法有哪些，各自的特点是？</li>
+<li>Redis的缓存穿透与缓存雪崩的区别是？</li>
+<li>Spring Boot中的@Profile注解的使用与场景是？</li>
+<li>HTTP协议的Transfer-Encoding头与Content-Encoding头的区别是？</li>
+<li>Java中的内存泄漏检测工具有哪些？</li>
+<li>Redis的分布式锁中的过期与续租机制是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的服务注册流程是？</li>
+<li>MySQL的存储引擎InnoDB与MyISAM的事务支持情况是？</li>
+<li>Java中的ClassLoader与模块化的关系是？</li>
+<li>Redis的Cluster模式中的槽分配原理是？</li>
+<li>Spring Cloud中的配置中心Config的实现原理是？</li>
+<li>HTTP协议的协议版本有哪些，各自的特点是？</li>
+<li>Java中的内部类与匿名内部类的区别是？</li>
+<li>MySQL的自增主键如何避免冲突？</li>
+<li>Redis的集群模式中的节点通信原理是？</li>
+<li>Spring Boot中的@Validated注解的作用是？</li>
+<li>HTTP协议的协商缓存与强制缓存的区别是？</li>
+<li>Java中的Lambda表达式的类型推断机制是？</li>
+<li>MySQL的外连接与内连接的区别是？</li>
+<li>Redis的HyperLogLog与基数估计算法的关系是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的心跳机制是？</li>
+<li>MySQL的存储引擎InnoDB的行锁与表锁的区别是？</li>
+<li>Java中的GC算法有哪些，各自的特点是？</li>
+<li>Redis的缓存穿透与缓存雪崩的区别是？</li>
+<li>Spring Boot中的@Profile注解的使用与场景是？</li>
+<li>HTTP协议的Transfer-Encoding头与Content-Encoding头的区别是？</li>
+</ol>
+<hr>
+<ol start="401">
+<li>Java中的线程池ThreadPoolExecutor的拒绝策略有哪些？</li>
+<li>Redis的数据淘汰策略LRU与LFU的区别是？</li>
+<li>Spring Boot中的Bean生命周期如何自定义？</li>
+<li>HTTP协议的User-Agent头与Referer头的作用是？</li>
+<li>Java中的JVM内存溢出OutOfMemoryError的原因有哪些？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper与Consul的区别是？</li>
+<li>MySQL的存储引擎Memory与InnoDB的区别是？</li>
+<li>Java中的ClassLoader破坏性与保护性的案例有哪些？</li>
+<li>Redis的持久化RDB与AOF的混合使用有何优势？</li>
+<li>Spring Boot中的@PathVariable与@RequestParam的区别是？</li>
+<li>MySQL的分表与分区的选择有哪些因素？</li>
+<li>Java中的并发容器ConcurrentHashMap与Hashtable的区别是？</li>
+<li>HTTP协议的Content-Disposition头的作用是？</li>
+<li>Java中的ThreadLocal与全局变量的区别是？</li>
+<li>Redis的SCAN命令与KEYS命令的性能差异是？</li>
+<li>Spring Cloud中的服务降级与熔断的关系是？</li>
+<li>MySQL的索引最左匹配原则的应用场景是？</li>
+<li>Java中的类加载机制与双亲委派模型是如何工作的？</li>
+<li>Spring Boot中的@Cacheable注解的使用与原理是？</li>
+<li>Redis的ZSET的底层实现原理是？</li>
+<li>Java中的内存模型与内存屏障的关系是？</li>
+<li>MySQL的存储引擎TokuDB与Percona的区别是？</li>
+<li>Spring Cloud中的服务注册中心Zookeeper的节点类型有哪些？</li>
+<li>Java中的注解与反射的性能影响是？</li>
+<li>MySQL的存储引擎Memory与Archive的区别是？</li>
+<li>HTTP协议的WebSocket与HTTP长连接的区别是？</li>
+<li>Java中的NIO与AIO的区别是？</li>
+<li>Redis的Pipeline与Transaction的区别是？</li>
+<li>Spring Boot中的WebMvcConfigurer的作用是？</li>
+<li>MySQL的事务隔离级别与锁的关系是？</li>
+<li>Java中的多线程如何实现线程安全？</li>
+<li>Redis的Scan算法与Keys命令的性能差异是？</li>
+<li>Spring Cloud中的配置中心Config的优势与不足是？</li>
+<li>HTTP协议的Connection头与Keep-Alive头的关系是？</li>
+<li>Java中的内部类与匿名内部类的区别是？</li>
+<li>MySQL的自增主键如何避免冲突？</li>
+<li>Redis的集群模式中的节点通信原理是？</li>
+<li>Spring Boot中的@Validated注解的作用是？</li>
+<li>HTTP协议的协商缓存与强制缓存的区别是？</li>
+<li>Java中的Lambda表达式的类型推断机制是？</li>
+<li>MySQL的外连接与内连接的区别是？</li>
+<li>Redis的HyperLogLog与基数估计算法的关系是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的心跳机制是？</li>
+<li>MySQL的存储引擎InnoDB的行锁与表锁的区别是？</li>
+<li>Java中的GC算法有哪些，各自的特点是？</li>
+<li>Redis的缓存穿透与缓存雪崩的区别是？</li>
+<li>Spring Boot中的@Profile注解的使用与场景是？</li>
+<li>HTTP协议的Transfer-Encoding头与Content-Encoding头的区别是？</li>
+<li>Java中的内存泄漏检测工具有哪些？</li>
+<li>Redis的分布式锁中的过期与续租机制是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的服务注册流程是？</li>
+<li>MySQL的存储引擎InnoDB与MyISAM的事务支持情况是？</li>
+<li>Java中的ClassLoader与模块化的关系是？</li>
+<li>Redis的Cluster模式中的槽分配原理是？</li>
+<li>Spring Cloud中的配置中心Config的实现原理是？</li>
+<li>HTTP协议的协议版本有哪些，各自的特点是？</li>
+<li>Java中的内部类与匿名内部类的区别是？</li>
+<li>MySQL的自增主键如何避免冲突？</li>
+<li>Redis的集群模式中的节点通信原理是？</li>
+<li>Spring Boot中的@Validated注解的作用是？</li>
+<li>HTTP协议的协商缓存与强制缓存的区别是？</li>
+<li>Java中的Lambda表达式的类型推断机制是？</li>
+<li>MySQL的外连接与内连接的区别是？</li>
+<li>Redis的HyperLogLog与基数估计算法的关系是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的心跳机制是？</li>
+<li>MySQL的存储引擎InnoDB的行锁与表锁的区别是？</li>
+<li>Java中的GC算法有哪些，各自的特点是？</li>
+<li>Redis的缓存穿透与缓存雪崩的区别是？</li>
+<li>Spring Boot中的@Profile注解的使用与场景是？</li>
+<li>HTTP协议的Transfer-Encoding头与Content-Encoding头的区别是？</li>
+<li>Java中的内存泄漏检测工具有哪些？</li>
+<li>Redis的分布式锁中的过期与续租机制是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的服务注册流程是？</li>
+<li>MySQL的存储引擎InnoDB与MyISAM的事务支持情况是？</li>
+<li>Java中的ClassLoader与模块化的关系是？</li>
+<li>Redis的Cluster模式中的槽分配原理是？</li>
+<li>Spring Cloud中的配置中心Config的实现原理是？</li>
+<li>HTTP协议的协议版本有哪些，各自的特点是？</li>
+<li>Java中的内部类与匿名内部类的区别是？</li>
+<li>MySQL的自增主键如何避免冲突？</li>
+<li>Redis的集群模式中的节点通信原理是？</li>
+<li>Spring Boot中的@Validated注解的作用是？</li>
+<li>HTTP协议的协商缓存与强制缓存的区别是？</li>
+<li>Java中的Lambda表达式的类型推断机制是？</li>
+<li>MySQL的外连接与内连接的区别是？</li>
+<li>Redis的HyperLogLog与基数估计算法的关系是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的心跳机制是？</li>
+<li>MySQL的存储引擎InnoDB的行锁与表锁的区别是？</li>
+<li>Java中的GC算法有哪些，各自的特点是？</li>
+<li>Redis的缓存穿透与缓存雪崩的区别是？</li>
+<li>Spring Boot中的@Profile注解的使用与场景是？</li>
+<li>HTTP协议的Transfer-Encoding头与Content-Encoding头的区别是？</li>
+<li>Java中的内存泄漏检测工具有哪些？</li>
+<li>Redis的分布式锁中的过期与续租机制是？</li>
+<li>Spring Cloud中的服务注册中心Eureka的服务注册流程是？</li>
+<li>MySQL的存储引擎InnoDB与MyISAM的事务支持情况是？</li>
+<li>Java中的ClassLoader与模块化的关系是？</li>
+<li>Redis的Cluster模式中的槽分配原理是？</li>
+<li>Spring Cloud中的配置中心Config的实现原理是？</li>
+<li>HTTP协议的协议版本有哪些，各自的特点是？</li>
+</ol>
+<hr>
+<p>项目中使用了什么算法?<br>遇到过什么难题?<br>HTTP 与 HTTPS 之间区别<br>线程和进程之间区别?<br>什么时候用进程 什么时候用线程?</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>chatgpt辅助面试prompt</div>
+      <div>https://xiamu.icu/Java/chatgpt辅助面试prompt/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月28日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Java/React%20Tutorial%20for%20Beginners/" title="React Tutorial for Beginners">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">React Tutorial for Beginners</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Java/%E9%BB%91%E9%A9%AC%E5%A4%B4%E6%9D%A1%E7%AC%94%E8%AE%B0/" title="黑马头条笔记">
+                        <span class="hidden-mobile">黑马头条笔记</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Haq24NRgHl4QheEi7oVqtAsM-gzGzoHsz","appKey":"kGbxzGaSiqqlFPxg24Tk3dVN","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":"https://valinecdn.bili33.top","emojiMaps":{"Tieba-New2":"/Tieba-New/image_emoticon.png","Tieba-New3":"/Tieba-New/image_emoticon10.png","Tieba-New4":"/Tieba-New/image_emoticon100.png","Tieba-New5":"/Tieba-New/image_emoticon101.png","Tieba-New6":"/Tieba-New/image_emoticon102.png","Tieba-New7":"/Tieba-New/image_emoticon103.png","Tieba-New8":"/Tieba-New/image_emoticon104.png","Tieba-New9":"/Tieba-New/image_emoticon105.png","Tieba-New10":"/Tieba-New/image_emoticon106.png","Tieba-New11":"/Tieba-New/image_emoticon107.png","Tieba-New12":"/Tieba-New/image_emoticon108.png","Tieba-New13":"/Tieba-New/image_emoticon109.png","Tieba-New14":"/Tieba-New/image_emoticon11.png","Tieba-New15":"/Tieba-New/image_emoticon110.png","Tieba-New16":"/Tieba-New/image_emoticon111.png","Tieba-New17":"/Tieba-New/image_emoticon112.png","Tieba-New18":"/Tieba-New/image_emoticon113.png","Tieba-New19":"/Tieba-New/image_emoticon114.png","Tieba-New20":"/Tieba-New/image_emoticon115.png","Tieba-New21":"/Tieba-New/image_emoticon116.png","Tieba-New22":"/Tieba-New/image_emoticon117.png","Tieba-New23":"/Tieba-New/image_emoticon118.png","Tieba-New24":"/Tieba-New/image_emoticon119.png","Tieba-New25":"/Tieba-New/image_emoticon12.png","Tieba-New26":"/Tieba-New/image_emoticon120.png","Tieba-New27":"/Tieba-New/image_emoticon121.png","Tieba-New28":"/Tieba-New/image_emoticon122.png","Tieba-New29":"/Tieba-New/image_emoticon123.png","Tieba-New30":"/Tieba-New/image_emoticon124.png","Tieba-New31":"/Tieba-New/image_emoticon13.png","Tieba-New32":"/Tieba-New/image_emoticon14.png","Tieba-New33":"/Tieba-New/image_emoticon15.png","Tieba-New34":"/Tieba-New/image_emoticon16.png","Tieba-New35":"/Tieba-New/image_emoticon17.png","Tieba-New36":"/Tieba-New/image_emoticon18.png","Tieba-New37":"/Tieba-New/image_emoticon19.png","Tieba-New38":"/Tieba-New/image_emoticon2.png","Tieba-New39":"/Tieba-New/image_emoticon20.png","Tieba-New40":"/Tieba-New/image_emoticon21.png","Tieba-New41":"/Tieba-New/image_emoticon22.png","Tieba-New42":"/Tieba-New/image_emoticon23.png","Tieba-New43":"/Tieba-New/image_emoticon24.png","Tieba-New44":"/Tieba-New/image_emoticon25.png","Tieba-New45":"/Tieba-New/image_emoticon26.png","Tieba-New46":"/Tieba-New/image_emoticon27.png","Tieba-New47":"/Tieba-New/image_emoticon28.png","Tieba-New48":"/Tieba-New/image_emoticon29.png","Tieba-New49":"/Tieba-New/image_emoticon3.png","Tieba-New50":"/Tieba-New/image_emoticon30.png","Tieba-New51":"/Tieba-New/image_emoticon31.png","Tieba-New52":"/Tieba-New/image_emoticon32.png","Tieba-New53":"/Tieba-New/image_emoticon33.png","Tieba-New54":"/Tieba-New/image_emoticon34.png","Tieba-New55":"/Tieba-New/image_emoticon35.png","Tieba-New56":"/Tieba-New/image_emoticon36.png","Tieba-New57":"/Tieba-New/image_emoticon37.png","Tieba-New58":"/Tieba-New/image_emoticon38.png","Tieba-New59":"/Tieba-New/image_emoticon39.png","Tieba-New60":"/Tieba-New/image_emoticon4.png","Tieba-New61":"/Tieba-New/image_emoticon40.png","Tieba-New62":"/Tieba-New/image_emoticon41.png","Tieba-New63":"/Tieba-New/image_emoticon42.png","Tieba-New64":"/Tieba-New/image_emoticon43.png","Tieba-New65":"/Tieba-New/image_emoticon44.png","Tieba-New66":"/Tieba-New/image_emoticon45.png","Tieba-New67":"/Tieba-New/image_emoticon46.png","Tieba-New68":"/Tieba-New/image_emoticon47.png","Tieba-New69":"/Tieba-New/image_emoticon48.png","Tieba-New70":"/Tieba-New/image_emoticon49.png","Tieba-New71":"/Tieba-New/image_emoticon5.png","Tieba-New72":"/Tieba-New/image_emoticon50.png","Tieba-New73":"/Tieba-New/image_emoticon6.png","Tieba-New74":"/Tieba-New/image_emoticon66.png","Tieba-New75":"/Tieba-New/image_emoticon67.png","Tieba-New76":"/Tieba-New/image_emoticon68.png","Tieba-New77":"/Tieba-New/image_emoticon69.png","Tieba-New78":"/Tieba-New/image_emoticon7.png","Tieba-New79":"/Tieba-New/image_emoticon70.png","Tieba-New80":"/Tieba-New/image_emoticon71.png","Tieba-New81":"/Tieba-New/image_emoticon72.png","Tieba-New82":"/Tieba-New/image_emoticon73.png","Tieba-New83":"/Tieba-New/image_emoticon74.png","Tieba-New84":"/Tieba-New/image_emoticon75.png","Tieba-New85":"/Tieba-New/image_emoticon76.png","Tieba-New86":"/Tieba-New/image_emoticon77.png","Tieba-New87":"/Tieba-New/image_emoticon78.png","Tieba-New88":"/Tieba-New/image_emoticon79.png","Tieba-New89":"/Tieba-New/image_emoticon8.png","Tieba-New90":"/Tieba-New/image_emoticon80.png","Tieba-New91":"/Tieba-New/image_emoticon81.png","Tieba-New92":"/Tieba-New/image_emoticon82.png","Tieba-New93":"/Tieba-New/image_emoticon83.png","Tieba-New94":"/Tieba-New/image_emoticon84.png","Tieba-New95":"/Tieba-New/image_emoticon85.png","Tieba-New96":"/Tieba-New/image_emoticon86.png","Tieba-New97":"/Tieba-New/image_emoticon87.png","Tieba-New98":"/Tieba-New/image_emoticon88.png","Tieba-New99":"/Tieba-New/image_emoticon89.png","Tieba-New100":"/Tieba-New/image_emoticon9.png","Tieba-New101":"/Tieba-New/image_emoticon90.png","Tieba-New102":"/Tieba-New/image_emoticon91.png","Tieba-New103":"/Tieba-New/image_emoticon92.png","Tieba-New104":"/Tieba-New/image_emoticon93.png","Tieba-New105":"/Tieba-New/image_emoticon94.png","Tieba-New106":"/Tieba-New/image_emoticon95.png","Tieba-New107":"/Tieba-New/image_emoticon96.png","Tieba-New108":"/Tieba-New/image_emoticon97.png","Tieba-New109":"/Tieba-New/image_emoticon98.png","Tieba-New110":"/Tieba-New/image_emoticon99.png"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      湘ICP备2021007554号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <!-- 全局配置aplayer播放器 -->
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease"   
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
