@@ -58,6 +58,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-10-23-45-37.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-00-33-11.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-00-33-20.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-00-33-46.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-00-55-42.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-01-02-27.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-01-25-12.png">
@@ -68,8 +69,9 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-10-57-05.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-10-57-12.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-10-57-18.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-11-36-45.png">
 <meta property="article:published_time" content="2024-01-08T11:27:23.000Z">
-<meta property="article:modified_time" content="2024-01-11T03:33:59.886Z">
+<meta property="article:modified_time" content="2024-01-11T03:45:51.730Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
@@ -281,7 +283,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          53k 字
+          54k 字
         
       </span>
     
@@ -520,15 +522,8 @@
 <h4 id="4-标记整理"><a href="#4-标记整理" class="headerlink" title="4.标记整理"></a>4.标记整理</h4><p><img src="/assets/2024-01-10-23-45-37.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="JVM复习题"><a href="#JVM复习题" class="headerlink" title="JVM复习题"></a>JVM复习题</h2><h4 id="1-JVM垃圾回收的时候如何确定垃圾-是否知道什么是GC-Roots"><a href="#1-JVM垃圾回收的时候如何确定垃圾-是否知道什么是GC-Roots" class="headerlink" title="1.JVM垃圾回收的时候如何确定垃圾?是否知道什么是GC Roots"></a>1.JVM垃圾回收的时候如何确定垃圾?是否知道什么是GC Roots</h4><p>1.什么是垃圾?<br>简单的说就是内存中已经不再被使用到的空间就是垃圾</p>
 <p>2.要进行垃圾回收, 如何判断一个对象是否可以被回收?<br>(1)引用计数法<br><img src="/assets/2024-01-11-00-33-11.png" srcset="/img/loading.gif" lazyload><br>(2)枚举根节点做可达性分析(根搜索路径)<br><img src="/assets/2024-01-11-00-33-20.png" srcset="/img/loading.gif" lazyload></p>
-<pre><code class="hljs">a)case
-![](/source/assets/2024-01-11-00-33-46.png)
-
-b)Java中可以作为CG Roots的对象
-    1) 虚拟机栈(栈帧中的局部变量区，也叫做局部变量表) 中引用的对象
-    2) 方法区中的类静态属性引用的对象。
-    3) 方法区中常量引用的对象。
-    4) 本地方法栈中JNI(Native方法)引用的对象
-</code></pre>
+<p>a)case<br><img src="/assets/2024-01-11-00-33-46.png" srcset="/img/loading.gif" lazyload></p>
+<p>b)Java中可以作为CG Roots的对象<br>    1) 虚拟机栈(栈帧中的局部变量区，也叫做局部变量表) 中引用的对象<br>    2) 方法区中的类静态属性引用的对象。<br>    3) 方法区中常量引用的对象。<br>    4) 本地方法栈中JNI(Native方法)引用的对象</p>
 <blockquote>
 <p>Person p1 &#x3D; new Person();<br>左边: 引用 右边: 实例对象</p>
 </blockquote>
@@ -547,30 +542,26 @@ b)Java中可以作为CG Roots的对象
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ jps -l<br>$ jinfo -flag PrintGCDetails 37860<br></code></pre></td></tr></table></figure>
 <p><img src="/assets/2024-01-11-01-25-12.png" srcset="/img/loading.gif" lazyload></p>
 <p>在VM Options中添加参数 <code>-XX:+PrintGCDetails</code> , 再次查看此时运行的jvm参数, 变成了 <code>+</code>, 之前默认是 <code>-</code><br><img src="/assets/2024-01-11-01-30-15.png" srcset="/img/loading.gif" lazyload></p>
-<pre><code class="hljs">    (3.2) KV设值类型
-        a) 公式 -XX:属性key=属性值value
-        b) Case
-            c) -XX:MetaspaceSize=128m
-            d) -XX:MaxTenuringThreshold=15
-</code></pre>
+<p>(3.2) KV设值类型<br>    a) 公式 -XX:属性key&#x3D;属性值value<br>    b) Case<br>        c) -XX:MetaspaceSize&#x3D;128m<br>        d) -XX:MaxTenuringThreshold&#x3D;15</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ jps -l<br>$ jinfo -flag MetaspaceSize 29280<br>$ jinfo -flag MaxTenuringThreshold 29280<br></code></pre></td></tr></table></figure>
 <p>查看默认的 元空间大小  21807104 &#x2F; 1024 &#x2F; 1024 ≈ 21M<br><img src="/assets/2024-01-11-01-42-29.png" srcset="/img/loading.gif" lazyload></p>
 <p>修改元空间大小, 设置VM options : <code>-XX:MetaspaceSize=128m</code><br><img src="/assets/2024-01-11-01-47-50.png" srcset="/img/loading.gif" lazyload></p>
 <p>同理可以查看 MaxTenuringThreshold 设置对象进入老年代的最大年龄阈值<br><img src="/assets/2024-01-11-01-49-46.png" srcset="/img/loading.gif" lazyload></p>
-<pre><code class="hljs">(4) jinfo举例, 如何查看当前运行程序的配置
-    公式: `jinfo -flag 配置项进程编号` 
-</code></pre>
+<p>(4) jinfo举例, 如何查看当前运行程序的配置<br>    公式: <code>jinfo -flag 配置项进程编号</code> </p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">jps<br>jinfo -flag 具体参数 java进程编号<br>jinfo -flags java进程编号<br></code></pre></td></tr></table></figure>
 <p><img src="/assets/2024-01-11-10-57-05.png" srcset="/img/loading.gif" lazyload><br><img src="/assets/2024-01-11-10-57-12.png" srcset="/img/loading.gif" lazyload><br><img src="/assets/2024-01-11-10-57-18.png" srcset="/img/loading.gif" lazyload></p>
-<pre><code class="hljs">(5) 题外话(坑题)
-    两个经典参数: -Xms和-Xmx 
-    这个你如何解释?
-    -Xms 等价于 -XX:InitialHeapSize
-    -Xmx 等价于 -XX:MaxHeapSize
-</code></pre>
+<p>(5) 题外话(坑题)<br>    两个经典参数: -Xms和-Xmx<br>    这个你如何解释?<br>    -Xms 等价于 -XX:InitialHeapSize<br>    -Xmx 等价于 -XX:MaxHeapSize</p>
 <ol start="2">
-<li>判断家底查看JVM默认值<br> (1) -XX:+PrintFlagsInital<br> 主要查看初始默认<br> 公式 <code>java -XX:+PrintFlagsInitial -version</code><br> <code>java -XX:+PrintFlagsInitial</code><br> (2) -XX:+PrintFlagsFinal<br> (3) PrintFlagsFinal 举例, 运行java命令的同时打印参数<br> (4) -XX:+PrintCommandLineFlags</li>
+<li>判断家底查看JVM默认值<br> (1) -XX:+PrintFlagsInital<br> 主要查看初始默认<br> 公式 <code>java -XX:+PrintFlagsInitial -version</code><br> <code>java -XX:+PrintFlagsInitial</code></li>
 </ol>
+<p><img src="/assets/2024-01-11-11-36-45.png" srcset="/img/loading.gif" lazyload></p>
+<pre><code class="hljs">(2) -XX:+PrintFlagsFinal
+    主要查看修改更新
+    公式 `java -XX:+PrintFlagsFinal -version`
+    公式 `java -XX:+PrintFlagsFinal -version`
+(3) PrintFlagsFinal 举例, 运行java命令的同时打印参数
+(4) -XX:+PrintCommandLineFlags
+</code></pre>
 <h4 id="3-你平时工作用过的JVM常用基本配置参数有哪些"><a href="#3-你平时工作用过的JVM常用基本配置参数有哪些" class="headerlink" title="3.你平时工作用过的JVM常用基本配置参数有哪些?"></a>3.你平时工作用过的JVM常用基本配置参数有哪些?</h4><h4 id="4-强引用、软引用、弱引用、虚引用分别是什么"><a href="#4-强引用、软引用、弱引用、虚引用分别是什么" class="headerlink" title="4.强引用、软引用、弱引用、虚引用分别是什么?"></a>4.强引用、软引用、弱引用、虚引用分别是什么?</h4><h4 id="5-请谈谈你对OOM的认识"><a href="#5-请谈谈你对OOM的认识" class="headerlink" title="5.请谈谈你对OOM的认识"></a>5.请谈谈你对OOM的认识</h4><h4 id="6-GC垃圾回收算法和垃圾收集器的关系-分别是什么请你谈谈"><a href="#6-GC垃圾回收算法和垃圾收集器的关系-分别是什么请你谈谈" class="headerlink" title="6.GC垃圾回收算法和垃圾收集器的关系?分别是什么请你谈谈"></a>6.GC垃圾回收算法和垃圾收集器的关系?分别是什么请你谈谈</h4><h4 id="7-怎么查看服务器默认的垃圾收集器是那个-生产上如何配置垃圾收集器的-谈谈你对垃圾收集器的理解"><a href="#7-怎么查看服务器默认的垃圾收集器是那个-生产上如何配置垃圾收集器的-谈谈你对垃圾收集器的理解" class="headerlink" title="7.怎么查看服务器默认的垃圾收集器是那个?生产上如何配置垃圾收集器的?谈谈你对垃圾收集器的理解?"></a>7.怎么查看服务器默认的垃圾收集器是那个?生产上如何配置垃圾收集器的?谈谈你对垃圾收集器的理解?</h4><h4 id="8-G1垃圾收集器"><a href="#8-G1垃圾收集器" class="headerlink" title="8.G1垃圾收集器"></a>8.G1垃圾收集器</h4><h4 id="9-生产环境服务器变慢，诊断思路和性能评估谈谈"><a href="#9-生产环境服务器变慢，诊断思路和性能评估谈谈" class="headerlink" title="9.生产环境服务器变慢，诊断思路和性能评估谈谈?"></a>9.生产环境服务器变慢，诊断思路和性能评估谈谈?</h4><h4 id="10-假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"><a href="#10-假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位" class="headerlink" title="10.假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"></a>10.假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位</h4><p>栈管运行, 堆管存储<br>理论(技术case + 生活case) 代码 小总结<br>线程操纵资源类, 判断干活唤醒通知, 严防多线程并发状态下的虚假唤醒<br>物以类聚人以群分<br>任何人在他牛逼之前定会有段苦逼的岁月但请你像傻逼一样的坚持终于会有一个像宋红康一样装B的结果<br>show me you code</p>
 
                 
