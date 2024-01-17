@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#96c0d3cc">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="面试题第三季1.Java基础只有java是false, 其他都是true java8没有永久代, 叫元空间 1.58同城的java字符串常量池123456789101112131415161718package com.atguigu.javase;public class StringPool58Demo &amp;#123;    public static void main(String[] ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题第三季">
+<meta property="og:url" content="https://xiamu.icu/Java/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%AC%E4%B8%89%E5%AD%A3/index.html">
+<meta property="og:site_name" content="肉豆蔻吖">
+<meta property="og:description" content="面试题第三季1.Java基础只有java是false, 其他都是true java8没有永久代, 叫元空间 1.58同城的java字符串常量池123456789101112131415161718package com.atguigu.javase;public class StringPool58Demo &amp;#123;    public static void main(String[] ar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-16-42-49.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-16-45-07.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-16-45-16.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-15-29-21.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-16-32-09.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-21-39-28.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-22-13-02.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-23-24-13.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-17-23-25-18.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-18-01-10-53.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-18-01-12-24.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-18-01-12-32.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-18-01-32-48.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-18-01-33-06.png">
+<meta property="article:published_time" content="2024-01-15T08:36:55.000Z">
+<meta property="article:modified_time" content="2024-01-17T17:38:38.521Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="面试题">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiamu.icu/assets/2024-01-17-16-42-49.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>面试题第三季 - 肉豆蔻吖</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiamu.icu","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>肉豆蔻吖</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="面试题第三季"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-01-15 16:36" pubdate>
+          2024年1月15日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          76 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">面试题第三季</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="面试题第三季"><a href="#面试题第三季" class="headerlink" title="面试题第三季"></a>面试题第三季</h1><h2 id="1-Java基础"><a href="#1-Java基础" class="headerlink" title="1.Java基础"></a>1.Java基础</h2><p>只有java是false, 其他都是true</p>
+<p>java8没有永久代, 叫元空间</p>
+<h3 id="1-58同城的java字符串常量池"><a href="#1-58同城的java字符串常量池" class="headerlink" title="1.58同城的java字符串常量池"></a>1.58同城的java字符串常量池</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.atguigu.javase;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">StringPool58Demo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">str1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;58&quot;</span>).append(<span class="hljs-string">&quot;tongcheng&quot;</span>).toString();<br>        System.out.println(str1);<br>        System.out.println(str1.intern());<br>        System.out.println(str1 == str1.intern());<br><br>        System.out.println();<br><br>        <span class="hljs-type">String</span> <span class="hljs-variable">str2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">StringBuilder</span>(<span class="hljs-string">&quot;ja&quot;</span>).append(<span class="hljs-string">&quot;va&quot;</span>).toString();<br>        System.out.println(str2);<br>        System.out.println(str2.intern());<br>        System.out.println(str2 == str2.intern());<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<details>
+<summary>点我展开</summary>
+58tongcheng
+58tongcheng
+true
+java
+java
+false
+</details>
+
+<p><img src="/assets/2024-01-17-16-42-49.png" srcset="/img/loading.gif" lazyload></p>
+<p>按照代码结果, java字符串为false<br>必然是两个不同的java, 那另外一个java字符串如何加载进来的?<br>有一个初始化的java字符串(JDK出娘胎自带的), 在加载sun.misc.Version这个类的时候进入常量池</p>
+<p><code>sun.misc.Version.init();</code><br><img src="/assets/2024-01-17-16-45-07.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2024-01-17-16-45-16.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="一道练习题"><a href="#一道练习题" class="headerlink" title="一道练习题"></a>一道练习题</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">String</span>(<span class="hljs-string">&quot;11&quot;</span>); <span class="hljs-comment">// 创建了String对象, 和 常量&quot;11&quot; 两个对象</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s2</span> <span class="hljs-operator">=</span> s1.intern();<br><span class="hljs-type">String</span> <span class="hljs-variable">s3</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;11&quot;</span>;<br><br>System.out.println(s1 == s2);<br>System.out.println(s1 == s3);<br>System.out.println(s2 == s3);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/2024-01-17-15-29-21.png" srcset="/img/loading.gif" lazyload></p>
+<details>
+<summary>答案是</summary>
+false
+false
+true
+</details>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-type">String</span> <span class="hljs-variable">s4</span> <span class="hljs-operator">=</span> String.valueOf(<span class="hljs-number">22</span>); <span class="hljs-comment">// 只构造了一个String对象</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s5</span> <span class="hljs-operator">=</span> s4.intern(); <span class="hljs-comment">// 常量池中保存的是String对象的引用地址</span><br><span class="hljs-type">String</span> <span class="hljs-variable">s6</span> <span class="hljs-operator">=</span> <span class="hljs-string">&quot;22&quot;</span>;<br>System.out.println(s4 == s5);<br>System.out.println(s4 == s6);<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/2024-01-17-16-32-09.png" srcset="/img/loading.gif" lazyload></p>
+<details>
+<summary>答案是</summary>
+true
+true
+</details>
+
+
+<h3 id="2-字节跳动两数求和"><a href="#2-字节跳动两数求和" class="headerlink" title="2.字节跳动两数求和"></a>2.字节跳动两数求和</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.atguigu.javase;<br><br><span class="hljs-keyword">import</span> java.util.Arrays;<br><span class="hljs-keyword">import</span> java.util.HashMap;<br><span class="hljs-keyword">import</span> java.util.Map;<br><br><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * 两数之和: https://leetcode.cn/problems/two-sum/</span><br><span class="hljs-comment"> * 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 你可以假设每种输入只会对应一个答案。但是，数组中同一个元素在答案里不能重复出现。</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 你可以按任意顺序返回答案。</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 示例 1：</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 输入：nums = [2,7,11,15], target = 9</span><br><span class="hljs-comment"> * 输出：[0,1]</span><br><span class="hljs-comment"> * 解释：因为 nums[0] + nums[1] == 9 ，返回 [0, 1] 。</span><br><span class="hljs-comment"> * 示例 2：</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 输入：nums = [3,2,4], target = 6</span><br><span class="hljs-comment"> * 输出：[1,2]</span><br><span class="hljs-comment"> * 示例 3：</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 输入：nums = [3,3], target = 6</span><br><span class="hljs-comment"> * 输出：[0,1]</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 提示：</span><br><span class="hljs-comment"> * &lt;p&gt;</span><br><span class="hljs-comment"> * 2 &lt;= nums.length &lt;= 104</span><br><span class="hljs-comment"> * -109 &lt;= nums[i] &lt;= 109</span><br><span class="hljs-comment"> * -109 &lt;= target &lt;= 109</span><br><span class="hljs-comment"> * 只会存在一个有效答案</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">TwoSumDemo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-type">int</span>[] nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">15</span>&#125;;<br>        <span class="hljs-type">int</span> <span class="hljs-variable">target</span> <span class="hljs-operator">=</span> <span class="hljs-number">9</span>;<br>        System.out.println(Arrays.toString(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TwoSumDemo</span>().twoSum1(nums, target)));<br>        System.out.println(Arrays.toString(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TwoSumDemo</span>().twoSum2(nums, target)));<br><br>        nums = <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>&#125;;<br>        target = <span class="hljs-number">6</span>;<br>        System.out.println(Arrays.toString(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TwoSumDemo</span>().twoSum1(nums, target)));<br>        System.out.println(Arrays.toString(<span class="hljs-keyword">new</span> <span class="hljs-title class_">TwoSumDemo</span>().twoSum2(nums, target)));<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] twoSum1(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target) &#123;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length - <span class="hljs-number">1</span>; i++) &#123;<br>            <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">j</span> <span class="hljs-operator">=</span> i + <span class="hljs-number">1</span>; j &lt; nums.length; j++) &#123;<br>                <span class="hljs-keyword">if</span> (nums[i] + nums[j] == target) &#123;<br>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;i, j&#125;;<br>                &#125;<br>            &#125;<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;<span class="hljs-number">0</span>&#125;;<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-type">int</span>[] twoSum2(<span class="hljs-type">int</span>[] nums, <span class="hljs-type">int</span> target) &#123;<br>        Map&lt;Integer , Integer&gt; map = <span class="hljs-keyword">new</span> <span class="hljs-title class_">HashMap</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; nums.length; i++) &#123;<br>            <span class="hljs-type">int</span> <span class="hljs-variable">key</span> <span class="hljs-operator">=</span> target - nums[i];<br>            <span class="hljs-keyword">if</span> (map.containsKey(key)) &#123;<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">int</span>[]&#123;map.get(key), i&#125;;<br>            &#125;<br>            map.put(nums[i], i);<br>        &#125;<br>        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+
+<h3 id="3-字节跳动手写LRU算法"><a href="#3-字节跳动手写LRU算法" class="headerlink" title="3.字节跳动手写LRU算法"></a>3.字节跳动手写LRU算法</h3><h2 id="2-JUC"><a href="#2-JUC" class="headerlink" title="2.JUC"></a>2.JUC</h2><h3 id="1-可重入锁"><a href="#1-可重入锁" class="headerlink" title="1.可重入锁"></a>1.可重入锁</h3><h4 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h4><p>可重入锁(又名递归锁)<br><img src="/assets/2024-01-17-21-39-28.png" srcset="/img/loading.gif" lazyload></p>
+<p><code>可重入锁</code>这四个字分开来解释:<br>1、可: 可以<br>2、重: 再次<br>3、入: 进入<br>4、锁: 同步锁<br>5、进入什么: 进入同步域(即同步代码块&#x2F;方法或显示锁锁定的代码)<br>6、一句话: 一个线程中的多个流程可以获取同一把锁, 持有这把同步锁可以再次进入<br>自己可以获取自己的内部锁</p>
+<h4 id="1-2-种类"><a href="#1-2-种类" class="headerlink" title="1.2 种类"></a>1.2 种类</h4><h5 id="隐式锁"><a href="#隐式锁" class="headerlink" title="隐式锁"></a>隐式锁</h5><p>隐式锁(即synchronized关键字使用的锁)默认是可重入锁 (同步块, 同步方法)</p>
+<p>同步块<br>同一个对象的锁, 不用等着释放<br>代码: </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.atguigu.juc;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">ReEnterLockDemo</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-type">Object</span> <span class="hljs-variable">objectLockA</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m1</span><span class="hljs-params">()</span> &#123;<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            <span class="hljs-keyword">synchronized</span> (objectLockA) &#123;<br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t外层调用&quot;</span>);<br>                <span class="hljs-keyword">synchronized</span> (objectLockA) &#123;<br>                    System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t中层调用&quot;</span>);<br>                    <span class="hljs-keyword">synchronized</span> (objectLockA) &#123;<br>                        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t内层调用&quot;</span>);<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;t1&quot;</span>).start();<br>    &#125;<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        m1();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>同步方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 可重入锁-synchronized-同步方法</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m1</span><span class="hljs-params">()</span> &#123;<br>    System.out.println(<span class="hljs-string">&quot;外层&quot;</span>);<br>    m2();<br>&#125;<br><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m2</span><span class="hljs-params">()</span> &#123;<br>    System.out.println(<span class="hljs-string">&quot;中层&quot;</span>);<br>    m3();<br>&#125;<br><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">synchronized</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">m3</span><span class="hljs-params">()</span> &#123;<br>    System.out.println(<span class="hljs-string">&quot;内层&quot;</span>);<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>    m1();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h5 id="synchronized的重入的实现机理"><a href="#synchronized的重入的实现机理" class="headerlink" title="synchronized的重入的实现机理"></a>synchronized的重入的实现机理</h5><p>synchronized的重入的实现机理:<br>monitorenter: 计数器+1<br>monitorexit: 计数器-1<br><img src="/assets/2024-01-17-22-13-02.png" srcset="/img/loading.gif" lazyload></p>
+<h5 id="显示锁"><a href="#显示锁" class="headerlink" title="显示锁"></a>显示锁</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> <span class="hljs-type">Lock</span> <span class="hljs-variable">lock</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ReentrantLock</span>();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            lock.lock();<br>            <span class="hljs-keyword">try</span> &#123;<br>                System.out.println(<span class="hljs-string">&quot;外层&quot;</span>);<br>                lock.lock();<br>                <span class="hljs-keyword">try</span> &#123;<br>                    System.out.println(<span class="hljs-string">&quot;内层&quot;</span>);<br>                &#125; <span class="hljs-keyword">finally</span> &#123;<br>                    lock.unlock();<br>                &#125;<br>            &#125; <span class="hljs-keyword">finally</span> &#123;<br>                <span class="hljs-comment">// 故意注释掉这行, 这里不释放锁, t2线程没法执行</span><br>                <span class="hljs-comment">// 由于加锁和释放次数不一样, 第二个线程始终无法获取到锁, 导致一直在等待</span><br>                lock.unlock(); <span class="hljs-comment">// 正常情况, 加锁几次, 就要解锁几次</span><br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;t1&quot;</span>).start();<br><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            lock.lock();<br>            <span class="hljs-keyword">try</span> &#123;<br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;调用开始&quot;</span>);<br>            &#125; <span class="hljs-keyword">finally</span> &#123;<br>                lock.unlock();<br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;t2&quot;</span>).start();<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="2-LockSupport"><a href="#2-LockSupport" class="headerlink" title="2.LockSupport"></a>2.LockSupport</h3><h4 id="2-1-LockSupport是什么"><a href="#2-1-LockSupport是什么" class="headerlink" title="2.1 LockSupport是什么?"></a>2.1 LockSupport是什么?</h4><p>java.util.concurrent.locks包下的一个类<br><img src="/assets/2024-01-17-23-24-13.png" srcset="/img/loading.gif" lazyload></p>
+<p>LockSupport中的park()和unpark()的作用分别是阻塞线程和解除阻塞线程<br><img src="/assets/2024-01-17-23-25-18.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="2-2-线程等待唤醒机制-wait-x2F-notify"><a href="#2-2-线程等待唤醒机制-wait-x2F-notify" class="headerlink" title="2.2 线程等待唤醒机制(wait&#x2F;notify)"></a>2.2 线程等待唤醒机制(wait&#x2F;notify)</h4><h5 id="3种让线程等待和唤醒的方法"><a href="#3种让线程等待和唤醒的方法" class="headerlink" title="3种让线程等待和唤醒的方法"></a>3种让线程等待和唤醒的方法</h5><p>1.使用Object中的wait()方法让线程等待, 使用Object中的notify()方法唤醒线程<br>2.使用JUC包中Condition的await()方法让线程等待, 使用signal()方法唤醒线程<br>3.LockSupport类可以阻塞当前线程以及唤醒指定被阻塞的线程</p>
+<h5 id="Object类中的wait和notify方法实现线程等待和唤醒"><a href="#Object类中的wait和notify方法实现线程等待和唤醒" class="headerlink" title="Object类中的wait和notify方法实现线程等待和唤醒"></a>Object类中的wait和notify方法实现线程等待和唤醒</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.atguigu.juc;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LockSupportDemo</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-type">Object</span> <span class="hljs-variable">objectLock</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            <span class="hljs-comment">// try &#123;</span><br>            <span class="hljs-comment">//     Thread.sleep(3);</span><br>            <span class="hljs-comment">// &#125; catch (InterruptedException e) &#123;</span><br>            <span class="hljs-comment">//     throw new RuntimeException(e);</span><br>            <span class="hljs-comment">// &#125;</span><br><br>            <span class="hljs-keyword">synchronized</span> (objectLock) &#123; <span class="hljs-comment">// 必须在同步代码块中, 否则 java.lang.IllegalMonitorStateException</span><br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t come in&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    objectLock.wait(); <span class="hljs-comment">// 必须先wait了才能notify</span><br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);<br>                &#125;<br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t 被唤醒&quot;</span>);<br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;A&quot;</span>).start();<br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            <span class="hljs-keyword">synchronized</span> (objectLock) &#123; <span class="hljs-comment">// 必须在同步代码块中, 否则 java.lang.IllegalMonitorStateException</span><br>                objectLock.notify();<br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t 通知&quot;</span>);<br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;B&quot;</span>).start();<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>wait方法和notify方法, 必须在同步代码块, 否抛出异常 <code>java.lang.IllegalMonitorStateException</code></p>
+<p>wait和notify方法必须要在同步块或者方法里面且成对出现使用<br>先wait后notify才OK</p>
+<h5 id="Condition接口中的await和signal方法实现线程的等待和唤醒"><a href="#Condition接口中的await和signal方法实现线程的等待和唤醒" class="headerlink" title="Condition接口中的await和signal方法实现线程的等待和唤醒"></a>Condition接口中的await和signal方法实现线程的等待和唤醒</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.atguigu.juc;<br><br><span class="hljs-keyword">import</span> java.util.concurrent.locks.Condition;<br><span class="hljs-keyword">import</span> java.util.concurrent.locks.Lock;<br><span class="hljs-keyword">import</span> java.util.concurrent.locks.ReentrantLock;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">LockSupportDemo</span> &#123;<br>    <span class="hljs-keyword">static</span> <span class="hljs-type">Object</span> <span class="hljs-variable">objectLock</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Object</span>();<br>    <span class="hljs-keyword">static</span> <span class="hljs-type">Lock</span> <span class="hljs-variable">lock</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">ReentrantLock</span>();<br>    <span class="hljs-keyword">static</span> <span class="hljs-type">Condition</span> <span class="hljs-variable">condition</span> <span class="hljs-operator">=</span> lock.newCondition();<br><br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            <span class="hljs-comment">// try &#123;</span><br>            <span class="hljs-comment">//     TimeUnit.SECONDS.sleep(3L);</span><br>            <span class="hljs-comment">// &#125; catch (InterruptedException e) &#123;</span><br>            <span class="hljs-comment">//     throw new RuntimeException(e);</span><br>            <span class="hljs-comment">// &#125;</span><br><br>            lock.lock();<br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-comment">// 必须在同步代码块中, 否则 java.lang.IllegalMonitorStateException</span><br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t come in&quot;</span>);<br>                <span class="hljs-keyword">try</span> &#123;<br>                    condition.await(); <span class="hljs-comment">// 必须先await了才能signal</span><br>                &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>                    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);<br>                &#125;<br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t 被唤醒&quot;</span>);<br>            &#125; <span class="hljs-keyword">finally</span> &#123;<br>                lock.unlock();<br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;A&quot;</span>).start();<br><br>        <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            lock.lock();<br>            <span class="hljs-keyword">try</span> &#123;<br>                <span class="hljs-comment">// 必须在同步代码块中, 否则 java.lang.IllegalMonitorStateException</span><br>                condition.signal();<br>                System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t 通知&quot;</span>);<br>            &#125; <span class="hljs-keyword">finally</span> &#123;<br>                lock.unlock();<br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;B&quot;</span>).start();<br><br>        <span class="hljs-comment">// synchronizedWaitNotify();</span><br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>await()方法和signal()方法, 必须放在同步代码块, 否抛出异常 <code>java.lang.IllegalMonitorStateException</code><br>await和signal方法必须要在同步块或者方法里面, 可以不成双成对, 多出来的await()交给signalAll()解决<br>先await后signal才OK</p>
+<h5 id="传统的synchronized和Lock实现等待唤醒通知的约束"><a href="#传统的synchronized和Lock实现等待唤醒通知的约束" class="headerlink" title="传统的synchronized和Lock实现等待唤醒通知的约束"></a>传统的synchronized和Lock实现等待唤醒通知的约束</h5><p>线程先要获得并持有锁, 必须在锁块(synchronized或lock)中<br>必须要等待后唤醒, 线程才能够被唤醒</p>
+<h5 id="LockSupport类中的park等待和unpark唤醒"><a href="#LockSupport类中的park等待和unpark唤醒" class="headerlink" title="LockSupport类中的park等待和unpark唤醒"></a>LockSupport类中的park等待和unpark唤醒</h5><p>是什么?<br>通过<code>park()</code>和<code>unpark(thread)</code>方法来实现阻塞和唤醒线程的操作<br>官网解释:<br><img src="/assets/2024-01-18-01-10-53.png" srcset="/img/loading.gif" lazyload></p>
+<p>主要方法<br>阻塞 park() &#x2F; park(Object blocker)<br>阻塞当前线程&#x2F;阻塞传入的具体线程<br><img src="/assets/2024-01-18-01-12-24.png" srcset="/img/loading.gif" lazyload></p>
+<p>唤醒 unpark(Thread)<br>唤醒处于阻塞状态的指定线程<br><img src="/assets/2024-01-18-01-12-32.png" srcset="/img/loading.gif" lazyload></p>
+<p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br><br>    <span class="hljs-type">Thread</span> <span class="hljs-variable">t1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>        <span class="hljs-keyword">try</span> &#123;<br>            TimeUnit.SECONDS.sleep(<span class="hljs-number">3L</span>);<br>        &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">RuntimeException</span>(e);<br>        &#125;<br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t come in\t&quot;</span> + System.currentTimeMillis());<br>        <span class="hljs-comment">// sleep方法3秒后醒来, 执行park无效, 没有阻塞效果, 解释如下</span><br>        <span class="hljs-comment">// 先执行了unpark(t1)导致上面park方法形同虚设无效, 时间一样</span><br>        LockSupport.park();<br>        <span class="hljs-comment">// LockSupport.park(); </span><br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t 被唤醒\t&quot;</span> + System.currentTimeMillis());<br>    &#125;, <span class="hljs-string">&quot;t1&quot;</span>);<br>    t1.start();<br><br>    <span class="hljs-comment">// try &#123;</span><br>    <span class="hljs-comment">//     TimeUnit.SECONDS.sleep(3L);</span><br>    <span class="hljs-comment">// &#125; catch (InterruptedException e) &#123;</span><br>    <span class="hljs-comment">//     throw new RuntimeException(e);</span><br>    <span class="hljs-comment">// &#125;</span><br><br>    <span class="hljs-type">Thread</span> <span class="hljs-variable">t2</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>        System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t 通知&quot;</span>);<br>        LockSupport.unpark(t1);<br>        <span class="hljs-comment">// LockSupport.unpark(t1); 最多解开一个park, 因为permit最大值就是1, 调用多次都是1</span><br>    &#125;, <span class="hljs-string">&quot;t2&quot;</span>);<br>    t2.start();<br><br><br>    <span class="hljs-comment">// lockAwaitSignal();</span><br><br>    <span class="hljs-comment">// synchronizedWaitNotify();</span><br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>LockSupport不需要同步代码块包裹<br>也没有part(), unpark()的先后顺序, 但是多个unpark()只能解开一个park()<br>unpark获得了凭证, permit变成1, 最大为1, 多次调用unpark无效, 最多解开一个park</p>
+<p>重点说明(重要)<br><img src="/assets/2024-01-18-01-32-48.png" srcset="/img/loading.gif" lazyload></p>
+<p>面试题<br><img src="/assets/2024-01-18-01-33-06.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-AbstractQueueSynchronized之AQS"><a href="#3-AbstractQueueSynchronized之AQS" class="headerlink" title="3.AbstractQueueSynchronized之AQS"></a>3.AbstractQueueSynchronized之AQS</h3><h2 id="3-Spring"><a href="#3-Spring" class="headerlink" title="3.Spring"></a>3.Spring</h2><h2 id="4-Redis"><a href="#4-Redis" class="headerlink" title="4.Redis"></a>4.Redis</h2><h2 id="5-补充和总结"><a href="#5-补充和总结" class="headerlink" title="5.补充和总结"></a>5.补充和总结</h2>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">#面试题</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>面试题第三季</div>
+      <div>https://xiamu.icu/Java/面试题第三季/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年1月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E5%89%8D%E7%AB%AF/F12%E8%B0%83%E8%AF%95%E5%B1%95%E7%A4%BA%E6%89%8B%E6%9C%BA%E5%A4%96%E5%A3%B3/" title="F12调试展示手机外壳">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">F12调试展示手机外壳</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Java/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%AC%E4%BA%8C%E5%AD%A3/" title="面试题第二季">
+                        <span class="hidden-mobile">面试题第二季</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Haq24NRgHl4QheEi7oVqtAsM-gzGzoHsz","appKey":"kGbxzGaSiqqlFPxg24Tk3dVN","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":"https://valinecdn.bili33.top","emojiMaps":{"Tieba-New2":"/Tieba-New/image_emoticon.png","Tieba-New3":"/Tieba-New/image_emoticon10.png","Tieba-New4":"/Tieba-New/image_emoticon100.png","Tieba-New5":"/Tieba-New/image_emoticon101.png","Tieba-New6":"/Tieba-New/image_emoticon102.png","Tieba-New7":"/Tieba-New/image_emoticon103.png","Tieba-New8":"/Tieba-New/image_emoticon104.png","Tieba-New9":"/Tieba-New/image_emoticon105.png","Tieba-New10":"/Tieba-New/image_emoticon106.png","Tieba-New11":"/Tieba-New/image_emoticon107.png","Tieba-New12":"/Tieba-New/image_emoticon108.png","Tieba-New13":"/Tieba-New/image_emoticon109.png","Tieba-New14":"/Tieba-New/image_emoticon11.png","Tieba-New15":"/Tieba-New/image_emoticon110.png","Tieba-New16":"/Tieba-New/image_emoticon111.png","Tieba-New17":"/Tieba-New/image_emoticon112.png","Tieba-New18":"/Tieba-New/image_emoticon113.png","Tieba-New19":"/Tieba-New/image_emoticon114.png","Tieba-New20":"/Tieba-New/image_emoticon115.png","Tieba-New21":"/Tieba-New/image_emoticon116.png","Tieba-New22":"/Tieba-New/image_emoticon117.png","Tieba-New23":"/Tieba-New/image_emoticon118.png","Tieba-New24":"/Tieba-New/image_emoticon119.png","Tieba-New25":"/Tieba-New/image_emoticon12.png","Tieba-New26":"/Tieba-New/image_emoticon120.png","Tieba-New27":"/Tieba-New/image_emoticon121.png","Tieba-New28":"/Tieba-New/image_emoticon122.png","Tieba-New29":"/Tieba-New/image_emoticon123.png","Tieba-New30":"/Tieba-New/image_emoticon124.png","Tieba-New31":"/Tieba-New/image_emoticon13.png","Tieba-New32":"/Tieba-New/image_emoticon14.png","Tieba-New33":"/Tieba-New/image_emoticon15.png","Tieba-New34":"/Tieba-New/image_emoticon16.png","Tieba-New35":"/Tieba-New/image_emoticon17.png","Tieba-New36":"/Tieba-New/image_emoticon18.png","Tieba-New37":"/Tieba-New/image_emoticon19.png","Tieba-New38":"/Tieba-New/image_emoticon2.png","Tieba-New39":"/Tieba-New/image_emoticon20.png","Tieba-New40":"/Tieba-New/image_emoticon21.png","Tieba-New41":"/Tieba-New/image_emoticon22.png","Tieba-New42":"/Tieba-New/image_emoticon23.png","Tieba-New43":"/Tieba-New/image_emoticon24.png","Tieba-New44":"/Tieba-New/image_emoticon25.png","Tieba-New45":"/Tieba-New/image_emoticon26.png","Tieba-New46":"/Tieba-New/image_emoticon27.png","Tieba-New47":"/Tieba-New/image_emoticon28.png","Tieba-New48":"/Tieba-New/image_emoticon29.png","Tieba-New49":"/Tieba-New/image_emoticon3.png","Tieba-New50":"/Tieba-New/image_emoticon30.png","Tieba-New51":"/Tieba-New/image_emoticon31.png","Tieba-New52":"/Tieba-New/image_emoticon32.png","Tieba-New53":"/Tieba-New/image_emoticon33.png","Tieba-New54":"/Tieba-New/image_emoticon34.png","Tieba-New55":"/Tieba-New/image_emoticon35.png","Tieba-New56":"/Tieba-New/image_emoticon36.png","Tieba-New57":"/Tieba-New/image_emoticon37.png","Tieba-New58":"/Tieba-New/image_emoticon38.png","Tieba-New59":"/Tieba-New/image_emoticon39.png","Tieba-New60":"/Tieba-New/image_emoticon4.png","Tieba-New61":"/Tieba-New/image_emoticon40.png","Tieba-New62":"/Tieba-New/image_emoticon41.png","Tieba-New63":"/Tieba-New/image_emoticon42.png","Tieba-New64":"/Tieba-New/image_emoticon43.png","Tieba-New65":"/Tieba-New/image_emoticon44.png","Tieba-New66":"/Tieba-New/image_emoticon45.png","Tieba-New67":"/Tieba-New/image_emoticon46.png","Tieba-New68":"/Tieba-New/image_emoticon47.png","Tieba-New69":"/Tieba-New/image_emoticon48.png","Tieba-New70":"/Tieba-New/image_emoticon49.png","Tieba-New71":"/Tieba-New/image_emoticon5.png","Tieba-New72":"/Tieba-New/image_emoticon50.png","Tieba-New73":"/Tieba-New/image_emoticon6.png","Tieba-New74":"/Tieba-New/image_emoticon66.png","Tieba-New75":"/Tieba-New/image_emoticon67.png","Tieba-New76":"/Tieba-New/image_emoticon68.png","Tieba-New77":"/Tieba-New/image_emoticon69.png","Tieba-New78":"/Tieba-New/image_emoticon7.png","Tieba-New79":"/Tieba-New/image_emoticon70.png","Tieba-New80":"/Tieba-New/image_emoticon71.png","Tieba-New81":"/Tieba-New/image_emoticon72.png","Tieba-New82":"/Tieba-New/image_emoticon73.png","Tieba-New83":"/Tieba-New/image_emoticon74.png","Tieba-New84":"/Tieba-New/image_emoticon75.png","Tieba-New85":"/Tieba-New/image_emoticon76.png","Tieba-New86":"/Tieba-New/image_emoticon77.png","Tieba-New87":"/Tieba-New/image_emoticon78.png","Tieba-New88":"/Tieba-New/image_emoticon79.png","Tieba-New89":"/Tieba-New/image_emoticon8.png","Tieba-New90":"/Tieba-New/image_emoticon80.png","Tieba-New91":"/Tieba-New/image_emoticon81.png","Tieba-New92":"/Tieba-New/image_emoticon82.png","Tieba-New93":"/Tieba-New/image_emoticon83.png","Tieba-New94":"/Tieba-New/image_emoticon84.png","Tieba-New95":"/Tieba-New/image_emoticon85.png","Tieba-New96":"/Tieba-New/image_emoticon86.png","Tieba-New97":"/Tieba-New/image_emoticon87.png","Tieba-New98":"/Tieba-New/image_emoticon88.png","Tieba-New99":"/Tieba-New/image_emoticon89.png","Tieba-New100":"/Tieba-New/image_emoticon9.png","Tieba-New101":"/Tieba-New/image_emoticon90.png","Tieba-New102":"/Tieba-New/image_emoticon91.png","Tieba-New103":"/Tieba-New/image_emoticon92.png","Tieba-New104":"/Tieba-New/image_emoticon93.png","Tieba-New105":"/Tieba-New/image_emoticon94.png","Tieba-New106":"/Tieba-New/image_emoticon95.png","Tieba-New107":"/Tieba-New/image_emoticon96.png","Tieba-New108":"/Tieba-New/image_emoticon97.png","Tieba-New109":"/Tieba-New/image_emoticon98.png","Tieba-New110":"/Tieba-New/image_emoticon99.png"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      湘ICP备2021007554号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <!-- 全局配置aplayer播放器 -->
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease"   
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

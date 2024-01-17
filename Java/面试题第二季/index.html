@@ -142,11 +142,23 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-01-29-58.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-01-30-04.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-01-51-56.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-21-12-32.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-21-12-38.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-21-16-16.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-23-48-56.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-14-00-32-08.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-14-00-32-18.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-14-00-33-40.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-14-00-39-52.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-14-00-43-09.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-14-00-47-53.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-01-14-00-47-18.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-11-14-46-03.png">
 <meta property="article:published_time" content="2024-01-08T11:27:23.000Z">
-<meta property="article:modified_time" content="2024-01-13T03:33:03.353Z">
+<meta property="article:modified_time" content="2024-01-15T08:37:16.330Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="面试题">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://xiamu.icu/assets/2023-12-26-11-26-26.png">
   
@@ -356,7 +368,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          98k 字
+          101k 字
         
       </span>
     
@@ -367,7 +379,7 @@
         
         
         
-          813 分钟
+          845 分钟
         
       </span>
     
@@ -927,7 +939,29 @@
 
 <h5 id="4-硬盘-df"><a href="#4-硬盘-df" class="headerlink" title="4.硬盘: df"></a>4.硬盘: df</h5><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs bash">root@xiamu [11时32分31秒] [~]<br>-&gt; <span class="hljs-comment"># df   </span><br>文件系统                             1K-块     已用     可用 已用% 挂载点<br>devtmpfs                           1913584        0  1913584    0% /dev<br>tmpfs                              1930648        0  1930648    0% /dev/shm<br>tmpfs                              1930648    12804  1917844    1% /run<br>tmpfs                              1930648        0  1930648    0% /sys/fs/cgroup<br>/dev/mapper/centos_roudoukou-root 38778880 16090904 22687976   42% /<br>/dev/sda1                          1038336   189220   849116   19% /boot<br>tmpfs                               386132       12   386120    1% /run/user/42<br>overlay                           38778880 16090904 22687976   42% /var/lib/docker/overlay2/dc9d56c5fc9be6fa674ac3082e0bc4e11e752d3146268351eae5fa85cf8b54e4/merged<br>overlay                           38778880 16090904 22687976   42% /var/lib/docker/overlay2/e06aef924ef732cac3faa12ef3282d0033af42af84354a02ce636cf7057eed2b/merged<br>overlay                           38778880 16090904 22687976   42% /var/lib/docker/overlay2/f334a6550d72481f28ea577223e18da53e6c62a9580a6f2ca6bcad9540b3bfb5/merged<br>tmpfs                               386132        0   386132    0% /run/user/0<br>root@xiamu [11时32分48秒] [~]<br>-&gt; <span class="hljs-comment"># df -h</span><br>文件系统                           容量  已用  可用 已用% 挂载点<br>devtmpfs                           1.9G     0  1.9G    0% /dev<br>tmpfs                              1.9G     0  1.9G    0% /dev/shm<br>tmpfs                              1.9G   13M  1.9G    1% /run<br>tmpfs                              1.9G     0  1.9G    0% /sys/fs/cgroup<br>/dev/mapper/centos_roudoukou-root   37G   16G   22G   42% /<br>/dev/sda1                         1014M  185M  830M   19% /boot<br>tmpfs                              378M   12K  378M    1% /run/user/42<br>overlay                             37G   16G   22G   42% /var/lib/docker/overlay2/dc9d56c5fc9be6fa674ac3082e0bc4e11e752d3146268351eae5fa85cf8b54e4/merged<br>overlay                             37G   16G   22G   42% /var/lib/docker/overlay2/e06aef924ef732cac3faa12ef3282d0033af42af84354a02ce636cf7057eed2b/merged<br>overlay                             37G   16G   22G   42% /var/lib/docker/overlay2/f334a6550d72481f28ea577223e18da53e6c62a9580a6f2ca6bcad9540b3bfb5/merged<br>tmpfs                              378M     0  378M    0% /run/user/0<br></code></pre></td></tr></table></figure>
 
-<h5 id="5-磁盘IO-iostat"><a href="#5-磁盘IO-iostat" class="headerlink" title="5.磁盘IO: iostat"></a>5.磁盘IO: iostat</h5><h5 id="6-网络IO-ifstat"><a href="#6-网络IO-ifstat" class="headerlink" title="6.网络IO: ifstat"></a>6.网络IO: ifstat</h5><h4 id="10-假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"><a href="#10-假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位" class="headerlink" title="10.假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"></a>10.假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位</h4><p>栈管运行, 堆管存储<br>理论(技术case + 生活case) 代码 小总结<br>线程操纵资源类, 判断干活唤醒通知, 严防多线程并发状态下的虚假唤醒<br>物以类聚人以群分<br>任何人在他牛逼之前定会有段苦逼的岁月但请你像傻逼一样的坚持终于会有一个像宋红康一样装B的结果<br>show me you code</p>
+<h5 id="5-磁盘IO-iostat"><a href="#5-磁盘IO-iostat" class="headerlink" title="5.磁盘IO: iostat"></a>5.磁盘IO: iostat</h5><p>磁盘IO性能评估</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">iostat -xdk 2 3<br></code></pre></td></tr></table></figure>
+
+<p><img src="/assets/2024-01-13-21-12-32.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2024-01-13-21-12-38.png" srcset="/img/loading.gif" lazyload></p>
+<p>查看额外 <code>pidstat -d 采样间隔秒数 -p 进程号</code></p>
+<h5 id="6-网络IO-ifstat"><a href="#6-网络IO-ifstat" class="headerlink" title="6.网络IO: ifstat"></a>6.网络IO: ifstat</h5><p>默认本地没有, </p>
+<p>查看网络IO<br>ifstat </p>
+<p><img src="/assets/2024-01-13-21-16-16.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="10-假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"><a href="#10-假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位" class="headerlink" title="10.假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位"></a>10.假如生产环境出现CPU占用过高，请谈谈你的分析思路和定位</h4><p><img src="/assets/2024-01-13-23-48-56.png" srcset="/img/loading.gif" lazyload></p>
+<p>定位到具体线程或代码: (ps -mp 进程 -o THREAD,tid,time)<br>参数解释:<br>-m显示所有的线程<br>-p pid 进程使用cpu时间<br>-o 该参数后是用户自定义格式</p>
+<p>printf “%x\n” 有问题的线程ID</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><code class="hljs bash">[root@xiamu ~ ]$ jps -l<br>3136 -- process information unavailable<br>88579 Dead<br>88750 sun.tools.jps.Jps<br>[root@xiamu ~ ]$ ps -ef | grep java | grep -v grep<br>root       7498   7451  1 01:20 ?        00:16:46 /usr/lib/jvm/java-1.8.0-openjdk/bin/java -Xms512m -Xmx512m -Xmn256m -Dnacos.standalone=<span class="hljs-literal">true</span> -Djava.ext.dirs=/usr/lib/jvm/java-1.8.0-openjdk/jre/lib/ext:/usr/lib/jvm/java-1.8.0-openjdk/lib/ext:/home/nacos/plugins/health:/home/nacos/plugins/cmdb:/home/nacos/plugins/mysql -Xloggc:/home/nacos/logs/nacos_gc.log -verbose:gc -XX:+PrintGCDetails -XX:+PrintGCDateStamps -XX:+PrintGCTimeStamps -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=10 -XX:GCLogFileSize=100M -Dnacos.home=/home/nacos -jar /home/nacos/target/nacos-server.jar --spring.config.location=classpath:/,classpath:/config/,file:./,file:./config/,file:/home/nacos/conf/,/home/nacos/init.d/ --spring.config.name=application,custom --logging.config=/home/nacos/conf/nacos-logback.xml --server.max-http-header-size=524288<br>root      88579  88378 75 23:52 pts/1    00:01:16 java Dead<br>[root@xiamu ~ ]$ ps -mp 88579 -o THREAD,tid,time<br>USER     %CPU PRI SCNT WCHAN  USER SYSTEM    TID     TIME<br>root     75.2   -    - -         -      -      - 00:02:06<br>root      0.0  19    - futex_    -      -  88579 00:00:00<br>root     73.5  19    - -         -      -  88580 00:02:03<br>root      0.2  19    - futex_    -      -  88581 00:00:00<br>root      0.3  19    - futex_    -      -  88582 00:00:00<br>root      0.3  19    - futex_    -      -  88583 00:00:00<br>root      0.2  19    - futex_    -      -  88584 00:00:00<br>root      0.1  19    - futex_    -      -  88585 00:00:00<br>root      0.0  19    - futex_    -      -  88586 00:00:00<br>root      0.0  19    - futex_    -      -  88587 00:00:00<br>root      0.0  19    - futex_    -      -  88588 00:00:00<br>root      0.0  19    - futex_    -      -  88589 00:00:00<br>root      0.0  19    - futex_    -      -  88590 00:00:00<br>root      0.0  19    - futex_    -      -  88591 00:00:00<br>root      0.0  19    - futex_    -      -  88592 00:00:00<br>root      0.1  19    - futex_    -      -  88593 00:00:00<br><span class="hljs-comment"># 从当前位置找到CPU占用最大的TID 线程ID</span><br><span class="hljs-comment"># 转为16进制小写</span><br>[root@xiamu ~ ]$ <span class="hljs-built_in">printf</span> <span class="hljs-string">&quot;%x\n&quot;</span> 88580    <br>15a04<br>[root@xiamu ~ ]$ jstack 88579 | grep 15a04 -A60<br><span class="hljs-string">&quot;main&quot;</span> <span class="hljs-comment">#1 prio=5 os_prio=0 tid=0x00007f7414009800 nid=0x15a04 runnable [0x00007f741cb61000]</span><br>   java.lang.Thread.State: RUNNABLE<br>        at java.io.FileOutputStream.writeBytes(Native Method)<br>        at java.io.FileOutputStream.write(FileOutputStream.java:326)<br>        at java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:82)<br>        at java.io.BufferedOutputStream.flush(BufferedOutputStream.java:140)<br>        - locked &lt;0x00000000c503cb70&gt; (a java.io.BufferedOutputStream)<br>        at java.io.PrintStream.write(PrintStream.java:482)<br>        - locked &lt;0x00000000c5005378&gt; (a java.io.PrintStream)<br>        at sun.nio.cs.StreamEncoder.writeBytes(StreamEncoder.java:221)<br>        at sun.nio.cs.StreamEncoder.implFlushBuffer(StreamEncoder.java:291)<br>        at sun.nio.cs.StreamEncoder.flushBuffer(StreamEncoder.java:104)<br>        - locked &lt;0x00000000c5005330&gt; (a java.io.OutputStreamWriter)<br>        at java.io.OutputStreamWriter.flushBuffer(OutputStreamWriter.java:185)<br>        at java.io.PrintStream.write(PrintStream.java:527)<br>        - eliminated &lt;0x00000000c5005378&gt; (a java.io.PrintStream)<br>        at java.io.PrintStream.<span class="hljs-built_in">print</span>(PrintStream.java:597)<br>        at java.io.PrintStream.println(PrintStream.java:736)<br>        - locked &lt;0x00000000c5005378&gt; (a java.io.PrintStream)<br>        at Dead.main(Dead.java:6)<br><br><span class="hljs-string">&quot;VM Thread&quot;</span> os_prio=0 tid=0x00007f7414077800 nid=0x15a09 runnable<br><br><span class="hljs-string">&quot;GC task thread#0 (ParallelGC)&quot;</span> os_prio=0 tid=0x00007f741401e800 nid=0x15a05 runnable<br><br><span class="hljs-string">&quot;GC task thread#1 (ParallelGC)&quot;</span> os_prio=0 tid=0x00007f7414020800 nid=0x15a06 runnable<br><br><span class="hljs-string">&quot;GC task thread#2 (ParallelGC)&quot;</span> os_prio=0 tid=0x00007f7414022000 nid=0x15a07 runnable<br><br><span class="hljs-string">&quot;GC task thread#3 (ParallelGC)&quot;</span> os_prio=0 tid=0x00007f7414024000 nid=0x15a08 runnable<br><br><span class="hljs-string">&quot;VM Periodic Task Thread&quot;</span> os_prio=0 tid=0x00007f74140e5800 nid=0x15a11 waiting on condition<br><br>JNI global references: 5<br></code></pre></td></tr></table></figure>
+<p>由此可以定位到具体代码: <code>at Dead.main(Dead.java:6)</code></p>
+<h4 id="11-对于JDK自带的JVM监控和性能分析工具用过哪些-一般你是怎么用的"><a href="#11-对于JDK自带的JVM监控和性能分析工具用过哪些-一般你是怎么用的" class="headerlink" title="11.对于JDK自带的JVM监控和性能分析工具用过哪些? 一般你是怎么用的?"></a>11.对于JDK自带的JVM监控和性能分析工具用过哪些? 一般你是怎么用的?</h4><h2 id="github骚操作"><a href="#github骚操作" class="headerlink" title="github骚操作"></a>github骚操作</h2><h3 id="常用词含义"><a href="#常用词含义" class="headerlink" title="常用词含义"></a>常用词含义</h3><p><img src="/assets/2024-01-14-00-32-08.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="in关键词限制搜索范围"><a href="#in关键词限制搜索范围" class="headerlink" title="in关键词限制搜索范围"></a>in关键词限制搜索范围</h3><p><img src="/assets/2024-01-14-00-32-18.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="stars或fork数量关键词去查找"><a href="#stars或fork数量关键词去查找" class="headerlink" title="stars或fork数量关键词去查找"></a>stars或fork数量关键词去查找</h3><p><img src="/assets/2024-01-14-00-33-40.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="awesome加强搜索"><a href="#awesome加强搜索" class="headerlink" title="awesome加强搜索"></a>awesome加强搜索</h3><p><img src="/assets/2024-01-14-00-39-52.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="高亮显示某一行代码"><a href="#高亮显示某一行代码" class="headerlink" title="高亮显示某一行代码"></a>高亮显示某一行代码</h3><p><img src="/assets/2024-01-14-00-43-09.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="项目内搜索"><a href="#项目内搜索" class="headerlink" title="项目内搜索"></a>项目内搜索</h3><p><img src="/assets/2024-01-14-00-47-53.png" srcset="/img/loading.gif" lazyload></p>
+<p><a target="_blank" rel="noopener" href="https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts">https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts</a></p>
+<h3 id="搜索某个地区内的大佬"><a href="#搜索某个地区内的大佬" class="headerlink" title="搜索某个地区内的大佬"></a>搜索某个地区内的大佬</h3><p><img src="/assets/2024-01-14-00-47-18.png" srcset="/img/loading.gif" lazyload></p>
+<p>栈管运行, 堆管存储<br>理论(技术case + 生活case) 代码 小总结<br>线程操纵资源类, 判断干活唤醒通知, 严防多线程并发状态下的虚假唤醒<br>物以类聚人以群分<br>任何人在他牛逼之前定会有段苦逼的岁月但请你像傻逼一样的坚持终于会有一个像宋红康一样装B的结果<br>show me you code</p>
 <p><img src="/assets/2024-01-11-14-46-03.png" srcset="/img/loading.gif" lazyload></p>
 <p>天上飞的理念, 必有落地的实现</p>
 
@@ -964,6 +998,8 @@
       <i class="iconfont icon-tags"></i>
       
         <a href="/tags/Java/">#Java</a>
+      
+        <a href="/tags/%E9%9D%A2%E8%AF%95%E9%A2%98/">#面试题</a>
       
     </div>
   
@@ -1019,6 +1055,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/Java/%E9%9D%A2%E8%AF%95%E9%A2%98%E7%AC%AC%E4%B8%89%E5%AD%A3/" title="面试题第三季">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">面试题第三季</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
