@@ -1,0 +1,856 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#96c0d3cc">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="JUC并发编程1.线程基础知识复习JUC其实就是java.util.concurrent并发包的缩写 1.start线程开启C源码分析123456new Thread(() -&gt; &amp;#123;&amp;#125;).start();&#x2F;&#x2F; 对着这行代码Ctrl B一下&#x2F;&#x2F; 可以发现核心代码就是start0()start0();&#x2F;&#x2F; 接着Ctrl B发现下一个函数就是一个native修饰的方法priva">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JUC并发编程">
+<meta property="og:url" content="https://xiamu.icu/Java/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/index.html">
+<meta property="og:site_name" content="肉豆蔻吖">
+<meta property="og:description" content="JUC并发编程1.线程基础知识复习JUC其实就是java.util.concurrent并发包的缩写 1.start线程开启C源码分析123456new Thread(() -&gt; &amp;#123;&amp;#125;).start();&#x2F;&#x2F; 对着这行代码Ctrl B一下&#x2F;&#x2F; 可以发现核心代码就是start0()start0();&#x2F;&#x2F; 接着Ctrl B发现下一个函数就是一个native修饰的方法priva">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-02-15-19-22-50.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-02-15-19-54-54.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-02-15-19-58-10.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-02-15-19-59-36.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-02-15-21-09-12.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-02-15-21-28-55.png">
+<meta property="article:published_time" content="2024-02-14T11:56:19.000Z">
+<meta property="article:modified_time" content="2024-02-15T13:38:08.063Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiamu.icu/assets/2024-02-15-19-22-50.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>JUC并发编程 - 肉豆蔻吖</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiamu.icu","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>肉豆蔻吖</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="JUC并发编程"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-02-14 19:56" pubdate>
+          2024年2月14日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          9.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          78 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JUC并发编程</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="JUC并发编程"><a href="#JUC并发编程" class="headerlink" title="JUC并发编程"></a>JUC并发编程</h1><h2 id="1-线程基础知识复习"><a href="#1-线程基础知识复习" class="headerlink" title="1.线程基础知识复习"></a>1.线程基础知识复习</h2><p>JUC其实就是java.util.concurrent并发包的缩写</p>
+<h3 id="1-start线程开启C源码分析"><a href="#1-start线程开启C源码分析" class="headerlink" title="1.start线程开启C源码分析"></a>1.start线程开启C源码分析</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;&#125;).start();<br><span class="hljs-comment">// 对着这行代码Ctrl B一下</span><br><span class="hljs-comment">// 可以发现核心代码就是start0()</span><br>start0();<br><span class="hljs-comment">// 接着Ctrl B发现下一个函数就是一个native修饰的方法</span><br><span class="hljs-keyword">private</span> <span class="hljs-keyword">native</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">start0</span><span class="hljs-params">()</span>;<br></code></pre></td></tr></table></figure>
+
+<p>native源码的下载地址:<br><a target="_blank" rel="noopener" href="https://hg.openjdk.org/jdk8">https://hg.openjdk.org/jdk8</a></p>
+<p><a target="_blank" rel="noopener" href="https://hg.openjdk.org/jdk8/jdk8/hotspot/archive/tip.zip">https://hg.openjdk.org/jdk8/jdk8/hotspot/archive/tip.zip</a><br><a target="_blank" rel="noopener" href="https://hg.openjdk.org/jdk8/jdk8/jdk/archive/tip.zip">https://hg.openjdk.org/jdk8/jdk8/jdk/archive/tip.zip</a></p>
+<p><img src="/assets/2024-02-15-19-22-50.png" srcset="/img/loading.gif" lazyload></p>
+<p>openjdk的写JNI一般是一一对应的, thread.java其实对应的就是thread.c的源码</p>
+<p>其中thread.c的部分源码如下: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">static</span> JNINativeMethod methods[] = &#123;<br>    &#123;<span class="hljs-string">&quot;start0&quot;</span>,           <span class="hljs-string">&quot;()V&quot;</span>,        (<span class="hljs-type">void</span> *)&amp;JVM_StartThread&#125;,<br>    &#123;<span class="hljs-string">&quot;stop0&quot;</span>,            <span class="hljs-string">&quot;(&quot;</span> OBJ <span class="hljs-string">&quot;)V&quot;</span>, (<span class="hljs-type">void</span> *)&amp;JVM_StopThread&#125;,<br>    &#123;<span class="hljs-string">&quot;isAlive&quot;</span>,          <span class="hljs-string">&quot;()Z&quot;</span>,        (<span class="hljs-type">void</span> *)&amp;JVM_IsThreadAlive&#125;,<br>    &#123;<span class="hljs-string">&quot;suspend0&quot;</span>,         <span class="hljs-string">&quot;()V&quot;</span>,        (<span class="hljs-type">void</span> *)&amp;JVM_SuspendThread&#125;,<br>    &#123;<span class="hljs-string">&quot;resume0&quot;</span>,          <span class="hljs-string">&quot;()V&quot;</span>,        (<span class="hljs-type">void</span> *)&amp;JVM_ResumeThread&#125;,<br>    &#123;<span class="hljs-string">&quot;setPriority0&quot;</span>,     <span class="hljs-string">&quot;(I)V&quot;</span>,       (<span class="hljs-type">void</span> *)&amp;JVM_SetThreadPriority&#125;,<br>    &#123;<span class="hljs-string">&quot;yield&quot;</span>,            <span class="hljs-string">&quot;()V&quot;</span>,        (<span class="hljs-type">void</span> *)&amp;JVM_Yield&#125;,<br>    &#123;<span class="hljs-string">&quot;sleep&quot;</span>,            <span class="hljs-string">&quot;(J)V&quot;</span>,       (<span class="hljs-type">void</span> *)&amp;JVM_Sleep&#125;,<br>    &#123;<span class="hljs-string">&quot;currentThread&quot;</span>,    <span class="hljs-string">&quot;()&quot;</span> THD,     (<span class="hljs-type">void</span> *)&amp;JVM_CurrentThread&#125;,<br>    &#123;<span class="hljs-string">&quot;countStackFrames&quot;</span>, <span class="hljs-string">&quot;()I&quot;</span>,        (<span class="hljs-type">void</span> *)&amp;JVM_CountStackFrames&#125;,<br>    &#123;<span class="hljs-string">&quot;interrupt0&quot;</span>,       <span class="hljs-string">&quot;()V&quot;</span>,        (<span class="hljs-type">void</span> *)&amp;JVM_Interrupt&#125;,<br>    &#123;<span class="hljs-string">&quot;isInterrupted&quot;</span>,    <span class="hljs-string">&quot;(Z)Z&quot;</span>,       (<span class="hljs-type">void</span> *)&amp;JVM_IsInterrupted&#125;,<br>    &#123;<span class="hljs-string">&quot;holdsLock&quot;</span>,        <span class="hljs-string">&quot;(&quot;</span> OBJ <span class="hljs-string">&quot;)Z&quot;</span>, (<span class="hljs-type">void</span> *)&amp;JVM_HoldsLock&#125;,<br>    &#123;<span class="hljs-string">&quot;getThreads&quot;</span>,        <span class="hljs-string">&quot;()[&quot;</span> THD,   (<span class="hljs-type">void</span> *)&amp;JVM_GetAllThreads&#125;,<br>    &#123;<span class="hljs-string">&quot;dumpThreads&quot;</span>,      <span class="hljs-string">&quot;([&quot;</span> THD <span class="hljs-string">&quot;)[[&quot;</span> STE, (<span class="hljs-type">void</span> *)&amp;JVM_DumpThreads&#125;,<br>    &#123;<span class="hljs-string">&quot;setNativeName&quot;</span>,    <span class="hljs-string">&quot;(&quot;</span> STR <span class="hljs-string">&quot;)V&quot;</span>, (<span class="hljs-type">void</span> *)&amp;JVM_SetNativeThreadName&#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p>start0其实就是<code>JVM_StartThread</code>, 此时点开源代码 <code>#include &quot;jvm.h&quot;</code><br>在jvm.h中声明了<code>JVM_StartThread</code>, 说明在jvm.cpp中实现了<code>JVM_StartThread</code></p>
+<p>jvm.h中声明如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-comment">/*</span><br><span class="hljs-comment"> * java.lang.Thread</span><br><span class="hljs-comment"> */</span><br>JNIEXPORT <span class="hljs-type">void</span> JNICALL<br><span class="hljs-title function_">JVM_StartThread</span><span class="hljs-params">(JNIEnv *env, jobject thread)</span>;<br><br></code></pre></td></tr></table></figure>
+
+<p>jvm.cpp实现如下: </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><code class="hljs c">JVM_ENTRY(<span class="hljs-type">void</span>, JVM_StartThread(JNIEnv* env, jobject jthread))<br>  JVMWrapper(<span class="hljs-string">&quot;JVM_StartThread&quot;</span>);<br>  JavaThread *native_thread = <span class="hljs-literal">NULL</span>;<br><br>  <span class="hljs-comment">// We cannot hold the Threads_lock when we throw an exception,</span><br>  <span class="hljs-comment">// due to rank ordering issues. Example:  we might need to grab the</span><br>  <span class="hljs-comment">// Heap_lock while we construct the exception.</span><br>  <span class="hljs-type">bool</span> throw_illegal_thread_state = <span class="hljs-literal">false</span>;<br><br>  <span class="hljs-comment">// We must release the Threads_lock before we can post a jvmti event</span><br>  <span class="hljs-comment">// in Thread::start.</span><br>  &#123;<br>    <span class="hljs-comment">// Ensure that the C++ Thread and OSThread structures aren&#x27;t freed before</span><br>    <span class="hljs-comment">// we operate.</span><br>    MutexLocker <span class="hljs-title function_">mu</span><span class="hljs-params">(Threads_lock)</span>;<br><br>    <span class="hljs-comment">// Since JDK 5 the java.lang.Thread threadStatus is used to prevent</span><br>    <span class="hljs-comment">// re-starting an already started thread, so we should usually find</span><br>    <span class="hljs-comment">// that the JavaThread is null. However for a JNI attached thread</span><br>    <span class="hljs-comment">// there is a small window between the Thread object being created</span><br>    <span class="hljs-comment">// (with its JavaThread set) and the update to its threadStatus, so we</span><br>    <span class="hljs-comment">// have to check for this</span><br>    <span class="hljs-keyword">if</span> (java_lang_Thread::thread(JNIHandles::resolve_non_null(jthread)) != <span class="hljs-literal">NULL</span>) &#123;<br>      throw_illegal_thread_state = <span class="hljs-literal">true</span>;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>      <span class="hljs-comment">// We could also check the stillborn flag to see if this thread was already stopped, but</span><br>      <span class="hljs-comment">// for historical reasons we let the thread detect that itself when it starts running</span><br><br>      jlong size =<br>             java_lang_Thread::stackSize(JNIHandles::resolve_non_null(jthread));<br>      <span class="hljs-comment">// Allocate the C++ Thread structure and create the native thread.  The</span><br>      <span class="hljs-comment">// stack size retrieved from java is signed, but the constructor takes</span><br>      <span class="hljs-comment">// size_t (an unsigned type), so avoid passing negative values which would</span><br>      <span class="hljs-comment">// result in really large stacks.</span><br>      <span class="hljs-type">size_t</span> sz = size &gt; <span class="hljs-number">0</span> ? (<span class="hljs-type">size_t</span>) size : <span class="hljs-number">0</span>;<br>      native_thread = new JavaThread(&amp;thread_entry, sz);<br><br>      <span class="hljs-comment">// At this point it may be possible that no osthread was created for the</span><br>      <span class="hljs-comment">// JavaThread due to lack of memory. Check for this situation and throw</span><br>      <span class="hljs-comment">// an exception if necessary. Eventually we may want to change this so</span><br>      <span class="hljs-comment">// that we only grab the lock if the thread was created successfully -</span><br>      <span class="hljs-comment">// then we can also do this check and throw the exception in the</span><br>      <span class="hljs-comment">// JavaThread constructor.</span><br>      <span class="hljs-keyword">if</span> (native_thread-&gt;osthread() != <span class="hljs-literal">NULL</span>) &#123;<br>        <span class="hljs-comment">// Note: the current thread is not being used within &quot;prepare&quot;.</span><br>        native_thread-&gt;prepare(jthread);<br>      &#125;<br>    &#125;<br>  &#125;<br><br>  <span class="hljs-keyword">if</span> (throw_illegal_thread_state) &#123;<br>    THROW(vmSymbols::java_lang_IllegalThreadStateException());<br>  &#125;<br><br>  assert(native_thread != <span class="hljs-literal">NULL</span>, <span class="hljs-string">&quot;Starting null thread?&quot;</span>);<br><br>  <span class="hljs-keyword">if</span> (native_thread-&gt;osthread() == <span class="hljs-literal">NULL</span>) &#123;<br>    <span class="hljs-comment">// No one should hold a reference to the &#x27;native_thread&#x27;.</span><br>    delete native_thread;<br>    <span class="hljs-keyword">if</span> (JvmtiExport::should_post_resource_exhausted()) &#123;<br>      JvmtiExport::post_resource_exhausted(<br>        JVMTI_RESOURCE_EXHAUSTED_OOM_ERROR | JVMTI_RESOURCE_EXHAUSTED_THREADS,<br>        <span class="hljs-string">&quot;unable to create new native thread&quot;</span>);<br>    &#125;<br>    THROW_MSG(vmSymbols::java_lang_OutOfMemoryError(),<br>              <span class="hljs-string">&quot;unable to create new native thread&quot;</span>);<br>  &#125;<br><br>  Thread::start(native_thread);<br><br>JVM_END<br></code></pre></td></tr></table></figure>
+
+<p>实质上就是调用了个 <code>Thread::start(native_thread);</code></p>
+<p>Thread::start在thread.cpp中, 实现如下</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-type">void</span> <span class="hljs-title function_">Thread::start</span><span class="hljs-params">(Thread* thread)</span> &#123;<br>  trace(<span class="hljs-string">&quot;start&quot;</span>, thread);<br>  <span class="hljs-comment">// Start is different from resume in that its safety is guaranteed by context or</span><br>  <span class="hljs-comment">// being called from a Java method synchronized on the Thread object.</span><br>  <span class="hljs-keyword">if</span> (!DisableStartThread) &#123;<br>    <span class="hljs-keyword">if</span> (thread-&gt;is_Java_thread()) &#123;<br>      <span class="hljs-comment">// Initialize the thread state to RUNNABLE before starting this thread.</span><br>      <span class="hljs-comment">// Can not set it after the thread started because we do not know the</span><br>      <span class="hljs-comment">// exact thread state at that time. It could be in MONITOR_WAIT or</span><br>      <span class="hljs-comment">// in SLEEPING or some other state.</span><br>      java_lang_Thread::set_thread_status(((JavaThread*)thread)-&gt;threadObj(),<br>                                          java_lang_Thread::RUNNABLE);<br>    &#125;<br>    os::start_thread(thread);<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>Thread::start(native_thread);的实现调用的是操作系统级别的<code>os::start_thread(thread);</code></p>
+<h3 id="2-基础概念复习"><a href="#2-基础概念复习" class="headerlink" title="2.基础概念复习"></a>2.基础概念复习</h3><h4 id="1-并发与并行"><a href="#1-并发与并行" class="headerlink" title="(1).并发与并行"></a>(1).并发与并行</h4><p>并发(12306卖票秒杀): </p>
+<ul>
+<li>是在同一实体上的多个事件</li>
+<li>是在一台处理器上“同时”处理多个任务</li>
+<li>同一时刻，其实是只有一个事件在发生</li>
+</ul>
+<p>并行(泡方便面烧热水): </p>
+<ul>
+<li>是在不同实体上的多个事件</li>
+<li>是在多台处理器上同时处理多个任务</li>
+<li>同一时刻，大家真的都在做事情，你做你的，我做我的，但是我们都在做</li>
+</ul>
+<p>区别:<br><img src="/assets/2024-02-15-19-54-54.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="2-进程-线程-管程"><a href="#2-进程-线程-管程" class="headerlink" title="(2).进程 线程 管程"></a>(2).进程 线程 管程</h4><blockquote>
+<p>进程是资源分配的最小单位，线程是程序执行的最小单位。</p>
+</blockquote>
+<p>进程: </p>
+<ul>
+<li>简单的说，在系统中运行的一个应用程序就是一个进程，每一个进程都有它自己的内存空间和系统资源</li>
+</ul>
+<p>线程: </p>
+<ul>
+<li>也被称为轻量级进程，在同一个进程内会有1个或多个线程是大多数操作系统进行时序调度的基本单元。</li>
+</ul>
+<p>管程: </p>
+<ul>
+<li>Monitor(监视器)，也就是我们平时所说的锁</li>
+<li>JVM第3版</li>
+</ul>
+<p>Monitor其实是一种同步机制, 他的义务是保证(同一时间)只有一个线程可以访问被保护的数据和代码</p>
+<p><img src="/assets/2024-02-15-19-58-10.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2024-02-15-19-59-36.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="3-用户线程和守护线程"><a href="#3-用户线程和守护线程" class="headerlink" title="3.用户线程和守护线程"></a>3.用户线程和守护线程</h3><h4 id="1-Java线程分为用户线程和守护线程"><a href="#1-Java线程分为用户线程和守护线程" class="headerlink" title="(1).Java线程分为用户线程和守护线程"></a>(1).Java线程分为用户线程和守护线程</h4><p>一般情况下不做特别说明配置，默认都是用户线程。</p>
+<p>用户线程(User Thread)</p>
+<ul>
+<li>是系统的工作线程，它会完成这个程序需要完成的业务操作</li>
+</ul>
+<p>守护线程(Daemon Thread)</p>
+<ul>
+<li>守护线程作为一个服务线程，没有服务对象就没有必要继续运行了，如果用户线程全部结束了，意味着程序需要完成的业务操作已经结束了系统可以退出了。所以假如当系统只剩下守护线程的时候，java虚拟机会自动退出。</li>
+</ul>
+<blockquote>
+<p>守护线程（Daemon Thread）也被称之为后台线程或服务线程，守护线程是为用户线程服务的，当程序中的用户线程全部执行结束之后，守护线程也会跟随结束。 守护线程的角色就像“服务员”，而用户线程的角色就像“顾客”，当“顾客”全部走了之后（全部执行结束），那“服务员”（守护线程）也就没有了存在的意义，所以当一个程序中的全部用户线程都结束执行之后，那么无论守护线程是否还在工作都会随着用户线程一块结束，整个程序也会随之结束运行。</p>
+<p>作者：磊哥聊编程<br>链接：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/282487583/answer/2391589312">https://www.zhihu.com/question/282487583/answer/2391589312</a></p>
+</blockquote>
+<h4 id="2-线程daemon属性"><a href="#2-线程daemon属性" class="headerlink" title="(2).线程daemon属性"></a>(2).线程daemon属性</h4><p>源码解读: </p>
+<p>Thread.java中的方法<code>isDaemon()</code><br>判断当前线程是否是守护线程, true表示是守护线程, false表示是用户线程</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Tests if this thread is a daemon thread.</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@return</span>  &lt;code&gt;true&lt;/code&gt; if this thread is a daemon thread;</span><br><span class="hljs-comment"> *          &lt;code&gt;false&lt;/code&gt; otherwise.</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@see</span>     #setDaemon(boolean)</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-type">boolean</span> <span class="hljs-title function_">isDaemon</span><span class="hljs-params">()</span> &#123;<br>    <span class="hljs-keyword">return</span> daemon;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>true表示是守护线程</p>
+<p>false表示是用户线程</p>
+<h4 id="3-code演示"><a href="#3-code演示" class="headerlink" title="(3).code演示"></a>(3).code演示</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> icu.xiamu.juc.base;<br><br><span class="hljs-keyword">import</span> java.util.concurrent.TimeUnit;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">DaemonDemo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123; <span class="hljs-comment">// 一切方法运行的入口</span><br>        <span class="hljs-type">Thread</span> <span class="hljs-variable">t1</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Thread</span>(() -&gt; &#123;<br>            System.out.println(Thread.currentThread().getName() + <span class="hljs-string">&quot;\t 开始运行，&quot;</span> + (Thread.currentThread().isDaemon() ? <span class="hljs-string">&quot;守护线程&quot;</span> : <span class="hljs-string">&quot;用户线程&quot;</span>));<br>            <span class="hljs-keyword">while</span> (<span class="hljs-literal">true</span>) &#123;<br>            &#125;<br>        &#125;, <span class="hljs-string">&quot;t1&quot;</span>);<br><br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        // 默认t1.setDaemon(false);</span><br><span class="hljs-comment">        // 运行结果:</span><br><span class="hljs-comment">        t1	 开始运行，用户线程</span><br><span class="hljs-comment">        ----------main线程运行完毕</span><br><span class="hljs-comment">         */</span><br>        t1.setDaemon(<span class="hljs-literal">true</span>);<br>        <span class="hljs-comment">/*</span><br><span class="hljs-comment">        // t1.setDaemon(true);</span><br><span class="hljs-comment">        // 运行结果:</span><br><span class="hljs-comment">        t1	 开始运行，守护线程</span><br><span class="hljs-comment">        ----------main线程运行完毕</span><br><span class="hljs-comment">         */</span><br>        t1.start();<br><br>        <span class="hljs-comment">// 3秒钟后主线程再运行</span><br>        <span class="hljs-keyword">try</span> &#123; TimeUnit.SECONDS.sleep(<span class="hljs-number">3</span>); &#125; <span class="hljs-keyword">catch</span> (InterruptedException e) &#123; e.printStackTrace(); &#125;<br>        System.out.println(<span class="hljs-string">&quot;----------main线程运行完毕&quot;</span>);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<p>默认是false(用户线程), 所以这段程序并没有终止, 因为用户线程还没执行完, 死循环了<br>之后修改成true, 变成了守护线程, 此时就剩main一个用户线程, 当main线程执行完毕的时候, 此时用户线程没了, 就剩下一个守护线程, java虚拟机就会自动退出<br>用户线程都死了, 守护线程守护守护护护个鸡毛, 拍拍屁股下班走人</p>
+<h4 id="4-小总结"><a href="#4-小总结" class="headerlink" title="(4).小总结"></a>(4).小总结</h4><ul>
+<li>如果用户线程全部结束意味着程序需要完成的业务操作已经结束了，守护线程随着JVM一同结束工作</li>
+<li>用户线程都死了, 守护线程守护守护护护个鸡毛, 拍拍屁股下班走人</li>
+<li>setDaemon(true)方法必须在start()之前设置，否则报IllegalThreadStateException异常</li>
+</ul>
+<p>关于setDaemon()源码: 如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Marks this thread as either a &#123;<span class="hljs-doctag">@linkplain</span> #isDaemon daemon&#125; thread</span><br><span class="hljs-comment"> * or a user thread. The Java Virtual Machine exits when the only</span><br><span class="hljs-comment"> * threads running are all daemon threads.</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * &lt;p&gt; This method must be invoked before the thread is started.</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@param</span>  on</span><br><span class="hljs-comment"> *         if &#123;<span class="hljs-doctag">@code</span> true&#125;, marks this thread as a daemon thread</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@throws</span>  IllegalThreadStateException</span><br><span class="hljs-comment"> *          if this thread is &#123;<span class="hljs-doctag">@linkplain</span> #isAlive alive&#125;</span><br><span class="hljs-comment"> *</span><br><span class="hljs-comment"> * <span class="hljs-doctag">@throws</span>  SecurityException</span><br><span class="hljs-comment"> *          if &#123;<span class="hljs-doctag">@link</span> #checkAccess&#125; determines that the current</span><br><span class="hljs-comment"> *          thread cannot modify this thread</span><br><span class="hljs-comment"> */</span><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">final</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">setDaemon</span><span class="hljs-params">(<span class="hljs-type">boolean</span> on)</span> &#123;<br>    checkAccess();<br>    <span class="hljs-keyword">if</span> (isAlive()) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">IllegalThreadStateException</span>();<br>    &#125;<br>    daemon = on;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="2-CompletableFuture"><a href="#2-CompletableFuture" class="headerlink" title="2.CompletableFuture"></a>2.CompletableFuture</h2><h3 id="1-Future接口理论知识复习"><a href="#1-Future接口理论知识复习" class="headerlink" title="1.Future接口理论知识复习"></a>1.Future接口理论知识复习</h3><p>Future接口(FutureTask实现类)定义了操作异步任务执行一些方法，如获取异步任务的执行结果、取消任务的执行、判断任务是否被取消、判断任务执行是否完毕等。</p>
+<p>比如主线程让一个子线程去执行任务，子线程可能比较耗时，启动子线程开始执行任务后，<br>主线程就去做其他事情了，忙其它事情或者先执行完，过了一会才去获取子任务的执行结果或变更的任务状态。</p>
+<p>举例上课买水案例给大家说明补充。。。。。。</p>
+<p>查看Future接口内容</p>
+<p><img src="/assets/2024-02-15-21-09-12.png" srcset="/img/loading.gif" lazyload></p>
+<p>一句话: Future接口可以为主线程开一个分支任务，专门为主线程处理耗时和费力的复杂业务</p>
+<h3 id="2-Future接口常用实现类FutureTask异步任务"><a href="#2-Future接口常用实现类FutureTask异步任务" class="headerlink" title="2.Future接口常用实现类FutureTask异步任务"></a>2.Future接口常用实现类FutureTask异步任务</h3><p>Future是Java5新加的一个接口，它提供了一种异步并行计算的功能。<br>如果主线程需要执行一个很耗时的计算任务，我们就可以通过future把这个任务放到异步线程中执行。<br>主线程继续处理其他任务或者先行结束，再通过Future获取计算结果。</p>
+<p>代码说话:</p>
+<p>Runnable接口<br>Callable接口<br>Future接口和FutureTask实现类</p>
+<p>目的: 异步多线程任务执行且返回有结果，<strong>三个特点: 多线程&#x2F;有返回&#x2F;异步任务</strong><br>(班长为老师去买水作为新启动的异步多线程任务且买到水有结果返回)</p>
+<p><img src="/assets/2024-02-15-21-28-55.png" srcset="/img/loading.gif" lazyload></p>
+<p>代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><br></code></pre></td></tr></table></figure>
+
+<h3 id="3-CompletableFuture对Future的改进"><a href="#3-CompletableFuture对Future的改进" class="headerlink" title="3.CompletableFuture对Future的改进"></a>3.CompletableFuture对Future的改进</h3><h3 id="4-案例精讲-从电商网站的比价需求说开去"><a href="#4-案例精讲-从电商网站的比价需求说开去" class="headerlink" title="4.案例精讲-从电商网站的比价需求说开去"></a>4.案例精讲-从电商网站的比价需求说开去</h3><h3 id="5-CompletableFuture常用方法"><a href="#5-CompletableFuture常用方法" class="headerlink" title="5.CompletableFuture常用方法"></a>5.CompletableFuture常用方法</h3><h2 id="3-说说Java”锁”事"><a href="#3-说说Java”锁”事" class="headerlink" title="3.说说Java”锁”事"></a>3.说说Java”锁”事</h2><h2 id="4-LockSupport与线程中断"><a href="#4-LockSupport与线程中断" class="headerlink" title="4.LockSupport与线程中断"></a>4.LockSupport与线程中断</h2><h2 id="5-Java内存模型之JMM"><a href="#5-Java内存模型之JMM" class="headerlink" title="5.Java内存模型之JMM"></a>5.Java内存模型之JMM</h2><h2 id="6-volatile与JMM"><a href="#6-volatile与JMM" class="headerlink" title="6.volatile与JMM"></a>6.volatile与JMM</h2><h2 id="7-CAS"><a href="#7-CAS" class="headerlink" title="7.CAS"></a>7.CAS</h2><h2 id="8…"><a href="#8…" class="headerlink" title="8…"></a>8…</h2><p>在线笔记:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/clover007/og7q42/ixfsl1nznqd8vrq7">https://www.yuque.com/clover007/og7q42/ixfsl1nznqd8vrq7</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.yuque.com/gongxi-wssld/csm31d/ip2ueru5itmgsgly">https://www.yuque.com/gongxi-wssld/csm31d/ip2ueru5itmgsgly</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>JUC并发编程</div>
+      <div>https://xiamu.icu/Java/JUC并发编程/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年2月14日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Java/%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/" title="服务器性能优化">
+                        <span class="hidden-mobile">服务器性能优化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Haq24NRgHl4QheEi7oVqtAsM-gzGzoHsz","appKey":"kGbxzGaSiqqlFPxg24Tk3dVN","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":"https://valinecdn.bili33.top","emojiMaps":{"Tieba-New2":"/Tieba-New/image_emoticon.png","Tieba-New3":"/Tieba-New/image_emoticon10.png","Tieba-New4":"/Tieba-New/image_emoticon100.png","Tieba-New5":"/Tieba-New/image_emoticon101.png","Tieba-New6":"/Tieba-New/image_emoticon102.png","Tieba-New7":"/Tieba-New/image_emoticon103.png","Tieba-New8":"/Tieba-New/image_emoticon104.png","Tieba-New9":"/Tieba-New/image_emoticon105.png","Tieba-New10":"/Tieba-New/image_emoticon106.png","Tieba-New11":"/Tieba-New/image_emoticon107.png","Tieba-New12":"/Tieba-New/image_emoticon108.png","Tieba-New13":"/Tieba-New/image_emoticon109.png","Tieba-New14":"/Tieba-New/image_emoticon11.png","Tieba-New15":"/Tieba-New/image_emoticon110.png","Tieba-New16":"/Tieba-New/image_emoticon111.png","Tieba-New17":"/Tieba-New/image_emoticon112.png","Tieba-New18":"/Tieba-New/image_emoticon113.png","Tieba-New19":"/Tieba-New/image_emoticon114.png","Tieba-New20":"/Tieba-New/image_emoticon115.png","Tieba-New21":"/Tieba-New/image_emoticon116.png","Tieba-New22":"/Tieba-New/image_emoticon117.png","Tieba-New23":"/Tieba-New/image_emoticon118.png","Tieba-New24":"/Tieba-New/image_emoticon119.png","Tieba-New25":"/Tieba-New/image_emoticon12.png","Tieba-New26":"/Tieba-New/image_emoticon120.png","Tieba-New27":"/Tieba-New/image_emoticon121.png","Tieba-New28":"/Tieba-New/image_emoticon122.png","Tieba-New29":"/Tieba-New/image_emoticon123.png","Tieba-New30":"/Tieba-New/image_emoticon124.png","Tieba-New31":"/Tieba-New/image_emoticon13.png","Tieba-New32":"/Tieba-New/image_emoticon14.png","Tieba-New33":"/Tieba-New/image_emoticon15.png","Tieba-New34":"/Tieba-New/image_emoticon16.png","Tieba-New35":"/Tieba-New/image_emoticon17.png","Tieba-New36":"/Tieba-New/image_emoticon18.png","Tieba-New37":"/Tieba-New/image_emoticon19.png","Tieba-New38":"/Tieba-New/image_emoticon2.png","Tieba-New39":"/Tieba-New/image_emoticon20.png","Tieba-New40":"/Tieba-New/image_emoticon21.png","Tieba-New41":"/Tieba-New/image_emoticon22.png","Tieba-New42":"/Tieba-New/image_emoticon23.png","Tieba-New43":"/Tieba-New/image_emoticon24.png","Tieba-New44":"/Tieba-New/image_emoticon25.png","Tieba-New45":"/Tieba-New/image_emoticon26.png","Tieba-New46":"/Tieba-New/image_emoticon27.png","Tieba-New47":"/Tieba-New/image_emoticon28.png","Tieba-New48":"/Tieba-New/image_emoticon29.png","Tieba-New49":"/Tieba-New/image_emoticon3.png","Tieba-New50":"/Tieba-New/image_emoticon30.png","Tieba-New51":"/Tieba-New/image_emoticon31.png","Tieba-New52":"/Tieba-New/image_emoticon32.png","Tieba-New53":"/Tieba-New/image_emoticon33.png","Tieba-New54":"/Tieba-New/image_emoticon34.png","Tieba-New55":"/Tieba-New/image_emoticon35.png","Tieba-New56":"/Tieba-New/image_emoticon36.png","Tieba-New57":"/Tieba-New/image_emoticon37.png","Tieba-New58":"/Tieba-New/image_emoticon38.png","Tieba-New59":"/Tieba-New/image_emoticon39.png","Tieba-New60":"/Tieba-New/image_emoticon4.png","Tieba-New61":"/Tieba-New/image_emoticon40.png","Tieba-New62":"/Tieba-New/image_emoticon41.png","Tieba-New63":"/Tieba-New/image_emoticon42.png","Tieba-New64":"/Tieba-New/image_emoticon43.png","Tieba-New65":"/Tieba-New/image_emoticon44.png","Tieba-New66":"/Tieba-New/image_emoticon45.png","Tieba-New67":"/Tieba-New/image_emoticon46.png","Tieba-New68":"/Tieba-New/image_emoticon47.png","Tieba-New69":"/Tieba-New/image_emoticon48.png","Tieba-New70":"/Tieba-New/image_emoticon49.png","Tieba-New71":"/Tieba-New/image_emoticon5.png","Tieba-New72":"/Tieba-New/image_emoticon50.png","Tieba-New73":"/Tieba-New/image_emoticon6.png","Tieba-New74":"/Tieba-New/image_emoticon66.png","Tieba-New75":"/Tieba-New/image_emoticon67.png","Tieba-New76":"/Tieba-New/image_emoticon68.png","Tieba-New77":"/Tieba-New/image_emoticon69.png","Tieba-New78":"/Tieba-New/image_emoticon7.png","Tieba-New79":"/Tieba-New/image_emoticon70.png","Tieba-New80":"/Tieba-New/image_emoticon71.png","Tieba-New81":"/Tieba-New/image_emoticon72.png","Tieba-New82":"/Tieba-New/image_emoticon73.png","Tieba-New83":"/Tieba-New/image_emoticon74.png","Tieba-New84":"/Tieba-New/image_emoticon75.png","Tieba-New85":"/Tieba-New/image_emoticon76.png","Tieba-New86":"/Tieba-New/image_emoticon77.png","Tieba-New87":"/Tieba-New/image_emoticon78.png","Tieba-New88":"/Tieba-New/image_emoticon79.png","Tieba-New89":"/Tieba-New/image_emoticon8.png","Tieba-New90":"/Tieba-New/image_emoticon80.png","Tieba-New91":"/Tieba-New/image_emoticon81.png","Tieba-New92":"/Tieba-New/image_emoticon82.png","Tieba-New93":"/Tieba-New/image_emoticon83.png","Tieba-New94":"/Tieba-New/image_emoticon84.png","Tieba-New95":"/Tieba-New/image_emoticon85.png","Tieba-New96":"/Tieba-New/image_emoticon86.png","Tieba-New97":"/Tieba-New/image_emoticon87.png","Tieba-New98":"/Tieba-New/image_emoticon88.png","Tieba-New99":"/Tieba-New/image_emoticon89.png","Tieba-New100":"/Tieba-New/image_emoticon9.png","Tieba-New101":"/Tieba-New/image_emoticon90.png","Tieba-New102":"/Tieba-New/image_emoticon91.png","Tieba-New103":"/Tieba-New/image_emoticon92.png","Tieba-New104":"/Tieba-New/image_emoticon93.png","Tieba-New105":"/Tieba-New/image_emoticon94.png","Tieba-New106":"/Tieba-New/image_emoticon95.png","Tieba-New107":"/Tieba-New/image_emoticon96.png","Tieba-New108":"/Tieba-New/image_emoticon97.png","Tieba-New109":"/Tieba-New/image_emoticon98.png","Tieba-New110":"/Tieba-New/image_emoticon99.png"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      湘ICP备2021007554号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <!-- 全局配置aplayer播放器 -->
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease"   
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
