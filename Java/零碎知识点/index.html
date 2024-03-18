@@ -1,0 +1,797 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" >
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/smile.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#96c0d3cc">
+  <meta name="author" content="肉豆蔻吖">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="1.函数式编程1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001">
+<meta property="og:type" content="article">
+<meta property="og:title" content="零碎知识点">
+<meta property="og:url" content="https://xiamu.icu/Java/%E9%9B%B6%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/index.html">
+<meta property="og:site_name" content="肉豆蔻吖">
+<meta property="og:description" content="1.函数式编程1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586878889909192939495969798991001">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-03-13-20-39-46.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-03-16-00-00-57.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-03-13-20-51-35.png">
+<meta property="article:published_time" content="2024-03-12T13:29:08.000Z">
+<meta property="article:modified_time" content="2024-03-18T11:28:38.719Z">
+<meta property="article:author" content="肉豆蔻吖">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiamu.icu/assets/2024-03-13-20-39-46.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>零碎知识点 - 肉豆蔻吖</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"xiamu.icu","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>肉豆蔻吖</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/bg.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="零碎知识点"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        肉豆蔻吖
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-03-12 21:29" pubdate>
+          2024年3月12日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          54 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">零碎知识点</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="1-函数式编程"><a href="#1-函数式编程" class="headerlink" title="1.函数式编程"></a>1.函数式编程</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> icu.xiamu;<br><br><span class="hljs-keyword">import</span> javax.swing.plaf.synth.SynthOptionPaneUI;<br><span class="hljs-keyword">import</span> javax.xml.bind.annotation.adapters.CollapsedStringAdapter;<br><span class="hljs-keyword">import</span> java.util.*;<br><span class="hljs-keyword">import</span> java.util.concurrent.LinkedTransferQueue;<br><span class="hljs-keyword">import</span> java.util.stream.Collectors;<br><br><span class="hljs-keyword">interface</span> <span class="hljs-title class_">MyInterface</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">doSometing</span><span class="hljs-params">(String s)</span>;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Demo</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> &#123;<br>        <span class="hljs-comment">// List&lt;String&gt; list = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// 1.遍历</span><br>        <span class="hljs-comment">// for (String fruit : list) &#123;</span><br>        <span class="hljs-comment">//     System.out.println(fruit);</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// List&lt;String&gt; list1 = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// list1.forEach((fruit) -&gt; &#123;</span><br>        <span class="hljs-comment">//     System.out.println(fruit);</span><br>        <span class="hljs-comment">// &#125;);</span><br><br>        <span class="hljs-comment">// 2.排序</span><br>        <span class="hljs-comment">// List&lt;String&gt; list2 = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// Collections.sort(list2, new Comparator&lt;String&gt;() &#123;</span><br>        <span class="hljs-comment">//     @Override</span><br>        <span class="hljs-comment">//     public int compare(String o1, String o2) &#123;</span><br>        <span class="hljs-comment">//         return o1.compareTo(o2);</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">// &#125;);</span><br>        <span class="hljs-comment">// list2.forEach(System.out::println);</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// List&lt;String&gt; list3 = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// Collections.sort(list2, (s1, s2) -&gt; &#123;</span><br>        <span class="hljs-comment">//     return s1.compareTo(s2);</span><br>        <span class="hljs-comment">// &#125;);</span><br>        <span class="hljs-comment">// list3.forEach(System.out::println);</span><br><br>        <span class="hljs-comment">// 3.过滤</span><br>        <span class="hljs-comment">// List&lt;String&gt; list4 = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// ArrayList&lt;String&gt; filteredList = new ArrayList&lt;&gt;();</span><br>        <span class="hljs-comment">// for (String fruit : list4) &#123;</span><br>        <span class="hljs-comment">//     if (fruit.startsWith(&quot;a&quot;)) &#123;</span><br>        <span class="hljs-comment">//         filteredList.add(fruit);</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">// System.out.println(filteredList);</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// List&lt;String&gt; collect = list4.stream().filter(fruit -&gt; &#123;</span><br>        <span class="hljs-comment">//     return fruit.startsWith(&quot;a&quot;);</span><br>        <span class="hljs-comment">// &#125;).collect(Collectors.toList());</span><br>        <span class="hljs-comment">// System.out.println(collect);</span><br><br>        <span class="hljs-comment">// 4.映射</span><br>        <span class="hljs-comment">// List&lt;String&gt; list5 = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// List&lt;Integer&gt; lengths = new ArrayList&lt;&gt;();</span><br>        <span class="hljs-comment">// for (String fruit: list5) &#123;</span><br>        <span class="hljs-comment">//     lengths.add(fruit.length());</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">// System.out.println(lengths);</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// List&lt;Integer&gt; collect = list5.stream().map(fruit -&gt; &#123;</span><br>        <span class="hljs-comment">//     return fruit.length();</span><br>        <span class="hljs-comment">// &#125;).collect(Collectors.toList());</span><br>        <span class="hljs-comment">// System.out.println(collect);</span><br><br>        <span class="hljs-comment">// 5.规约</span><br>        <span class="hljs-comment">// List&lt;Integer&gt; list = Arrays.asList(1, 2, 3, 4, 5);</span><br>        <span class="hljs-comment">// int sum = 0;</span><br>        <span class="hljs-comment">// for (int i : list) &#123;</span><br>        <span class="hljs-comment">//     sum += i;</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">// System.out.println(sum);</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// Integer reduce = list.stream().reduce(0, (a, b) -&gt; &#123;</span><br>        <span class="hljs-comment">//     return a + b;</span><br>        <span class="hljs-comment">// &#125;);</span><br>        <span class="hljs-comment">// System.out.println(reduce);</span><br><br>        <span class="hljs-comment">// 6.分组 按照字符串长度分组</span><br>        <span class="hljs-comment">// List&lt;String&gt; list5 = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// HashMap&lt;Integer, List&lt;String&gt;&gt; grouped = new HashMap&lt;&gt;();</span><br>        <span class="hljs-comment">// for (String fruit : list5) &#123;</span><br>        <span class="hljs-comment">//     int length = fruit.length();</span><br>        <span class="hljs-comment">//     if (!grouped.containsKey(length)) &#123;</span><br>        <span class="hljs-comment">//         grouped.put(length, new ArrayList&lt;&gt;());</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">//     grouped.get(length).add(fruit);</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">// System.out.println(grouped);</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// List&lt;String&gt; list6 = Arrays.asList(&quot;apple&quot;, &quot;banana&quot;, &quot;orange&quot;);</span><br>        <span class="hljs-comment">// Map&lt;Integer, List&lt;String&gt;&gt; collect = list6.stream().collect(Collectors.groupingBy(fruit -&gt; fruit.length()));</span><br>        <span class="hljs-comment">// System.out.println(collect);</span><br><br>        <span class="hljs-comment">// 7.函数式接口实现</span><br>        <span class="hljs-comment">// MyInterface myObject = new MyInterface() &#123;</span><br>        <span class="hljs-comment">//     public void doSometing(String input) &#123;</span><br>        <span class="hljs-comment">//         System.out.println(input);</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">// &#125;;</span><br>        <span class="hljs-comment">// myObject.doSometing(&quot;Hello World&quot;);</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// MyInterface myObject2 = input -&gt; System.out.println(input);</span><br>        <span class="hljs-comment">// myObject2.doSometing(&quot;Hello World&quot;);</span><br><br><br>        <span class="hljs-comment">// 8.创建线程</span><br>        <span class="hljs-comment">// Thread thread = new Thread(new Runnable() &#123;</span><br>        <span class="hljs-comment">//     @Override</span><br>        <span class="hljs-comment">//     public void run() &#123;</span><br>        <span class="hljs-comment">//         System.out.println(&quot;Thread is running&quot;);</span><br>        <span class="hljs-comment">//     &#125;</span><br>        <span class="hljs-comment">// &#125;);</span><br>        <span class="hljs-comment">// thread.start();</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// new Thread(() -&gt; &#123;</span><br>        <span class="hljs-comment">//     System.out.println(&quot;Thread is running&quot;);</span><br>        <span class="hljs-comment">// &#125;).start();</span><br><br>        <span class="hljs-comment">// 9. Optional</span><br>        <span class="hljs-comment">// String str = &quot;Hello World&quot;;</span><br>        <span class="hljs-comment">// if (str != null) &#123;</span><br>        <span class="hljs-comment">//     System.out.println(str.toUpperCase());</span><br>        <span class="hljs-comment">// &#125;</span><br>        <span class="hljs-comment">//</span><br>        <span class="hljs-comment">// Optional&lt;String&gt; strs = Optional.ofNullable(&quot;Hello World&quot;);</span><br>        <span class="hljs-comment">// strs.map(String::toUpperCase).ifPresent(System.out::println);</span><br><br>        <span class="hljs-comment">// 10.流水线</span><br>        List&lt;String&gt; list6 = Arrays.asList(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;orange&quot;</span>);<br>        ArrayList&lt;String&gt; filteredList = <span class="hljs-keyword">new</span> <span class="hljs-title class_">ArrayList</span>&lt;&gt;();<br>        <span class="hljs-keyword">for</span> (String fruit : list6) &#123;<br>            <span class="hljs-keyword">if</span> (fruit.startsWith(<span class="hljs-string">&quot;a&quot;</span>)) &#123;<br>                filteredList.add(fruit.toUpperCase());<br>            &#125;<br>        &#125;<br>        Collections.sort(filteredList);<br>        System.out.println(filteredList);<br><br>        List&lt;String&gt; list7 = Arrays.asList(<span class="hljs-string">&quot;apple&quot;</span>, <span class="hljs-string">&quot;banana&quot;</span>, <span class="hljs-string">&quot;orange&quot;</span>);<br>        List&lt;String&gt; collect = list7.stream().filter(fruit -&gt; fruit.startsWith(<span class="hljs-string">&quot;a&quot;</span>)).map(String::toUpperCase).sorted().collect(Collectors.toList());<br>        System.out.println(collect);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="2-时间处理"><a href="#2-时间处理" class="headerlink" title="2.时间处理"></a>2.时间处理</h2><p>使用新的Java8 API LocalDate LocalTime LocalDateTime ZonedDateTime</p>
+<h2 id="3-设计原则"><a href="#3-设计原则" class="headerlink" title="3.设计原则"></a>3.设计原则</h2><p>设计模式(常见的几种, 以及建造者模式, 原型模式, 策略模式, 责任链模式) 和 设计原则(开闭原则, 单一职责原则, 里氏替换原则, 依赖倒转原则, 接口隔离原则, 迪米特法则, 合成复用原则)</p>
+<h2 id="4-循环"><a href="#4-循环" class="headerlink" title="4.循环"></a>4.循环</h2><p>for 冒号<br>for length<br>iterator<br>for each</p>
+<p>查找, 筛选, 排序 , 分组</p>
+<h2 id="5-IO流的分类"><a href="#5-IO流的分类" class="headerlink" title="5.IO流的分类"></a>5.IO流的分类</h2><p>字节流, 字符流<br>输入流, 输出流<br>包装流(缓冲流, 对象流, 文件流, 过滤流)<br>FileReader, FileWriter<br>Reader, Writer<br>特殊流 RandomAccessFile</p>
+<h2 id="6-文件解析"><a href="#6-文件解析" class="headerlink" title="6.文件解析"></a>6.文件解析</h2><p>解析json格式<br>properties格式</p>
+<h2 id="7-日志和门面"><a href="#7-日志和门面" class="headerlink" title="7.日志和门面"></a>7.日志和门面</h2><p><img src="/assets/2024-03-13-20-39-46.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="8-TCP-UDP-区别"><a href="#8-TCP-UDP-区别" class="headerlink" title="8.TCP UDP 区别"></a>8.TCP UDP 区别</h2><p>协议属于哪一层<br>ISO五层协议, 七层协议</p>
+<p>TCP 特点, 三次握手四次挥手<br>TCP 滑动窗口 粘包</p>
+<p>ftp sftp</p>
+<p>http无状态基于tcp</p>
+<h2 id="9-正则表达式"><a href="#9-正则表达式" class="headerlink" title="9.正则表达式"></a>9.正则表达式</h2><p>正则表达式看懂即可</p>
+<h2 id="10-刷sql题"><a href="#10-刷sql题" class="headerlink" title="10.刷sql题"></a>10.刷sql题</h2><h2 id="11-了解数据库连接池"><a href="#11-了解数据库连接池" class="headerlink" title="11.了解数据库连接池"></a>11.了解数据库连接池</h2><h2 id="12-mybatis的八股文背诵"><a href="#12-mybatis的八股文背诵" class="headerlink" title="12.mybatis的八股文背诵"></a>12.mybatis的八股文背诵</h2><h2 id="13-redis使用场景"><a href="#13-redis使用场景" class="headerlink" title="13.redis使用场景"></a>13.redis使用场景</h2><p>使用场景:<br>缓存<br>任务队列<br>网站访问统计<br>应用排行榜<br>数据过期处理<br>session 分离<br>实现分布式锁</p>
+<p>统计访问次数 (计数器, 阅读量, 点赞数)<br>incr OFFICIAL_INDEX_VISIT_COUNT</p>
+<p>添加多次<br>incrby OFFICIAL_INDEX_VISIT_COUNT 5</p>
+<p>排行榜<br>ZADD rank:score 100 “周星驰”<br>ZADD rank:score 90 “周杰伦”<br>ZADD rank:score 80 “周润发”<br>ZRANGE rank:score 0 -1 WITHSCORES</p>
+<p>位统计 (用户一年内签到)<br>127.0.0.1:6379&gt; SETBIT a 1 1<br>0<br>127.0.0.1:6379&gt; SETBIT a 2 1<br>0<br>127.0.0.1:6379&gt; SETBIT a 4 1<br>0<br>127.0.0.1:6379&gt; get a<br>h<br>127.0.0.1:6379&gt; SETBIT a 9 1<br>0<br>127.0.0.1:6379&gt; SETBIT a 10 1<br>0<br>127.0.0.1:6379&gt; SETBIT a 13 1<br>0<br>127.0.0.1:6379&gt; SETBIT a 15 1<br>0<br>127.0.0.1:6379&gt; get a<br>he<br>127.0.0.1:6379&gt; bitcount a<br>7</p>
+<p>a &#x3D;&gt; 01101000 01100101<br><img src="/assets/2024-03-16-00-00-57.png" srcset="/img/loading.gif" lazyload></p>
+<p>位统计<br>set k1 a<br>setbit k1 6 1<br>setbit k1 7 0<br>get k1 </p>
+<p>a ascii 97 表示 01100001<br>b ascii 98 表示 01100010</p>
+<p>从左开始数, 0开始<br>01100001 &#x3D;&gt; 01100011 &#x3D;&gt; 01100010</p>
+<p>购物车实现<br>127.0.0.1:6379&gt; hset shopcar:uid1024 334488 1<br>(integer) 1<br>127.0.0.1:6379&gt; hset shopcar:uid1024 334477 1<br>(integer) 1<br>127.0.0.1:6379&gt; hincrby shopcar:uid1024 334477 1<br>(integer) 2     </p>
+<p>127.0.0.1:6379&gt; hlen shopcar:uid1024<br>(integer) 2<br>127.0.0.1:6379&gt; hgetall shopcar:uid1024</p>
+<ol>
+<li>“334488”     </li>
+<li>“1”</li>
+<li>“334477”     </li>
+<li>“2”</li>
+</ol>
+<p>分布式锁</p>
+<p><img src="/assets/2024-03-13-20-51-35.png" srcset="/img/loading.gif" lazyload></p>
+<p>restful api</p>
+<p>vo dto po</p>
+<p>阅读课外资料<br>刷力扣题<br>新项目做起来<br>笔试题刷起来</p>
+<p>3-5分钟 自我介绍<br>我有极强的沟通能力和团队合作能力</p>
+<p>0-1? 目前部门一个人都没有吗?<br>我要去的部门, 部门现在有多少人?</p>
+<p>主管 + 2个人(1个兼职, 1个全职) + 1个实习生</p>
+<p>是否转正</p>
+<p>湖南离家近<br>计算机视觉</p>
+<p>不需要写代码, </p>
+<p>材料 文档 论文</p>
+<p>上下班时间问了嘛?</p>
+<p>一周6天<br>9:30-11:45 1:30-5:30<br>包住<br>一天100块</p>
+<p>4k</p>
+<p>吃饭的</p>
+<p>公司有啥晋升计划吗?</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Java/">#Java</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>零碎知识点</div>
+      <div>https://xiamu.icu/Java/零碎知识点/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>肉豆蔻吖</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年3月12日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Java/JUC%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B/" title="JUC并发编程">
+                        <span class="hidden-mobile">JUC并发编程</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"Haq24NRgHl4QheEi7oVqtAsM-gzGzoHsz","appKey":"kGbxzGaSiqqlFPxg24Tk3dVN","path":"window.location.pathname","placeholder":"来都来了, 不留下点啥吗?","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick","mail"],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":true,"serverURLs":"","emojiCDN":"https://valinecdn.bili33.top","emojiMaps":{"Tieba-New2":"/Tieba-New/image_emoticon.png","Tieba-New3":"/Tieba-New/image_emoticon10.png","Tieba-New4":"/Tieba-New/image_emoticon100.png","Tieba-New5":"/Tieba-New/image_emoticon101.png","Tieba-New6":"/Tieba-New/image_emoticon102.png","Tieba-New7":"/Tieba-New/image_emoticon103.png","Tieba-New8":"/Tieba-New/image_emoticon104.png","Tieba-New9":"/Tieba-New/image_emoticon105.png","Tieba-New10":"/Tieba-New/image_emoticon106.png","Tieba-New11":"/Tieba-New/image_emoticon107.png","Tieba-New12":"/Tieba-New/image_emoticon108.png","Tieba-New13":"/Tieba-New/image_emoticon109.png","Tieba-New14":"/Tieba-New/image_emoticon11.png","Tieba-New15":"/Tieba-New/image_emoticon110.png","Tieba-New16":"/Tieba-New/image_emoticon111.png","Tieba-New17":"/Tieba-New/image_emoticon112.png","Tieba-New18":"/Tieba-New/image_emoticon113.png","Tieba-New19":"/Tieba-New/image_emoticon114.png","Tieba-New20":"/Tieba-New/image_emoticon115.png","Tieba-New21":"/Tieba-New/image_emoticon116.png","Tieba-New22":"/Tieba-New/image_emoticon117.png","Tieba-New23":"/Tieba-New/image_emoticon118.png","Tieba-New24":"/Tieba-New/image_emoticon119.png","Tieba-New25":"/Tieba-New/image_emoticon12.png","Tieba-New26":"/Tieba-New/image_emoticon120.png","Tieba-New27":"/Tieba-New/image_emoticon121.png","Tieba-New28":"/Tieba-New/image_emoticon122.png","Tieba-New29":"/Tieba-New/image_emoticon123.png","Tieba-New30":"/Tieba-New/image_emoticon124.png","Tieba-New31":"/Tieba-New/image_emoticon13.png","Tieba-New32":"/Tieba-New/image_emoticon14.png","Tieba-New33":"/Tieba-New/image_emoticon15.png","Tieba-New34":"/Tieba-New/image_emoticon16.png","Tieba-New35":"/Tieba-New/image_emoticon17.png","Tieba-New36":"/Tieba-New/image_emoticon18.png","Tieba-New37":"/Tieba-New/image_emoticon19.png","Tieba-New38":"/Tieba-New/image_emoticon2.png","Tieba-New39":"/Tieba-New/image_emoticon20.png","Tieba-New40":"/Tieba-New/image_emoticon21.png","Tieba-New41":"/Tieba-New/image_emoticon22.png","Tieba-New42":"/Tieba-New/image_emoticon23.png","Tieba-New43":"/Tieba-New/image_emoticon24.png","Tieba-New44":"/Tieba-New/image_emoticon25.png","Tieba-New45":"/Tieba-New/image_emoticon26.png","Tieba-New46":"/Tieba-New/image_emoticon27.png","Tieba-New47":"/Tieba-New/image_emoticon28.png","Tieba-New48":"/Tieba-New/image_emoticon29.png","Tieba-New49":"/Tieba-New/image_emoticon3.png","Tieba-New50":"/Tieba-New/image_emoticon30.png","Tieba-New51":"/Tieba-New/image_emoticon31.png","Tieba-New52":"/Tieba-New/image_emoticon32.png","Tieba-New53":"/Tieba-New/image_emoticon33.png","Tieba-New54":"/Tieba-New/image_emoticon34.png","Tieba-New55":"/Tieba-New/image_emoticon35.png","Tieba-New56":"/Tieba-New/image_emoticon36.png","Tieba-New57":"/Tieba-New/image_emoticon37.png","Tieba-New58":"/Tieba-New/image_emoticon38.png","Tieba-New59":"/Tieba-New/image_emoticon39.png","Tieba-New60":"/Tieba-New/image_emoticon4.png","Tieba-New61":"/Tieba-New/image_emoticon40.png","Tieba-New62":"/Tieba-New/image_emoticon41.png","Tieba-New63":"/Tieba-New/image_emoticon42.png","Tieba-New64":"/Tieba-New/image_emoticon43.png","Tieba-New65":"/Tieba-New/image_emoticon44.png","Tieba-New66":"/Tieba-New/image_emoticon45.png","Tieba-New67":"/Tieba-New/image_emoticon46.png","Tieba-New68":"/Tieba-New/image_emoticon47.png","Tieba-New69":"/Tieba-New/image_emoticon48.png","Tieba-New70":"/Tieba-New/image_emoticon49.png","Tieba-New71":"/Tieba-New/image_emoticon5.png","Tieba-New72":"/Tieba-New/image_emoticon50.png","Tieba-New73":"/Tieba-New/image_emoticon6.png","Tieba-New74":"/Tieba-New/image_emoticon66.png","Tieba-New75":"/Tieba-New/image_emoticon67.png","Tieba-New76":"/Tieba-New/image_emoticon68.png","Tieba-New77":"/Tieba-New/image_emoticon69.png","Tieba-New78":"/Tieba-New/image_emoticon7.png","Tieba-New79":"/Tieba-New/image_emoticon70.png","Tieba-New80":"/Tieba-New/image_emoticon71.png","Tieba-New81":"/Tieba-New/image_emoticon72.png","Tieba-New82":"/Tieba-New/image_emoticon73.png","Tieba-New83":"/Tieba-New/image_emoticon74.png","Tieba-New84":"/Tieba-New/image_emoticon75.png","Tieba-New85":"/Tieba-New/image_emoticon76.png","Tieba-New86":"/Tieba-New/image_emoticon77.png","Tieba-New87":"/Tieba-New/image_emoticon78.png","Tieba-New88":"/Tieba-New/image_emoticon79.png","Tieba-New89":"/Tieba-New/image_emoticon8.png","Tieba-New90":"/Tieba-New/image_emoticon80.png","Tieba-New91":"/Tieba-New/image_emoticon81.png","Tieba-New92":"/Tieba-New/image_emoticon82.png","Tieba-New93":"/Tieba-New/image_emoticon83.png","Tieba-New94":"/Tieba-New/image_emoticon84.png","Tieba-New95":"/Tieba-New/image_emoticon85.png","Tieba-New96":"/Tieba-New/image_emoticon86.png","Tieba-New97":"/Tieba-New/image_emoticon87.png","Tieba-New98":"/Tieba-New/image_emoticon88.png","Tieba-New99":"/Tieba-New/image_emoticon89.png","Tieba-New100":"/Tieba-New/image_emoticon9.png","Tieba-New101":"/Tieba-New/image_emoticon90.png","Tieba-New102":"/Tieba-New/image_emoticon91.png","Tieba-New103":"/Tieba-New/image_emoticon92.png","Tieba-New104":"/Tieba-New/image_emoticon93.png","Tieba-New105":"/Tieba-New/image_emoticon94.png","Tieba-New106":"/Tieba-New/image_emoticon95.png","Tieba-New107":"/Tieba-New/image_emoticon96.png","Tieba-New108":"/Tieba-New/image_emoticon97.png","Tieba-New109":"/Tieba-New/image_emoticon98.png","Tieba-New110":"/Tieba-New/image_emoticon99.png"},"enableQQ":true},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+    <!-- 备案信息 ICP for China -->
+    <div class="beian">
+  <span>
+    <a href="http://beian.miit.gov.cn/" target="_blank" rel="nofollow noopener">
+      湘ICP备2021007554号-1
+    </a>
+  </span>
+  
+</div>
+
+  
+  
+</div>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/meting@1.2.0/dist/Meting.min.js"></script>
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  
+<script src="/js/custom.js"></script>
+<script src="/js/sakura.js"></script>
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <!-- 全局配置aplayer播放器 -->
+  <div class="aplayer" 
+    data-id="5237049130" 
+    data-server="netease"   
+    data-type="playlist" 
+    data-fixed="true" 
+    data-autoplay="false" 
+    data-order="list" 
+    data-volume="0.5" 
+    data-theme="#1da496" 
+    data-preload="auto"
+    >
+  </div>
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

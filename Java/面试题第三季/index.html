@@ -101,7 +101,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-25-23-54-44.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-26-09-18-44.gif">
 <meta property="article:published_time" content="2024-01-15T08:36:55.000Z">
-<meta property="article:modified_time" content="2024-02-15T14:54:11.313Z">
+<meta property="article:modified_time" content="2024-03-15T15:18:43.068Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="面试题">
@@ -629,7 +629,7 @@ true
 
 <p>5.分布式锁</p>
 <blockquote>
-<p>setnx key value<br>set key value [EX seconds][PX milliseconds][NX][XX]</p>
+<p>setnx key value<br>set key value [EX seconds][PX milliseconds][NX][XX]<br>ex 表示是过期时间, nx 表示 lock是否存在, 不存在创建 , 存在则不创建</p>
 </blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> lock pay ex 10 nx<br>OK<br>127.0.0.1:6379&gt; get lock<br><span class="hljs-string">&quot;pay&quot;</span><br>127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> lock order ex 10 nx<br>OK<br>127.0.0.1:6379&gt; <span class="hljs-built_in">set</span> lock pay ex 10 nx<br>OK<br>127.0.0.1:6379&gt; get lock<br><span class="hljs-string">&quot;pay&quot;</span><br>127.0.0.1:6379&gt; ttl lock<br>(<span class="hljs-built_in">integer</span>) 8<br>127.0.0.1:6379&gt; get lock<br>(nil)<br>127.0.0.1:6379&gt; ttl lock<br>(<span class="hljs-built_in">integer</span>) -2 <br></code></pre></td></tr></table></figure>
 
