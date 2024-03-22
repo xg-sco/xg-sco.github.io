@@ -23,11 +23,13 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="查看服务的位置的命令  whereis命令是定位可执行文件、源代码文件、帮助文件在文件系统中的位置。这些文件的属性应属于原始代码，二进制文件，或是帮助文件。whereis 程序还具有搜索源代码、指定备用搜索路径和搜索不寻常项的能力。  123root@d23096201e11:&#x2F;# whereis mysqlmysql: &#x2F;usr&#x2F;bin&#x2F;mysql &#x2F;usr&#x2F;lib&#x2F;mysql &#x2F;etc&#x2F;mys">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-03-22-21-35-14.png">
 <meta property="article:published_time" content="2023-03-05T15:10:26.000Z">
-<meta property="article:modified_time" content="2023-12-07T07:42:28.212Z">
+<meta property="article:modified_time" content="2024-03-22T13:44:16.456Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="linux">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://xiamu.icu/assets/2024-03-22-21-35-14.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -235,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          2.2k 字
         
       </span>
     
@@ -246,7 +248,7 @@
         
         
         
-          12 分钟
+          19 分钟
         
       </span>
     
@@ -326,6 +328,39 @@
 <p>sed<br>得到第五行结果<br>sed -n 5p</p>
 </blockquote>
 <p>清空文件内容<br>:%d</p>
+<h2 id="ssh"><a href="#ssh" class="headerlink" title="ssh"></a>ssh</h2><p>ssh 连接Linux</p>
+<p>常规命令应该是： </p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> root@<span class="hljs-number">192.168.1.100</span><br></code></pre></td></tr></table></figure>
+
+<p>上<code>C:\Windows\System32\drivers\etc</code>配置个主机名之后</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-attribute">ssh</span> root<span class="hljs-variable">@xiamu</span><br></code></pre></td></tr></table></figure>
+
+<p>短了一点, 但是还不够短</p>
+<p>上 <code>C:\Users\肉豆蔻吖\.ssh\config</code>编辑</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">Host xiamu<br>    HostName xiamu<br>    <span class="hljs-keyword">User</span> <span class="hljs-title">root</span><br></code></pre></td></tr></table></figure>
+
+<p>就变成了</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh xiamu</span><br></code></pre></td></tr></table></figure>
+
+<p>但好像每次还得输入一次密码</p>
+<p>配置免密, 输入如下命令敲三次回车</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh-keygen -t rsa</span><br></code></pre></td></tr></table></figure>
+
+<p>找到<code>~/.ssh/id_rsa.pub</code>路径拷贝到linux上<code>~/.ssh/authorized_keys</code><br>理论上应该是使用如下命令: </p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs applescript">C:\WINDOWS\system32&gt;ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span> root@xiamu<br>&#x27;ssh-<span class="hljs-keyword">copy</span>-<span class="hljs-built_in">id</span>&#x27; <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> recognized <span class="hljs-keyword">as</span> an internal <span class="hljs-keyword">or</span> external command,<br>operable program <span class="hljs-keyword">or</span> batch <span class="hljs-built_in">file</span>.<br></code></pre></td></tr></table></figure>
+
+<p>但windows貌似没有这个命令, 用scp试试</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-comment"># 前提是linux要先执行过如下命令, 否则没有authorized_keys这个目录</span><br><span class="hljs-comment"># ssh-keygen -t rsa</span><br>scp ~<span class="hljs-regexp">/.ssh/i</span>d_rsa.pub root@xiamu:~<span class="hljs-regexp">/.ssh/</span>authorized_keys<br></code></pre></td></tr></table></figure>
+
+<p>windows的~目录有问题, 自己想办法拷贝过去</p>
+<p><img src="/assets/2024-03-22-21-35-14.png" srcset="/img/loading.gif" lazyload></p>
+<p>再次输入, 直接免密</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">ssh xiamu</span><br></code></pre></td></tr></table></figure>
+
+<p>现在看起来好像还是很复杂, 因为每次都需要敲9个字符</p>
+<p>貌似可以使用alias取个别名?? windows取别名好像有点小麻烦了, 懒得折腾了</p>
+<p><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/powershell/scripting/learn/shell/using-aliases?view=powershell-7.4">https://learn.microsoft.com/zh-cn/powershell/scripting/learn/shell/using-aliases?view=powershell-7.4</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000015928399">https://segmentfault.com/a/1190000015928399</a></p>
 
                 
               </div>
