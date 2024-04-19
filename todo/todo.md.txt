@@ -1,0 +1,576 @@
+
+juc底层源码 
+
+以后的事
+Go语言, 视频剪辑, Webpack, Promise, Vue3项目, 大数据, React, redis的高级用法, 数据结构和算法, 设计模式, 操作系统, 仿B站项目, 硅谷课堂项目, 研究若依框架, OA项目
+
+未来路线, 学习nginx, 学习jvm, 学习juc(多线程), 操作系统, 计算机网络, 然后刷算法, 做牛逼的项目
+
+redis 多线程 谷粒商城 ~~HashMap源码~~, mysql牛客题目
+
+ES docker redis 大数据 mysql集群/读写分离 消息队列 netty框架
+
+今后任务, 每日刷十道面试题(以及一道算法题), 先从nginx解决, 然后补多线程的知识, 之后进行redis的学习, 黑马头条, 红包雨架构, 如果还有时间就准备 谷粒商城(别的项目)
+
+顺序: ~~面试题第二季~~ => ~~面试题第三季~~ => Mysql高级(集群部分) => Nginx => 红包雨架构 => Docker => Redis高级 => 
+ => 物流项目, 黑马头条, 谷粒商城 ES, MQ, Netty, MongoDB, 大数据, 操作系统, 计算机网络, Vue项目, WebPack, React, 算法, JUC周阳, 云原生第二季, Gradle
+
+每日坚持日报
+
+
+
+var P = 12
+var sum = 0
+for (i = 0; i < P; i++){
+	var min = document.getElementsByClassName('duration')[i].innerText.substr(0, 2);
+	var sec = document.getElementsByClassName('duration')[i].innerText.substr(3, 2);
+    //console.log(min);
+	//console.log(sec);
+	sum += parseInt(min)*60+parseInt(sec);
+	//console.log(sum);
+}
+console.log(sum/60)
+
+今日任务: 重构体检预约后端代码, 以及数据库
+合并前端
+
+重构对象存储部分接口
+
+
+
+签两方前直接问HR毁约要不要付违约金……这个操作不好吧？[飙泪笑]
+
+
+
+
+
+https://gitee.com/itxinfei/health_parent/tree/master
+
+http://www.bootstrapmb.com/item/2231/preview
+
+http://www.bootstrapmb.com/item/4316/preview
+
+
+
+买个夜灯
+
+台灯?
+
+夜灯
+
+准备电脑
+
+准备明天的入职材料
+
+别人的毕设功能点: 服药信息管理, 饮食信息管理, 体征信息管理, 健康备忘录管理以及医生反馈简报等功能 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+2023-9-24 12:01:00
+~~投递简历~~
+~~给之前boss发送学信网证明~~
+~~任务指导书~~
+
+~~综测材料~~
+
+~~项目的记录睡眠的bug~~
+
+~~验证码912884~~
+
+设置喝水设置... (设置喝水目标)
+
+~~睡觉时间 , 不是睡觉目标~~
+
+~~三篇文档~~
+
+~~一份PPT~~
+
+~~部署项目~~
+
+~~合并代码~~
+
+~~前端校验手机号格式是否正确~~
+
+~~软件名称修改~~
+
+~~美团外卖截图~~
+
+~~到点振动~~
+
+~~更换个人中心的icon~~
+
+~~轮播图在安卓端无法展示bug~~
+
+~~睡觉时间展示bug~~
+
+------
+
+设置 喝水项
+设置 用户账号
+~~后端获取userId来标识身份~~
+
+------
+
+~~可视化展示~~
+
+油猴脚本判断超链接是否可以点击
+
+------
+
+月饼
+
+------
+
+总结一下之前面试的面经
+
+------
+
+已经发布过的文章, 编辑文章
+
+2023年9月26日18:50:20
+~~健康顾问的头像图片~~
+
+~~喝水背景在非一杯水添加会出现bug~~
+
+喝水目标
+
+~~喝水主页返回不了主页~~
+
+~~底部tarbar图标~~
+
+~~可视化展示到主页~~
+
+验证码已经存在的后端报错提醒
+
+pickup 直接展示 勾选的时间
+
+~~久坐提醒离开界面, 清除定时器~~
+
+~~自定义基座打包之后无法访问后端~~
+
+正式包无法打开闹钟提醒页
+
+
+~~第二次进去喝水页满了~~
+
+~~睡眠打卡点不了~~ (龙晓军手机上触发不了)
+
+~~个人页面中可视化忘了删了~~
+
+~~文章页面的 `查看更多` 删除~~
+
+评论发送按钮不人性化
+
+富文本图片遮挡了
+
+预览页判空
+
+编辑文章页面判空
+
+~~关注按钮 删了~~
+
+------
+
+~~设计数据库表, 在user表中存储喝水目标和杯子大小~~
+
+~~不要从token中获取喝水目标, 杯子大小~~
+
+------
+
+~~文档中的吉首大学张家界学院 的logo~~
+
+文档中的课题名称
+
+文档中的题注
+
+文档最后的命名
+
+~~ppt 添加指导老师~~
+
+ppt 添加喝水的目标和喝水杯子大小
+
+D:/MuMu/MuMuPlayer-12.0/shell/adb.exe
+
+adb.exe connect 127.0.0.1:16384
+
+------
+
+再想想那个喝水展示bug
+
+
+
+区分不同的圈子 ( 聊天室? )
+
+爬虫添加文章?
+
+找厕所的功能
+
+验证码已经存在的后端报错提醒
+
+------
+
+https://www.youtube.com/watch?v=RPWDeLqsN0g
+
+https://www.bilibili.com/video/BV1r5411A7hZ/?p=14&vd_source=9e1cfaa563d07d12c5be044722def536
+
+https://www.bilibili.com/video/BV1iq4y1u7vj/?p=195&vd_source=9e1cfaa563d07d12c5be044722def536
+
+https://www.bilibili.com/video/BV1vy4y1s7k6/?p=42&vd_source=9e1cfaa563d07d12c5be044722def536
+
+mysql 180集 05:47
+
+
+
+------
+2023-9-29 17:41:46
+
+把自己变叼
+
+吃药管理
+
+医生叮嘱
+
+医生向用户叮嘱(web)
+
+算法吹牛
+
+体重身高病史
+体质指数计算
+
+后台系统管理用户信息
+
+健康测评报告
+
+社区二级评论
+
+备忘录记录
+
+用户信息管理
+
+体重身高病史
+体质指数计算
+判断bmi是否超标之类
+添加每日体征信息查看历史体征记录
+
+用户对医生的反馈自身病情状况
+
+应届生面对秋招，面试前该做些什么准备？
+https://www.zhihu.com/question/622555675/answer/3229566885
+
+boss，拉钩，51，智联，应届生网全都开启，每一家反复投递。
+
+
+
+clash 安卓去广告
+
+软件工程师, 而不是Java工程师
+
+
+------
+
+React 
+
+Android
+
+技术是不值钱的
+
+
+--- 
+
+---
+
+面试题 
+2023-12-10 23-28
+2023-12-11 29-32
+
+HashMap源码 BV1b84y1G7o5
+2023-12-20 2-6
+2023-12-21 6-7
+
+--- 
+
+这是昨天的 2023-12-24
+
+好吧, 现在有点麻木了, 在这个地方呆着, 我想着明天就回家去了, 三个人挤在一块, 并且这个叼毛, 我也不太想跟他沟通啥的
+一旦我说话, 就会被他怼上, 总之相处起来不是很愉快, 并且十几平方米的地方挤了三个人, 想要一个私人的空间和时间实在是没有
+
+---
+
+现在是 2023-12-25 19:07:38
+
+昨天找一个主播替我修改简历, 主播修改前一个人修改草草了事, 修改我的简历修改了半个多小时, 非常的认真的看的我的简历
+
+当时是直播修改的简历, 简历修改完成之后, 博主还把修改的视频剪辑成了视频上传到了B站上, 不得不说还是非常的感谢博哥的
+
+替我简历上填了装了不少的B, 管你会不会, 写上去就能装B, 哈, 我就一应届生, 你还真信我会这些技能? hahah
+
+视频地址: https://www.bilibili.com/video/BV1ug4y1y7yN
+
+时间过得太快了, 回家好好学习了, 花费一个小时用来修改一下简历把 
+
+中间去客厅考了一下火, 算是偷懒了一晚上吧
+
+简历项目罗列出七八点工作内容就行
+
+- [ ] 简历上以后要修改项: 了解Redis缓存, 高可用等
+
+- [ ] 黑马头条话术: https://www.bilibili.com/video/BV1dg4y1c7VT
+
+--- 
+
+现在是 2023-12-26 00:06:37
+
+刚刚把简历的第一版修改了出来 
+
+好了该准备好好学习了, 简历写的牛逼那也得hold住
+
+Java快速入门: https://www.bilibili.com/video/BV1o841187iP
+9-10 听了两节课, 总感觉这太偏基础了, 有点不太对, 我应该去进阶一丢丢的课程
+
+听了两节 周阳的面试题,  感觉还可以把 , 讲了多线程的知识
+
+大厂面试题第二季: https://www.bilibili.com/video/BV18b411M7xz
+1-3
+
+黑马头条: https://www.bilibili.com/video/BV1Qs4y1v7x4
+1-22
+
+---
+
+2023-12-27 12:20:24
+学错了, 妈的, 我应该是去学黑马点评的
+算了, 先把这个项目敲完吧, 顺带就是当复习学成在线项目了
+
+白天几乎没怎么学习, 晚上开始学习, 现在是19点钟
+
+今天约到的一个小公司的面试 , 妈的真服了
+
+问的太多计算机基础内容了
+到是Java方面的的东西还没怎么问
+知道些啥排序?
+讲讲冒泡排序? 时间复杂度? 空间复杂度?
+讲讲快速排序? 时间复杂度? 空间复杂度?
+讲讲怎么对接支付宝如何支付的?
+微服务之间
+
+黑马头条: https://www.bilibili.com/video/BV1Qs4y1v7x4
+23-45
+
+---
+
+2023-12-28 23:41:35
+
+黑马头条: https://www.bilibili.com/video/BV1Qs4y1v7x4
+46-65
+
+---
+
+2023-12-29 13:53:16
+
+黑马头条: https://www.bilibili.com/video/BV1Qs4y1v7x4
+66-80
+
+---
+
+2023-12-30 14:21:29
+黑马头条: https://www.bilibili.com/video/BV1Qs4y1v7x4
+80-86
+
+这个项目不值得浪费太多时间, 看看就好了
+
+---
+
+2023-12-31 10:45:53
+
+---
+
+2024-1-1 10:48:51
+两天没学了qaq
+
+---
+2024-1-2 11:44:47
+
+---
+2024-1-5 15:32:07
+面试题第二季
+14-24
+
+---
+2024-1-6 19:28:20
+面试题第二季
+24-26
+今天看了一天斗罗大陆, 贼鸡儿上头
+![](/source/assets/2024-01-07-19-29-12.png)
+
+
+---
+2024-1-7 15:47:00
+26-31
+
+---
+2024-1-8 15:47:30
+31-44
+
+---
+2024-1-9 19:59:534
+45-56
+
+---
+2024-1-11 01:50:36
+10号没有学习, 去宜章溜达了一天
+
+大半夜才开始学习的, 学了两个小时
+56-61
+
+2024-1-11 11:00:16白天
+62-77
+
+---
+
+2024-1-12 00:11:16
+凌晨接着学
+77-83
+
+2024-1-12 19:36:34
+白天
+
+2024-1-16 21:45:20
+
+应该是13号学完了第二季
+
+现在肝论文, 写完论文就准备学第三季
+---
+
+
+
+计算机如何工作的? 
+取指执行
+
+
+stamp 戳
+Absent 不存在的, 缺失的, 不在场的
+CyclicBarrier Cyclic循环 Barrier屏障
+Semaphore 信号量 , 信号灯
+
+
+
+
+欧乐影院: https://www.olevod.com/
+樱花动漫: 最好配合ad插件一块用
+mcoun清风影院: https://mcoun.com/
+
+
+八股文: 
+https://offer.hi-dhl.com/#/
+
+https://github.com/Snailclimb/JavaGuide
+topjavaer.cn
+https://github.com/KrisCheng/500-interview-question-for-programmers
+https://www.nowcoder.com/issue/tutorial?tutorialId=94&uuid=ea1986fcff294f6292385703e94689e8
+https://javaguide.cn/home.html
+https://www.pdai.tech/
+http://notfound9.github.io/interviewGuide/#/
+http://www.itsoku.com/
+https://doocs.gitee.io/advanced-java/#/
+http://www.jayh.club/#/
+https://snailclimb.gitee.io/javaguide/#/
+https://osjobs.net/topk/all/
+https://r2coding.com/
+https://hadyang.com/interview/docs/basic/
+https://github.com/AobingJava/JavaFamily
+https://github.com/javagrowing/JGrowing/blob/master/JGrade.png
+https://github.com/allentofight/easy-cs/
+https://github.com/CyC2018/CS-Notes
+https://learn.lianglianglee.com/
+https://zhiyu1998.github.io/Computer-Science-Learn-Notes/
+https://github.com/xingshaocheng/architect-awesome
+
+
+
+
+
+
+当前多少集, 清屏上面的, 换集数的时候, 需要重新执行所有的方法
+```js
+let currentPointer = parseInt(document.getElementsByClassName('on')[0].innerText.match(/P(\d+)/)[0].substring(1));
+let totalPointer = parseInt(document.getElementsByClassName('cur-page')[0].innerText.split('/')[1].split(')')[0])
+
+function calcRemainTime(pointer) {
+    let sum = 0;
+    for (i = 0; i < pointer; i++){
+        let min = document.getElementsByClassName('duration')[i].innerText.substr(0, 2);
+        let sec = document.getElementsByClassName('duration')[i].innerText.substr(3, 2);
+        sum += parseInt(min)*60+parseInt(sec);
+    }
+    return sum/60;
+}
+
+let t1 = calcRemainTime(totalPointer);
+let t2 = calcRemainTime(currentPointer);
+console.log(`
+当前视频时间总长: ${t1.toFixed(2)}分钟，${(t1 / 60).toFixed(2)}小时
+还剩时间就学习完了: ${(t1 - t2).toFixed(2)}分钟，${((t1 - t2) / 60).toFixed(2)}小时
+假设一天学习4小时, 还剩 ${(((t1 - t2) / 60) / 4).toFixed(2)} 天就学习完了
+加油~
+
+`);
+
+---
+
+document.addEventListener('keydown', function(event) {
+    // 判断是否按下了 F12 键
+    if ((event.key === 'F12' || event.code === 'F12') || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+        console.clear();
+        let currentPointer = parseInt(document.querySelectorAll('li.on')[0].innerText.match(/P(\d+)/)[0].substring(1));
+        let totalPointer = parseInt(document.getElementsByClassName('cur-page')[0].innerText.split('/')[1].split(')')[0])
+
+        function calcRemainTime(pointer) {
+            let sum = 0;
+            for (i = 0; i < pointer; i++){
+                let min = document.getElementsByClassName('duration')[i].innerText.substr(0, 2);
+                let sec = document.getElementsByClassName('duration')[i].innerText.substr(3, 2);
+                sum += parseInt(min)*60+parseInt(sec);
+            }
+            return sum/60;
+        }
+        let t1 = calcRemainTime(totalPointer);
+        let t2 = calcRemainTime(currentPointer);
+console.log(`
+当前你处于 ${currentPointer} 集
+当前视频时间总长: ${t1.toFixed(2)}分钟，${(t1 / 60).toFixed(2)}小时
+还剩时间就学习完了: ${(t1 - t2).toFixed(2)}分钟，${((t1 - t2) / 60).toFixed(2)}小时
+假设一天学习4小时, 还剩 ${(((t1 - t2) / 60) / 4).toFixed(2)} 天就学习完了
+加油~
+
+`);
+    }
+});
+
+
+
+// let P = 120
+// let sum = 0
+// for (i = 0; i < P; i++){
+// 	let min = document.getElementsByClassName('duration')[i].innerText.substr(0, 2);
+// 	let sec = document.getElementsByClassName('duration')[i].innerText.substr(3, 2);
+//     //console.log(min);
+// 	//console.log(sec);
+// 	sum += parseInt(min)*60+parseInt(sec);
+// 	//console.log(sum);
+// }
+// console.log(sum/60)
+```
