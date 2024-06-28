@@ -23,17 +23,17 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="0.项目架构 1.环境准备编写这个项目我并没有使用课件提供好的服务器, 太他妈恐怖了  准备好一台centos7的服务器提前安装好docker, 以下是视频中的配置  1.1 nacos环境搭建1234docker pull nacos&#x2F;nacos-server:1.2.0docker run --env MODE&#x3D;standalone --name nacos --restart&#x3D;always">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiamu.icu/assets/2023-12-26-14-28-45.png">
-<meta property="og:image" content="https://xiamu.icu/assets/2023-12-26-14-18-46.png">
-<meta property="og:image" content="https://xiamu.icu/assets/2023-12-26-14-24-00.png">
-<meta property="og:image" content="https://xiamu.icu/assets/2023-12-26-14-44-05.png">
-<meta property="og:image" content="https://xiamu.icu/assets/2023-12-29-23-23-49.png">
-<meta property="article:published_time" content="2023-12-26T05:51:14.000Z">
-<meta property="article:modified_time" content="2024-05-25T15:53:57.143Z">
+<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-26-14-28-45.png">
+<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-26-14-18-46.png">
+<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-26-14-24-00.png">
+<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-26-14-44-05.png">
+<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-29-23-23-49.png">
+<meta property="article:published_time" content="2023-12-26T13:51:14.000Z">
+<meta property="article:modified_time" content="2024-06-28T02:30:25.604Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xiamu.icu/assets/2023-12-26-14-28-45.png">
+<meta name="twitter:image" content="https://xiamu.icu/source/assets/2023-12-26-14-28-45.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -295,15 +295,15 @@
             
               <div class="markdown-body">
                 
-                <h2 id="0-项目架构"><a href="#0-项目架构" class="headerlink" title="0.项目架构"></a>0.项目架构</h2><p><img src="/assets/2023-12-26-14-28-45.png" srcset="/img/loading.gif" lazyload></p>
+                <h2 id="0-项目架构"><a href="#0-项目架构" class="headerlink" title="0.项目架构"></a>0.项目架构</h2><p><img src="/source/assets/2023-12-26-14-28-45.png" srcset="/img/loading.gif" lazyload></p>
 <h2 id="1-环境准备"><a href="#1-环境准备" class="headerlink" title="1.环境准备"></a>1.环境准备</h2><p>编写这个项目我并没有使用课件提供好的服务器, 太他妈恐怖了</p>
-<p><img src="/assets/2023-12-26-14-18-46.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/source/assets/2023-12-26-14-18-46.png" srcset="/img/loading.gif" lazyload></p>
 <p>准备好一台centos7的服务器<br>提前安装好<a href="https://xiamu.icu/Java/%E4%BA%91%E5%8E%9F%E7%94%9F%E5%AE%9E%E6%88%98/#Docker%E9%85%8D%E7%BD%AE">docker</a>, 以下是视频中的配置</p>
-<p><img src="/assets/2023-12-26-14-24-00.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/source/assets/2023-12-26-14-24-00.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="1-1-nacos环境搭建"><a href="#1-1-nacos环境搭建" class="headerlink" title="1.1 nacos环境搭建"></a>1.1 nacos环境搭建</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull nacos/nacos-server:1.2.0<br><br>docker run --<span class="hljs-built_in">env</span> MODE=standalone --name nacos --restart=always  -d -p 8848:8848 nacos/nacos-server:1.2.0<br><br></code></pre></td></tr></table></figure>
 
 <p>然后浏览器访问: <a target="_blank" rel="noopener" href="http://192.168.1.100:8848/nacos">http://192.168.1.100:8848/nacos</a></p>
-<h4 id="1-2-初始化工程"><a href="#1-2-初始化工程" class="headerlink" title="1.2 初始化工程"></a>1.2 初始化工程</h4><p>解压工程然后使用IDEA打开<br><img src="/assets/2023-12-26-14-44-05.png" srcset="/img/loading.gif" lazyload></p>
+<h4 id="1-2-初始化工程"><a href="#1-2-初始化工程" class="headerlink" title="1.2 初始化工程"></a>1.2 初始化工程</h4><p>解压工程然后使用IDEA打开<br><img src="/source/assets/2023-12-26-14-44-05.png" srcset="/img/loading.gif" lazyload></p>
 <p>配置好idea默认的字符编码集 , 以及maven的仓库地址</p>
 <p>由于这个项目是2021年讲解的, 依赖自己手动配置起来比较麻烦, 直接使用课件提供的<code>respository_new</code>仓库地址</p>
 <h4 id="1-3-导入数据表"><a href="#1-3-导入数据表" class="headerlink" title="1.3 导入数据表"></a>1.3 导入数据表</h4><p>导入 &#x2F;data&#x2F;sql&#x2F;leadnews_user.sql 下的文件到mysql数据库</p>
@@ -320,7 +320,7 @@
 <p>账号密码: minioadmin minioadmin</p>
 <h4 id="1-7-搭建redis"><a href="#1-7-搭建redis" class="headerlink" title="1.7 搭建redis"></a>1.7 搭建redis</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull redis<br>docker run -d --name redis --restart=always -p 6379:6379 redis --requirepass <span class="hljs-string">&quot;leadnews&quot;</span><br></code></pre></td></tr></table></figure>
 <p>密码: leadnews</p>
-<p>课后作业<br><img src="/assets/2023-12-29-23-23-49.png" srcset="/img/loading.gif" lazyload></p>
+<p>课后作业<br><img src="/source/assets/2023-12-29-23-23-49.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="1-8-kafka继承"><a href="#1-8-kafka继承" class="headerlink" title="1.8 kafka继承"></a>1.8 kafka继承</h4><p>Kafka对于zookeeper是强依赖，保存kafka相关的节点数据，所以安装Kafka之前必须先安装zookeeper</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull zookeeper:3.4.14<br>docker run -d --name zookeeper -p 2181:2181 zookeeper:3.4.14<br><br>docker pull bitnami/kafka:2.3.1<br><br>docker run -d --name kafka \<br>--<span class="hljs-built_in">env</span> ALLOW_PLAINTEXT_LISTENER=<span class="hljs-built_in">yes</span> \<br>--<span class="hljs-built_in">env</span> KAFKA_ADVERTISED_HOST_NAME=192.168.1.100 \<br>--<span class="hljs-built_in">env</span> KAFKA_ZOOKEEPER_CONNECT=192.168.1.100:2181 \<br>--<span class="hljs-built_in">env</span> KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://192.168.1.100:9092 \<br>--<span class="hljs-built_in">env</span> KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 \<br>--<span class="hljs-built_in">env</span> KAFKA_HEAP_OPTS=<span class="hljs-string">&quot;-Xmx256M -Xms256M&quot;</span> \<br>--net=host bitnami/kafka:2.3.1<br><br></code></pre></td></tr></table></figure>
 
