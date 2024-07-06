@@ -23,25 +23,25 @@
 <meta property="og:site_name" content="肉豆蔻吖">
 <meta property="og:description" content="找到你喜欢做的事情, 并长期做下去  通过扩容提升整体吞吐量 1.单机垂直扩容：硬件资源增加1234567891011云服务资源增加整机：IBM、浪潮、DELL、HP等CPU&#x2F;主板：更新到主流网卡：10G&#x2F;40G网卡磁盘：SAS(SCSI) HDD（机械）、HHD（混合）、SATA SSD、PCI-e SSD、 MVMe SSDSSD多副本机制系统盘&#x2F;热点数据&#x2F;数据库存储HDD冷数据存储  2.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-04-09-58-22.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-04-14-59-32.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-04-20-54-50.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-04-20-55-27.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-05-17-20-33.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-05-17-19-00.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-05-17-19-08.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-06-09-59-14.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-06-10-41-16.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-06-10-48-21.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-06-11-10-36.png">
-<meta property="og:image" content="https://xiamu.icu/source/assets/2023-12-06-11-11-32.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-04-09-58-22.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-04-14-59-32.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-04-20-54-50.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-04-20-55-27.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-05-17-20-33.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-05-17-19-00.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-05-17-19-08.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-06-09-59-14.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-06-10-41-16.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-06-10-48-21.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-06-11-10-36.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2023-12-06-11-11-32.png">
 <meta property="article:published_time" content="2023-11-25T23:22:38.000Z">
-<meta property="article:modified_time" content="2024-07-06T09:02:09.594Z">
+<meta property="article:modified_time" content="2024-07-06T09:07:24.952Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Nginx高级">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://xiamu.icu/source/assets/2023-12-04-09-58-22.png">
+<meta name="twitter:image" content="https://xiamu.icu/assets/2023-12-04-09-58-22.png">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
@@ -315,7 +315,7 @@
 <p><strong>hash    $request_uri;</strong> </p>
 <p><strong>使用lua逻辑定向分发</strong></p>
 <p><strong>Redis + SpringSession</strong></p>
-<p><img src="/source/assets/2023-12-04-09-58-22.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-12-04-09-58-22.png" srcset="/img/loading.gif" lazyload></p>
 <p>缺点: </p>
 <ol>
 <li>ip集中, 当一个学校考试的时候, 好几万人都在同一个地区, ip可能就那么几个, 计算出来的hash值都是一样的</li>
@@ -324,20 +324,20 @@
 <p>适用于 中小型项目, 快速扩容, 这种方式可以不用修改后端代码, 直接扩容</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs conf">upstream httpget &#123;<br>    ip_hash;<br>    server 192.168.1.102;<br>    server 192.168.1.103;<br>&#125;<br><br>server &#123;<br>    listen       80;<br>    server_name  localhost;<br><br>    #charset koi8-r;<br><br>    #access_log  logs/host.access.log  main;<br><br>    location / &#123;<br>        proxy_pass http://httpget;<br>        #root   html;<br>        #index  index.html index.htm;<br>    &#125;<br><br>    #error_page  404              /404.html;<br><br>    # redirect server error pages to the static page /50x.html<br>    #<br>    error_page   500 502 503 504  /50x.html;<br>    location = /50x.html &#123;<br>        root   html;<br>    &#125;<br>  &#125;<br></code></pre></td></tr></table></figure>
 
-<p>之后 <code>systemctl reload nginx</code> 一下<br>刷新, 101展示的一直是102的内容<br><img src="/source/assets/2023-12-04-14-59-32.png" srcset="/img/loading.gif" lazyload></p>
+<p>之后 <code>systemctl reload nginx</code> 一下<br>刷新, 101展示的一直是102的内容<br><img src="/assets/2023-12-04-14-59-32.png" srcset="/img/loading.gif" lazyload></p>
 <p>如果将 <code>ip_hash;</code> 注释掉, 不断请求101, 则是轮询的展示102 103</p>
 <h6 id="2-通过cookie负载均衡"><a href="#2-通过cookie负载均衡" class="headerlink" title="2.通过cookie负载均衡"></a>2.通过cookie负载均衡</h6><p>这种方式的负载均衡需要上游服务器&#x2F;后端给客户端下发一个cookie, 之后才有效果的, 这里边为了省事, 直接手动编辑的cookie</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs conf">upstream httpget &#123;<br>    #ip_hash;<br>    hash   $cookie_jsessionid;<br>    server 192.168.1.102;<br>    server 192.168.1.103;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p>随便编辑一个cookie key JSESSIONID value 随意<br>value &#x3D; 123一直转发流量到了 2<br><img src="/source/assets/2023-12-04-20-54-50.png" srcset="/img/loading.gif" lazyload></p>
-<p>value &#x3D; 789一直转发流量到了 3<br><img src="/source/assets/2023-12-04-20-55-27.png" srcset="/img/loading.gif" lazyload></p>
+<p>随便编辑一个cookie key JSESSIONID value 随意<br>value &#x3D; 123一直转发流量到了 2<br><img src="/assets/2023-12-04-20-54-50.png" srcset="/img/loading.gif" lazyload></p>
+<p>value &#x3D; 789一直转发流量到了 3<br><img src="/assets/2023-12-04-20-55-27.png" srcset="/img/loading.gif" lazyload></p>
 <p>此次hash算法采用的是cookie进行的hash</p>
 <h6 id="3-通过request-uri负载均衡"><a href="#3-通过request-uri负载均衡" class="headerlink" title="3.通过request_uri负载均衡"></a>3.通过request_uri负载均衡</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs conf">upstream httpget &#123;<br>    #ip_hash;<br>    #hash   $cookie_jsessionid;<br>    hash    $request_uri;<br>    server 192.168.1.102;<br>    server 192.168.1.103;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p><img src="/source/assets/2023-12-05-17-20-33.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-12-05-17-20-33.png" srcset="/img/loading.gif" lazyload></p>
 <p>请求的uri为<code>?123456</code>访问的是2资源, 请求的uri为<code>?12345</code>访问的是3资源<br>相同的uri分发到相同的服务器上, 不同的uri分发到不同的服务器上</p>
-<p><img src="/source/assets/2023-12-05-17-19-00.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/source/assets/2023-12-05-17-19-08.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-12-05-17-19-00.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-12-05-17-19-08.png" srcset="/img/loading.gif" lazyload></p>
 <h4 id="使用sticky模块完成对Nginx的负载均衡"><a href="#使用sticky模块完成对Nginx的负载均衡" class="headerlink" title="使用sticky模块完成对Nginx的负载均衡"></a>使用sticky模块完成对Nginx的负载均衡</h4><p>使用第三方模块平滑升级</p>
 <p><strong>使用参考</strong></p>
 <p><a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_upstream_module.html#sticky">http://nginx.org/en/docs/http/ngx_http_upstream_module.html#sticky</a></p>
@@ -357,20 +357,20 @@
 <p>执行如下代码</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> /opt/nginx-goodies-nginx-sticky-module-ng-c78b7dd79d0d/<br><br>vim ngx_http_sticky_misc.h<br><br><span class="hljs-comment"># 添加如下两行头文件</span><br><span class="hljs-comment">#include &lt;openssl/sha.h&gt;</span><br><span class="hljs-comment">#include &lt;openssl/md5.h&gt;</span><br><br><span class="hljs-comment"># 保存退出</span><br>:wq<br><br><span class="hljs-comment"># 安装依赖</span><br>yum install -y openssl-devel<br><br><span class="hljs-built_in">cd</span> /opt/nginx-1.22.1<br><br><span class="hljs-comment"># 再次执行</span><br>./configure --prefix=/usr/local/nginx/ --add-module=/opt/nginx-goodies-nginx-sticky-module-ng-c78b7dd79d0d/<br><br>make<br><br><span class="hljs-comment"># 检查一下程序有没有问题, 只是检测, 并还没有替换nginx可执行文件</span><br>[root@nginx01 nginx-1.22.1]<span class="hljs-comment"># make upgrade</span><br>/usr/local/nginx//sbin/nginx -t<br>nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok<br>nginx: configuration file /usr/local/nginx/conf/nginx.conf <span class="hljs-built_in">test</span> is successful<br><span class="hljs-built_in">kill</span> -USR2 `<span class="hljs-built_in">cat</span> /usr/local/nginx//logs/nginx.pid`<br><span class="hljs-built_in">sleep</span> 1<br><span class="hljs-built_in">test</span> -f /usr/local/nginx//logs/nginx.pid.oldbin<br><span class="hljs-built_in">kill</span> -QUIT `<span class="hljs-built_in">cat</span> /usr/local/nginx//logs/nginx.pid.oldbin`<br><br><span class="hljs-comment"># 手动替换nginx可执行文件</span><br><span class="hljs-comment"># 对原有命令备份一下</span><br><span class="hljs-built_in">mv</span> /usr/local/nginx/sbin/nginx /usr/local/nginx/sbin/nginx.old<br><br>[root@nginx01 nginx-1.22.1]<span class="hljs-comment"># cd objs/</span><br>[root@nginx01 objs]<span class="hljs-comment"># cp nginx /usr/local/nginx/sbin/</span><br>[root@nginx01 objs]<span class="hljs-comment"># cd /usr/local/nginx/sbin</span><br>[root@nginx01 sbin]<span class="hljs-comment"># ls</span><br>nginx  nginx.old<br><br><span class="hljs-comment"># 可以在这里看到之前配置过的一些参数</span><br>[root@nginx01 sbin]<span class="hljs-comment"># ./nginx -V</span><br>nginx version: nginx/1.22.1<br>built by gcc 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC)<br>configure arguments: --prefix=/usr/local/nginx/ --add-module=/opt/nginx-goodies-nginx-sticky-module-ng-c78b7dd79d0d/<br><br>[root@nginx01 sbin]<span class="hljs-comment"># systemctl stop nginx</span><br>[root@nginx01 sbin]<span class="hljs-comment"># systemctl start nginx</span><br>[root@nginx01 sbin]<span class="hljs-comment"># systemctl status nginx</span><br></code></pre></td></tr></table></figure>
 
-<p>请求页面, 页面显示正常<br><img src="/source/assets/2023-12-06-09-59-14.png" srcset="/img/loading.gif" lazyload></p>
+<p>请求页面, 页面显示正常<br><img src="/assets/2023-12-06-09-59-14.png" srcset="/img/loading.gif" lazyload></p>
 <p>使用sticky</p>
 <p>配置方法<br>sticky 后面可以带参数, 也可以不带参数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs conf"><br>    upstream httpget &#123;<br>        #ip_hash;<br>        #hash   $cookie_jsessionid;<br>        #hash    $request_uri;<br>        sticky;<br>        server 192.168.1.102;<br>        server 192.168.1.103;<br>    &#125;<br><br><br>upstream httpget &#123;<br><br>sticky name=route expires=6h;<br><br>server 192.168.44.102;<br>server 192.168.44.103;<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>systemctl restart nginx</p>
 <p>此时的是通过route作为的cookie作为的负载均衡, router是由第三方插件给我们下发的cookie</p>
-<p><img src="/source/assets/2023-12-06-10-41-16.png" srcset="/img/loading.gif" lazyload></p>
-<h3 id="KeepAlive"><a href="#KeepAlive" class="headerlink" title="KeepAlive"></a>KeepAlive</h3><p>在请求baidu.com的时候, Request的connect需要 keep-alive, Response的connect也同样的有 keep-alive 来建立连接<br><img src="/source/assets/2023-12-06-10-48-21.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-12-06-10-41-16.png" srcset="/img/loading.gif" lazyload></p>
+<h3 id="KeepAlive"><a href="#KeepAlive" class="headerlink" title="KeepAlive"></a>KeepAlive</h3><p>在请求baidu.com的时候, Request的connect需要 keep-alive, Response的connect也同样的有 keep-alive 来建立连接<br><img src="/assets/2023-12-06-10-48-21.png" srcset="/img/loading.gif" lazyload></p>
 <p>关闭keep_timeout</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs conf">keepalive_timeout  0;<br>#keepalive_timeout  65;<br></code></pre></td></tr></table></figure>
 
-<p>之前的状态是response 中connect显示的keep-alive, systemctl restart nginx之后, 显示的close<br><img src="/source/assets/2023-12-06-11-10-36.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="/source/assets/2023-12-06-11-11-32.png" srcset="/img/loading.gif" lazyload></p>
+<p>之前的状态是response 中connect显示的keep-alive, systemctl restart nginx之后, 显示的close<br><img src="/assets/2023-12-06-11-10-36.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/assets/2023-12-06-11-11-32.png" srcset="/img/loading.gif" lazyload></p>
 <p>2023-12-5 57集<br>2023-12-6 58集 - 64集</p>
 
                 
