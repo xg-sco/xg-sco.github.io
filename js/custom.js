@@ -51,7 +51,9 @@ window.console.log(string.getMultiLine());
 //     }
 // }
 
-if (window.location.href === 'https://xiamu.icu/about/' || window.location.href === 'http://localhost:4000/about/') {
+
+if (window.location.href.contains('https://xiamu.icu/about/')
+    || window.location.href.contains('http://localhost:4000/about/')) {
     const observer = new MutationObserver(mutations => {
         mutations.forEach(mutation => {
             if (mutation.addedNodes.length) {
