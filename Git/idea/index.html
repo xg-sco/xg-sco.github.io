@@ -16,16 +16,16 @@
   <meta name="author" content="肉豆蔻吖">
   <meta name="keywords" content="">
   
-    <meta name="description" content="新建changelist给修改过的git文件进行分组，按组提交  参考链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaHa_Sir&#x2F;article&#x2F;details&#x2F;121762455 git配置用户名和邮箱全局 123git config --global user.name &quot;github&amp;#x27;s Name&quot;git config --global user.ema">
+    <meta name="description" content="新建changelist给修改过的git文件进行分组，按组提交  参考链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaHa_Sir&#x2F;article&#x2F;details&#x2F;121762455 之前手贱上传过.idea的文件如何删除修改 .gitignore 文件内容，添加 .idea 删除本地暂存区中的 .idea 文件 1234git rm --cached -r .ideagit commit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="idea">
 <meta property="og:url" content="https://xiamu.icu/Git/idea/index.html">
 <meta property="og:site_name" content="肉豆蔻吖">
-<meta property="og:description" content="新建changelist给修改过的git文件进行分组，按组提交  参考链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaHa_Sir&#x2F;article&#x2F;details&#x2F;121762455 git配置用户名和邮箱全局 123git config --global user.name &quot;github&amp;#x27;s Name&quot;git config --global user.ema">
+<meta property="og:description" content="新建changelist给修改过的git文件进行分组，按组提交  参考链接：https:&#x2F;&#x2F;blog.csdn.net&#x2F;HaHa_Sir&#x2F;article&#x2F;details&#x2F;121762455 之前手贱上传过.idea的文件如何删除修改 .gitignore 文件内容，添加 .idea 删除本地暂存区中的 .idea 文件 1234git rm --cached -r .ideagit commit">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-08-06-10-21-05.png">
 <meta property="article:published_time" content="2024-08-06T10:14:41.000Z">
-<meta property="article:modified_time" content="2024-09-14T08:09:21.735Z">
+<meta property="article:modified_time" content="2024-09-22T05:17:50.422Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary_large_image">
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          351 字
+          475 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -294,11 +294,19 @@
                 <p>新建changelist给修改过的git文件进行分组，按组提交</p>
 <p><img src="/assets/2024-08-06-10-21-05.png" srcset="/img/loading.gif" lazyload></p>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/HaHa_Sir/article/details/121762455">https://blog.csdn.net/HaHa_Sir/article/details/121762455</a></p>
+<h2 id="之前手贱上传过-idea的文件如何删除"><a href="#之前手贱上传过-idea的文件如何删除" class="headerlink" title="之前手贱上传过.idea的文件如何删除"></a>之前手贱上传过.idea的文件如何删除</h2><p>修改 .gitignore 文件内容，添加 .idea</p>
+<p>删除本地暂存区中的 .idea 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">rm</span> --cached -r .idea<br><br>git commit -m <span class="hljs-string">&#x27;delete .idea&#x27;</span><br>git push<br></code></pre></td></tr></table></figure>
+
+
+
+
 <p>git配置用户名和邮箱<br>全局</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config --global user.name <span class="hljs-string">&quot;github&#x27;s Name&quot;</span><br>git config --global user.email <span class="hljs-string">&quot;github@xx.com&quot;</span><br>git config --list<br></code></pre></td></tr></table></figure>
 
 <p>局部(针对于某个项目下)</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git config user.name <span class="hljs-string">&quot;gitlab&#x27;s Name&quot;</span><br>git config user.email <span class="hljs-string">&quot;gitlab@xx.com&quot;</span><br>git config --list<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
