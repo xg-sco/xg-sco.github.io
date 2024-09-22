@@ -24,8 +24,9 @@
 <meta property="og:description" content="配置代理 前提是要知道7890端口是个啥  1.git配置代理因为使用git提交代码经常会超时, 所以可以通过配置代理的方式来解决 12git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:7890git config --global https.proxy https:&#x2F;&#x2F;127.0.0.1:7890    取消代理 1234# 取消代理git con">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-20-45-24.png">
+<meta property="og:image" content="https://xiamu.icu/assets/2024-09-22-18-36-02.png">
 <meta property="article:published_time" content="2023-04-28T12:08:33.000Z">
-<meta property="article:modified_time" content="2024-09-22T05:17:50.435Z">
+<meta property="article:modified_time" content="2024-09-22T10:51:31.554Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="maven">
@@ -238,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.8k 字
         
       </span>
     
@@ -249,7 +250,7 @@
         
         
         
-          27 分钟
+          32 分钟
         
       </span>
     
@@ -349,6 +350,25 @@
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs routeros">vim /etc/profile.d/my_env.sh<br><br><span class="hljs-comment"># 设置HTTP代理</span><br><span class="hljs-built_in">export</span> <span class="hljs-attribute">http_proxy</span>=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br><br><span class="hljs-comment"># 设置HTTPS代理</span><br><span class="hljs-built_in">export</span> <span class="hljs-attribute">https_proxy</span>=<span class="hljs-string">&quot;http://127.0.0.1:7890&quot;</span><br><br><span class="hljs-comment"># 刷新配置</span><br>source /etc/profile<br></code></pre></td></tr></table></figure>
 
 <h2 id="6-pip配置代理"><a href="#6-pip配置代理" class="headerlink" title="6.pip配置代理"></a>6.pip配置代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install -r requirements.txt --proxy=127.0.0.1:7890<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="7-docker配置代理"><a href="#7-docker配置代理" class="headerlink" title="7.docker配置代理"></a>7.docker配置代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/docker.service.d<br></code></pre></td></tr></table></figure>
+
+<p><code>vim /etc/systemd/system/docker.service.d/http-proxy.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs bash">[Service]<br>Environment=<span class="hljs-string">&quot;HTTP_PROXY=http://proxy.example.com:80&quot;</span><br>Environment=<span class="hljs-string">&quot;HTTPS_PROXY=https://proxy.example.com:443&quot;</span><br><br><span class="hljs-comment"># 忽略的域名,ip</span><br><span class="hljs-comment"># Environment=&quot;NO_PROXY=your-registry.com,10.10.10.10,*.example.com&quot;</span><br><br><br><span class="hljs-comment"># 示例: </span><br><span class="hljs-comment"># [Service]</span><br><span class="hljs-comment"># Environment=&quot;HTTP_PROXY=http://192.168.154.85:7890&quot;</span><br><span class="hljs-comment"># Environment=&quot;HTTPS_PROXY=http://192.168.154.85:7890&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>重新加载配置文件，重启 docker</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl daemon-reload<br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure>
+
+<p>检查确认环境变量已经正确配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl show --property=Environment docker<br></code></pre></td></tr></table></figure>
+
+<p>参考: </p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.lfhacks.com/tech/pull-docker-images-behind-proxy/">如何配置docker通过代理服务器拉取镜像</a></li>
+<li><a target="_blank" rel="noopener" href="https://neucrack.com/p/286">docker 设置代理，以及国内加速镜像设置</a></li>
+</ul>
+<p>救回来了, 不就是超时吗?<br><img src="/assets/2024-09-22-18-36-02.png" srcset="/img/loading.gif" lazyload></p>
+
                 
               </div>
             
