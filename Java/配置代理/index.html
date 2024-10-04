@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/2024-01-13-20-45-24.png">
 <meta property="og:image" content="https://xiamu.icu/assets/2024-09-22-18-36-02.png">
 <meta property="article:published_time" content="2023-04-28T12:08:33.000Z">
-<meta property="article:modified_time" content="2024-09-27T15:20:24.370Z">
+<meta property="article:modified_time" content="2024-10-04T16:00:49.530Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="maven">
@@ -239,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.8k 字
+          4k 字
         
       </span>
     
@@ -250,7 +250,7 @@
         
         
         
-          32 分钟
+          34 分钟
         
       </span>
     
@@ -351,6 +351,9 @@
 
 <h2 id="6-pip配置代理"><a href="#6-pip配置代理" class="headerlink" title="6.pip配置代理"></a>6.pip配置代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install -r requirements.txt --proxy=127.0.0.1:7890<br><br></code></pre></td></tr></table></figure>
 
+<p>豆瓣源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pip install module -i https://pypi.douban.com/simple<br></code></pre></td></tr></table></figure>
+
 <h2 id="7-docker配置代理"><a href="#7-docker配置代理" class="headerlink" title="7.docker配置代理"></a>7.docker配置代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">mkdir</span> -p /etc/systemd/system/docker.service.d<br></code></pre></td></tr></table></figure>
 
 <p><code>vim /etc/systemd/system/docker.service.d/http-proxy.conf</code></p>
@@ -368,6 +371,7 @@
 <li><a target="_blank" rel="noopener" href="https://neucrack.com/p/286">docker 设置代理，以及国内加速镜像设置</a></li>
 </ul>
 <p>救回来了, 不就是超时吗?<br><img src="/assets/2024-09-22-18-36-02.png" srcset="/img/loading.gif" lazyload></p>
+<h2 id="8-curl配置代理"><a href="#8-curl配置代理" class="headerlink" title="8.curl配置代理"></a>8.curl配置代理</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl --proxy <span class="hljs-string">&quot;http://x.x.x.x:port&quot;</span> -O https://www.baidu.com/down/file<br></code></pre></td></tr></table></figure>
 
                 
               </div>
