@@ -24,7 +24,6 @@
 <meta property="og:description" content="0.安装 DockerDocker 分为 CE 和 EE 两大版本。CE 即社区版（免费，支持周期 7 个月），EE 即企业版，强调安全，付费使用，支持周期 24 个月。 Docker CE 分为 stable test 和 nightly 三个更新频道。 官方网站上有各种环境下的 安装指南，这里主要介绍 Docker CE 在 CentOS 上的安装。 1.CentOS 安装 DockerDoc">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://xiamu.icu/assets/ac9d54ff1f1d4a17a5d56eaf154deda8.png">
-<meta property="og:image" content="https://xiamu.icu/assets/66435fab1b7547f0a08a26437c744c65.png">
 <meta property="og:image" content="https://xiamu.icu/assets/a9e29557e11d4429be6331a43f386cc9.png">
 <meta property="og:image" content="https://xiamu.icu/assets/faf5d0fc1aa54a2eb832a4ceb7505839.png">
 <meta property="og:image" content="https://xiamu.icu/assets/9ae9b3a470834898baa887ad64b9089d.png">
@@ -33,7 +32,7 @@
 <meta property="og:image" content="https://xiamu.icu/assets/db2f768b60584ad2aab64b00cef71d7a.png">
 <meta property="og:image" content="https://xiamu.icu/assets/9cdb1b9bf5044a21a71255d4d1dcdedb.png">
 <meta property="article:published_time" content="2023-03-04T14:00:03.000Z">
-<meta property="article:modified_time" content="2024-12-17T15:59:28.965Z">
+<meta property="article:modified_time" content="2024-12-19T14:33:17.017Z">
 <meta property="article:author" content="肉豆蔻吖">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="Docker">
@@ -247,7 +246,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          7.5k 字
+          7.6k 字
         
       </span>
     
@@ -258,7 +257,7 @@
         
         
         
-          63 分钟
+          64 分钟
         
       </span>
     
@@ -338,8 +337,12 @@
 <h1 id="2-CentOS7-安装-DockerCompose"><a href="#2-CentOS7-安装-DockerCompose" class="headerlink" title="2.CentOS7 安装 DockerCompose"></a>2.CentOS7 安装 DockerCompose</h1><h2 id="2-1-下载"><a href="#2-1-下载" class="headerlink" title="2.1.下载"></a>2.1.下载</h2><p>Linux 下需要通过命令下载：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">安装</span><br>curl -L https://github.com/docker/compose/releases/download/1.23.1/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
 
-<p>如果下载速度较慢，或者下载失败，可以使用课前资料提供的 docker-compose 文件：</p>
-<p><img src="/assets/66435fab1b7547f0a08a26437c744c65.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>以上命令作废，这尼玛都1.x版本的了</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -L https://github.com/docker/compose/releases/download/v2.32.0/docker-compose-linux-x86_64 &gt; /usr/local/bin/docker-compose<br>sudo chmod +x /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
+
+
 <p>上传到<code>/usr/local/bin/</code>目录也可以。</p>
 <h2 id="2-2-修改文件权限"><a href="#2-2-修改文件权限" class="headerlink" title="2.2.修改文件权限"></a>2.2.修改文件权限</h2><p>修改文件权限：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">修改权限</span><br>chmod +x /usr/local/bin/docker-compose<br></code></pre></td></tr></table></figure>
